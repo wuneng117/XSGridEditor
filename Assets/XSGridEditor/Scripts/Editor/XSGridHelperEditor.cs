@@ -35,6 +35,9 @@ namespace XSSLG
 
             // 显示tilepos
             this.DrawButton("删除所有tile", helper.ClearTiles);
+
+            // 创建一个object
+            this.DrawButton("创建1个XSObject", helper.CreateObject);
         }
 
         /// <summary>

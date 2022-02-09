@@ -5,6 +5,7 @@
 /// </summary>
 using System;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -13,6 +14,7 @@ namespace XSSLG
     /// <summary> 扩展 unity tilpmap 画格子的功能 </summary>
     public class XSGridHelper : MonoBehaviour
     {
+        public GameObject ObjectPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
         public float Precision = 0.01f;
 
@@ -137,6 +139,33 @@ namespace XSSLG
             }
             else
                 DestroyImmediate(GameObject.Find(rootName));
+        }
+        
+        /// <summary> 创建一个XSObject </summary>
+        public void CreateObject()
+        {
+#if UNITY_EDITOR
+            GameObject ret;
+            do
+            {
+                var parentName = "Grid/Unit";
+                var parent = GameObject.Find(parentName)?.transform;
+                if (parent == null)
+                    break;
+
+                // 从prefab创建引用的gameobject
+                ret = PrefabUtility.InstantiatePrefab(this.ObjectPrefab, parent) as GameObject;
+                if (ret == null)
+                    break;
+
+                // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
+                var defaultGrid = GameObject.Find("Grid/Tilemap")?.transform.GetChild(0);
+                if (defaultGrid == null)
+                    break;
+
+                ret.transform.position = defaultGrid.position;
+            } while (false);
+#endif
         }
     }
 }
