@@ -148,8 +148,7 @@ namespace XSSLG
             GameObject ret;
             do
             {
-                var parentName = "Grid/Unit";
-                var parent = GameObject.Find(parentName)?.transform;
+                Transform parent = this.GetUnitRoot();
                 if (parent == null)
                     break;
 
@@ -166,6 +165,25 @@ namespace XSSLG
                 ret.transform.position = defaultGrid.position;
             } while (false);
 #endif
+        }
+
+        virtual protected Transform GetUnitRoot()
+        {
+            var parentName = "Grid/Unit";
+            var parent = GameObject.Find(parentName)?.transform;
+            return parent;
+        }
+
+        /// <summary> 所有 XSObject 的坐标对齐所在 tile 中心 </summary>
+        public void SetObjectToTileCenter()
+        {
+            Transform parent = this.GetUnitRoot();
+            if (parent == null)
+                return;
+
+            var gridMgr = new GridMgr();
+            foreach(Transform child in parent)
+                child.position = gridMgr.WorldToTileCenterWorld(child.position);
         }
     }
 }

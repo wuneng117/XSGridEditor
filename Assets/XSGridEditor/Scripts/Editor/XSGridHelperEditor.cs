@@ -33,11 +33,11 @@ namespace XSSLG
                             () => helper.SetTileCostShow(!helper.IsShowTileCost)
             );
 
-            // 显示tilepos
             this.DrawButton("删除所有tile", helper.ClearTiles);
 
-            // 创建一个object
             this.DrawButton("创建1个XSObject", helper.CreateObject);
+
+            this.DrawButton("对齐所有XSObject", helper.SetObjectToTileCenter);
         }
 
         /// <summary>
