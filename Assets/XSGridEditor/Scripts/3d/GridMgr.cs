@@ -19,10 +19,13 @@ namespace XSSLG
         {
             var ret = new Vector3(0, 0, 0);
 
-            if (tilePos.x < 0 || tilePos.y < 0 || tilePos.z != 0)
+            if (tilePos.x < 0 || tilePos.y < 0)
                 return ret;
 
+            tilePos.z = 0;
             var tile = this.GetTile(tilePos);
+            if (tile == null) return ret;
+
             return tile.WorldPos;
         }
         

@@ -140,31 +140,32 @@ namespace XSSLG
             else
                 DestroyImmediate(GameObject.Find(rootName));
         }
-        
+
         /// <summary> 创建一个XSObject </summary>
         public void CreateObject()
         {
-#if UNITY_EDITOR
-            GameObject ret;
-            do
+            if (Application.isEditor && !Application.isPlaying)
             {
-                Transform parent = this.GetUnitRoot();
-                if (parent == null)
-                    break;
+                GameObject ret;
+                do
+                {
+                    Transform parent = this.GetUnitRoot();
+                    if (parent == null)
+                        break;
 
-                // 从prefab创建引用的gameobject
-                ret = PrefabUtility.InstantiatePrefab(this.ObjectPrefab, parent) as GameObject;
-                if (ret == null)
-                    break;
+                    // 从prefab创建引用的gameobject
+                    ret = PrefabUtility.InstantiatePrefab(this.ObjectPrefab, parent) as GameObject;
+                    if (ret == null)
+                        break;
 
-                // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
-                var defaultGrid = GameObject.Find("Grid/Tilemap")?.transform.GetChild(0);
-                if (defaultGrid == null)
-                    break;
+                    // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
+                    var defaultGrid = GameObject.Find("Grid/Tilemap")?.transform.GetChild(0);
+                    if (defaultGrid == null)
+                        break;
 
-                ret.transform.position = defaultGrid.position;
-            } while (false);
-#endif
+                    ret.transform.position = defaultGrid.position;
+                } while (false);
+            }
         }
 
         virtual protected Transform GetUnitRoot()
@@ -182,7 +183,7 @@ namespace XSSLG
                 return;
 
             var gridMgr = new GridMgr();
-            foreach(Transform child in parent)
+            foreach (Transform child in parent)
                 child.position = gridMgr.WorldToTileCenterWorld(child.position);
         }
     }

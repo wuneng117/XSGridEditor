@@ -17,7 +17,7 @@ namespace XSSLG
         /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
         /// <param name="layerName">鼠标射线和哪个layer相交，一般和terrian的layer相交</param>
         /// <returns></returns>
-        public static RaycastHit GetMouseHit(Vector2 screenPos, Camera camera = null, string layerName = null) 
+        public static RaycastHit GetMouseHit(Vector2 screenPos, Camera camera = null, string layerName = null)
         {
             camera = camera ?? UnityUtils.GetMainCamera();
             if (camera == null)
@@ -65,7 +65,7 @@ namespace XSSLG
             }
             return null;
         }
-        
+
         /// <summary>
         /// 打印日志统一入口
         /// </summary>
@@ -79,13 +79,16 @@ namespace XSSLG
         public static void RemoveChildren(GameObject obj)
         {
             int childCount = obj.transform.childCount;
-#if UNITY_EDITOR
-            for (int i = childCount - 1; i >= 0; i--)
-                GameObject.DestroyImmediate(obj.transform.GetChild(i).gameObject);
-#else
-            for (int i = childCount - 1; i >= 0; i--)
-                GameObject.Destroy(obj.transform.GetChild(i).gameObject);
-#endif
+            if (Application.isEditor && !Application.isPlaying)
+            {
+                for (int i = childCount - 1; i >= 0; i--)
+                    GameObject.DestroyImmediate(obj.transform.GetChild(i).gameObject);
+            }
+            else
+            {
+                for (int i = childCount - 1; i >= 0; i--)
+                    GameObject.DestroyImmediate(obj.transform.GetChild(i).gameObject);
+            }
         }
 
         /// <summary>
