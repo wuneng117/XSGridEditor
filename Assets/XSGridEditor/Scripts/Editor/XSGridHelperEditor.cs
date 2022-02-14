@@ -37,7 +37,7 @@ namespace XSSLG
 
             this.DrawButton("创建1个XSObject", helper.CreateObject);
 
-            this.DrawButton("对齐所有XSObject", helper.SetObjectToTileCenter);
+            // this.DrawButton("对齐所有XSObject", helper.SetObjectToTileCenter);
         }
 
         /// <summary>

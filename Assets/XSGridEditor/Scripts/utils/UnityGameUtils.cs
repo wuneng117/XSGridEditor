@@ -60,5 +60,17 @@ namespace XSSLG
                 return PathFinderTile.Default();
             return tile;
         }
+
+        /// <summary> 
+        /// 获取鼠标所在的世界坐标 
+        /// </summary>
+        /// <param name="screenPos">屏幕坐标</param>
+        /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
+        /// <returns></returns>
+        public static Vector3 ScreenPosToWorldPos(Vector2 screenPos, Camera camera = null) 
+        {
+            var hit = UnityUtils.GetMouseHit(screenPos, camera, "Ground");
+            return hit.point;
+        }
     }
 }
