@@ -93,7 +93,7 @@ namespace XSSLG
             else if (x <= Screen.width * 0.05f)
                 direction.x += 1;
 
-
+            direction = Quaternion.Euler(0, this.CameraTransform.rotation.eulerAngles.y, 0) * direction;
             return direction;
         }
 
@@ -128,12 +128,6 @@ namespace XSSLG
         /// </summary>
         /// <param name="worldPos"></param>
         public void MoveTo(Vector3 worldPos) => this.StartCoroutine(MovementAnimation(worldPos));
-
-        // public void Follow(Transform obj)
-        // {
-        //     this.VirtualCamera.Follow = obj;
-        // }
-
 
         /// <summary> 携程函数处理移动 </summary>
         public virtual IEnumerator MovementAnimation(Vector3 worldPos)
