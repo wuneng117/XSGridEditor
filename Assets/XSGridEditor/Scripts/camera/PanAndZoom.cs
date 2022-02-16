@@ -25,7 +25,6 @@ namespace XSSLG
         /// <summary> 放大缩小速度 </summary>
         private float zoomSpeed = 20f;
 
-
         /// <summary> cinema输入组件 </summary>
         private CinemachineInputProvider InputProvider { set; get; } = null;
         /// <summary> cinema虚拟相机组件 </summary>
@@ -35,10 +34,11 @@ namespace XSSLG
         /// <summary> cinema虚拟相机限制范围 </summary>
         private CinemachineConfiner Confier { set; get; } = null;
 
+        /// <summary> 摄像机是否可以移动 </summary>
         public bool CanFreeMove { set; get; } = true;
 
         /// <summary> 是否正在移动到某个位置，这个时候不能通过鼠标控制 </summary>
-        private bool IsMoving { set; get; }
+        private bool IsMoving { set; get; } = false;
         /************************* 变量  end  ***********************/
 
         private void Awake()
@@ -50,7 +50,7 @@ namespace XSSLG
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             if (!this.IsMoving && this.CanFreeMove)
             {
@@ -65,16 +65,22 @@ namespace XSSLG
             }
         }
 
+        /// <summary>
+        /// 鼠标滚轮控制地图放大缩小
+        /// </summary>
+        /// <param name="increment"></param>
         public void ZoomScreen(float increment)
         {
             var position = this.CameraTransform.position;
-            Vector3 targetPosition = position + (-1) * this.CameraTransform.forward * increment * this.zoomSpeed;
+            Vector3 targetPosition = position - this.CameraTransform.forward * increment * this.zoomSpeed;
             targetPosition = Vector3.Lerp(this.CameraTransform.position,
                                                     targetPosition,
                                                     Time.deltaTime);
 
             var bounds = this.Confier.m_BoundingVolume.bounds;
-            if (targetPosition.y < bounds.min.y || targetPosition.y > bounds.max.y)
+            if ((targetPosition.y < bounds.min.y || targetPosition.y > bounds.max.y) ||
+                (targetPosition.x < bounds.min.x || targetPosition.x > bounds.max.x) ||
+                (targetPosition.z < bounds.min.z || targetPosition.z > bounds.max.z))
                 return;
 
             this.CameraTransform.position = targetPosition;
@@ -84,14 +90,14 @@ namespace XSSLG
         {
             Vector3 direction = Vector3.zero;
             if (y >= Screen.height * 0.95f)
-                direction.z -= 1;
-            else if (y <= Screen.height * 0.05f)
                 direction.z += 1;
+            else if (y <= Screen.height * 0.05f)
+                direction.z -= 1;
 
             if (x >= Screen.width * 0.95f)
-                direction.x -= 1;
-            else if (x <= Screen.width * 0.05f)
                 direction.x += 1;
+            else if (x <= Screen.width * 0.05f)
+                direction.x -= 1;
 
             direction = Quaternion.Euler(0, this.CameraTransform.rotation.eulerAngles.y, 0) * direction;
             return direction;
@@ -114,11 +120,17 @@ namespace XSSLG
 
         private void SetCameraPosition(Vector3 targetPosition)
         {
-            var bounds = this.Confier.m_BoundingVolume.bounds;
-            targetPosition.x = Mathf.Clamp(targetPosition.x, bounds.min.x, bounds.max.x);
-            targetPosition.y = Mathf.Clamp(targetPosition.y, bounds.min.y, bounds.max.y);
-            targetPosition.z = Mathf.Clamp(targetPosition.z, bounds.min.z, bounds.max.z);
-
+            // var bounds = this.Confier.m_BoundingVolume.bounds;
+            // if ((targetPosition.y < bounds.min.y || targetPosition.y > bounds.max.y) ||
+            //     (targetPosition.x < bounds.min.x || targetPosition.x > bounds.max.x) ||
+            //     (targetPosition.z < bounds.min.z || targetPosition.z > bounds.max.z))
+            //     return;
+            // var bounds = this.Confier.m_BoundingVolume.bounds;
+            var screenPos = UnityGameUtils.WorldPosToScreenPos(Vector3.zero);
+            var height = Screen.height;
+            var width = Screen.width;
+            if (screenPos.x > Screen.width  || screenPos.y > Screen.height)
+                return;
             this.CameraTransform.position = targetPosition;
         }
 
