@@ -71,25 +71,25 @@ namespace XSSLG
 
         private void UpdateCameraRotation()
         {
-            var rotation = this.CameraTransform.rotation;
-            if (Keyboard.current.upArrowKey.IsPressed())
+            var eulerAngles = this.CameraTransform.rotation.eulerAngles;
+            if (Keyboard.current.upArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(22.5f, 90.0f, rotation.x - 22.5f), rotation.y, rotation.z);
+                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(eulerAngles.x - 22.5f, 22.5f, 90.0f), eulerAngles.y, eulerAngles.z);
                 UnityGameUtils.Log("upArrowKey");
             }
-            else if (Keyboard.current.downArrowKey.IsPressed())
+            else if (Keyboard.current.downArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(22.5f, 90.0f, rotation.x + 22.5f), rotation.y, rotation.z);
+                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(eulerAngles.x + 22.5f, 22.5f, 90.0f), eulerAngles.y, eulerAngles.z);
                 UnityGameUtils.Log("downArrowKey");
             }
-            else if (Keyboard.current.leftArrowKey.IsPressed())
+            else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(rotation.x, rotation.y - 22.5f, rotation.z);
+                this.CameraTransform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y - 22.5f, eulerAngles.z);
                 UnityGameUtils.Log("leftArrowKey");
             }
-            else if (Keyboard.current.rightArrowKey.IsPressed())
+            else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(rotation.x, rotation.y + 22.5f, rotation.z);
+                this.CameraTransform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y + 22.5f, eulerAngles.z);
                 UnityGameUtils.Log("rightArrowKey");
             }
         }
