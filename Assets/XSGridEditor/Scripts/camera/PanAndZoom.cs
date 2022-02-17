@@ -7,6 +7,8 @@ using UnityEngine;
 using Cinemachine;
 using XSSLG;
 using System.Collections;
+using UnityEngine.InputSystem;
+
 namespace XSSLG
 {
     /// <summary> 摄像机移动脚本 </summary>
@@ -62,6 +64,33 @@ namespace XSSLG
 
                 if (z != 0)
                     this.ZoomScreen(z);
+
+                this.UpdateCameraRotation();
+            }
+        }
+
+        private void UpdateCameraRotation()
+        {
+            var rotation = this.CameraTransform.rotation;
+            if (Keyboard.current.upArrowKey.IsPressed())
+            {
+                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(22.5f, 90.0f, rotation.x - 22.5f), rotation.y, rotation.z);
+                UnityGameUtils.Log("upArrowKey");
+            }
+            else if (Keyboard.current.downArrowKey.IsPressed())
+            {
+                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(22.5f, 90.0f, rotation.x + 22.5f), rotation.y, rotation.z);
+                UnityGameUtils.Log("downArrowKey");
+            }
+            else if (Keyboard.current.leftArrowKey.IsPressed())
+            {
+                this.CameraTransform.rotation = Quaternion.Euler(rotation.x, rotation.y - 22.5f, rotation.z);
+                UnityGameUtils.Log("leftArrowKey");
+            }
+            else if (Keyboard.current.rightArrowKey.IsPressed())
+            {
+                this.CameraTransform.rotation = Quaternion.Euler(rotation.x, rotation.y + 22.5f, rotation.z);
+                UnityGameUtils.Log("rightArrowKey");
             }
         }
 
@@ -126,11 +155,11 @@ namespace XSSLG
             //     (targetPosition.z < bounds.min.z || targetPosition.z > bounds.max.z))
             //     return;
             // var bounds = this.Confier.m_BoundingVolume.bounds;
-            var screenPos = UnityGameUtils.WorldPosToScreenPos(Vector3.zero);
-            var height = Screen.height;
-            var width = Screen.width;
-            if (screenPos.x > Screen.width  || screenPos.y > Screen.height)
-                return;
+            // var screenPos = UnityGameUtils.WorldPosToScreenPos(Vector3.zero);
+            // var height = Screen.height;
+            // var width = Screen.width;
+            // if (screenPos.x > Screen.width || screenPos.y > Screen.height)
+            //     return;
             this.CameraTransform.position = targetPosition;
         }
 
