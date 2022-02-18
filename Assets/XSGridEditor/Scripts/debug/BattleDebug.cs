@@ -28,6 +28,7 @@ namespace XSSLG
         void Start()
         {
             this.GridMgr = new GridMgr();
+
         }
 
         // Update is called once per frame
