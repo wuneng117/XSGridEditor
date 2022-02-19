@@ -60,18 +60,7 @@ namespace XSSLG
                 tile.Tile = pathFinderTile;
             });
 
-            this.GetBounds();
             return ret;
-        }
-
-        public Bounds GetBounds()
-        {
-            var gridHelper = Component.FindObjectOfType<XSGridHelper>();
-            var tileDataList = gridHelper.GetTileDataArray();
-            var bound = tileDataList[0].GetComponent<BoxCollider>().bounds;
-            foreach (var mCollider in tileDataList)
-                bound.Encapsulate(mCollider.GetComponent<BoxCollider>().bounds);
-            return bound;
         }
     }
 }

@@ -186,5 +186,17 @@ namespace XSSLG
         //     foreach (Transform child in parent)
         //         child.position = gridMgr.WorldToTileCenterWorld(child.position);
         // }
+
+        public Bounds GetBounds()
+        {
+            var tiles = this.GetTileDataArray();
+            if (tiles.Length == 0)
+                return new Bounds();
+
+            var bound = tiles[0].GetComponent<BoxCollider>().bounds;
+            foreach (var tile in tiles)
+                bound.Encapsulate(tile.GetComponent<BoxCollider>().bounds);
+            return bound;
+        }
     }
 }

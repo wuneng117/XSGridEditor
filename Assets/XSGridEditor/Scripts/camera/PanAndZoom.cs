@@ -27,12 +27,15 @@ namespace XSSLG
         /// <summary> 放大缩小速度 </summary>
         private float zoomSpeed = 20f;
 
+        [SerializeField]
+        /// <summary> 摄像机上下移动范围 </summary>
+        private float cameraSizeY = 20;
+
+
         /// <summary> cinema输入组件 </summary>
         private CinemachineInputProvider InputProvider { set; get; } = null;
         /// <summary> cinema虚拟相机组件 </summary>
         private CinemachineVirtualCamera VirtualCamera { set; get; } = null;
-        /// <summary> cinema虚拟相机对象 </summary>
-        private Transform CameraTransform { set; get; } = null;
         /// <summary> cinema虚拟相机限制范围 </summary>
         private CinemachineConfiner Confier { set; get; } = null;
 
@@ -41,6 +44,10 @@ namespace XSSLG
 
         /// <summary> 是否正在移动到某个位置，这个时候不能通过鼠标控制 </summary>
         private bool IsMoving { set; get; } = false;
+
+        /// <summary> 地图大小 </summary>
+        public Bounds Bound { get; set; } = new Bounds();
+
         /************************* 变量  end  ***********************/
 
         private void Awake()
@@ -48,7 +55,6 @@ namespace XSSLG
             this.InputProvider = this.GetComponent<CinemachineInputProvider>();
             this.VirtualCamera = this.GetComponent<CinemachineVirtualCamera>();
             this.Confier = this.GetComponent<CinemachineConfiner>();
-            this.CameraTransform = this.VirtualCamera.VirtualCameraGameObject.transform;
         }
 
         // Update is called once per frame
@@ -71,25 +77,29 @@ namespace XSSLG
 
         private void UpdateCameraRotation()
         {
-            var eulerAngles = this.CameraTransform.rotation.eulerAngles;
+            var eulerAngles = this.transform.rotation.eulerAngles;
             if (Keyboard.current.upArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(eulerAngles.x - 22.5f, 22.5f, 90.0f), eulerAngles.y, eulerAngles.z);
+                this.transform.rotation = Quaternion.Euler(Mathf.Clamp(eulerAngles.x - 22.5f, 22.5f, 90.0f), eulerAngles.y, eulerAngles.z);
+                this.SetConfinerBound(this.Bound);
                 UnityGameUtils.Log("upArrowKey");
             }
             else if (Keyboard.current.downArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(Mathf.Clamp(eulerAngles.x + 22.5f, 22.5f, 90.0f), eulerAngles.y, eulerAngles.z);
+                this.transform.rotation = Quaternion.Euler(Mathf.Clamp(eulerAngles.x + 22.5f, 22.5f, 90.0f), eulerAngles.y, eulerAngles.z);
+                this.SetConfinerBound(this.Bound);
                 UnityGameUtils.Log("downArrowKey");
             }
             else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y - 22.5f, eulerAngles.z);
+                this.transform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y - 22.5f, eulerAngles.z);
+                this.SetConfinerBound(this.Bound);
                 UnityGameUtils.Log("leftArrowKey");
             }
             else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
             {
-                this.CameraTransform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y + 22.5f, eulerAngles.z);
+                this.transform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y + 22.5f, eulerAngles.z);
+                this.SetConfinerBound(this.Bound);
                 UnityGameUtils.Log("rightArrowKey");
             }
         }
@@ -100,19 +110,13 @@ namespace XSSLG
         /// <param name="increment"></param>
         public void ZoomScreen(float increment)
         {
-            var position = this.CameraTransform.position;
-            Vector3 targetPosition = position - this.CameraTransform.forward * increment * this.zoomSpeed;
-            targetPosition = Vector3.Lerp(this.CameraTransform.position,
+            var position = this.transform.position;
+            Vector3 targetPosition = position - this.transform.forward * increment * this.zoomSpeed;
+            targetPosition = Vector3.Lerp(this.transform.position,
                                                     targetPosition,
                                                     Time.deltaTime);
 
-            var bounds = this.Confier.m_BoundingVolume.bounds;
-            if ((targetPosition.y < bounds.min.y || targetPosition.y > bounds.max.y) ||
-                (targetPosition.x < bounds.min.x || targetPosition.x > bounds.max.x) ||
-                (targetPosition.z < bounds.min.z || targetPosition.z > bounds.max.z))
-                return;
-
-            this.CameraTransform.position = targetPosition;
+            this.SetCameraPosition(targetPosition);
         }
 
         public Vector3 PanDirection(float x, float y)
@@ -128,7 +132,7 @@ namespace XSSLG
             else if (x <= Screen.width * 0.05f)
                 direction.x -= 1;
 
-            direction = Quaternion.Euler(0, this.CameraTransform.rotation.eulerAngles.y, 0) * direction;
+            direction = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0) * direction;
             return direction;
         }
 
@@ -140,8 +144,8 @@ namespace XSSLG
 
         private void UpdatePos(Vector3 direction)
         {
-            var targetPosition = this.CameraTransform.position + direction * this.panSpeed;
-            targetPosition = Vector3.Lerp(this.CameraTransform.position,
+            var targetPosition = this.transform.position + direction * this.panSpeed;
+            targetPosition = Vector3.Lerp(this.transform.position,
                                                     targetPosition,
                                                     Time.deltaTime);
             this.SetCameraPosition(targetPosition);
@@ -149,7 +153,10 @@ namespace XSSLG
 
         private void SetCameraPosition(Vector3 targetPosition)
         {
-            // var bounds = this.Confier.m_BoundingVolume.bounds;
+            var bounds = this.Confier.m_BoundingVolume.bounds;
+            targetPosition.x = Mathf.Clamp(targetPosition.x, bounds.min.x, bounds.max.x);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, bounds.min.y, bounds.max.y);
+            targetPosition.z = Mathf.Clamp(targetPosition.z, bounds.min.z, bounds.max.z);
             // if ((targetPosition.y < bounds.min.y || targetPosition.y > bounds.max.y) ||
             //     (targetPosition.x < bounds.min.x || targetPosition.x > bounds.max.x) ||
             //     (targetPosition.z < bounds.min.z || targetPosition.z > bounds.max.z))
@@ -160,7 +167,7 @@ namespace XSSLG
             // var width = Screen.width;
             // if (screenPos.x > Screen.width || screenPos.y > Screen.height)
             //     return;
-            this.CameraTransform.position = targetPosition;
+            this.transform.position = targetPosition;
         }
 
         /// <summary>
@@ -175,7 +182,7 @@ namespace XSSLG
         {
             this.IsMoving = true;
             var pos = UnityGameUtils.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
-            var targetPos = this.CameraTransform.position + worldPos - pos;
+            var targetPos = this.transform.position + worldPos - pos;
             var dir = -(worldPos - pos).normalized;
             while (true)
             {
@@ -188,6 +195,36 @@ namespace XSSLG
             }
             this.SetCameraPosition(targetPos);
             this.IsMoving = false;
+        }
+
+        public virtual void SetConfinerBound(Bounds bound)
+        {
+            this.Bound = bound;
+            var collider = (BoxCollider)this.Confier.m_BoundingVolume;
+
+            var halfFov = this.VirtualCamera.m_Lens.FieldOfView * 0.5f;
+            var degreeA = 90 - this.transform.eulerAngles.x;
+            float sizeY = 0;
+            var offset = Vector3.zero;
+            if (halfFov >= degreeA)
+            {
+                sizeY = cameraSizeY;
+            }
+            // 当 halfFov < degreeA 时，cameraSizeY 就没有用了，因为 collider.transform.position 需要移动，否则会导致在边缘时无法看到全部地图
+            // 我们保证 collider.size 还是和地图大小保持一致，然后计算 cameraSizeY ，以及 collider.transform.position 的移动
+            else
+            {
+                var eulerA = degreeA - halfFov;
+                var tanA = Mathf.Tan(eulerA * Mathf.Deg2Rad);
+                var eulerB = degreeA + halfFov;
+                var tanB = Mathf.Tan(eulerB * Mathf.Deg2Rad);
+                sizeY = 2 * collider.transform.position.y * (1 - 2 * tanA / (tanA + tanB));
+                var offZ = 2 * collider.transform.position.y * tanB * tanA / (tanA + tanB);
+                offset = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0) * (Vector3.back * offZ);
+            }
+
+            collider.size = new Vector3(bound.size.x, sizeY, bound.size.z);
+            collider.transform.position = new Vector3(bound.center.x + offset.x, collider.transform.position.y, bound.center.z + offset.z);
         }
     }
 }

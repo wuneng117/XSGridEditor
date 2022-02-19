@@ -27,7 +27,7 @@ namespace XSSLG
         {
             if (Application.isEditor && !Application.isPlaying)
             {
-                UnityGameUtils.Log("XSObjectData Update");
+                // UnityGameUtils.Log("XSObjectData Update");
                 var gridMgr = new GridMgr();    // TODO 多次Update时导致GridMgr多次初始化，可以优化下，不过不会造成性能问题，因为每帧调用最多1次
                 var pos = gridMgr.WorldToTileCenterWorld(this.transform.position);
                 // zero 表示返回的为空，tile获取有问题
