@@ -5,6 +5,7 @@
 /// </summary>
 using System;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -13,6 +14,7 @@ namespace XSSLG
     /// <summary> 扩展 unity tilpmap 画格子的功能 </summary>
     public class XSGridHelper : MonoBehaviour
     {
+        public GameObject ObjectPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
         public float Precision = 0.01f;
 
@@ -137,6 +139,64 @@ namespace XSSLG
             }
             else
                 DestroyImmediate(GameObject.Find(rootName));
+        }
+
+        /// <summary> 创建一个XSObject </summary>
+        public void CreateObject()
+        {
+            if (Application.isEditor && !Application.isPlaying)
+            {
+                GameObject ret;
+                do
+                {
+                    Transform parent = this.GetUnitRoot();
+                    if (parent == null)
+                        break;
+
+                    // 从prefab创建引用的gameobject
+                    ret = PrefabUtility.InstantiatePrefab(this.ObjectPrefab, parent) as GameObject;
+                    if (ret == null)
+                        break;
+
+                    // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
+                    var defaultGrid = GameObject.Find("Grid/Tilemap")?.transform.GetChild(0);
+                    if (defaultGrid == null)
+                        break;
+
+                    ret.transform.position = defaultGrid.position;
+                } while (false);
+            }
+        }
+
+        virtual protected Transform GetUnitRoot()
+        {
+            var parentName = "Grid/Unit";
+            var parent = GameObject.Find(parentName)?.transform;
+            return parent;
+        }
+
+        // /// <summary> 所有 XSObject 的坐标对齐所在 tile 中心 </summary>
+        // public void SetObjectToTileCenter()
+        // {
+        //     Transform parent = this.GetUnitRoot();
+        //     if (parent == null)
+        //         return;
+
+        //     var gridMgr = new GridMgr();
+        //     foreach (Transform child in parent)
+        //         child.position = gridMgr.WorldToTileCenterWorld(child.position);
+        // }
+
+        public Bounds GetBounds()
+        {
+            var tiles = this.GetTileDataArray();
+            if (tiles.Length == 0)
+                return new Bounds();
+
+            var bound = tiles[0].GetComponent<BoxCollider>().bounds;
+            foreach (var tile in tiles)
+                bound.Encapsulate(tile.GetComponent<BoxCollider>().bounds);
+            return bound;
         }
     }
 }

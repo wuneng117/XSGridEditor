@@ -23,11 +23,18 @@ namespace XSSLG
         public bool IsMoving { get; private set; } = false;
         /// <summary> 行走的对象 </summary>
         public GameObject role = null;
+        public PanAndZoom PanObj;
 
         // Start is called before the first frame update
         void Start()
         {
+
             this.GridMgr = new GridMgr();
+            var gridHelper = Component.FindObjectOfType<XSGridHelper>();
+            if (gridHelper)
+            {
+                this.PanObj.SetConfinerBound(gridHelper.GetBounds());
+            }
         }
 
         // Update is called once per frame

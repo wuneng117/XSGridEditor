@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 namespace XSSLG
 {
     /// <summary> 封装 UnityUtils 为这个项目特定使用 </summary>
-    public class UnityGameUtils
+    public class UnityGameUtils : UnityUtils
     {
         //-------------------------------继承自UnityUtils begin---------------------------------
         /// <summary>
@@ -20,20 +20,6 @@ namespace XSSLG
         /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
         /// <returns></returns>       
         public static Vector3 WorldPosToScreenPos(Vector3 worldPos) => UnityUtils.WorldPosToScreenPos(worldPos);
-
-        /// <summary>
-        /// 删除所有子节点
-        /// </summary>
-        /// <param name="obj"></param>
-        public static void RemoveChildren(GameObject obj) => UnityUtils.RemoveChildren(obj);
-
-        /// <summary>
-        /// 从 src 到 dest 坐标的旋转
-        /// </summary>
-        /// <param name="src">要旋转物体的坐标</param>
-        /// <param name="dest">要朝向目标的坐标</param>
-        /// <returns>src 的 locationRotation 值</returns>
-        public static Quaternion RotationTo(Vector3 src, Vector3 dest) => UnityUtils.RotationTo(src, dest);
 
         //-------------------------------继承自UnityUtils  end ---------------------------------
         
@@ -73,6 +59,18 @@ namespace XSSLG
             if (tile == null)
                 return PathFinderTile.Default();
             return tile;
+        }
+
+        /// <summary> 
+        /// 获取鼠标所在的世界坐标 
+        /// </summary>
+        /// <param name="screenPos">屏幕坐标</param>
+        /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
+        /// <returns></returns>
+        public static Vector3 ScreenPosToWorldPos(Vector2 screenPos, Camera camera = null) 
+        {
+            var hit = UnityUtils.GetMouseHit(screenPos, camera, "Ground");
+            return hit.point;
         }
     }
 }
