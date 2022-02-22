@@ -48,8 +48,12 @@ namespace XSSLG
             if (tileDataList == null)
                 return ret;
             
+            // 默认sprite.size为1
             var tileData = tileDataList.First();
             this.TileSize = Mathf.FloorToInt(tileData.gameObject.transform.localScale.x);
+            var sprite = tileData.GetComponent<SpriteRenderer>();
+            if (sprite)
+                this.TileSize *= Mathf.FloorToInt(sprite.size.x);
 
             // 遍历Tile
             tileDataList.ToList().ForEach(tile =>
