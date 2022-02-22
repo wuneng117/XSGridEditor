@@ -81,7 +81,7 @@ namespace XSSLG
         public virtual void ClearTiles()
         {
             var tileMap = this.GetComponentInChildren<Tilemap>();
-            UnityGameUtils.RemoveChildren(tileMap.gameObject);
+            XSU.RemoveChildren(tileMap.gameObject);
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace XSSLG
                 {
                     var parTrans = tile.transform;
                     var size = new Vector2(parTrans.localScale.x * 0.8f, parTrans.localScale.z * 0.85f);
-                    var text = UnityGameUtils.CreateTextMesh(size, textRoot.transform);
+                    var text = XSU.CreateTextMesh(size, textRoot.transform);
                     text.transform.position = tile.transform.position;
                     text.transform.Rotate(new Vector3(90, 0, 0));
                     afterCreateFn(tile, text);

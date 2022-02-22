@@ -203,12 +203,12 @@ namespace XSSLG
         public virtual IEnumerator MovementAnimation(Vector3 worldPos)
         {
             this.IsMoving = true;
-            var pos = UnityGameUtils.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
+            var pos = XSU.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
             var targetPos = this.transform.position + worldPos - pos;
             var dir = -(worldPos - pos).normalized;
             while (true)
             {
-                var prevPos = UnityGameUtils.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
+                var prevPos = XSU.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
                 var direction = worldPos - prevPos;
                 if (Vector3.Dot(direction, dir) < 0)
                     break;

@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 namespace XSSLG
 {
     /// <summary> 封装 UnityUtils 为这个项目特定使用 </summary>
-    public class UnityGameUtils : UnityUtils
+    public class XSU : UnityUtils
     {
         //-------------------------------继承自UnityUtils begin---------------------------------
         /// <summary>

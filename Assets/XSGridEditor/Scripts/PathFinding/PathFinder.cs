@@ -90,8 +90,8 @@ namespace XSSLG
         /// 寻路函数
         /// </summary>
         /// <param name="unit">要寻路的unit</param>
-        /// <param name="srcWorldPos">unit所在的worldpos</param>
-        /// <param name="destWorldPos">目的地worldpos</param>
+        /// <param name="srcTile">unit所在的 tile </param>
+        /// <param name="destTile">目的地 tile </param>
         /// <param name="isIgnoreDest">忽略dest的unit，用于计算AI走到玩家unit的路径计算</param>
         /// <returns></returns>
         public List<Vector3Int> FindPath(PathFinderTile srcTile, PathFinderTile destTile)
