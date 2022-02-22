@@ -43,7 +43,7 @@ namespace XSSLG
             // 左键点击进行寻路
             if (Mouse.current.leftButton.wasPressedThisFrame && !this.IsMoving)
             {
-                var tile = UnityGameUtils.GetMouseTargetTile();
+                var tile = XSU.GetMouseTargetTile();
                 Debug.Log("tilePos: " + tile.TilePos);
 
                 var srcTile = this.GridMgr.GetTile(role.transform.position);
