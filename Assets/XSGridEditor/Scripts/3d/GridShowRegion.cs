@@ -21,6 +21,9 @@ namespace XSSLG
         /// <summary> 网格坐标转世界坐标 </summary>
         public Func<Vector3Int, Vector3> TileToWorldHander { get; }
 
+        /// <summary> sprite 排序规则 </summary>
+        private int SortOrder { get; }
+
         /************************* 变量  end  ***********************/
 
         /// <summary>
@@ -28,34 +31,47 @@ namespace XSSLG
         /// </summary>
         /// <param name="rootPath">高亮图块的根节点路径</param>
         /// <param name="Asset">图片精灵</param>
-        public GridShowRegion(string rootPath, Sprite Asset, GameObject prefab, Func<Vector3Int, Vector3> TileToWorldHander)
+        public GridShowRegion(string rootPath, Sprite Asset, GameObject prefab, Func<Vector3Int, Vector3> TileToWorldHander, int sortOrder)
         {
             this.RootPath = rootPath;
             this.Asset = Asset;
             this.Prefab = prefab;
             this.TileToWorldHander = TileToWorldHander;
+            this.SortOrder = sortOrder;
         }
 
         /// <summary>
         /// 显示高亮范围
         /// </summary>
-        /// <param name="cellPosList">图块所在的网格坐标</param>
-        public void ShowRegion(List<Vector3Int> cellPosList)
+        /// <param name="tilePosList">图块所在的网格坐标</param>
+        public void ShowRegion(List<Vector3Int> tilePosList)
         {
-            cellPosList.ForEach(pos =>
+            tilePosList.ForEach(pos =>
             {
-                var parent = GameObject.Find(this.RootPath).transform;
-                if (parent ==null) return;
+                var parent = GameObject.Find(this.RootPath)?.transform;
+                if (parent ==null)
+                {
+                    var root = GameObject.Find(XSGridDefine.SCENE_GRID_ROOT);
+                    if (root ==null) return;
+
+                    // 取名字，路径不要
+                    var strList = this.RootPath.Split('/');
+                    var parentObj = new GameObject(strList[strList.Length - 1]);
+                    parentObj.transform.SetParent(root.transform);
+                    parent = parentObj.transform;
+                }
 
                 var obj = GameObject.Instantiate(this.Prefab, parent);
                 if (obj == null) return;
 
+                // 设置layer默认。不要遮挡射线到 tile 的检测
+                obj.layer = LayerMask.NameToLayer("Default");
                 var worldPos = this.TileToWorldHander(pos);
                 obj.transform.position = worldPos;
 
-                var spr = obj.GetComponent<SpriteRenderer>();
+                var spr = obj.GetComponentInChildren<SpriteRenderer>();
                 spr.sprite = this.Asset;
-                spr.sortingLayerName = "Region";
+                spr.sortingOrder = this.SortOrder;
             });
         }
 
