@@ -13,6 +13,14 @@ namespace XSSLG
         public static readonly string GAMEOBJECT_TILE_POS_ROOT = "TilePosRoot"; // 节点名称，用于存放 tilepos 显示文字根节点
         public static readonly string GAMEOBJECT_TILE_COST_ROOT = "TileCostRoot"; // 节点名称，用于存放 tile cost 显示文字根节点
 
+        public static readonly string SCENE_GRID_ROOT = "Grid"; // Grid根节点root
+
+        // grid网格贴花显示根节点
+        // public static readonly string SCENE_GRID_BASE = SCENE_GRID_ROOT + "/base"; // 所有网格显示的贴花
+        public static readonly string SCENE_GRID_MOVE = SCENE_GRID_ROOT + "/GridMoveRoot"; // unit移动范围网格显示的贴花
+        public static readonly string SCENE_GRID_ATTACK_RANGE = SCENE_GRID_ROOT + "/GridAttackRangeRoot"; // unit攻击范围网格显示的贴花
+        public static readonly string SCENE_GRID_ATTACK_EFFECT_RANGE = SCENE_GRID_ROOT + "/GridAttackEffectRangeRoot"; // unit攻击效果范围网格显示的贴花
+
         /// <summary> cost 颜色显示 </summary>
         public static readonly Color[] TILE_COST_COLOR = {
             Color.grey,
@@ -20,5 +28,11 @@ namespace XSSLG
             Color.yellow,
             Color.red,
         };
+
+        /// <summary> tile 的 sprite 排序规则 </summary>
+        public enum TILE_SPRITE_SORT_ORDER {
+            GROUND = 0, // 地面
+            UNIT = 100  // 单位
+        }
     }
 }

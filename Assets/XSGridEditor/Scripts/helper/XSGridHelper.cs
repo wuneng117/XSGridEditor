@@ -24,6 +24,17 @@ namespace XSSLG
         /// <summary> 是否显示移动消耗 </summary>
         public bool IsShowCost = false;
 
+        /// <summary> tile 的prefab 文件 </summary>
+        public GameObject TilePrefab = null;
+
+        /// <summary> 移动范围用的图片 </summary>
+        public Sprite TileSpriteMove = null;
+
+        /// <summary> 攻击范围用的图片 </summary>
+        public Sprite TileSpriteAttack = null;
+        /// <summary> 攻击效果范围用的图片 </summary>
+        public Sprite TileSpriteAttackEffect = null;
+
         /// <summary> 是否显示 tilepos </summary>
         public bool IsShowTilePos
         {

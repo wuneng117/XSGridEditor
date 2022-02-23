@@ -35,6 +35,12 @@ namespace XSSLG
             {
                 this.PanObj.SetConfinerBound(gridHelper.GetBounds());
             }
+
+            var showMgr = new GridShowMgr(this.GridMgr);
+            var list = new List<Vector3Int>();
+            list.Add(new Vector3Int(0, 0, 0));
+            list.Add(new Vector3Int(1, 1, 0));
+            showMgr.TestShowRegion(list);
         }
 
         // Update is called once per frame
