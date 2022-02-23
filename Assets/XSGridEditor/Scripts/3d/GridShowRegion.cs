@@ -44,15 +44,17 @@ namespace XSSLG
         {
             cellPosList.ForEach(pos =>
             {
-                var obj = GameObject.Instantiate(this.Prefab);
                 var parent = GameObject.Find(this.RootPath).transform;
+                if (parent ==null) return;
+
+                var obj = GameObject.Instantiate(this.Prefab, parent);
+                if (obj == null) return;
+
                 var worldPos = this.TileToWorldHander(pos);
-                worldPos += new Vector3(0, 0.12f, 0);   // 地面有抬高一点的
-                var obj = new GameObject();
-                obj.transform.parent = parent;
                 obj.transform.position = worldPos;
-                var spr = obj.AddComponent<SpriteRenderer>();
-                spr.sprite = Resources.Load(this.AssetPath, typeof(Sprite)) as Sprite;
+
+                var spr = obj.GetComponent<SpriteRenderer>();
+                spr.sprite = this.Asset;
                 spr.sortingLayerName = "Region";
             });
         }
