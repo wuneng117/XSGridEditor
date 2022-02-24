@@ -14,6 +14,8 @@ namespace XSSLG
     /// <summary> 扩展 unity tilpmap 画格子的功能 </summary>
     public class XSGridHelper : MonoBehaviour
     {
+        /// <summary> unit根节点 </summary>
+        public Transform UnitRoot = null;
         public GameObject ObjectPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
         public float Precision = 0.01f;
