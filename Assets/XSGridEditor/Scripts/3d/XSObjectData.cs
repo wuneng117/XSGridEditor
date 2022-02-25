@@ -13,7 +13,8 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSObjectData : MonoBehaviour
     {
-        public int Id = -1;
+        /// <summary> 用字符串表示id比较通用 </summary>
+        public string Id = "-1";
         // Start is called before the first frame update
         protected Vector3 PrevPos;
 
