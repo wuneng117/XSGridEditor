@@ -39,7 +39,7 @@ namespace XSSLG
                 this.AttackShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_ATTACK_RANGE, gridHelper.TileSpriteAttack, gridHelper.TilePrefab, tileToWorld, 20);
                 this.AttackEffectShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_ATTACK_EFFECT_RANGE, gridHelper.TileSpriteAttackEffect, gridHelper.TilePrefab, tileToWorld, 30);
                 // var ret = this.mgr.Data.GetVaildTileDataList().Select(tileData => new Vector3Int(tileData.XIndex, tileData.YIndex, tileData.ZIndex)).ToList();
-                // if (UnityGameUtils.GetBattleDebugCfg().isShowCellPos)
+                // if (XSU.GetBattleDebugCfg().isShowCellPos)
                 // {
                 //     this.ShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_BASE, BattleRes.GRID_BASE, tileToWorld);
                 //     this.ShowRegion.ShowRegion(ret);
@@ -65,8 +65,8 @@ namespace XSSLG
         //     return moveRegion;
         // }
 
-        /// <summary> 清除单位移动范围 </summary>
-        public void ClearMoveRegion() => this.MoveShowRegion.ClearRegion();
+        // /// <summary> 清除单位移动范围 </summary>
+        // public void ClearMoveRegion() => this.MoveShowRegion.ClearRegion();
 
         // /// <summary>
         // /// 显示单位攻击范围
@@ -88,8 +88,8 @@ namespace XSSLG
         //     return attackRegion;
         // }
 
-        /// <summary> 清除单位攻击范围 </summary>
-        public void ClearAttackRegion() => this.AttackShowRegion.ClearRegion();
+        // /// <summary> 清除单位攻击范围 </summary>
+        // public void ClearAttackRegion() => this.AttackShowRegion.ClearRegion();
 
         // /// <summary>
         // /// 显示单位攻击效果范围

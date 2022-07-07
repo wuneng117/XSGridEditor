@@ -153,22 +153,22 @@ namespace XSSLG
             if (Keyboard.current.upArrowKey.wasPressedThisFrame)
             {
                 eulerAngles.x = Mathf.Clamp(eulerAngles.x - this.RotationStep, this.RotationStep, 90.0f);
-                // UnityGameUtils.Log("upArrowKey");
+                // XSU.Log("upArrowKey");
             }
             else if (Keyboard.current.downArrowKey.wasPressedThisFrame)
             {
                 eulerAngles.x = Mathf.Clamp(eulerAngles.x + this.RotationStep, this.RotationStep, 90.0f);
-                // UnityGameUtils.Log("downArrowKey");
+                // XSU.Log("downArrowKey");
             }
             else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
             {
                 eulerAngles.y -= this.RotationStep;
-                // UnityGameUtils.Log("leftArrowKey");
+                // XSU.Log("leftArrowKey");
             }
             else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
             {
                 eulerAngles.y += this.RotationStep;
-                // UnityGameUtils.Log("rightArrowKey");
+                // XSU.Log("rightArrowKey");
             }
             else
                 return;

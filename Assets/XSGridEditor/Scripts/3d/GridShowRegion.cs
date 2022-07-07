@@ -38,6 +38,21 @@ namespace XSSLG
             this.Prefab = prefab;
             this.TileToWorldHander = TileToWorldHander;
             this.SortOrder = sortOrder;
+            this.CreateRootNode();
+        }
+
+        protected virtual void CreateRootNode()
+        {
+            if (GameObject.Find(this.RootPath))
+             return;
+
+            var root = GameObject.Find(XSGridDefine.SCENE_GRID_ROOT);
+            if (root ==null) return;
+
+            // 取名字，路径不要
+            var strList = this.RootPath.Split('/');
+            var parentObj = new GameObject(strList[strList.Length - 1]);
+            parentObj.transform.SetParent(root.transform);
         }
 
         /// <summary>
@@ -49,17 +64,7 @@ namespace XSSLG
             tilePosList.ForEach(pos =>
             {
                 var parent = GameObject.Find(this.RootPath)?.transform;
-                if (parent ==null)
-                {
-                    var root = GameObject.Find(XSGridDefine.SCENE_GRID_ROOT);
-                    if (root ==null) return;
-
-                    // 取名字，路径不要
-                    var strList = this.RootPath.Split('/');
-                    var parentObj = new GameObject(strList[strList.Length - 1]);
-                    parentObj.transform.SetParent(root.transform);
-                    parent = parentObj.transform;
-                }
+                if (parent ==null) return;
 
                 var obj = GameObject.Instantiate(this.Prefab, parent);
                 if (obj == null) return;
@@ -76,6 +81,12 @@ namespace XSSLG
         }
 
         /// <summary> 清除高亮显示 </summary>
-        public void ClearRegion() => XSU.RemoveChildren(GameObject.Find(this.RootPath));
+        public void ClearRegion() 
+        {
+            var parentObj = GameObject.Find(this.RootPath);
+            if (parentObj ==null) return;
+
+            XSU.RemoveChildren(parentObj);
+        } 
     }
 }

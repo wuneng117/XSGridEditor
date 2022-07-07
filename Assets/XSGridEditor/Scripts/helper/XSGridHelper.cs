@@ -20,7 +20,7 @@ namespace XSSLG
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
         public float Precision = 0.01f;
 
-        /// <summary> tile 抬高时的高度 </summary>
+        /// <summary> 射线检测的高度 </summary>
         public float TopDistance = 100f;
 
         /// <summary> 是否显示移动消耗 </summary>
@@ -75,19 +75,21 @@ namespace XSSLG
         /// </summary>
         public virtual void SetTileToNearTerrain(GameObject tile)
         {
+            // 隐藏tile ，防止射线碰到 tile
+            tile.SetActive(false);
             var pos = tile.transform.position;
             // 射线发射点，抬高 tile 以后的中心点
-            var top = new Vector3(pos.x, TopDistance - Precision, pos.z);
-            // 抬高 tile ，防止射线碰到 tile
-            tile.transform.position = new Vector3(pos.x, pos.y + TopDistance - Precision, pos.z);
+            var top = new Vector3(pos.x, TopDistance, pos.z);
             var ray = new Ray(top, Vector3.down);
             RaycastHit hitInfo;
             // 这里检测 ray 和其他物体的碰撞
-            // ray 位置和射线方向，位置是 抬高后的 tile 坐标，方向垂直向下
+            // ray 位置和射线方向，位置是 抬高TopDistance后的坐标，方向垂直向下
             if (!Physics.Raycast(ray, out hitInfo))
                 tile.transform.position = pos;  // 把 tile 放到原来的位置
             else
                 tile.transform.position = hitInfo.point + new Vector3(0, Precision, 0);
+            //激活tile
+            tile.SetActive(true);
         }
 
         /// <summary> 删除所有的 tile </summary>
@@ -157,7 +159,7 @@ namespace XSSLG
         /// <summary> 创建一个XSObject </summary>
         public void CreateObject()
         {
-            if (Application.isEditor && !Application.isPlaying)
+            if (XSU.IsEditor())
             {
                 GameObject ret;
                 do

@@ -3,6 +3,7 @@
 /// @Date: 2022/2/2
 /// @Description: 常用的 unity 方法 
 /// </summary>
+using System;
 using UnityEngine;
 
 namespace XSSLG
@@ -10,6 +11,28 @@ namespace XSSLG
     /// <summary> 常用的 unity 方法 </summary>
     public class UnityUtils
     {
+        /// <summary>
+        /// 打印日志统一入口
+        /// </summary>
+        /// <param name="message">要打印的日志</param>
+        public static void Log(object message) => UnityEngine.Debug.Log(message);
+
+        /// <summary> 是否是 unity 编辑器模式下 </summary>
+        public static bool IsEditor() => Application.isEditor && !Application.isPlaying;
+
+        /// <summary>
+        /// 从 src 到 dest 坐标的旋转
+        /// </summary>
+        /// <param name="src">要旋转物体的坐标</param>
+        /// <param name="dest">要朝向目标的坐标</param>
+        /// <returns>src 的 locationRotation 值</returns>
+        public static Quaternion RotationTo(Vector3 src, Vector3 dest)
+        {
+            var distance = dest - src;
+            Quaternion rotate = Quaternion.LookRotation(distance);
+            return rotate;
+        }
+
         /// <summary>
         /// 获取鼠标所指向的对象
         /// </summary>
@@ -67,10 +90,15 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 打印日志统一入口
+        /// 操作所有子节点
         /// </summary>
-        /// <param name="message">要打印的日志</param>
-        public static void Log(object message) => UnityEngine.Debug.Log(message);
+        /// <param name="obj">父节点</param>
+        public static void ActionChildren(GameObject obj, Action<GameObject> action)
+        {
+            int childCount = obj.transform.childCount;
+            for (int i = childCount - 1; i >= 0; i--)
+                action(obj.transform.GetChild(i).gameObject);
+        }
 
         /// <summary>
         /// 删除所有子节点
@@ -78,30 +106,16 @@ namespace XSSLG
         /// <param name="obj">父节点</param>
         public static void RemoveChildren(GameObject obj)
         {
-            int childCount = obj.transform.childCount;
-            if (Application.isEditor && !Application.isPlaying)
-            {
-                for (int i = childCount - 1; i >= 0; i--)
-                    GameObject.DestroyImmediate(obj.transform.GetChild(i).gameObject);
-            }
+            if (UnityUtils.IsEditor())
+                ActionChildren(obj, (GameObject child) => GameObject.DestroyImmediate(child));
             else
-            {
-                for (int i = childCount - 1; i >= 0; i--)
-                    GameObject.DestroyImmediate(obj.transform.GetChild(i).gameObject);
-            }
+                ActionChildren(obj, (GameObject child) => GameObject.Destroy(child));
         }
 
         /// <summary>
-        /// 从 src 到 dest 坐标的旋转
+        /// 隐藏所有子节点
         /// </summary>
-        /// <param name="src">要旋转物体的坐标</param>
-        /// <param name="dest">要朝向目标的坐标</param>
-        /// <returns>src 的 locationRotation 值</returns>
-        public static Quaternion RotationTo(Vector3 src, Vector3 dest)
-        {
-            var distance = dest - src;
-            Quaternion rotate = Quaternion.LookRotation(distance);
-            return rotate;
-        }
+        /// <param name="obj">父节点</param>
+        public static void HideChildren(GameObject obj) => ActionChildren(obj, (GameObject child) => child.SetActive(false));
     }
 }
