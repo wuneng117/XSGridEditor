@@ -10,7 +10,7 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> unity tilemap 画格子扩展类 XGGridHelper 的 UI 显示 </summary>
-    [CustomEditor(typeof(XSGridHelper))]
+    [CustomEditor(typeof(XSGridHelperEditMode))]
     public class XSGridHelperEditor : Editor
     {
         public override void OnInspectorGUI()
@@ -18,7 +18,7 @@ namespace XSSLG
             this.serializedObject.Update();
             this.DrawDefaultInspector();
 
-            var helper = (XSGridHelper)target;
+            var helper = (XSGridHelperEditMode)target;
 
             // 将地体块贴到合适的地方
             this.DrawButton("tile贴到地面", helper.SetTileToNearTerrain);

@@ -45,11 +45,12 @@ namespace XSSLG
                 return ret;
 
             var tileDataList = gridHelper.GetTileDataArray();
-            if (tileDataList == null)
+            if (tileDataList == null || tileDataList.Length == 0)
                 return ret;
             
             // 默认sprite.size为1
             var tileData = tileDataList.First();
+
             this.TileSize = Mathf.FloorToInt(tileData.gameObject.transform.localScale.x);
             var sprite = tileData.GetComponent<SpriteRenderer>();
             if (sprite)

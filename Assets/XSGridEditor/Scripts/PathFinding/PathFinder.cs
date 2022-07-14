@@ -60,6 +60,20 @@ namespace XSSLG
         /// <summary> 以tilepos为key存储所有tile。 </summary>
         public Dictionary<Vector3Int, PathFinderTile> TileDict { get; } = new Dictionary<Vector3Int, PathFinderTile>();
 
+        /// <summary> 以tilepos为key更新TileDict。 </summary>
+        public void UpdateTileDict(PathFinderTile tile)
+        {
+           if (this.TileDict.ContainsKey(tile.TilePos))
+           {
+               this.TileDict[tile.TilePos] = tile;
+           }
+           else
+           {
+               this.TileDict.Add(tile.TilePos, tile);
+           }
+
+        }
+
         /// <summary> 寻路插件 </summary>
         private static IPathfinding _fallbackPathfinder = new AStarPathfinding();
 

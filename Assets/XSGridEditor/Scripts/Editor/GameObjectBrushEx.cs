@@ -81,7 +81,7 @@ namespace UnityEditor.Tilemaps
             set { m_CanChangeZPosition = value; }
         }
 
-        private static XSGridHelper gridHelper { get; set; }
+        private static XSGridHelperEditMode gridHelperEditMode { get; set; }
         
         /// <summary>
         /// This Brush instances, places and manipulates GameObjects onto the scene.
@@ -104,7 +104,7 @@ namespace UnityEditor.Tilemaps
             grid.cellSwizzle = hiddenGridLayout.cellSwizzle;
             grid.cellLayout = hiddenGridLayout.cellLayout;
 
-            gridHelper = Component.FindObjectOfType<XSGridHelper>();
+            gridHelperEditMode = Component.FindObjectOfType<XSGridHelperEditMode>();
         }
 
         private void OnDisable()
@@ -612,8 +612,8 @@ namespace UnityEditor.Tilemaps
             instance.transform.Translate(offset);
 
             //1.画完之后，把每个tile的高度设置到障碍物的顶端
-            if (gridHelper != null)
-                gridHelper.SetTileToNearTerrain(instance);
+            if (gridHelperEditMode != null)
+                gridHelperEditMode.SetTileToNearTerrain(instance.GetComponent<XSTileData>());
         }
 
         private void ClearSceneCell(GridLayout grid, Transform parent, Vector3Int position)
