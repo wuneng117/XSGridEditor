@@ -86,7 +86,7 @@ namespace XSSLG
             var parentObj = GameObject.Find(this.RootPath);
             if (parentObj ==null) return;
 
-            XSU.RemoveChildren(parentObj);
+            XSUG.RemoveChildren(parentObj);
         } 
     }
 }

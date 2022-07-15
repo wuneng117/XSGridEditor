@@ -42,7 +42,7 @@ namespace XSSLG
 
         public void Start()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
             {
                 mInstance = this;
                 this.GridMgr = new GridMgr();
@@ -111,8 +111,8 @@ namespace XSSLG
         //更新TileDict
         public virtual void UpdatePathFinderTile(XSTileData tileData, Vector3Int tilePos, Vector3 worldPos, int cost, Func<Vector3Int, bool> isWalkable = null, Func<Vector3Int, bool> canBeDustFunc = null)
         {
-            var tile = new PathFinderTile(tilePos, worldPos, cost, isWalkable, canBeDustFunc);
-            this.GridMgr.PathFinder.UpdateTileDict(tile);
+            var tile = new XSTile(tilePos, worldPos, cost, isWalkable, canBeDustFunc);
+            this.GridMgr.UpdateTileDict(tile);
             tileData.Tile = tile;
         }
 
@@ -120,7 +120,7 @@ namespace XSSLG
         public virtual void ClearTiles()
         {
             var tileMap = this.GetComponentInChildren<Tilemap>();
-            XSU.RemoveChildren(tileMap.gameObject);
+            XSUE.RemoveChildren(tileMap.gameObject);
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace XSSLG
                 {
                     var parTrans = tile.transform;
                     var size = new Vector2(parTrans.localScale.x * 0.8f, parTrans.localScale.z * 0.85f);
-                    var text = XSU.CreateTextMesh(size, textRoot.transform);
+                    var text = XSUE.CreateTextMesh(size, textRoot.transform);
                     text.transform.position = tile.transform.position;
                     text.transform.Rotate(new Vector3(90, 0, 0));
                     afterCreateFn(tile, text);
@@ -183,7 +183,7 @@ namespace XSSLG
         /// <summary> 创建一个XSObject </summary>
         public void CreateObject()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
             {
                 GameObject ret;
                 do

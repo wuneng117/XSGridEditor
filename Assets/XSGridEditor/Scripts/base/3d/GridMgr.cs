@@ -37,9 +37,9 @@ namespace XSSLG
             return ret;
         }
 
-        protected override Dictionary<Vector3Int, PathFinderTile> CreatePathFinderTileDict()
+        protected override Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict()
         {
-            var ret = new Dictionary<Vector3Int, PathFinderTile>();
+            var ret = new Dictionary<Vector3Int, XSTile>();
             var gridHelper = Component.FindObjectOfType<XSGridHelper>();
             if (gridHelper == null)
                 return ret;
@@ -60,7 +60,7 @@ namespace XSSLG
             tileDataList.ToList().ForEach(tile =>
             {
                 var tilePos = this.WorldToTile(tile.transform.position);
-                var pathFinderTile = new PathFinderTile(tilePos, tile.transform.position, tile.Cost);
+                var pathFinderTile = new XSTile(tilePos, tile.transform.position, tile.Cost);
                 ret.Add(tilePos, pathFinderTile);
                 tile.Tile = pathFinderTile;
             });

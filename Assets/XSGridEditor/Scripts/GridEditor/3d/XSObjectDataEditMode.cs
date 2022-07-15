@@ -20,7 +20,7 @@ namespace XSSLG
 
         void Start()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
                 this.AddGameObj();
             else
                 this.enabled = false;
@@ -28,7 +28,7 @@ namespace XSSLG
 
         private void OnDestroy()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
             {
                 UnityUtils.ActionChildren(this.gameObject, (child) =>
                 {
@@ -41,7 +41,7 @@ namespace XSSLG
         // Update is called once per frame
         void Update()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
             {
                 // XSU.Log("XSObjectData Update");
                 if (XSGridHelperEditMode.Instance)
@@ -66,7 +66,7 @@ namespace XSSLG
 
         virtual protected void AddGameObj()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
             {
                 var objData = this.GetComponent<XSObjectData>();
                 var obj = objData.GetGameObj();

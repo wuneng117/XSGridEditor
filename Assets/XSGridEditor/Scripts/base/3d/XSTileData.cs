@@ -15,6 +15,6 @@ namespace XSSLG
         public int Cost = 0;
 
         /// <summary> GridMgr 初始化后生成对应的 PathFinderTile </summary>
-        public PathFinderTile Tile {get; set;}
+        public XSTile Tile {get; set;}
     }
 }

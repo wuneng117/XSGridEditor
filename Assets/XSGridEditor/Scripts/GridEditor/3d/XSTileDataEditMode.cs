@@ -22,7 +22,7 @@ namespace XSSLG
 
         void Start()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
             {
                 this.TileData = this.GetComponent<XSTileData>();
             }
@@ -34,7 +34,7 @@ namespace XSSLG
         // Update is called once per frame
         void Update()
         {
-            if (XSU.IsEditor())
+            if (XSUE.IsEditor())
             {
                 if (this.TileData && this.TileData.Tile != null)
                 {

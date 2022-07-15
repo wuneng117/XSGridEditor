@@ -49,11 +49,11 @@ namespace XSSLG
             // 左键点击进行寻路
             if (Mouse.current.leftButton.wasPressedThisFrame && !this.IsMoving)
             {
-                var tile = XSU.GetMouseTargetTile();
+                var tile = XSUG.GetMouseTargetTile();
                 Debug.Log("tilePos: " + tile.TilePos);
 
                 var srcTile = this.GridMgr.GetTile(role.transform.position);
-                var path = this.GridMgr.PathFinder.FindPath(srcTile, tile);
+                var path = this.GridMgr.FindPath(srcTile, tile);
                 this.WalkTo(path);
             }
         }

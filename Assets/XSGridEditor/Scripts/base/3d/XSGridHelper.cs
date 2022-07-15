@@ -36,7 +36,7 @@ namespace XSSLG
         public virtual void ClearTiles()
         {
             var tileMap = this.GetComponentInChildren<Tilemap>();
-            XSU.RemoveChildren(tileMap.gameObject);
+            XSUG.RemoveChildren(tileMap.gameObject);
         }
 
         public Bounds GetBounds()
