@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/2/2
-/// @Description: unity tilemap 画格子扩展类 XGGridHelper 的 UI 显示
+/// @Description: unity Grid 画格子扩展类 XGGridHelper 的 UI 显示
 /// </summary>
 using System;
 using UnityEditor;
@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    /// <summary> unity tilemap 画格子扩展类 XGGridHelper 的 UI 显示 </summary>
+    /// <summary> unity Grid 画格子扩展类 XGGridHelper 的 UI 显示 </summary>
     [CustomEditor(typeof(XSGridHelperEditMode))]
     public class XSGridHelperEditor : Editor
     {

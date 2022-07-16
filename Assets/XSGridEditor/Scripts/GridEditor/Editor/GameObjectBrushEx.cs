@@ -613,7 +613,15 @@ namespace UnityEditor.Tilemaps
 
             //1.画完之后，把每个tile的高度设置到障碍物的顶端
             if (gridHelperEditMode != null)
-                gridHelperEditMode.SetTileToNearTerrain(instance.GetComponent<XSTileData>());
+            {
+
+                var ret = gridHelperEditMode.AddXSTile(instance.GetComponent<XSTileData>());
+                if (!ret)
+                {
+                    Debug.LogError("AddXSTileData failed");
+                    GameObject.DestroyImmediate(instance);
+                }
+            }
         }
 
         private void ClearSceneCell(GridLayout grid, Transform parent, Vector3Int position)

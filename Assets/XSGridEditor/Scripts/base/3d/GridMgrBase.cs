@@ -12,7 +12,7 @@ namespace XSSLG
     public abstract class GridMgrBase : IGridMgr
     {
         /// <summary> 四边形地图链接格子就是这4个位置偏移 </summary>
-        public static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, -1, 0), new Vector3Int(1, 0, 0), new Vector3Int(0, 1, 0), };
+        private static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, -1, 0), new Vector3Int(1, 0, 0), new Vector3Int(0, 1, 0), };
 
         /// <summary> 以tilepos为key存储所有tile。 </summary>
         public Dictionary<Vector3Int, XSTile> TileDict { get; } = new Dictionary<Vector3Int, XSTile>();
@@ -36,15 +36,11 @@ namespace XSSLG
         /// <summary> 以tilepos为key更新TileDict。 </summary>
         public void UpdateTileDict(XSTile tile)
         {
-            if (this.TileDict.ContainsKey(tile.TilePos))
-            {
+            // 更新tile必须是同一个Node
+            if (this.TileDict.ContainsKey(tile.TilePos) && this.TileDict[tile.TilePos].Node == tile.Node)
                 this.TileDict[tile.TilePos] = tile;
-            }
             else
-            {
                 this.TileDict.Add(tile.TilePos, tile);
-            }
-
         }
 
         public abstract Vector3 TileToWorld(Vector3Int tilePos);

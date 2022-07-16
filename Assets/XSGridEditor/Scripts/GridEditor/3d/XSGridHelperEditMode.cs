@@ -7,7 +7,6 @@ using System;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace XSSLG
 {
@@ -17,9 +16,9 @@ namespace XSSLG
     public class XSGridHelperEditMode : MonoBehaviour
     {
         private static XSGridHelperEditMode mInstance;
-		public static XSGridHelperEditMode Instance { get => mInstance; } 
+        public static XSGridHelperEditMode Instance { get => mInstance; }
 
-        /// <summary> 辅助类 </summary>
+        /// <summary> 辅助类 </summary>v
         [HideInInspector]
         protected XSGridHelper GridHelper { set; get; } = null;
 
@@ -67,13 +66,35 @@ namespace XSSLG
 
         /// <summary> 获取所有 XSTileData 节点 </summary>
         public XSTileData[] GetTileDataArray() => this.GridHelper.GetTileDataArray();
+
+        /// <summary>
+        /// 添加XSTile
+        /// </summary>
+        /// <param name="tileData"></param>
+        /// <returns></returns>
+        public bool AddXSTile(XSTileData tileData)
+        {
+            var ret = this.GridMgr.AddXSTile(tileData, this.GridMgr.TileDict);
+            if (!ret)
+                return ret;
+
+            var posChangeRet = this.SetTileToNearTerrain(tileData);
+            if (posChangeRet)
+            {
+                var tileDataEditMode = tileData.GetComponent<XSTileDataEditMode>();
+                if (tileDataEditMode)
+                    tileDataEditMode.PrevPos = tileData.transform.position;
+            }
+
+            return ret;
+        }
+
         /// <summary>
         /// 调整所有tile的高度
         /// </summary>
         public virtual void SetTileToNearTerrain()
         {
-            var tiles = this.GetTileDataArray();
-            foreach (var tile in tiles)
+            foreach (var tile in this.GridMgr.TileDict.Values)
                 this.SetTileToNearTerrain(tile);
         }
 
@@ -81,7 +102,30 @@ namespace XSSLG
         /// 每个 tile 根据中心可能有高低不平的障碍物，调整 tile 的高度到障碍物的顶端
         /// 比如从 tile 中心点抬高100，再检测100以内有没有碰撞物，碰到的话就把 tile 的高度设置到碰撞点的位置
         /// </summary>
-        public virtual void SetTileToNearTerrain(XSTileData tileData)
+        public virtual bool SetTileToNearTerrain(XSTile tile)
+        {
+            var ret = false;
+            if (tile.Node == null)
+                return ret;
+
+            ret = this.SetTileToNearTerrain(tile.Node);
+            if (!ret)
+                return ret;
+
+            // 调整了位置，需要更新XSTile和XSTileDataEditMode的位置
+            tile.WorldPos = tile.Node.transform.position;
+            var tileDataEditMode = tile.Node.GetComponent<XSTileDataEditMode>();
+            if (tileDataEditMode)
+                tileDataEditMode.PrevPos = tile.WorldPos;
+                
+            return ret;
+        }
+
+        /// <summary>
+        /// 每个 tile 根据中心可能有高低不平的障碍物，调整 tile 的高度到障碍物的顶端
+        /// 比如从 tile 中心点抬高100，再检测100以内有没有碰撞物，碰到的话就把 tile 的高度设置到碰撞点的位置
+        /// </summary>
+        protected virtual bool SetTileToNearTerrain(XSTileData tileData)
         {
             // 隐藏tile ，防止射线碰到 tile
             tileData.gameObject.SetActive(false);
@@ -94,33 +138,30 @@ namespace XSSLG
             RaycastHit hitInfo;
             // 这里检测 ray 和其他物体的碰撞
             // ray 位置和射线方向，位置是 抬高TopDistance后的坐标，方向垂直向下
-            if (Physics.Raycast(ray, out hitInfo))
+            var ret = Physics.Raycast(ray, out hitInfo);
+            if (ret)
             {
                 var newPos = hitInfo.point + new Vector3(0, Precision, 0);
-                if (!newPos.Equals(tileData.Tile.WorldPos))
-                {
-                    this.UpdatePathFinderTile(tileData, tileData.Tile.TilePos, newPos, tileData.Tile.Cost, tileData.Tile.IsWalkableFunc, tileData.Tile.CanBeDustFunc);
-                }
+                tileData.transform.position = newPos;
             }
             //激活tile
             tileData.gameObject.SetActive(true);
             // 显示所有unit，防止参与射线检测
             UnityUtils.ActionChildren(this.GetUnitRoot().gameObject, (child) => child.SetActive(true));
+            return ret;
         }
 
         //更新TileDict
-        public virtual void UpdatePathFinderTile(XSTileData tileData, Vector3Int tilePos, Vector3 worldPos, int cost, Func<Vector3Int, bool> isWalkable = null, Func<Vector3Int, bool> canBeDustFunc = null)
+        public virtual void UpdateXSTile(XSTileData tileData, Vector3Int tilePos, Vector3 worldPos, int cost, Func<Vector3Int, bool> isWalkable = null, Func<Vector3Int, bool> canBeDustFunc = null)
         {
-            var tile = new XSTile(tilePos, worldPos, cost, isWalkable, canBeDustFunc);
+            var tile = new XSTile(tilePos, worldPos, cost, tileData, isWalkable, canBeDustFunc);
             this.GridMgr.UpdateTileDict(tile);
-            tileData.Tile = tile;
         }
 
         /// <summary> 删除所有的 tile </summary>
         public virtual void ClearTiles()
         {
-            var tileMap = this.GetComponentInChildren<Tilemap>();
-            XSUE.RemoveChildren(tileMap.gameObject);
+            XSUE.RemoveChildren(this.gameObject);
         }
 
         /// <summary>
@@ -131,7 +172,7 @@ namespace XSSLG
         {
             this.SetTextShow(isShow,
                             XSGridDefine.GAMEOBJECT_TILE_POS_ROOT,
-                            (quad, text) => text.text = string.Format("{0},{1}", Math.Floor(quad.transform.position.x), Math.Floor(quad.transform.position.z))
+                            (tile, text) => text.text = string.Format("{0},{1}", tile.TilePos.x, tile.TilePos.z)
             );
         }
 
@@ -143,11 +184,11 @@ namespace XSSLG
         {
             this.SetTextShow(isShow,
                             XSGridDefine.GAMEOBJECT_TILE_COST_ROOT,
-                            (quad, text) =>
+                            (tile, text) =>
                             {
-                                text.text = quad.Cost.ToString();
-                                if (quad.Cost <= XSGridDefine.TILE_COST_COLOR.Length - 1)
-                                    text.color = XSGridDefine.TILE_COST_COLOR[quad.Cost];
+                                text.text = tile.Cost.ToString();
+                                if (tile.Cost <= XSGridDefine.TILE_COST_COLOR.Length - 1)
+                                    text.color = XSGridDefine.TILE_COST_COLOR[tile.Cost];
                                 else
                                     text.color = Color.red;
                             });
@@ -159,21 +200,23 @@ namespace XSSLG
         /// <param name="isShow">是否显示</param>
         /// <param name="rootName">所有文字的根节点</param>
         /// <param name="afterCreateFn">生成后的回调</param>
-        protected virtual void SetTextShow(bool isShow, string rootName, Action<XSTileData, TextMeshPro> afterCreateFn)
+        protected virtual void SetTextShow(bool isShow, string rootName, Action<XSTile, TextMeshPro> afterCreateFn)
         {
             if (isShow)
             {
                 var textRoot = new GameObject();
                 textRoot.name = rootName;
-                var tiles = this.GetTileDataArray();
-                foreach (var tile in tiles)
+                foreach (var tile in this.GridMgr.TileDict.Values)
                 {
-                    var parTrans = tile.transform;
-                    var size = new Vector2(parTrans.localScale.x * 0.8f, parTrans.localScale.z * 0.85f);
-                    var text = XSUE.CreateTextMesh(size, textRoot.transform);
-                    text.transform.position = tile.transform.position;
-                    text.transform.Rotate(new Vector3(90, 0, 0));
-                    afterCreateFn(tile, text);
+                    if (tile.Node != null)
+                    {
+                        var parTrans = tile.Node.transform;
+                        var size = new Vector2(parTrans.localScale.x * 0.8f, parTrans.localScale.z * 0.85f);
+                        var text = XSUE.CreateTextMesh(size, textRoot.transform);
+                        text.transform.position = parTrans.position;
+                        text.transform.Rotate(new Vector3(90, 0, 0));
+                        afterCreateFn(tile, text);
+                    }
                 }
             }
             else
@@ -198,7 +241,7 @@ namespace XSSLG
                         break;
 
                     // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
-                    var defaultGrid = GameObject.Find("Grid/Tilemap")?.transform.GetChild(0);
+                    var defaultGrid = GameObject.Find("Grid")?.transform.GetChild(0);
                     if (defaultGrid == null)
                         break;
 

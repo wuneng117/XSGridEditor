@@ -4,7 +4,6 @@
 /// @Description: 辅助类
 /// </summary>
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace XSSLG
 {
@@ -26,17 +25,8 @@ namespace XSSLG
         public XSTileData[] GetTileDataArray()
         {
             XSTileData[] ret = { };
-            var tileMap = this.GetComponentInChildren<Tilemap>();
-            if (tileMap == null) return ret;
-            ret = tileMap.gameObject.GetComponentsInChildren<XSTileData>();
+            ret = this.GetComponentsInChildren<XSTileData>();
             return ret;
-        }
-
-        /// <summary> 删除所有的 tile </summary>
-        public virtual void ClearTiles()
-        {
-            var tileMap = this.GetComponentInChildren<Tilemap>();
-            XSUG.RemoveChildren(tileMap.gameObject);
         }
 
         public Bounds GetBounds()

@@ -28,7 +28,7 @@ namespace XSSLG
 
             return tile.WorldPos;
         }
-        
+
         public override Vector3Int WorldToTile(Vector3 worldPos)
         {
             var ret = new Vector3Int(-1, -1, 0);
@@ -47,7 +47,7 @@ namespace XSSLG
             var tileDataList = gridHelper.GetTileDataArray();
             if (tileDataList == null || tileDataList.Length == 0)
                 return ret;
-            
+
             // 默认sprite.size为1
             var tileData = tileDataList.First();
 
@@ -57,15 +57,32 @@ namespace XSSLG
                 this.TileSize *= Mathf.FloorToInt(sprite.size.x);
 
             // 遍历Tile
-            tileDataList.ToList().ForEach(tile =>
-            {
-                var tilePos = this.WorldToTile(tile.transform.position);
-                var pathFinderTile = new XSTile(tilePos, tile.transform.position, tile.Cost);
-                ret.Add(tilePos, pathFinderTile);
-                tile.Tile = pathFinderTile;
-            });
+            tileDataList.ToList().ForEach(tileData => AddXSTile(tileData, ret));
 
             return ret;
+        }
+
+        /// <summary>
+        /// 添加XSTile到字典中
+        /// </summary>
+        /// <param name="tileData"></param>
+        /// <param name="tileDict"></param>
+        /// <returns></returns>
+        public bool AddXSTile(XSTileData tileData, Dictionary<Vector3Int, XSTile> tileDict)
+        {
+            var tilePos = this.WorldToTile(tileData.transform.position);
+            if (tileDict.ContainsKey(tilePos))
+            {
+                Debug.LogError("GridMgr.CreatePathFinderTileDict: 已经存在相同的tilePos：" + tilePos);
+                GameObject.DestroyImmediate(tileData.gameObject);
+                return false;
+            }
+            else
+            {
+                var tile = new XSTile(tilePos, tileData.transform.position, tileData.Cost, tileData);
+                tileDict.Add(tilePos, tile);
+                return true;
+            }
         }
     }
 }

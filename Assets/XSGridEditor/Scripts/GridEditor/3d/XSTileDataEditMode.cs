@@ -11,20 +11,17 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> XSObjectData 的编辑器操作 </summary>
-    [RequireComponent(typeof(XSTileData))]
     [ExecuteInEditMode]
     public class XSTileDataEditMode : MonoBehaviour
     {
-        private XSTileData TileData { get; set; }
-
         /// <summary> 编辑器模式下记录上一次的坐标 </summary>
-        protected Vector3 PrevPos { get; set; }
+        public Vector3 PrevPos { get; set; }
 
         void Start()
         {
             if (XSUE.IsEditor())
             {
-                this.TileData = this.GetComponent<XSTileData>();
+                this.PrevPos = this.transform.position;
             }
             else
                 this.enabled = false;
@@ -36,10 +33,7 @@ namespace XSSLG
         {
             if (XSUE.IsEditor())
             {
-                if (this.TileData && this.TileData.Tile != null)
-                {
-                    this.transform.position = this.TileData.Tile.WorldPos;
-                }
+                this.transform.position = this.PrevPos;
             }
         }
     }
