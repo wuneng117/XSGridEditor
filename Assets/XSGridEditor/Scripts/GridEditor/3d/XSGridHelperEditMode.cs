@@ -12,23 +12,19 @@ namespace XSSLG
 {
     /// <summary> 扩展 unity tilpmap 画格子的功能 </summary>
     [RequireComponent(typeof(XSGridHelper))]
-    [RequireComponent(typeof(Grid))]
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
         private static XSGridHelperEditMode mInstance;
         public static XSGridHelperEditMode Instance { get => mInstance; }
 
-        /// <summary> 辅助类 </summary>v
-        [HideInInspector]
-        protected XSGridHelper GridHelper { set; get; } = null;
+        /// <summary> tile根节点 </summary>
+        public Transform TileRoot = null;
 
-        /// <summary> 辅助类 </summary>
-        [HideInInspector]
-        public GridMgr GridMgr { protected set; get; } = null;
 
         /// <summary> unit根节点 </summary>
         public Transform UnitRoot = null;
+
         public GameObject ObjectPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
         public float Precision = 0.01f;
@@ -45,9 +41,6 @@ namespace XSSLG
             if (XSUE.IsEditor())
             {
                 mInstance = this;
-                this.GridMgr = new GridMgr();
-                this.GridHelper = this.GetComponent<XSGridHelper>();
-                XSSLG.Assert(this.GridHelper);
             }
             else
                 this.enabled = false;
@@ -66,7 +59,7 @@ namespace XSSLG
         }
 
         /// <summary> 获取所有 XSTileData 节点 </summary>
-        public XSTileData[] GetTileDataArray() => this.GridHelper.GetTileDataArray();
+        public XSTileData[] GetTileDataArray() => XSGridHelper.Instance.GetTileDataArray();
 
         /// <summary>
         /// 添加XSTile
@@ -75,7 +68,7 @@ namespace XSSLG
         /// <returns></returns>
         public bool AddXSTile(XSTileData tileData)
         {
-            var ret = this.GridMgr.AddXSTile(tileData, this.GridMgr.TileDict);
+            var ret = XSUE.GetGridMgr().AddXSTile(tileData, XSUE.GetGridMgr().TileDict);
             if (!ret)
                 return ret;
 
@@ -95,7 +88,7 @@ namespace XSSLG
         /// </summary>
         public virtual void SetTileToNearTerrain()
         {
-            foreach (var tile in this.GridMgr.TileDict.Values)
+            foreach (var tile in XSUE.GetGridMgr().TileDict.Values)
                 this.SetTileToNearTerrain(tile);
         }
 
@@ -156,7 +149,7 @@ namespace XSSLG
         public virtual void UpdateXSTile(XSTileData tileData, Vector3Int tilePos, Vector3 worldPos, int cost, Func<Vector3Int, bool> isWalkable = null, Func<Vector3Int, bool> canBeDustFunc = null)
         {
             var tile = new XSTile(tilePos, worldPos, cost, tileData, isWalkable, canBeDustFunc);
-            this.GridMgr.UpdateTileDict(tile);
+            XSUE.GetGridMgr().UpdateTileDict(tile);
         }
 
         /// <summary> 删除所有的 tile </summary>
@@ -207,7 +200,7 @@ namespace XSSLG
             {
                 var textRoot = new GameObject();
                 textRoot.name = rootName;
-                foreach (var tile in this.GridMgr.TileDict.Values)
+                foreach (var tile in XSUE.GetGridMgr().TileDict.Values)
                 {
                     if (tile.Node != null)
                     {
@@ -242,7 +235,7 @@ namespace XSSLG
                         break;
 
                     // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
-                    var defaultGrid = GameObject.Find("Grid")?.transform.GetChild(0);
+                    var defaultGrid = this.TileRoot?.transform.GetChild(0);
                     if (defaultGrid == null)
                         break;
 
@@ -251,12 +244,7 @@ namespace XSSLG
             }
         }
 
-        virtual protected Transform GetUnitRoot()
-        {
-            var parentName = "Grid/Unit";
-            var parent = GameObject.Find(parentName)?.transform;
-            return parent;
-        }
+        virtual protected Transform GetUnitRoot() => this.UnitRoot;
 
         // /// <summary> 所有 XSObject 的坐标对齐所在 tile 中心 </summary>
         // public void SetObjectToTileCenter()

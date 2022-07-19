@@ -11,22 +11,25 @@ namespace XSSLG
 {
     public class XSGridEditorMenu : MonoBehaviour
     {
-        [MenuItem("Object/XSGridEditor/CreateGrid")]
+        [MenuItem("GameObject/XSGridEditor/CreateGrid")]
         static public void CreateGrid()
         {
-            var gridNode = Component.FindObjectOfType<XSGridHelperEditor>();
+            var gridNode = Component.FindObjectOfType<XSGridHelperEditMode>();
             if (gridNode != null)
             {
-                var tip = ScriptableObject.CreateInstance<PopUpView>();
-                tip.Init(new Size(300, 100), "已经存在XSGridHelperEditor节点，请先删除");
-                tip.ShowPopup();
+                XSUEE.ShowTip("已经存在XSGridHelperEditor节点，请先删除");
                 return;
             }
 
-            gridNode = GameObject.Instantiate();
-            gridNode.AddComponent<XSGridHelperEditMode>();
-            // gridNode.AddComponent<Grid>();
-            gridNode.name = "Grid";
+            // 从prefab创建引用的gameobject
+            var ret = ResLoadMgr.LoadGameObject("Prefabs/XSGridEditor");
+            if (ret == null)
+            {
+                XSUEE.ShowTip("未找到Prefabs/XSGridEditor");
+                return;
+            }
+
+            ret.name = "XSGridEditor";
         }
     }
 }

@@ -13,17 +13,17 @@ namespace XSSLG
     {
         private string Desc { get; set; } = "";
 
-        public void Init(Size size, string desc)
+        public void Init(float width, float height, string desc)
         {
-            this.position = new Rect(Screen.width / 2, Screen.height / 2, size.Width, size.Height);
+            this.position = new Rect(Screen.width / 2, Screen.height / 2, width, height);
             this.Desc = desc;
         }
+
         void OnGUI()
         {
             EditorGUILayout.LabelField(this.Desc, EditorStyles.wordWrappedLabel);
-            GUILayout.Space(this.height / 3);
-            // 按钮大概大小就行了
-            if (GUILayout.Button(new Rect(this.width / 2, this.height / 2, this.width / 3.5, this.height / 6), "Agree"))
+            GUILayout.Space(this.position.height / 2);
+            if (GUILayout.Button("OK"))
                 this.Close();
         }
     }

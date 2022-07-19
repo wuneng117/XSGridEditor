@@ -44,9 +44,9 @@ namespace XSSLG
             if (XSUE.IsEditor())
             {
                 // XSU.Log("XSObjectData Update");
-                if (XSGridHelperEditMode.Instance)
+                if (XSGridHelper.Instance)
                 {
-                    var gridMgr = XSGridHelperEditMode.Instance.GridMgr;
+                    var gridMgr = XSGridHelper.Instance.GridMgr;
                     var pos = gridMgr.WorldToTileCenterWorld(this.transform.position);
                     // zero 表示返回的为空，tile获取有问题
                     if (pos != Vector3.zero)

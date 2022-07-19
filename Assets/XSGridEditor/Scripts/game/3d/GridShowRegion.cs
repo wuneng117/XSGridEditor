@@ -46,12 +46,11 @@ namespace XSSLG
             if (GameObject.Find(this.RootPath))
              return;
 
-            var root = GameObject.Find(XSGridDefine.SCENE_GRID_ROOT);
+            var root = XSGridHelper.Instance?.transform;
             if (root ==null) return;
 
             // 取名字，路径不要
-            var strList = this.RootPath.Split('/');
-            var parentObj = new GameObject(strList[strList.Length - 1]);
+            var parentObj = new GameObject(this.RootPath);
             parentObj.transform.SetParent(root.transform);
         }
 
