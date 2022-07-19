@@ -12,6 +12,7 @@ namespace XSSLG
 {
     /// <summary> 扩展 unity tilpmap 画格子的功能 </summary>
     [RequireComponent(typeof(XSGridHelper))]
+    [RequireComponent(typeof(Grid))]
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
