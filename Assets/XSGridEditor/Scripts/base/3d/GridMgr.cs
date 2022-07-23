@@ -5,6 +5,7 @@
 /// </summary>
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace XSSLG
@@ -74,7 +75,6 @@ namespace XSSLG
             if (tileDict.ContainsKey(tilePos))
             {
                 Debug.LogError("GridMgr.CreatePathFinderTileDict: 已经存在相同的tilePos：" + tilePos);
-                GameObject.DestroyImmediate(tileData.gameObject);
                 return false;
             }
             else
@@ -83,6 +83,30 @@ namespace XSSLG
                 tileDict.Add(tilePos, tile);
                 return true;
             }
+        }
+        
+        /// <summary>
+        /// 从字典中删除XSTile
+        /// </summary>
+        /// <param name="tileData"></param>
+        /// <param name="tileDict"></param>
+        /// <returns></returns>
+        public bool RemoveXSTile(XSTileData tileData, Dictionary<Vector3Int, XSTile> tileDict)
+        {
+            var tilePos = this.WorldToTile(tileData.transform.position);
+            var ret = false;
+
+            if (tileDict.ContainsKey(tilePos))
+            {
+                tileDict.Remove(tilePos);
+                ret = true;
+            }
+            else
+                Debug.LogError("GridMgr.CreatePathFinderTileDict: 已经存在相同的tilePos：" + tilePos);
+
+
+            UnityUtils.RemoveObj(tileData.gameObject);
+            return ret;
         }
     }
 }

@@ -84,6 +84,13 @@ namespace XSSLG
         }
 
         /// <summary>
+        /// 添加XSTile
+        /// </summary>
+        /// <param name="tileData"></param>
+        /// <returns></returns>
+        public bool RemoveXSTile(XSTileData tileData) => XSUE.GetGridMgr().RemoveXSTile(tileData, XSUE.GetGridMgr().TileDict);
+
+        /// <summary>
         /// 调整所有tile的高度
         /// </summary>
         public virtual void SetTileToNearTerrain()

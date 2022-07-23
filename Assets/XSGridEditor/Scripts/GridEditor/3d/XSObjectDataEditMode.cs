@@ -33,7 +33,7 @@ namespace XSSLG
                 UnityUtils.ActionChildren(this.gameObject, (child) =>
                 {
                     if (!PrefabUtility.IsPartOfAnyPrefab(child))
-                        GameObject.DestroyImmediate(child);
+                        XSUE.RemoveObj(child);
                 });
             }
         }
@@ -77,7 +77,7 @@ namespace XSSLG
                         if (PrefabUtility.IsPartOfAnyPrefab(child))
                             child.SetActive(false);
                         else
-                             GameObject.DestroyImmediate(child);
+                            XSUE.RemoveObj(child);
                     });
                     obj.transform.parent = this.transform;
                 }

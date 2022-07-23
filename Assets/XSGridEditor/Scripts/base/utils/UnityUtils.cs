@@ -4,6 +4,7 @@
 /// @Description: 常用的 unity 方法 
 /// </summary>
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace XSSLG
@@ -107,9 +108,17 @@ namespace XSSLG
         public static void RemoveChildren(GameObject obj)
         {
             if (UnityUtils.IsEditor())
-                ActionChildren(obj, (GameObject child) => GameObject.DestroyImmediate(child));
+                ActionChildren(obj, (GameObject child) => Undo.DestroyObjectImmediate(child));
             else
                 ActionChildren(obj, (GameObject child) => GameObject.Destroy(child));
+        }
+
+        public static void RemoveObj(GameObject obj)
+        {
+            if (UnityUtils.IsEditor())
+                Undo.DestroyObjectImmediate(obj);
+            else
+                GameObject.Destroy(obj);
         }
 
         /// <summary>
