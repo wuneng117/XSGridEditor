@@ -4,6 +4,7 @@ using XSSLG;
 
 public class XSUE : UnityUtils
 {
+    private static XSGridHelper helper = null;
     /// <summary>
     /// 生成一个适配size大小的textmeshpro字体节点，暂时用的默认字体
     /// </summary>
@@ -27,5 +28,10 @@ public class XSUE : UnityUtils
 
     /// <summary> 获取GridMgr TODO 应该是个单例 </summary>
     /// TODO 让 XSGridHelper 的start方法在编辑器里调用，生成gridmgr，这里用生成的那个；再加个updatemgr方法，在tiel更新时都要调用
-    public static GridMgr GetGridMgr() => XSGridHelper.Instance.GridMgr;
+    public static GridMgr GetGridMgr()
+    {
+        if (helper == null)
+            helper = XSGridHelper.Instance;
+        return helper.GridMgr;
+    }
 }

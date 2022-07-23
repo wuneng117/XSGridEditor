@@ -20,76 +20,21 @@ namespace UnityEditor.Tilemaps
     /// This Brush instances, places and manipulates GameObjects onto the scene.
     /// Use this as an example to create brushes which targets objects other than tiles for manipulation.
     /// </summary>
-    [HelpURL("https://docs.unity3d.com/Packages/com.unity.2d.tilemap.extras@latest/index.html?subfolder=/manual/GameObjectBrush.html")]
-    [CustomGridBrush(true, false, false, "GameObject BrushEx")]
-    public class GameObjectBrushEx : GridBrushBase
+    [CustomGridBrush(true, false, false, "XSGridEditor Brush")]
+    public class XSGridEditorBrush : GridBrushBase
     {
         [SerializeField]
-        private BrushCell[] m_Cells;
+        private BrushCell m_Cell;
 
-        [SerializeField]
-        private Vector3Int m_Size;
+        private Vector3 m_Anchor = new Vector3(0.5f, 0.5f, 0.5f);
 
-        [SerializeField]
-        [HideInInspector]
-        private bool m_CanChangeZPosition;
-
-        /// <summary>Size of the brush in cells. </summary>
-        public Vector3Int size { get { return m_Size; } set { m_Size = value; SizeUpdated(); } }
-        /// <summary>All the brush cells the brush holds. </summary>
-        public BrushCell[] cells { get { return m_Cells; } }
-        /// <summary>Number of brush cells in the brush.</summary>
-        public int cellCount { get { return m_Cells != null ? m_Cells.Length : 0; } }
-        /// <summary>Number of brush cells based on size.</summary>
-        public int sizeCount
-        {
-            get { return m_Size.x * m_Size.y * m_Size.z; }
-        }
-        /// <summary>Whether the brush can change Z Position</summary>
-        public bool canChangeZPosition
-        {
-            get { return m_CanChangeZPosition; }
-            set { m_CanChangeZPosition = value; }
-        }
-
-        private static XSGridHelperEditMode gridHelperEditMode { get; set; }
-        
-        /// <summary>
-        /// This Brush instances, places and manipulates GameObjects onto the scene.
-        /// </summary>
-        public GameObjectBrushEx()
-        {
-            Init(Vector3Int.one, Vector3Int.zero);
-            SizeUpdated();
-        }
-
-        private void OnEnable()
-        {
-            gridHelperEditMode = Component.FindObjectOfType<XSGridHelperEditMode>();
-        }
-
-        // private void OnDisable()
+        // /// <summary>
+        // /// This Brush instances, places and manipulates GameObjects onto the scene.
+        // /// </summary>
+        // public GameObjectBrushEx()
         // {
         // }
 
-        /// <summary>
-        /// Initializes the content of the GameObjectBrushEx.
-        /// </summary>
-        /// <param name="size">Size of the GameObjectBrushEx.</param>
-        public void Init(Vector3Int size)
-        {
-            Init(size, Vector3Int.zero);
-            SizeUpdated();
-        }
-
-        /// <summary>Initializes the content of the GameObjectBrushEx.</summary>
-        /// <param name="size">Size of the GameObjectBrushEx.</param>
-        /// <param name="pivot">Pivot point of the GameObjectBrushEx.</param>
-        public void Init(Vector3Int size, Vector3Int pivot)
-        {
-            m_Size = size;
-            SizeUpdated();
-        }
 
         /// <summary>
         /// Paints GameObjects into a given position within the selected layers.
@@ -100,11 +45,8 @@ namespace UnityEditor.Tilemaps
         /// <param name="position">The coordinates of the cell to paint data to.</param>
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            Vector3Int min = position;
-            BoundsInt bounds = new BoundsInt(min, m_Size);
-
             GetGrid(ref gridLayout, ref brushTarget);
-            BoxFill(gridLayout, brushTarget, bounds);
+            PaintCell(gridLayout, position, brushTarget != null ? brushTarget.transform : null, m_Cell);
         }
 
         private void PaintCell(GridLayout grid, Vector3Int position, Transform parent, BrushCell cell)
@@ -115,7 +57,7 @@ namespace UnityEditor.Tilemaps
             var existingGO = GetObjectInCell(grid, parent, position);
             if (existingGO == null)
             {
-                SetSceneCell(grid, parent, position, cell.gameObject);
+                SetSceneCell(grid, parent, position, cell.gameObject, m_Anchor);
             }
         }
 
@@ -128,11 +70,8 @@ namespace UnityEditor.Tilemaps
         /// <param name="position">The coordinates of the cell to erase data from.</param>
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            Vector3Int min = position;
-            BoundsInt bounds = new BoundsInt(min, m_Size);
-
             GetGrid(ref gridLayout, ref brushTarget);
-            BoxErase(gridLayout, brushTarget, bounds);
+            EraseCell(gridLayout, position, brushTarget != null ? brushTarget.transform : null);
         }
 
         private void EraseCell(GridLayout grid, Vector3Int position, Transform parent)
@@ -154,25 +93,8 @@ namespace UnityEditor.Tilemaps
             foreach (Vector3Int location in position.allPositionsWithin)
             {
                 Vector3Int local = location - position.min;
-                BrushCell cell = m_Cells[GetCellIndexWrapAround(local.x, local.y, local.z)];
+                BrushCell cell = m_Cell;
                 PaintCell(gridLayout, location, brushTarget != null ? brushTarget.transform : null, cell);
-            }
-        }
-
-        /// <summary>
-        /// Erases GameObjects from given bounds within the selected layers.
-        /// The GameObjectBrushEx overrides this to provide GameObject box-erasing functionality.
-        /// </summary>
-        /// <param name="gridLayout">Grid to erase data from.</param>
-        /// <param name="brushTarget">Target of the erase operation. By default the currently selected GameObject.</param>
-        /// <param name="position">The bounds to erase data from.</param>
-        public override void BoxErase(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
-        {
-            GetGrid(ref gridLayout, ref brushTarget);
-            
-            foreach (Vector3Int location in position.allPositionsWithin)
-            {
-                EraseCell(gridLayout, location, brushTarget != null ? brushTarget.transform : null);
             }
         }
 
@@ -252,34 +174,6 @@ namespace UnityEditor.Tilemaps
             }
         }
 
-        /// <summary>Gets the index to the GameObjectBrushEx::ref::BrushCell based on the position of the BrushCell.</summary>
-        /// <param name="brushPosition">Position of the BrushCell.</param>
-        /// <returns>The cell index for the position of the BrushCell.</returns>
-        public int GetCellIndex(Vector3Int brushPosition)
-        {
-            return GetCellIndex(brushPosition.x, brushPosition.y, brushPosition.z);
-        }
-
-        /// <summary>Gets the index to the GameObjectBrushEx::ref::BrushCell based on the position of the BrushCell.</summary>
-        /// <param name="x">X Position of the BrushCell.</param>
-        /// <param name="y">Y Position of the BrushCell.</param>
-        /// <param name="z">Z Position of the BrushCell.</param>
-        /// <returns>The cell index for the position of the BrushCell.</returns>
-        public int GetCellIndex(int x, int y, int z)
-        {
-            return x + m_Size.x * y + m_Size.x * m_Size.y * z;
-        }
-
-        /// <summary>Gets the index to the GameObjectBrushEx::ref::BrushCell based on the position of the BrushCell. Wraps each coordinate if it is larger than the size of the GameObjectBrushEx.</summary>
-        /// <param name="x">X Position of the BrushCell.</param>
-        /// <param name="y">Y Position of the BrushCell.</param>
-        /// <param name="z">Z Position of the BrushCell.</param>
-        /// <returns>The cell index for the position of the BrushCell.</returns>
-        public int GetCellIndexWrapAround(int x, int y, int z)
-        {
-            return (x % m_Size.x) + m_Size.x * (y % m_Size.y) + m_Size.x * m_Size.y * (z % m_Size.z);
-        }
-
         private GameObject GetObjectInCell(GridLayout grid, Transform parent, Vector3Int position)
         {
             int childCount;
@@ -306,18 +200,7 @@ namespace UnityEditor.Tilemaps
             return null;
         }
 
-        internal void SizeUpdated(bool keepContents = false)
-        {
-            Array.Resize(ref m_Cells, sizeCount);
-            BoundsInt bounds = new BoundsInt(Vector3Int.zero, m_Size);
-            foreach (Vector3Int pos in bounds.allPositionsWithin)
-            {
-                if (keepContents || m_Cells[GetCellIndex(pos)] == null)
-                    m_Cells[GetCellIndex(pos)] = new BrushCell();
-            }
-        }
-
-        private static void SetSceneCell(GridLayout grid, Transform parent, Vector3Int position, GameObject go)
+        private static void SetSceneCell(GridLayout grid, Transform parent, Vector3Int position, GameObject go, Vector3 anchor)
         {
             if (go == null)
                 return;
@@ -340,13 +223,13 @@ namespace UnityEditor.Tilemaps
             }
 
             Undo.RegisterCreatedObjectUndo(instance, "Paint GameObject");
-            instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, position.z)));
+            instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, position.z) + anchor));
 
             //1.画完之后，把每个tile的高度设置到障碍物的顶端
-            if (gridHelperEditMode != null)
+            if (XSGridHelperEditMode.Instance != null)
             {
 
-                var ret = gridHelperEditMode.AddXSTile(instance.GetComponent<XSTileData>());
+                var ret = XSGridHelperEditMode.Instance.AddXSTile(instance.GetComponent<XSTileData>());
                 if (!ret)
                 {
                     Debug.LogError("AddXSTileData failed");
@@ -359,7 +242,7 @@ namespace UnityEditor.Tilemaps
         {
             GameObject erased = GetObjectInCell(grid, parent, new Vector3Int(position.x, position.y, position.z));
             if (erased != null)
-                gridHelperEditMode.RemoveXSTile(erased.GetComponent<XSTileData>());
+                XSGridHelperEditMode.Instance.RemoveXSTile(erased.GetComponent<XSTileData>());
 
         }
 
@@ -372,10 +255,7 @@ namespace UnityEditor.Tilemaps
             int hash = 0;
             unchecked
             {
-                foreach (var cell in cells)
-                {
-                    hash = hash * 33 + cell.GetHashCode();
-                }
+                hash = hash * 33 + m_Cell.GetHashCode();
             }
             return hash;
         }
@@ -414,20 +294,13 @@ namespace UnityEditor.Tilemaps
     /// <summary>
     /// The Brush Editor for a GameObject Brush.
     /// </summary>
-    [CustomEditor(typeof(GameObjectBrushEx))]
-    public class GameObjectBrushExEditor : GridBrushEditorBase
+    [CustomEditor(typeof(XSGridEditorBrush))]
+    public class XSGridEditorBrushEditor : GridBrushEditorBase
     {
         /// <summary>
         /// The GameObjectBrushEx for this Editor
         /// </summary>
-        public GameObjectBrushEx brush { get { return target as GameObjectBrushEx; } }
-
-        /// <summary> Whether the GridBrush can change Z Position. </summary>
-        public override bool canChangeZPosition
-        {
-            get { return brush.canChangeZPosition; }
-            set { brush.canChangeZPosition = value; }
-        }
+        public XSGridEditorBrush brush { get { return target as XSGridEditorBrush; } }
 
         /// <summary>
         /// Callback for painting the inspector GUI for the GameObjectBrushEx in the tilemap palette.
@@ -437,10 +310,7 @@ namespace UnityEditor.Tilemaps
         {
             EditorGUI.BeginChangeCheck();
             base.OnInspectorGUI();
-            if (EditorGUI.EndChangeCheck() && brush.cellCount != brush.sizeCount)
-            {
-                brush.SizeUpdated(true);
-            }
+            EditorGUI.EndChangeCheck();
         }
 
         /// <summary>

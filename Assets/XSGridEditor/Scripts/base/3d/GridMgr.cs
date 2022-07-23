@@ -72,9 +72,10 @@ namespace XSSLG
         public bool AddXSTile(XSTileData tileData, Dictionary<Vector3Int, XSTile> tileDict)
         {
             var tilePos = this.WorldToTile(tileData.transform.position);
-            if (tileDict.ContainsKey(tilePos))
+            // 判断 tileDict[tilePos].Node 是因为实际节点可能是被其他情况下清除了
+            if (tileDict.ContainsKey(tilePos) && tileDict[tilePos].Node != null)
             {
-                Debug.LogError("GridMgr.CreatePathFinderTileDict: 已经存在相同的tilePos：" + tilePos);
+                Debug.LogError("GridMgr.AddXSTile: 已经存在相同的tilePos：" + tilePos);
                 return false;
             }
             else
@@ -102,7 +103,7 @@ namespace XSSLG
                 ret = true;
             }
             else
-                Debug.LogError("GridMgr.CreatePathFinderTileDict: 已经存在相同的tilePos：" + tilePos);
+                Debug.LogError("GridMgr.RemoveXSTile: 这个位置上不存在tile，tilePos：" + tilePos);
 
 
             UnityUtils.RemoveObj(tileData.gameObject);
