@@ -14,15 +14,15 @@ using UnityEngine.SceneManagement;
 using XSSLG;
 using Object = UnityEngine.Object;
 
-namespace XSSLG
+namespace UnityEditor.Tilemaps
 {
     /// <summary>
     /// This Brush instances, places and manipulates GameObjects onto the scene.
     /// Use this as an example to create brushes which targets objects other than tiles for manipulation.
     /// </summary>
-    // [HelpURL("https://docs.unity3d.com/Packages/com.unity.2d.tilemap.extras@latest/index.html?subfolder=/manual/GameObjectBrush.html")]
-    [CustomGridBrush(true, false, false, "XSGridEditor Brush")]
-    public class XSGridEditorBrush : GameObjectBrush
+    [HelpURL("https://docs.unity3d.com/Packages/com.unity.2d.tilemap.extras@latest/index.html?subfolder=/manual/GameObjectBrush.html")]
+    [CustomGridBrush(true, false, false, "GameObject BrushEx")]
+    public class GameObjectBrushEx : GridBrushBase
     {
         [Serializable]
 
@@ -708,60 +708,101 @@ namespace XSSLG
         }
     }
 
-    // /// <summary>
-    // /// The Brush Editor for a GameObject Brush.
-    // /// </summary>
-    // [CustomEditor(typeof(GameObjectBrushEx))]
-    // public class GameObjectBrushExEditor : GridBrushEditorBase
-    // {
-    //     /// <summary>
-    //     /// The GameObjectBrushEx for this Editor
-    //     /// </summary>
-    //     public GameObjectBrushEx brush { get { return target as GameObjectBrushEx; } }
+    /// <summary>
+    /// The Brush Editor for a GameObject Brush.
+    /// </summary>
+    [CustomEditor(typeof(GameObjectBrushEx))]
+    public class GameObjectBrushExEditor : GridBrushEditorBase
+    {
+        private bool hiddenGridFoldout;
+        private Editor hiddenGridEditor;
 
-    //     /// <summary> Whether the GridBrush can change Z Position. </summary>
-    //     public override bool canChangeZPosition
-    //     {
-    //         get { return brush.canChangeZPosition; }
-    //         set { brush.canChangeZPosition = value; }
-    //     }
+        /// <summary>
+        /// The GameObjectBrushEx for this Editor
+        /// </summary>
+        public GameObjectBrushEx brush { get { return target as GameObjectBrushEx; } }
+
+        /// <summary> Whether the GridBrush can change Z Position. </summary>
+        public override bool canChangeZPosition
+        {
+            get { return brush.canChangeZPosition; }
+            set { brush.canChangeZPosition = value; }
+        }
         
-    //     /// <summary>
-    //     /// Callback for painting the GUI for the GridBrush in the Scene View.
-    //     /// The GameObjectBrushEx Editor overrides this to draw the preview of the brush when drawing lines.
-    //     /// </summary>
-    //     /// <param name="gridLayout">Grid that the brush is being used on.</param>
-    //     /// <param name="brushTarget">Target of the GameObjectBrushEx::ref::Tool operation. By default the currently selected GameObject.</param>
-    //     /// <param name="position">Current selected location of the brush.</param>
-    //     /// <param name="tool">Current GameObjectBrushEx::ref::Tool selected.</param>
-    //     /// <param name="executing">Whether brush is being used.</param>
-    //     public override void OnPaintSceneGUI(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, GridBrushBase.Tool tool, bool executing)
-    //     {
-    //         BoundsInt gizmoRect = position;
+        /// <summary>
+        /// Callback for painting the GUI for the GridBrush in the Scene View.
+        /// The GameObjectBrushEx Editor overrides this to draw the preview of the brush when drawing lines.
+        /// </summary>
+        /// <param name="gridLayout">Grid that the brush is being used on.</param>
+        /// <param name="brushTarget">Target of the GameObjectBrushEx::ref::Tool operation. By default the currently selected GameObject.</param>
+        /// <param name="position">Current selected location of the brush.</param>
+        /// <param name="tool">Current GameObjectBrushEx::ref::Tool selected.</param>
+        /// <param name="executing">Whether brush is being used.</param>
+        public override void OnPaintSceneGUI(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, GridBrushBase.Tool tool, bool executing)
+        {
+            BoundsInt gizmoRect = position;
 
-    //         if (tool == GridBrushBase.Tool.Paint || tool == GridBrushBase.Tool.Erase)
-    //             gizmoRect = new BoundsInt(position.min - brush.pivot, brush.size);
+            if (tool == GridBrushBase.Tool.Paint || tool == GridBrushBase.Tool.Erase)
+                gizmoRect = new BoundsInt(position.min - brush.pivot, brush.size);
             
-    //         base.OnPaintSceneGUI(gridLayout, brushTarget, gizmoRect, tool, executing);
-    //     }
+            base.OnPaintSceneGUI(gridLayout, brushTarget, gizmoRect, tool, executing);
+        }
 
-    //     //好像是场景上的虚线格子，表示你可以paint的区域
-    //     /// <summary>
-    //     /// The targets that the GameObjectBrushEx can paint on
-    //     /// </summary>
-    //     public override GameObject[] validTargets
-    //     {
-    //         get
-    //         {
-    //             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-    //             var results = currentStageHandle.FindComponentsOfType<GridLayout>().Where(x =>
-    //             {
-    //                 GameObject gameObject;
-    //                 return (gameObject = x.gameObject).scene.isLoaded
-    //                        && gameObject.activeInHierarchy;
-    //             }).Select(x => x.gameObject);
-    //             return results.Prepend(brush.hiddenGrid).ToArray();
-    //         }
-    //     }
-    // }
+        /// <summary>
+        /// Callback for painting the inspector GUI for the GameObjectBrushEx in the tilemap palette.
+        /// The GameObjectBrushEx Editor overrides this to show the usage of this Brush.
+        /// </summary>
+        public override void OnPaintInspectorGUI()
+        {
+            EditorGUI.BeginChangeCheck();
+            base.OnInspectorGUI();
+            if (EditorGUI.EndChangeCheck() && brush.cellCount != brush.sizeCount)
+            {
+                brush.SizeUpdated(true);
+            }
+
+            hiddenGridFoldout = EditorGUILayout.Foldout(hiddenGridFoldout, "SceneRoot Grid");
+            if (hiddenGridFoldout)
+            {
+                EditorGUI.indentLevel++;
+                using (new EditorGUI.DisabledScope(GridPaintingState.scenePaintTarget != brush.hiddenGrid))
+                {
+                    if (hiddenGridEditor == null)
+                    {
+                        hiddenGridEditor = Editor.CreateEditor(brush.hiddenGrid.GetComponent<Grid>());
+                    }
+                    brush.hiddenGrid.hideFlags = HideFlags.None;
+                    EditorGUI.BeginChangeCheck();
+                    hiddenGridEditor.OnInspectorGUI();
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        brush.UpdateHiddenGridLayout();
+                        EditorUtility.SetDirty(brush);
+                        SceneView.RepaintAll();
+                    }
+                    brush.hiddenGrid.hideFlags = HideFlags.HideAndDontSave;
+                }
+                EditorGUI.indentLevel--;
+            }
+        }
+
+        /// <summary>
+        /// The targets that the GameObjectBrushEx can paint on
+        /// </summary>
+        public override GameObject[] validTargets
+        {
+            get
+            {
+                StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+                var results = currentStageHandle.FindComponentsOfType<GridLayout>().Where(x =>
+                {
+                    GameObject gameObject;
+                    return (gameObject = x.gameObject).scene.isLoaded
+                           && gameObject.activeInHierarchy;
+                }).Select(x => x.gameObject);
+                return results.Prepend(brush.hiddenGrid).ToArray();
+            }
+        }
+
+    }
 }
