@@ -1,40 +1,27 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/1/15
-/// @Description: 复制官方的类 GameObjectBrush ，做了以下一些修改
+/// @Description: 简单的画prefab的画笔，实现以下功能
 /// 1.画完之后，把每个 tile 的 y 设置到障碍物的顶端
-/// 2.画完时调整了 y ，所以要假设 y=0 才能正确获得 child
 /// </summary>
 /// 
 using System;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using XSSLG;
-using Object = UnityEngine.Object;
 
-namespace UnityEditor.Tilemaps
+namespace XSSLG
 {
-    /// <summary>
-    /// This Brush instances, places and manipulates GameObjects onto the scene.
-    /// Use this as an example to create brushes which targets objects other than tiles for manipulation.
-    /// </summary>
-    [CustomGridBrush(true, false, false, "XSGridEditor Brush")]
+    [CustomGridBrush(true, false, true, "XSGridEditor Brush")]
     public class XSGridEditorBrush : GridBrushBase
     {
         [SerializeField]
-        private BrushCell m_Cell;
+        private BrushTile tile;
 
-        private Vector3 m_Anchor = new Vector3(0.5f, 0.5f, 0.5f);
-
-        // /// <summary>
-        // /// This Brush instances, places and manipulates GameObjects onto the scene.
-        // /// </summary>
-        // public GameObjectBrushEx()
-        // {
-        // }
-
+        private static Vector3 ANCHOR { get; } = new Vector3(0.5f, 0.5f, 0.5f);
 
         /// <summary>
         /// Paints GameObjects into a given position within the selected layers.
@@ -45,20 +32,19 @@ namespace UnityEditor.Tilemaps
         /// <param name="position">The coordinates of the cell to paint data to.</param>
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            GetGrid(ref gridLayout, ref brushTarget);
-            PaintCell(gridLayout, position, brushTarget != null ? brushTarget.transform : null, m_Cell);
+            this.PaintTile(gridLayout, position, brushTarget != null ? brushTarget.transform : null, tile);
         }
 
-        private void PaintCell(GridLayout grid, Vector3Int position, Transform parent, BrushCell cell)
+        private void PaintTile(GridLayout grid, Vector3Int position, Transform parent, BrushTile tile)
         {
-            if (cell.gameObject == null)
+            if (tile.gameObject == null)
                 return;
 
-            var existingGO = GetObjectInCell(grid, parent, position);
-            if (existingGO == null)
-            {
-                SetSceneCell(grid, parent, position, cell.gameObject, m_Anchor);
-            }
+            var existTile = XSUE.GetGridMgr().GetTile(position);
+            if (existTile != null)
+                return;
+                
+            SetSceneTile(grid, parent, position, tile.gameObject, ANCHOR);
         }
 
         /// <summary>
@@ -70,13 +56,11 @@ namespace UnityEditor.Tilemaps
         /// <param name="position">The coordinates of the cell to erase data from.</param>
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            GetGrid(ref gridLayout, ref brushTarget);
-            EraseCell(gridLayout, position, brushTarget != null ? brushTarget.transform : null);
-        }
+            var existTile = XSUE.GetGridMgr().GetTile(position);
+            if (existTile == null || existTile.Node == null)
+                return;
 
-        private void EraseCell(GridLayout grid, Vector3Int position, Transform parent)
-        {
-            ClearSceneCell(grid, parent, position);
+            XSGridHelperEditMode.Instance.RemoveXSTile(existTile.Node);
         }
 
         /// <summary>
@@ -88,13 +72,11 @@ namespace UnityEditor.Tilemaps
         /// <param name="position">The bounds to box fill data into.</param>
         public override void BoxFill(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
         {
-            GetGrid(ref gridLayout, ref brushTarget);
-            
             foreach (Vector3Int location in position.allPositionsWithin)
             {
                 Vector3Int local = location - position.min;
-                BrushCell cell = m_Cell;
-                PaintCell(gridLayout, location, brushTarget != null ? brushTarget.transform : null, cell);
+                BrushTile cell = tile;
+                this.PaintTile(gridLayout, location, brushTarget != null ? brushTarget.transform : null, cell);
             }
         }
 
@@ -104,28 +86,19 @@ namespace UnityEditor.Tilemaps
         /// <param name="gridLayout">Grid used for layout.</param>
         /// <param name="brushTarget">Target of the flood fill operation. By default the currently selected GameObject.</param>
         /// <param name="position">Starting position of the flood fill.</param>
-        public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
-        {
-            Debug.LogWarning("FloodFill not supported");
-        }
+        public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill not supported");
 
         /// <summary>
         /// Rotates the brush by 90 degrees in the given direction.
         /// </summary>
         /// <param name="direction">Direction to rotate by.</param>
         /// <param name="layout">Cell Layout for rotating.</param>
-        public override void Rotate(RotationDirection direction, GridLayout.CellLayout layout)
-        {
-            Debug.LogWarning("Rotate not supported");
-        }
+        public override void Rotate(RotationDirection direction, GridLayout.CellLayout layout) => Debug.LogWarning("Rotate not supported");
 
         /// <summary>Flips the brush in the given axis.</summary>
         /// <param name="flip">Axis to flip by.</param>
         /// <param name="layout">Cell Layout for flipping.</param>
-        public override void Flip(FlipAxis flip, GridLayout.CellLayout layout)
-        {
-            Debug.LogWarning("Flip not supported");
-        }
+        public override void Flip(FlipAxis flip, GridLayout.CellLayout layout) => Debug.LogWarning("Flip not supported");
 
         /// <summary>
         /// Picks child GameObjects given the coordinates of the cells.
@@ -135,10 +108,7 @@ namespace UnityEditor.Tilemaps
         /// <param name="brushTarget">Target of the picking operation. By default the currently selected GameObject.</param>
         /// <param name="position">The coordinates of the cells to paint data from.</param>
         /// <param name="pivot">Pivot of the picking brush.</param>
-        public override void Pick(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, Vector3Int pivot)
-        {
-            Debug.LogWarning("Pick not supported");
-        }
+        public override void Pick(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, Vector3Int pivot) => Debug.LogWarning("Pick not supported");
 
         /// <summary>
         /// MoveStart is called when user starts moving the area previously selected with the selection marquee.
@@ -147,10 +117,7 @@ namespace UnityEditor.Tilemaps
         /// <param name="gridLayout">Grid used for layout.</param>
         /// <param name="brushTarget">Target of the move operation. By default the currently selected GameObject.</param>
         /// <param name="position">Position where the move operation has started.</param>
-        public override void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
-        {
-            Debug.LogWarning("MoveStart not supported");
-        }
+        public override void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveStart not supported");
 
         /// <summary>
         /// MoveEnd is called when user has ended the move of the area previously selected with the selection marquee.
@@ -159,48 +126,9 @@ namespace UnityEditor.Tilemaps
         /// <param name="gridLayout">Grid used for layout.</param>
         /// <param name="brushTarget">Target of the move operation. By default the currently selected GameObject.</param>
         /// <param name="position">Position where the move operation has ended.</param>
-        public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
-        {
-            Debug.LogWarning("MoveEnd not supported");
-        }
+        public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveEnd not supported");
 
-        private void GetGrid(ref GridLayout gridLayout, ref GameObject brushTarget)
-        {
-            if (brushTarget != null)
-            {
-                var targetGridLayout = brushTarget.GetComponent<GridLayout>();
-                if (targetGridLayout != null)
-                    gridLayout = targetGridLayout;
-            }
-        }
-
-        private GameObject GetObjectInCell(GridLayout grid, Transform parent, Vector3Int position)
-        {
-            int childCount;
-            GameObject[] sceneChildren = null;
-            if (parent == null)
-            {
-                var scene = SceneManager.GetActiveScene();
-                sceneChildren = scene.GetRootGameObjects();
-                childCount = scene.rootCount;
-            }
-            else
-            {
-                childCount = parent.childCount;
-            }
-
-            for (var i = 0; i < childCount; i++)
-            {
-                var child = sceneChildren == null ? parent.GetChild(i) : sceneChildren[i].transform;
-                // 2.画完时调整了y，所以要假设y=0才能正确获得child
-                var pos = new Vector3(child.position.x, 0, child.position.z);
-                if (position == grid.WorldToCell(pos))
-                    return child.gameObject;
-            }
-            return null;
-        }
-
-        private static void SetSceneCell(GridLayout grid, Transform parent, Vector3Int position, GameObject go, Vector3 anchor)
+        private static void SetSceneTile(GridLayout grid, Transform parent, Vector3Int position, GameObject go, Vector3 anchor)
         {
             if (go == null)
                 return;
@@ -208,7 +136,7 @@ namespace UnityEditor.Tilemaps
             GameObject instance;
             if (PrefabUtility.IsPartOfPrefabAsset(go))
             {
-                instance = (GameObject) PrefabUtility.InstantiatePrefab(go, parent != null ? parent.root.gameObject.scene : SceneManager.GetActiveScene());
+                instance = (GameObject)PrefabUtility.InstantiatePrefab(go, parent != null ? parent.root.gameObject.scene : SceneManager.GetActiveScene());
                 instance.transform.parent = parent;
             }
             else
@@ -238,14 +166,6 @@ namespace UnityEditor.Tilemaps
             }
         }
 
-        private void ClearSceneCell(GridLayout grid, Transform parent, Vector3Int position)
-        {
-            GameObject erased = GetObjectInCell(grid, parent, new Vector3Int(position.x, position.y, position.z));
-            if (erased != null)
-                XSGridHelperEditMode.Instance.RemoveXSTile(erased.GetComponent<XSTileData>());
-
-        }
-
         /// <summary>
         /// Hashes the contents of the brush.
         /// </summary>
@@ -255,7 +175,7 @@ namespace UnityEditor.Tilemaps
             int hash = 0;
             unchecked
             {
-                hash = hash * 33 + m_Cell.GetHashCode();
+                hash = hash * 33 + tile.GetHashCode();
             }
             return hash;
         }
@@ -264,13 +184,13 @@ namespace UnityEditor.Tilemaps
         ///Brush Cell stores the data to be painted in a grid cell.
         /// </summary>
         [Serializable]
-        public class BrushCell
+        public class BrushTile
         {
             /// <summary>
             /// GameObject to be placed when painting.
             /// </summary>
             public GameObject gameObject { get { return m_GameObject; } set { m_GameObject = value; } }
-            
+
             [SerializeField]
             private GameObject m_GameObject;
 
