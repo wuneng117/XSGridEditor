@@ -21,8 +21,6 @@ namespace XSSLG
         [SerializeField]
         private BrushTile tile;
 
-        private static Vector3 ANCHOR { get; } = new Vector3(0.5f, 0.5f, 0.5f);
-
         /// <summary>
         /// Paints GameObjects into a given position within the selected layers.
         /// The GameObjectBrushEx overrides this to provide GameObject painting functionality.
@@ -37,6 +35,8 @@ namespace XSSLG
 
         private void PaintTile(GridLayout grid, Vector3Int position, Transform parent, BrushTile tile)
         {
+            //TODO 要确认下，如果position是tile坐标，需要转成世界坐标
+            var worldPos = Vector3.zero;
             if (tile.gameObject == null)
                 return;
 
@@ -44,7 +44,29 @@ namespace XSSLG
             if (existTile != null)
                 return;
                 
-            SetSceneTile(grid, parent, position, tile.gameObject, ANCHOR);
+            GameObject instance;
+            if (PrefabUtility.IsPartOfPrefabAsset(tile.gameObject))
+                instance = (GameObject)PrefabUtility.InstantiatePrefab(tile.gameObject, parent) as GameObject;
+            else
+            {
+                instance = Instantiate(tile.gameObject, parent);
+                instance.name = tile.gameObject.name;
+                instance.SetActive(true);
+                foreach (var renderer in instance.GetComponentsInChildren<Renderer>())
+                    renderer.enabled = true;
+            }
+
+            instance.transform.position = XSUE.GetGridMgr().WorldToTileCenterWorld(worldPos);
+            //添加到TileDict
+            var ret = XSGridHelperEditMode.Instance?.AddXSTile(instance.GetComponent<XSTileData>());
+
+            if (ret)
+                Undo.RegisterCreatedObjectUndo(instance, "Paint GameObject");
+            else
+            {
+                Debug.LogError("AddXSTileData failed");
+                GameObject.DestroyImmediate(instance);
+            }
         }
 
         /// <summary>
@@ -73,11 +95,7 @@ namespace XSSLG
         public override void BoxFill(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
         {
             foreach (Vector3Int location in position.allPositionsWithin)
-            {
-                Vector3Int local = location - position.min;
-                BrushTile cell = tile;
-                this.PaintTile(gridLayout, location, brushTarget != null ? brushTarget.transform : null, cell);
-            }
+                this.PaintTile(gridLayout, location, brushTarget, tile);
         }
 
         /// <summary>
@@ -128,44 +146,6 @@ namespace XSSLG
         /// <param name="position">Position where the move operation has ended.</param>
         public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveEnd not supported");
 
-        private static void SetSceneTile(GridLayout grid, Transform parent, Vector3Int position, GameObject go, Vector3 anchor)
-        {
-            if (go == null)
-                return;
-
-            GameObject instance;
-            if (PrefabUtility.IsPartOfPrefabAsset(go))
-            {
-                instance = (GameObject)PrefabUtility.InstantiatePrefab(go, parent != null ? parent.root.gameObject.scene : SceneManager.GetActiveScene());
-                instance.transform.parent = parent;
-            }
-            else
-            {
-                instance = Instantiate(go, parent);
-                instance.name = go.name;
-                instance.SetActive(true);
-                foreach (var renderer in instance.GetComponentsInChildren<Renderer>())
-                {
-                    renderer.enabled = true;
-                }
-            }
-
-            Undo.RegisterCreatedObjectUndo(instance, "Paint GameObject");
-            instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3Int(position.x, position.y, position.z) + anchor));
-
-            //1.画完之后，把每个tile的高度设置到障碍物的顶端
-            if (XSGridHelperEditMode.Instance != null)
-            {
-
-                var ret = XSGridHelperEditMode.Instance.AddXSTile(instance.GetComponent<XSTileData>());
-                if (!ret)
-                {
-                    Debug.LogError("AddXSTileData failed");
-                    GameObject.DestroyImmediate(instance);
-                }
-            }
-        }
-
         /// <summary>
         /// Hashes the contents of the brush.
         /// </summary>
@@ -189,11 +169,10 @@ namespace XSSLG
             /// <summary>
             /// GameObject to be placed when painting.
             /// </summary>
-            public GameObject gameObject { get { return m_GameObject; } set { m_GameObject = value; } }
+            public GameObject gameObject { get => gameObject; set => gameObject = value; }
 
             [SerializeField]
-            private GameObject m_GameObject;
-
+            private GameObject gameObject;
 
             /// <summary>
             /// Hashes the contents of the brush cell.
