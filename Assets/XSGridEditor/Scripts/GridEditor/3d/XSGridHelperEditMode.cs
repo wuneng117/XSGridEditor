@@ -15,9 +15,6 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
-        private static XSGridHelperEditMode mInstance;
-        public static XSGridHelperEditMode Instance { get => mInstance; }
-
         /// <summary> tile根节点 </summary>
         public Transform TileRoot = null;
 
@@ -38,11 +35,7 @@ namespace XSSLG
 
         public void Start()
         {
-            if (XSUE.IsEditor())
-            {
-                mInstance = this;
-            }
-            else
+            if (!XSUE.IsEditor())
                 this.enabled = false;
         }
 
@@ -59,7 +52,7 @@ namespace XSSLG
         }
 
         /// <summary> 获取所有 XSTileData 节点 </summary>
-        public XSTileData[] GetTileDataArray() => XSGridHelper.Instance.GetTileDataArray();
+        public XSTileData[] GetTileDataArray() => XSEditorInstance.Instance.GridHelper.GetTileDataArray();
 
         /// <summary>
         /// 添加XSTile
@@ -68,7 +61,8 @@ namespace XSSLG
         /// <returns></returns>
         public bool AddXSTile(XSTileData tileData)
         {
-            var ret = XSUE.GetGridMgr().AddXSTile(tileData, XSUE.GetGridMgr().TileDict);
+            var mgr = XSEditorInstance.Instance.GridMgr;
+            var ret = mgr.AddXSTile(tileData, mgr.TileDict);
             if (!ret)
                 return ret;
 
@@ -88,14 +82,18 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public bool RemoveXSTile(XSTileData tileData) => XSUE.GetGridMgr().RemoveXSTile(tileData, XSUE.GetGridMgr().TileDict);
+        public bool RemoveXSTile(XSTileData tileData) 
+        {
+            var mgr = XSEditorInstance.Instance.GridMgr;
+            return mgr.RemoveXSTile(tileData, mgr.TileDict);
+        } 
 
         /// <summary>
         /// 调整所有tile的高度
         /// </summary>
         public virtual void SetTileToNearTerrain()
         {
-            foreach (var tile in XSUE.GetGridMgr().TileDict.Values)
+            foreach (var tile in XSEditorInstance.Instance.GridMgr.TileDict.Values)
                 this.SetTileToNearTerrain(tile);
         }
 
@@ -156,7 +154,7 @@ namespace XSSLG
         public virtual void UpdateXSTile(XSTileData tileData, Vector3Int tilePos, Vector3 worldPos, int cost, Func<Vector3Int, bool> isWalkable = null, Func<Vector3Int, bool> canBeDustFunc = null)
         {
             var tile = new XSTile(tilePos, worldPos, cost, tileData, isWalkable, canBeDustFunc);
-            XSUE.GetGridMgr().UpdateTileDict(tile);
+            XSEditorInstance.Instance.GridMgr.UpdateTileDict(tile);
         }
 
         /// <summary> 删除所有的 tile </summary>
@@ -207,7 +205,7 @@ namespace XSSLG
             {
                 var textRoot = new GameObject();
                 textRoot.name = rootName;
-                foreach (var tile in XSUE.GetGridMgr().TileDict.Values)
+                foreach (var tile in XSEditorInstance.Instance.GridMgr.TileDict.Values)
                 {
                     if (tile.Node != null)
                     {

@@ -46,7 +46,7 @@ namespace XSSLG
             if (GameObject.Find(this.RootPath))
              return;
 
-            var root = XSGridHelper.Instance?.transform;
+            var root = XSInstance.Instance.GridHelper?.transform;
             if (root ==null) return;
 
             // 取名字，路径不要

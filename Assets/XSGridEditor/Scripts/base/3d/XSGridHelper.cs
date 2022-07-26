@@ -11,13 +11,6 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSGridHelper : MonoBehaviour
     {
-        private static XSGridHelper mInstance;
-        public static XSGridHelper Instance { get => mInstance; }
-
-        /// <summary> 辅助类 </summary>
-        [HideInInspector]
-        public GridMgr GridMgr { protected set; get; } = null;
-
         /// <summary> 移动范围用的图片 </summary>
         public Sprite TileSpriteMove = null;
 
@@ -28,12 +21,6 @@ namespace XSSLG
 
         /// <summary> tile 的prefab 文件 </summary>
         public GameObject TilePrefab = null;
-
-        public void Start()
-        {
-            mInstance = this;
-            this.GridMgr = new GridMgr();
-        }
 
         /// <summary> 获取所有 XSTileData 节点 </summary>
         public XSTileData[] GetTileDataArray()

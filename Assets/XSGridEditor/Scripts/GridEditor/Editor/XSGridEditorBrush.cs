@@ -40,7 +40,8 @@ namespace XSSLG
             if (tile.gameObject == null)
                 return;
 
-            var existTile = XSUE.GetGridMgr().GetTile(position);
+            var mgr = XSEditorInstance.Instance.GridMgr;
+            var existTile = mgr.GetTile(position);
             if (existTile != null)
                 return;
                 
@@ -56,9 +57,9 @@ namespace XSSLG
                     renderer.enabled = true;
             }
 
-            instance.transform.position = XSUE.GetGridMgr().WorldToTileCenterWorld(worldPos);
+            instance.transform.position = mgr.WorldToTileCenterWorld(worldPos);
             //添加到TileDict
-            var ret = XSGridHelperEditMode.Instance?.AddXSTile(instance.GetComponent<XSTileData>());
+            var ret = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(instance.GetComponent<XSTileData>());
 
             if (ret != null)
                 Undo.RegisterCreatedObjectUndo(instance, "Paint GameObject");
@@ -78,11 +79,11 @@ namespace XSSLG
         /// <param name="position">The coordinates of the cell to erase data from.</param>
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            var existTile = XSUE.GetGridMgr().GetTile(position);
+            var existTile = XSEditorInstance.Instance.GridMgr.GetTile(position);
             if (existTile == null || existTile.Node == null)
                 return;
 
-            XSGridHelperEditMode.Instance.RemoveXSTile(existTile.Node);
+            XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile(existTile.Node);
         }
 
         /// <summary>
