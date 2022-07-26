@@ -19,7 +19,7 @@ namespace XSSLG
     public class XSGridEditorBrush : GridBrushBase
     {
         [SerializeField]
-        private BrushTile tile;
+        private BrushTile brushTile;
 
         /// <summary>
         /// Paints GameObjects into a given position within the selected layers.
@@ -30,45 +30,51 @@ namespace XSSLG
         /// <param name="position">The coordinates of the cell to paint data to.</param>
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            this.PaintTile(gridLayout, position, brushTarget != null ? brushTarget.transform : null, tile);
-        }
-
-        private void PaintTile(GridLayout grid, Vector3Int position, Transform parent, BrushTile tile)
-        {
-            //TODO 要确认下，如果position是tile坐标，需要转成世界坐标
-            var worldPos = grid.CellToWorld(position);
-            if (tile.gameObject == null)
+            var brushTileObj = this.brushTile.gameObject;
+            if (brushTileObj == null)
                 return;
 
             var mgr = XSEditorInstance.Instance.GridMgr;
-            var existTile = mgr.GetTile(position);
+            var worldPos = gridLayout.CellToWorld(position);
+            var existTile = mgr.GetTile(worldPos);
             if (existTile != null)
                 return;
                 
-            GameObject instance;
-            if (PrefabUtility.IsPartOfPrefabAsset(tile.gameObject))
-                instance = (GameObject)PrefabUtility.InstantiatePrefab(tile.gameObject, parent) as GameObject;
+            GameObject tileObj;
+            if (PrefabUtility.IsPartOfPrefabAsset(brushTileObj))
+                tileObj = (GameObject)PrefabUtility.InstantiatePrefab(brushTileObj, brushTarget.transform) as GameObject;
             else
             {
-                instance = Instantiate(tile.gameObject, parent);
-                instance.name = tile.gameObject.name;
-                instance.SetActive(true);
-                foreach (var renderer in instance.GetComponentsInChildren<Renderer>())
+                tileObj = Instantiate(brushTileObj, brushTarget.transform);
+                tileObj.name = brushTileObj.name;
+                tileObj.SetActive(true);
+                foreach (var renderer in tileObj.GetComponentsInChildren<Renderer>())
                     renderer.enabled = true;
             }
 
-            instance.transform.position = mgr.WorldToTileCenterWorld(worldPos);
+            tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
             //添加到TileDict
-            var ret = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(instance.GetComponent<XSTileData>());
+            var ret = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileData>());
 
-            if (ret != null)
-                Undo.RegisterCreatedObjectUndo(instance, "Paint GameObject");
-            else
+            if (ret == null)
             {
                 Debug.LogError("AddXSTileData failed");
-                GameObject.DestroyImmediate(instance);
+                GameObject.DestroyImmediate(tileObj);
             }
         }
+
+        // /// <summary>
+        // /// Box fills GameObjects into given bounds within the selected layers.
+        // /// The GameObjectBrushEx overrides this to provide GameObject box-filling functionality.
+        // /// </summary>
+        // /// <param name="gridLayout">Grid to box fill data to.</param>
+        // /// <param name="brushTarget">Target of the box fill operation. By default the currently selected GameObject.</param>
+        // /// <param name="position">The bounds to box fill data into.</param>
+        // public override void BoxFill(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
+        // {
+        //     foreach (Vector3Int location in position.allPositionsWithin)
+        //         this.Paint(gridLayout, brushTarget, location);
+        // }
 
         /// <summary>
         /// Erases GameObjects in a given position within the selected layers.
@@ -79,25 +85,15 @@ namespace XSSLG
         /// <param name="position">The coordinates of the cell to erase data from.</param>
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            var existTile = XSEditorInstance.Instance.GridMgr.GetTile(position);
+            var worldPos = gridLayout.CellToWorld(position);
+            var existTile = XSEditorInstance.Instance.GridMgr.GetTile(worldPos);
             if (existTile == null || existTile.Node == null)
                 return;
 
             XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile(existTile.Node);
         }
 
-        /// <summary>
-        /// Box fills GameObjects into given bounds within the selected layers.
-        /// The GameObjectBrushEx overrides this to provide GameObject box-filling functionality.
-        /// </summary>
-        /// <param name="gridLayout">Grid to box fill data to.</param>
-        /// <param name="brushTarget">Target of the box fill operation. By default the currently selected GameObject.</param>
-        /// <param name="position">The bounds to box fill data into.</param>
-        public override void BoxFill(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
-        {
-            foreach (Vector3Int location in position.allPositionsWithin)
-                this.PaintTile(gridLayout, location, brushTarget.transform, tile);
-        }
+
 
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill not supported");
 
@@ -120,7 +116,7 @@ namespace XSSLG
             int hash = 0;
             unchecked
             {
-                hash = hash * 33 + tile.GetHashCode();
+                hash = hash * 33 + brushTile.GetHashCode();
             }
             return hash;
         }
