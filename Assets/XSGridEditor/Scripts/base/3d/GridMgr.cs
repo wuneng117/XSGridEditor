@@ -37,6 +37,14 @@ namespace XSSLG
             ret.y = Mathf.FloorToInt((worldPos.z) / this.TileSize);
             return ret;
         }
+        public override Vector3 WorldToTileCenterWorld(Vector3 worldPos)
+        {
+            var tilePos = this.WorldToTile(worldPos);
+            var ret = Vector3.zero;
+            ret.x = tilePos.x * this.TileSize + (float)this.TileSize / 2;
+            ret.z = tilePos.y * this.TileSize + (float)this.TileSize / 2;
+            return ret;
+        }
 
         protected override Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict()
         {

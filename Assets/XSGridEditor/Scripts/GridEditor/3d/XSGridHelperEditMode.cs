@@ -162,7 +162,7 @@ namespace XSSLG
         /// <summary> 删除所有的 tile </summary>
         public virtual void ClearTiles()
         {
-            XSUE.RemoveChildren(this.gameObject);
+            XSUE.RemoveChildren(this.TileRoot.gameObject);
         }
 
         /// <summary>

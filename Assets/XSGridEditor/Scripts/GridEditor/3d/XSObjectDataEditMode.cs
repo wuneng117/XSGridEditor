@@ -59,8 +59,6 @@ namespace XSSLG
                         this.transform.position = this.PrevPos;
                     }
                 }
-
-
             }
         }
 

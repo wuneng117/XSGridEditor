@@ -61,12 +61,7 @@ namespace XSSLG
                 return null;
         }
 
-        public Vector3 WorldToTileCenterWorld(Vector3 worldPos)
-        {
-            var cellPos = this.WorldToTile(worldPos);
-            var ret = this.TileToWorld(cellPos);
-            return ret;
-        }
+        public abstract Vector3 WorldToTileCenterWorld(Vector3 worldPos);
 
         /// <summary>
         /// 创建一个以 tilepos 为 key，PathFinderTile 为 value 的 Dictionary，用来生成 PathFinder

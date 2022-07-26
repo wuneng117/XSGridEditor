@@ -36,7 +36,7 @@ namespace XSSLG
         private void PaintTile(GridLayout grid, Vector3Int position, Transform parent, BrushTile tile)
         {
             //TODO 要确认下，如果position是tile坐标，需要转成世界坐标
-            var worldPos = Vector3.zero;
+            var worldPos = grid.CellToWorld(position);
             if (tile.gameObject == null)
                 return;
 
@@ -60,7 +60,7 @@ namespace XSSLG
             //添加到TileDict
             var ret = XSGridHelperEditMode.Instance?.AddXSTile(instance.GetComponent<XSTileData>());
 
-            if (ret)
+            if (ret != null)
                 Undo.RegisterCreatedObjectUndo(instance, "Paint GameObject");
             else
             {
@@ -95,7 +95,7 @@ namespace XSSLG
         public override void BoxFill(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
         {
             foreach (Vector3Int location in position.allPositionsWithin)
-                this.PaintTile(gridLayout, location, brushTarget, tile);
+                this.PaintTile(gridLayout, location, brushTarget.transform, tile);
         }
 
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill not supported");
@@ -133,10 +133,10 @@ namespace XSSLG
             /// <summary>
             /// GameObject to be placed when painting.
             /// </summary>
-            public GameObject gameObject { get => gameObject; set => gameObject = value; }
+            public GameObject gameObject { get => prefab; set => prefab = value; }
 
             [SerializeField]
-            private GameObject gameObject;
+            private GameObject prefab;
 
             /// <summary>
             /// Hashes the contents of the brush cell.
@@ -147,7 +147,7 @@ namespace XSSLG
                 int hash;
                 unchecked
                 {
-                    hash = gameObject != null ? gameObject.GetInstanceID() : 0;
+                    hash = prefab != null ? prefab.GetInstanceID() : 0;
                 }
                 return hash;
             }
