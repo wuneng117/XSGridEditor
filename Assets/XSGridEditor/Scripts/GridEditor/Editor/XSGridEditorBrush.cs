@@ -108,7 +108,6 @@ namespace XSSLG
 
         public override void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveStart not supported");
 
-
         public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveEnd not supported");
 
         /// <summary>
