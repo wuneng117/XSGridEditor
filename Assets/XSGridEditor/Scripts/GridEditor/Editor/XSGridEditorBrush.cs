@@ -98,52 +98,17 @@ namespace XSSLG
                 this.PaintTile(gridLayout, location, brushTarget, tile);
         }
 
-        /// <summary>
-        /// This is not supported but it should floodfill GameObjects starting from a given position within the selected layers.
-        /// </summary>
-        /// <param name="gridLayout">Grid used for layout.</param>
-        /// <param name="brushTarget">Target of the flood fill operation. By default the currently selected GameObject.</param>
-        /// <param name="position">Starting position of the flood fill.</param>
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill not supported");
 
-        /// <summary>
-        /// Rotates the brush by 90 degrees in the given direction.
-        /// </summary>
-        /// <param name="direction">Direction to rotate by.</param>
-        /// <param name="layout">Cell Layout for rotating.</param>
         public override void Rotate(RotationDirection direction, GridLayout.CellLayout layout) => Debug.LogWarning("Rotate not supported");
 
-        /// <summary>Flips the brush in the given axis.</summary>
-        /// <param name="flip">Axis to flip by.</param>
-        /// <param name="layout">Cell Layout for flipping.</param>
         public override void Flip(FlipAxis flip, GridLayout.CellLayout layout) => Debug.LogWarning("Flip not supported");
 
-        /// <summary>
-        /// Picks child GameObjects given the coordinates of the cells.
-        /// The GameObjectBrushEx overrides this to provide GameObject picking functionality.
-        /// </summary>
-        /// <param name="gridLayout">Grid to pick data from.</param>
-        /// <param name="brushTarget">Target of the picking operation. By default the currently selected GameObject.</param>
-        /// <param name="position">The coordinates of the cells to paint data from.</param>
-        /// <param name="pivot">Pivot of the picking brush.</param>
         public override void Pick(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, Vector3Int pivot) => Debug.LogWarning("Pick not supported");
 
-        /// <summary>
-        /// MoveStart is called when user starts moving the area previously selected with the selection marquee.
-        /// The GameObjectBrushEx overrides this to provide GameObject moving functionality.
-        /// </summary>
-        /// <param name="gridLayout">Grid used for layout.</param>
-        /// <param name="brushTarget">Target of the move operation. By default the currently selected GameObject.</param>
-        /// <param name="position">Position where the move operation has started.</param>
         public override void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveStart not supported");
 
-        /// <summary>
-        /// MoveEnd is called when user has ended the move of the area previously selected with the selection marquee.
-        /// The GameObjectBrushEx overrides this to provide GameObject moving functionality.
-        /// </summary>
-        /// <param name="gridLayout">Grid used for layout.</param>
-        /// <param name="brushTarget">Target of the move operation. By default the currently selected GameObject.</param>
-        /// <param name="position">Position where the move operation has ended.</param>
+
         public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveEnd not supported");
 
         /// <summary>
