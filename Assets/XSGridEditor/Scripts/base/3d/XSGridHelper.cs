@@ -11,6 +11,12 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSGridHelper : MonoBehaviour
     {
+        /// <summary> tile根节点 </summary>
+        public Transform TileRoot = null;
+
+        /// <summary> unit根节点 </summary>
+        public Transform UnitRoot = null;
+
         /// <summary> 移动范围用的图片 </summary>
         public Sprite TileSpriteMove = null;
 

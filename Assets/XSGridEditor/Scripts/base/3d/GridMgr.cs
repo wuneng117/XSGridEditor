@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace XSSLG
 {
@@ -14,7 +15,16 @@ namespace XSSLG
     public class GridMgr : GridMgrBase
     {
         /// <summary> tile 大小，用来计算 tilePos </summary>
-        private int TileSize { set; get; } = 1;
+        private Vector3 TileSize { set; get; } = Vector3.zero;
+
+        public GridMgr()
+        { 
+            var grid = XSEditorInstance.Instance.GridHelper.TileRoot.GetComponent<Grid>();
+            if (grid)
+                this.TileSize = grid.CellSize;
+            else
+                this.TileSize = new Vector3(1, 1, 1);
+        }
 
         public override Vector3 TileToWorld(Vector3Int tilePos)
         {
@@ -33,23 +43,23 @@ namespace XSSLG
         public override Vector3Int WorldToTile(Vector3 worldPos)
         {
             var ret = new Vector3Int(-1, -1, 0);
-            ret.x = Mathf.FloorToInt((worldPos.x) / this.TileSize);
-            ret.y = Mathf.FloorToInt((worldPos.z) / this.TileSize);
+            ret.x = Mathf.FloorToInt((worldPos.x) / this.TileSize.x);
+            ret.y = Mathf.FloorToInt((worldPos.z) / this.TileSize.z);
             return ret;
         }
         public override Vector3 WorldToTileCenterWorld(Vector3 worldPos)
         {
             var tilePos = this.WorldToTile(worldPos);
             var ret = Vector3.zero;
-            ret.x = tilePos.x * this.TileSize + (float)this.TileSize / 2;
-            ret.z = tilePos.y * this.TileSize + (float)this.TileSize / 2;
+            ret.x = tilePos.x * this.TileSize.x + (float)this.TileSize.x / 2;
+            ret.z = tilePos.y * this.TileSize.z + (float)this.TileSize.z / 2;
             return ret;
         }
 
         protected override Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict()
         {
             var ret = new Dictionary<Vector3Int, XSTile>();
-            var gridHelper = Component.FindObjectOfType<XSGridHelper>();
+            var gridHelper = XSEditorInstance.Instance.GridHelper;
             if (gridHelper == null)
                 return ret;
 
@@ -60,10 +70,11 @@ namespace XSSLG
             // 默认sprite.size为1
             var tileData = tileDataList.First();
 
-            this.TileSize = Mathf.FloorToInt(tileData.gameObject.transform.localScale.x);
-            var sprite = tileData.GetComponent<SpriteRenderer>();
-            if (sprite)
-                this.TileSize *= Mathf.FloorToInt(sprite.size.x);
+            // TODO tile要适配大小刚好为Tile
+            // this.TileSize = Mathf.FloorToInt(tileData.gameObject.transform.localScale.x);
+            // var sprite = tileData.GetComponent<SpriteRenderer>();
+            // if (sprite)
+            //     this.TileSize *= Mathf.FloorToInt(sprite.size.x);
 
             // 遍历Tile
             tileDataList.ToList().ForEach(tileData => AddXSTile(tileData, ret));

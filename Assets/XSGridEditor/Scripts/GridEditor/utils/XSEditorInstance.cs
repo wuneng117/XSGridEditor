@@ -17,11 +17,11 @@ namespace XSSLG
                     instance.GridMgr = new GridMgr();
                     instance.GridHelper = Component.FindObjectOfType<XSGridHelper>();
                     instance.GridHelperEditMode = Component.FindObjectOfType<XSGridHelperEditMode>();
-
                 }
                 return instance;
             }
         }
+        
         public GridMgr GridMgr { get; set; } = null;
         public XSGridHelper GridHelper { get; set; } = null;
         public XSGridHelperEditMode GridHelperEditMode { get; set; } = null;

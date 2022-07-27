@@ -15,13 +15,6 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
-        /// <summary> tile根节点 </summary>
-        public Transform TileRoot = null;
-
-
-        /// <summary> unit根节点 </summary>
-        public Transform UnitRoot = null;
-
         public GameObject ObjectPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
         public float Precision = 0.01f;
@@ -160,7 +153,7 @@ namespace XSSLG
         /// <summary> 删除所有的 tile </summary>
         public virtual void ClearTiles()
         {
-            XSUE.RemoveChildren(this.TileRoot.gameObject);
+            XSUE.RemoveChildren(XSEditorInstance.Instance.GridHelper.TileRoot.gameObject);
         }
 
         /// <summary>
@@ -240,7 +233,7 @@ namespace XSSLG
                         break;
 
                     // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
-                    var defaultGrid = this.TileRoot?.transform.GetChild(0);
+                    var defaultGrid = XSEditorInstance.Instance.GridHelper.TileRoot?.transform.GetChild(0);
                     if (defaultGrid == null)
                         break;
 
@@ -249,7 +242,7 @@ namespace XSSLG
             }
         }
 
-        virtual protected Transform GetUnitRoot() => this.UnitRoot;
+        virtual protected Transform GetUnitRoot() => XSEditorInstance.Instance.GridHelper.UnitRoot;
 
         // /// <summary> 所有 XSObject 的坐标对齐所在 tile 中心 </summary>
         // public void SetObjectToTileCenter()
