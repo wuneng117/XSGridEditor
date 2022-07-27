@@ -14,9 +14,9 @@ namespace XSSLG
                 if (instance == null)
                 {
                     instance = new XSInstance();
-                    instance.GridMgr = new GridMgr();
                     instance.GridHelper = Component.FindObjectOfType<XSGridHelper>();
-
+                    instance.GridMgr = new GridMgr(instance.GridHelper);
+                    instance.GridMgr.Init();
                 }
                 return instance;
             }

@@ -15,12 +15,11 @@ namespace XSSLG
         private static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, -1, 0), new Vector3Int(1, 0, 0), new Vector3Int(0, 1, 0), };
 
         /// <summary> 以tilepos为key存储所有tile。 </summary>
-        public Dictionary<Vector3Int, XSTile> TileDict { get; } = new Dictionary<Vector3Int, XSTile>();
+        public Dictionary<Vector3Int, XSTile> TileDict { get; private set; } = new Dictionary<Vector3Int, XSTile>();
 
-        public GridMgrBase()
+        public virtual void Init()
         {
             this.TileDict = this.CreatePathFinderTileDict();
-
             // 为每个PathFinderTile计算它的链接格子
             foreach (var pair in this.TileDict)
             {

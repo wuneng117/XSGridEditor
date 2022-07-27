@@ -17,11 +17,11 @@ namespace XSSLG
         /// <summary> tile 大小，用来计算 tilePos </summary>
         private Vector3 TileSize { set; get; } = Vector3.zero;
 
-        public GridMgr()
+        public GridMgr(XSGridHelper helper)
         { 
-            var grid = XSEditorInstance.Instance.GridHelper.TileRoot.GetComponent<Grid>();
+            var grid = helper.TileRoot.GetComponent<Grid>();
             if (grid)
-                this.TileSize = grid.CellSize;
+                this.TileSize = grid.cellSize;
             else
                 this.TileSize = new Vector3(1, 1, 1);
         }
@@ -44,7 +44,7 @@ namespace XSSLG
         {
             var ret = new Vector3Int(-1, -1, 0);
             ret.x = Mathf.FloorToInt((worldPos.x) / this.TileSize.x);
-            ret.y = Mathf.FloorToInt((worldPos.z) / this.TileSize.z);
+            ret.y = Mathf.FloorToInt((worldPos.z) / this.TileSize.y);
             return ret;
         }
         public override Vector3 WorldToTileCenterWorld(Vector3 worldPos)
@@ -52,7 +52,7 @@ namespace XSSLG
             var tilePos = this.WorldToTile(worldPos);
             var ret = Vector3.zero;
             ret.x = tilePos.x * this.TileSize.x + (float)this.TileSize.x / 2;
-            ret.z = tilePos.y * this.TileSize.z + (float)this.TileSize.z / 2;
+            ret.z = tilePos.y * this.TileSize.y + (float)this.TileSize.y / 2;
             return ret;
         }
 

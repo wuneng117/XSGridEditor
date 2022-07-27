@@ -28,7 +28,7 @@ namespace XSSLG
         void Start()
         {
 
-            this.GridMgr = new GridMgr();
+            this.GridMgr = XSInstance.Instance.GridMgr;
             var gridHelper = Component.FindObjectOfType<XSGridHelper>();
             if (gridHelper)
             {
