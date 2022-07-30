@@ -136,6 +136,13 @@ namespace XSSLG
                 var newPos = hitInfo.point + new Vector3(0, Precision, 0);
                 tileData.transform.position = newPos;
             }
+            // 如果贴不到地面，那就设置localpos的高度y为0
+            else if (tileData.transform.localPosition.y != 0)
+            {
+                ret = true;
+                tileData.transform.localPosition = new Vector3(tileData.transform.localPosition.x, 0, tileData.transform.localPosition.z);
+            }
+
             //激活tile
             tileData.gameObject.SetActive(true);
             // 显示所有unit，防止参与射线检测

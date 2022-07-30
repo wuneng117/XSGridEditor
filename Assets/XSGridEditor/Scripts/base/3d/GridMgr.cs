@@ -14,15 +14,18 @@ namespace XSSLG
     /// <summary> tile 管理类，负责tile 坐标转化，数据等功能 </summary>
     public class GridMgr : GridMgrBase
     {
+        /// <summary> tile父节点，提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
+        private Transform TileRoot { get; }
         /// <summary> tile 大小，用来计算 tilePos </summary>
         private Vector3 TileSize { set; get; } = Vector3.zero;
 
         public GridMgr(XSGridHelper helper)
-        { 
-            var grid = helper.TileRoot.GetComponent<Grid>();
+        {
+            this.TileRoot = helper?.TileRoot;
+            var grid =  this.TileRoot?.GetComponent<Grid>();
             if (grid)
                 // y和z换一下是因为Grid组件里y表示横坐标，z表示高度，而我们的tile为了和3d空间一直，里y表示高度，z表示横坐标
-                this.TileSize = new Vector3(grid.cellSize.x, grid.cellSize.z, grid.cellSize.y); 
+                this.TileSize = new Vector3(grid.cellSize.x, grid.cellSize.z, grid.cellSize.y);
             else
                 this.TileSize = new Vector3(1, 1, 1);
         }
@@ -44,16 +47,25 @@ namespace XSSLG
         public override Vector3Int WorldToTile(Vector3 worldPos)
         {
             var ret = new Vector3Int(-1, 0, -1);
-            ret.x = Mathf.FloorToInt((worldPos.x) / this.TileSize.x);
-            ret.z = Mathf.FloorToInt((worldPos.z) / this.TileSize.z);
+            if (this.TileRoot == null)
+                return ret;
+
+            var localPos = this.TileRoot.InverseTransformPoint(worldPos);
+            ret.x = Mathf.FloorToInt((localPos.x) / this.TileSize.x);
+            ret.z = Mathf.FloorToInt((localPos.z) / this.TileSize.z);
             return ret;
         }
         public override Vector3 WorldToTileCenterWorld(Vector3 worldPos)
         {
-            var tilePos = this.WorldToTile(worldPos);
             var ret = Vector3.zero;
+            if (this.TileRoot == null)
+                return ret;
+
+            var tilePos = this.WorldToTile(worldPos);
             ret.x = tilePos.x * this.TileSize.x + (float)this.TileSize.x / 2;
             ret.z = tilePos.z * this.TileSize.z + (float)this.TileSize.z / 2;
+            ret = this.TileRoot.TransformPoint(ret);
+            ret.y = 0;
             return ret;
         }
 
@@ -105,7 +117,7 @@ namespace XSSLG
                 return true;
             }
         }
-        
+
         /// <summary>
         /// 从字典中删除XSTile
         /// </summary>
