@@ -1,0 +1,90 @@
+@startuml "GridEditor"
+hide empty members
+
+interface IGridMgr
+
+
+abstract class GridMgrBase extends IGridMgr
+{
+    -CreatePathFinderTileDict()
+}
+
+
+
+class GridMgr extends GridMgrBase, IChange
+{
+    +Init()
+    -TileSize
+    +TleDict
+}
+GridMgr::TileSize --> XSGridHelper: 通过TileRoot初始化
+GridMgr::TleDict o-- XSTile
+GridMgr ..> PathFinder静态类
+
+class XSTile
+{
+    +Node
+}
+XSTile::Node --> XSTileData
+
+class XSTileData
+{
+    +Tile
+}
+' XSTileData <-- PathFinderTile
+
+class PathFinder静态类
+{
+}
+' PathFinder模块 o-- PathFinderTile
+
+
+' class PathFinderTile
+' {
+' }
+
+class GridShowMgr
+{
+    ' -GridShowRegion MoveShowRegion...
+    -IGridMgr mgr
+}
+
+' GridShowMgr o-- GridShowRegion
+GridShowMgr ..> GridMgrBase
+
+
+' class GridShowRegion
+' {
+' }
+
+class XSObjectData
+{
+    +GetGameObj()
+}
+
+class XSGridHelper
+{
+    +TileRoot;
+    +GetTileDataArray();
+}
+note top of XSGridHelper: 通过GetTileDataArray提供tile组件，以及各种对象存储
+
+class XSGridHelperEditMode
+{
+}
+
+
+XSGridHelper ..> XSTileData
+XSGridHelper ..> XSObjectData
+
+' class ChatMsg
+' {
+'     -GameAction[] actions
+'     +popAction(seatId)
+'     +pushAction(actionObj,actionType,useType)
+'     .. ...以及其他操作 ..
+' }
+' note top of GameActionLogic :　封装了对GameAction的常用操作
+' GameActionLogic --|> GameTableController : 扩展，类似继承
+
+@enduml
