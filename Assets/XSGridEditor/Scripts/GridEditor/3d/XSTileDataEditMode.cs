@@ -21,7 +21,7 @@ namespace XSSLG
         {
             if (XSUE.IsEditor())
             {
-                this.PrevPos = this.transform.position;
+                this.PrevPos = this.transform.localPosition;
             }
             else
                 this.enabled = false;
@@ -33,7 +33,7 @@ namespace XSSLG
         {
             if (XSUE.IsEditor())
             {
-                this.transform.position = this.PrevPos;
+                this.transform.localPosition = this.PrevPos;
             }
         }
     }

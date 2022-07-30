@@ -64,7 +64,7 @@ namespace XSSLG
             {
                 var tileDataEditMode = tileData.GetComponent<XSTileDataEditMode>();
                 if (tileDataEditMode)
-                    tileDataEditMode.PrevPos = tileData.transform.position;
+                    tileDataEditMode.PrevPos = tileData.transform.localPosition;
             }
 
             return ret;
@@ -108,7 +108,7 @@ namespace XSSLG
             tile.WorldPos = tile.Node.transform.position;
             var tileDataEditMode = tile.Node.GetComponent<XSTileDataEditMode>();
             if (tileDataEditMode)
-                tileDataEditMode.PrevPos = tile.WorldPos;
+                tileDataEditMode.PrevPos = tile.Node.transform.localPosition;
                 
             return ret;
         }

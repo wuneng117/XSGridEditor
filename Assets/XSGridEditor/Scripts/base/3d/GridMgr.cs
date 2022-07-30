@@ -21,7 +21,8 @@ namespace XSSLG
         { 
             var grid = helper.TileRoot.GetComponent<Grid>();
             if (grid)
-                this.TileSize = grid.cellSize;
+                // y和z换一下是因为Grid组件里y表示横坐标，z表示高度，而我们的tile为了和3d空间一直，里y表示高度，z表示横坐标
+                this.TileSize = new Vector3(grid.cellSize.x, grid.cellSize.z, grid.cellSize.y); 
             else
                 this.TileSize = new Vector3(1, 1, 1);
         }
@@ -30,10 +31,10 @@ namespace XSSLG
         {
             var ret = new Vector3(0, 0, 0);
 
-            // if (tilePos.x < 0 || tilePos.y < 0)
+            // if (tilePos.x < 0 || tilePos.z < 0)
             //     return ret;
 
-            tilePos.z = 0;
+            tilePos.y = 0;
             var tile = this.GetTile(tilePos);
             if (tile == null) return ret;
 
@@ -42,9 +43,9 @@ namespace XSSLG
 
         public override Vector3Int WorldToTile(Vector3 worldPos)
         {
-            var ret = new Vector3Int(-1, -1, 0);
+            var ret = new Vector3Int(-1, 0, -1);
             ret.x = Mathf.FloorToInt((worldPos.x) / this.TileSize.x);
-            ret.y = Mathf.FloorToInt((worldPos.z) / this.TileSize.y);
+            ret.z = Mathf.FloorToInt((worldPos.z) / this.TileSize.z);
             return ret;
         }
         public override Vector3 WorldToTileCenterWorld(Vector3 worldPos)
@@ -52,7 +53,7 @@ namespace XSSLG
             var tilePos = this.WorldToTile(worldPos);
             var ret = Vector3.zero;
             ret.x = tilePos.x * this.TileSize.x + (float)this.TileSize.x / 2;
-            ret.z = tilePos.y * this.TileSize.y + (float)this.TileSize.y / 2;
+            ret.z = tilePos.z * this.TileSize.z + (float)this.TileSize.z / 2;
             return ret;
         }
 
