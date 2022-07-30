@@ -17,9 +17,9 @@ namespace XSSLG
         /// <summary> 以tilepos为key存储所有tile。 </summary>
         public Dictionary<Vector3Int, XSTile> TileDict { get; private set; } = new Dictionary<Vector3Int, XSTile>();
 
-        public virtual void Init()
+        public virtual void Init(XSGridHelper helper)
         {
-            this.TileDict = this.CreatePathFinderTileDict();
+            this.TileDict = this.CreatePathFinderTileDict(helper);
             // 为每个PathFinderTile计算它的链接格子
             foreach (var pair in this.TileDict)
             {
@@ -62,11 +62,13 @@ namespace XSSLG
 
         public abstract Vector3 WorldToTileCenterWorld(Vector3 worldPos);
 
+        protected abstract Vector3 TileToTileCenterWorld(Vector3Int tilePos);
+
         /// <summary>
         /// 创建一个以 tilepos 为 key，PathFinderTile 为 value 的 Dictionary，用来生成 PathFinder
         /// </summary>
         /// <returns>以 tilepos 为 key，PathFinderTile 为 value 的 Dictionary </returns>
-        protected abstract Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict();
+        protected abstract Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict(XSGridHelper helper);
 
         /// <summary>
         /// 寻路函数

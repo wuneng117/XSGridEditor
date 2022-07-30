@@ -16,7 +16,7 @@ namespace XSSLG
                     instance = new XSEditorInstance();
                     instance.GridHelper = Component.FindObjectOfType<XSGridHelper>();
                     instance.GridMgr = new GridMgr(instance.GridHelper);
-                    instance.GridMgr.Init();
+                    instance.GridMgr.Init(instance.GridHelper);
                     instance.GridHelperEditMode = Component.FindObjectOfType<XSGridHelperEditMode>();
                 }
                 return instance;

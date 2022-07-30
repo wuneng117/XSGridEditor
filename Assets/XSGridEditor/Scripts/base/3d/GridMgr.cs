@@ -22,7 +22,7 @@ namespace XSSLG
         public GridMgr(XSGridHelper helper)
         {
             this.TileRoot = helper?.TileRoot;
-            var grid =  this.TileRoot?.GetComponent<Grid>();
+            var grid = this.TileRoot?.GetComponent<Grid>();
             if (grid)
                 // y和z换一下是因为Grid组件里y表示横坐标，z表示高度，而我们的tile为了和3d空间一直，里y表示高度，z表示横坐标
                 this.TileSize = new Vector3(grid.cellSize.x, grid.cellSize.z, grid.cellSize.y);
@@ -62,6 +62,12 @@ namespace XSSLG
                 return ret;
 
             var tilePos = this.WorldToTile(worldPos);
+            return this.TileToTileCenterWorld(tilePos);
+        }
+
+        protected override Vector3 TileToTileCenterWorld(Vector3Int tilePos)
+        {
+            var ret = Vector3.zero;
             ret.x = tilePos.x * this.TileSize.x + (float)this.TileSize.x / 2;
             ret.z = tilePos.z * this.TileSize.z + (float)this.TileSize.z / 2;
             ret = this.TileRoot.TransformPoint(ret);
@@ -69,14 +75,13 @@ namespace XSSLG
             return ret;
         }
 
-        protected override Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict()
+        protected override Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict(XSGridHelper helper)
         {
             var ret = new Dictionary<Vector3Int, XSTile>();
-            var gridHelper = XSEditorInstance.Instance.GridHelper;
-            if (gridHelper == null)
+            if (helper == null)
                 return ret;
 
-            var tileDataList = gridHelper.GetTileDataArray();
+            var tileDataList = helper.GetTileDataArray();
             if (tileDataList == null || tileDataList.Length == 0)
                 return ret;
 
@@ -140,6 +145,28 @@ namespace XSSLG
 
             UnityUtils.RemoveObj(tileData.gameObject);
             return ret;
+        }
+
+        /// <summary>
+        /// 添加XSTile
+        /// </summary>
+        /// <param name="tileData"></param>
+        /// <returns></returns>
+        public void UpdateTileSize(Vector3 tileSize)
+        {
+            this.TileSize = new Vector3(tileSize.x, tileSize.z, tileSize.y);
+            foreach (var tile in this.TileDict.Values)
+            {
+                if (tile.Node != null)
+                {
+                    var newWorldPos = this.TileToTileCenterWorld(tile.TilePos);
+                    tile.Node.transform.position = newWorldPos;
+                    tile.WorldPos = newWorldPos;
+                    var tileDataEditMode = tile.Node.GetComponent<XSTileDataEditMode>();
+                    if (tileDataEditMode)
+                        tileDataEditMode.PrevPos = tile.Node.transform.localPosition;
+                }
+            }
         }
     }
 }

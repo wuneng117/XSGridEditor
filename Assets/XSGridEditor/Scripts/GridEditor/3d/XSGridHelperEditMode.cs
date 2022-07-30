@@ -25,12 +25,23 @@ namespace XSSLG
         /// <summary> 是否显示移动消耗 </summary>
         public bool IsShowCost = false;
 
+        /// <summary> 监控CellSize变化 </summary>
+        private Grid Grid { get; set; } = null;
+        private Vector3 PrevTileSize { get; set; } = new Vector3(0, 0, 0);
 
         public void Start()
         {
             if (!XSUE.IsEditor())
                 this.enabled = false;
+            else
+            {
+                this.Grid = XSEditorInstance.Instance.GridHelper?.TileRoot?.GetComponent<Grid>();
+                if (this.Grid)
+                    this.PrevTileSize = this.Grid.cellSize;
+            }
         }
+
+        #region  Tile 操作
 
         /// <summary> 是否显示 tilepos </summary>
         public bool IsShowTilePos
@@ -59,6 +70,8 @@ namespace XSSLG
             if (!ret)
                 return ret;
 
+            // var box = tileData.GetComponentInChildren<Renderer>().bounds.size;
+
             var posChangeRet = this.SetTileToNearTerrain(tileData);
             if (posChangeRet)
             {
@@ -75,11 +88,11 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public bool RemoveXSTile(XSTileData tileData) 
+        public bool RemoveXSTile(XSTileData tileData)
         {
             var mgr = XSEditorInstance.Instance.GridMgr;
             return mgr.RemoveXSTile(tileData, mgr.TileDict);
-        } 
+        }
 
         /// <summary>
         /// 调整所有tile的高度
@@ -109,7 +122,7 @@ namespace XSSLG
             var tileDataEditMode = tile.Node.GetComponent<XSTileDataEditMode>();
             if (tileDataEditMode)
                 tileDataEditMode.PrevPos = tile.Node.transform.localPosition;
-                
+
             return ret;
         }
 
@@ -161,6 +174,8 @@ namespace XSSLG
         public virtual void ClearTiles()
         {
             XSUE.RemoveChildren(XSEditorInstance.Instance.GridHelper.TileRoot.gameObject);
+            XSEditorInstance.Instance.GridMgr.TileDict.Clear();
+
         }
 
         /// <summary>
@@ -222,6 +237,9 @@ namespace XSSLG
                 DestroyImmediate(GameObject.Find(rootName));
         }
 
+        #endregion
+
+        #region Unit 操作
         /// <summary> 创建一个XSObject </summary>
         public void CreateObject()
         {
@@ -251,6 +269,8 @@ namespace XSSLG
 
         virtual protected Transform GetUnitRoot() => XSEditorInstance.Instance.GridHelper.UnitRoot;
 
+        #endregion
+
         // /// <summary> 所有 XSObject 的坐标对齐所在 tile 中心 </summary>
         // public void SetObjectToTileCenter()
         // {
@@ -262,5 +282,16 @@ namespace XSSLG
         //     foreach (Transform child in parent)
         //         child.position = gridMgr.WorldToTileCenterWorld(child.position);
         // }
+
+        void Update()
+        {
+            if (this.Grid && this.Grid.cellSize != this.PrevTileSize)
+            {
+                this.PrevTileSize = this.Grid.cellSize;
+                
+                XSEditorInstance.Instance.GridMgr?.UpdateTileSize(this.PrevTileSize);
+            }
+
+        }
     }
 }
