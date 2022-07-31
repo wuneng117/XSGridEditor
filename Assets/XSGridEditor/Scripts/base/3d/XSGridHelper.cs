@@ -38,9 +38,13 @@ namespace XSSLG
 
         public Bounds GetBounds()
         {
+            var ret = new Bounds();
+            if (UnityUtils.IsEditor())
+                return ret;
+
             var tiles = this.GetTileDataArray();
             if (tiles.Length == 0)
-                return new Bounds();
+                return ret;
 
             var bound = tiles[0].GetComponent<BoxCollider>().bounds;
             foreach (var tile in tiles)

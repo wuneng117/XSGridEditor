@@ -75,7 +75,7 @@ namespace XSSLG
             return ret;
         }
 
-        protected override Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict(XSGridHelper helper)
+        protected override Dictionary<Vector3Int, XSTile> CreateXSTileDict(XSGridHelper helper)
         {
             var ret = new Dictionary<Vector3Int, XSTile>();
             if (helper == null)
@@ -95,7 +95,16 @@ namespace XSSLG
             //     this.TileSize *= Mathf.FloorToInt(sprite.size.x);
 
             // 遍历Tile
-            tileDataList.ToList().ForEach(tileData => AddXSTile(tileData, ret));
+            tileDataList.ToList().ForEach(tileData =>
+            {
+                if (!UnityUtils.IsEditor())
+                {
+                    var collider = tileData.gameObject.AddComponent<BoxCollider>();
+                    collider.size = this.TileSize;
+                }
+
+                this.AddXSTile(tileData, ret);
+            });
 
             return ret;
         }

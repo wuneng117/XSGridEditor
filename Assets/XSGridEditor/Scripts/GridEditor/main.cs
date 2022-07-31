@@ -10,7 +10,14 @@ public class main : MonoBehaviour
     void Start()
     {
         // 最先初始化单例，保证使用时肯定是初始化好的
-        var instance = XSEditorInstance.Instance;
+        if (UnityUtils.IsEditor())
+        {
+            var instance = XSEditorInstance.Instance;
+        }
+        else
+        {
+            var instance = XSInstance.Instance;
+        }
     }
 
     // Update is called once per frame

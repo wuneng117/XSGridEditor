@@ -12,14 +12,14 @@ namespace XSSLG
     public abstract class GridMgrBase : IGridMgr
     {
         /// <summary> 四边形地图链接格子就是这4个位置偏移 </summary>
-        private static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, -1, 0), new Vector3Int(1, 0, 0), new Vector3Int(0, 1, 0), };
+        private static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(0, 0, 1), };
 
         /// <summary> 以tilepos为key存储所有tile。 </summary>
         public Dictionary<Vector3Int, XSTile> TileDict { get; private set; } = new Dictionary<Vector3Int, XSTile>();
 
         public virtual void Init(XSGridHelper helper)
         {
-            this.TileDict = this.CreatePathFinderTileDict(helper);
+            this.TileDict = this.CreateXSTileDict(helper);
             // 为每个PathFinderTile计算它的链接格子
             foreach (var pair in this.TileDict)
             {
@@ -68,7 +68,7 @@ namespace XSSLG
         /// 创建一个以 tilepos 为 key，PathFinderTile 为 value 的 Dictionary，用来生成 PathFinder
         /// </summary>
         /// <returns>以 tilepos 为 key，PathFinderTile 为 value 的 Dictionary </returns>
-        protected abstract Dictionary<Vector3Int, XSTile> CreatePathFinderTileDict(XSGridHelper helper);
+        protected abstract Dictionary<Vector3Int, XSTile> CreateXSTileDict(XSGridHelper helper);
 
         /// <summary>
         /// 寻路函数

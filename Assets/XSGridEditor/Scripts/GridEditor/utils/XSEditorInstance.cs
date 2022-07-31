@@ -13,6 +13,12 @@ namespace XSSLG
             {
                 if (instance == null)
                 {
+                    if (!XSUE.IsEditor())
+                    {
+                        Debug.LogError("XSEditorInstance.Instance: 只能在编辑器中使用");
+                        return null;
+                    }
+                    
                     instance = new XSEditorInstance();
                     instance.GridHelper = Component.FindObjectOfType<XSGridHelper>();
                     instance.GridMgr = new GridMgr(instance.GridHelper);
