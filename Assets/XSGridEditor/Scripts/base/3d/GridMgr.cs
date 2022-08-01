@@ -81,12 +81,9 @@ namespace XSSLG
             if (helper == null)
                 return ret;
 
-            var tileDataList = helper.GetTileDataArray();
-            if (tileDataList == null || tileDataList.Length == 0)
+            var tileDataList = helper.GetTileDataList();
+            if (tileDataList == null || tileDataList.Count == 0)
                 return ret;
-
-            // 默认sprite.size为1
-            var tileData = tileDataList.First();
 
             // TODO tile要适配大小刚好为Tile
             // this.TileSize = Mathf.FloorToInt(tileData.gameObject.transform.localScale.x);
@@ -95,7 +92,7 @@ namespace XSSLG
             //     this.TileSize *= Mathf.FloorToInt(sprite.size.x);
 
             // 遍历Tile
-            tileDataList.ToList().ForEach(tileData =>
+            tileDataList.ForEach(tileData =>
             {
                 if (!UnityUtils.IsEditor())
                 {

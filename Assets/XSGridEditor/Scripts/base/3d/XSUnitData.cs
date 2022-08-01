@@ -10,7 +10,7 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> tile 上放置的 object 数据结构 </summary>
-    public class XSObjectData : MonoBehaviour
+    public class XSUnitData : MonoBehaviour
     {
         /// <summary> 用字符串表示id比较通用 </summary>
         public string Id = "-1";

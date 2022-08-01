@@ -26,10 +26,6 @@ public class XSUG : UnityUtils
     // /// <summary> 挂场景节点的组件 </summary>
     // public static BattleNode GetBattleNode() => GameObject.Find(GameConst.COMPONENT_NAME_BATTLE_INIT)?.GetComponent<BattleNode>();
 
-    /// <summary> 获取GridMgr TODO </summary>
-    // public static GridMgr GetGridMgr() => XSUG.GetBattleLogic().GridMgr;
-    public static GridMgr GetGridMgr() => Component.FindObjectOfType<BattleDebug>().GridMgr;
-
     #endregion
 
     /// <summary>
@@ -45,7 +41,7 @@ public class XSUG : UnityUtils
         if (tileData == null)
             return XSTile.Default();
 
-        var tile = XSUG.GetGridMgr().GetTile(tileData.transform.position);
+        var tile = XSInstance.Instance.GridMgr.GetTile(tileData.transform.position);
         return tile ?? XSTile.Default();
     }
 

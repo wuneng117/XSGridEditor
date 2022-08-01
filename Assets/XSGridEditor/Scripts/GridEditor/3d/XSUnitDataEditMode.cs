@@ -11,9 +11,9 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> XSObjectData 的编辑器操作 </summary>
-    [RequireComponent(typeof(XSObjectData))]
+    [RequireComponent(typeof(XSUnitData))]
     [ExecuteInEditMode]
-    public class XSObjectDataEditMode : MonoBehaviour
+    public class XSUnitDataEditMode : MonoBehaviour
     {
         /// <summary> 编辑器模式下记录上一次的坐标 </summary>
         protected Vector3 PrevPos { get; set; }
@@ -63,7 +63,7 @@ namespace XSSLG
         {
             if (XSUE.IsEditor())
             {
-                var objData = this.GetComponent<XSObjectData>();
+                var objData = this.GetComponent<XSUnitData>();
                 var obj = objData.GetGameObj();
                 if (obj)
                 {

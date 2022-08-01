@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 namespace XSSLG
 {
     /// <summary> Demo_1 场景测试寻路 </summary>
-    public class BattleDebug : MonoBehaviour
+    public class BattleMgr : MonoBehaviour
     {
         /// <summary> 行走速度 </summary>
         public int movementAnimationSpeed = 2;
@@ -27,19 +27,24 @@ namespace XSSLG
         // Start is called before the first frame update
         void Start()
         {
-
-            this.GridMgr = XSInstance.Instance.GridMgr;
-            var gridHelper = Component.FindObjectOfType<XSGridHelper>();
-            if (gridHelper)
+            if (UnityUtils.IsEditor())
             {
-                this.PanObj.SetConfinerBound(gridHelper.GetBounds());
+                this.enabled = false;
+            }
+            else
+            {
+                this.GridMgr = XSInstance.Instance.GridMgr;
+                var gridHelper = XSInstance.Instance.GridHelper;
+                if (gridHelper)
+                    this.PanObj.SetConfinerBound(gridHelper.GetBounds());
             }
 
-            var showMgr = new GridShowMgr(this.GridMgr);
-            var list = new List<Vector3Int>();
-            list.Add(new Vector3Int(0, 0, 0));
-            list.Add(new Vector3Int(1, 1, 0));
-            showMgr.TestShowRegion(list);
+
+            // var showMgr = new GridShowMgr(this.GridMgr);
+            // var list = new List<Vector3Int>();
+            // list.Add(new Vector3Int(0, 0, 0));
+            // list.Add(new Vector3Int(1, 1, 0));
+            // showMgr.TestShowRegion(list);
         }
 
         // Update is called once per frame

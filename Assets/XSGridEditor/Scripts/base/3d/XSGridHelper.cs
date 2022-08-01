@@ -3,6 +3,8 @@
 /// @Date: 2022/2/2
 /// @Description: 辅助类
 /// </summary>
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace XSSLG
@@ -29,12 +31,10 @@ namespace XSSLG
         public GameObject TilePrefab = null;
 
         /// <summary> 获取所有 XSTileData 节点 </summary>
-        public XSTileData[] GetTileDataArray()
-        {
-            XSTileData[] ret = { };
-            ret = this.GetComponentsInChildren<XSTileData>();
-            return ret;
-        }
+        public List<XSTileData> GetTileDataList()=> this.TileRoot.GetComponentsInChildren<XSTileData>().ToList();
+
+        /// <summary> 获取所有 XSObjectData 节点 </summary>
+        public List<XSUnitData> GetUnitDataList()=> this.UnitRoot.GetComponentsInChildren<XSUnitData>().ToList();
 
         public Bounds GetBounds()
         {
@@ -42,8 +42,8 @@ namespace XSSLG
             if (UnityUtils.IsEditor())
                 return ret;
 
-            var tiles = this.GetTileDataArray();
-            if (tiles.Length == 0)
+            var tiles = this.GetTileDataList();
+            if (tiles.Count == 0)
                 return ret;
 
             var bound = tiles[0].GetComponent<BoxCollider>().bounds;

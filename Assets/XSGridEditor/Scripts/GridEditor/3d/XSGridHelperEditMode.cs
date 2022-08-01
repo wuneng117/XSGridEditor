@@ -17,10 +17,10 @@ namespace XSSLG
     {
         public GameObject ObjectPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
-        public float Precision = 0.01f;
+        protected float Precision = 0.01f;
 
         /// <summary> 射线检测的高度 </summary>
-        public float TopDistance = 100f;
+        protected float TopDistance = 100f;
 
         /// <summary> 是否显示移动消耗 </summary>
         public bool IsShowCost = false;
@@ -54,9 +54,6 @@ namespace XSSLG
         {
             get => GameObject.Find(XSGridDefine.GAMEOBJECT_TILE_COST_ROOT);
         }
-
-        /// <summary> 获取所有 XSTileData 节点 </summary>
-        public XSTileData[] GetTileDataArray() => XSEditorInstance.Instance.GridHelper.GetTileDataArray();
 
         /// <summary>
         /// 添加XSTile
@@ -220,6 +217,7 @@ namespace XSSLG
             {
                 var textRoot = new GameObject();
                 textRoot.name = rootName;
+                textRoot.transform.SetParent(this.GetUnitRoot());
                 foreach (var tile in XSEditorInstance.Instance.GridMgr.TileDict.Values)
                 {
                     if (tile.Node != null)
