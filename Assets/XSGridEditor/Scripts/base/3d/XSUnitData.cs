@@ -19,5 +19,17 @@ namespace XSSLG
         {
             return null;
         }
+
+        Bounds GetMaxBounds()
+        {
+            var renderers = this.GetComponentsInChildren<Renderer>();
+            if (renderers.Length == 0) 
+                return new Bounds(this.transform.position, Vector3.zero);
+
+            var ret = renderers[0].bounds;
+            foreach (Renderer r in renderers)
+                ret.Encapsulate(r.bounds);
+            return ret;
+        }
     }
 }
