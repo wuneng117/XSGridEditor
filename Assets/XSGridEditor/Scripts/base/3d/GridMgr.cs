@@ -92,17 +92,7 @@ namespace XSSLG
             //     this.TileSize *= Mathf.FloorToInt(sprite.size.x);
 
             // 遍历Tile
-            tileDataList.ForEach(tileData =>
-            {
-                if (!UnityUtils.IsEditor())
-                {
-                    var collider = tileData.gameObject.AddComponent<BoxCollider>();
-                    collider.size = this.TileSize;
-                }
-
-                this.AddXSTile(tileData, ret);
-            });
-
+            tileDataList.ForEach(tileData => this.AddXSTile(tileData, ret));
             return ret;
         }
 
@@ -123,6 +113,12 @@ namespace XSSLG
             }
             else
             {
+                if (!UnityUtils.IsEditor())
+                {
+                    var collider = tileData.gameObject.AddComponent<BoxCollider>();
+                    collider.size = this.TileSize;
+                }
+
                 var tile = new XSTile(tilePos, tileData.transform.position, tileData.Cost, tileData);
                 tileDict.Add(tilePos, tile);
                 return true;

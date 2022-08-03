@@ -51,7 +51,7 @@ namespace XSSLG
             Ray ray = camera.ScreenPointToRay(screenPos);
             if (layerName != null)
             {
-                var index = LayerMask.NameToLayer("Tile");
+                var index = LayerMask.NameToLayer(layerName);
                 Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << index);
             }
             else

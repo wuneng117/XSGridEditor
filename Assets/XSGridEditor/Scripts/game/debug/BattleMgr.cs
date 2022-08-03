@@ -18,11 +18,16 @@ namespace XSSLG
 
         /// <summary> tile 管理 </summary>
         public GridMgr GridMgr { get; set; }
+
+        /// <summary> unit 管理 </summary>
+        public XSUnitMgr UnitMgr { get; set; }
         /// <summary> 当前是否在寻路中 </summary>
         public bool IsMoving { get; private set; } = false;
         /// <summary> 行走的对象 </summary>
         public GameObject role = null;
         public PanAndZoom PanObj;
+
+        protected XSUnitData SelectedUnit { get; set; } = null;
 
         // Start is called before the first frame update
         void Start()
@@ -37,6 +42,8 @@ namespace XSSLG
                 var gridHelper = XSInstance.Instance.GridHelper;
                 if (gridHelper)
                     this.PanObj.SetConfinerBound(gridHelper.GetBounds());
+                    
+                this.UnitMgr = new XSUnitMgr(gridHelper);
             }
 
 
@@ -53,12 +60,25 @@ namespace XSSLG
             // 左键点击进行寻路
             if (Mouse.current.leftButton.wasPressedThisFrame && !this.IsMoving)
             {
-                var tile = XSUG.GetMouseTargetTile();
-                Debug.Log("tilePos: " + tile.TilePos);
+                if (this.SelectedUnit == null)
+                {
+                    var unit = XSUG.GetMouseTargetUnit();
+                    if (unit != null)
+                    {
+                        Debug.Log("SelectedUnit: " + unit.name);
+                        this.SelectedUnit = unit;
+                    }
+                }
+                else
+                {
 
-                var srcTile = this.GridMgr.GetTile(role.transform.position);
-                var path = this.GridMgr.FindPath(srcTile, tile);
-                this.WalkTo(path);
+                }
+                // var tile = XSUG.GetMouseTargetTile();
+                // Debug.Log("tilePos: " + tile.TilePos);
+
+                // var srcTile = this.GridMgr.GetTile(role.transform.position);
+                // var path = this.GridMgr.FindPath(srcTile, tile);
+                // this.WalkTo(path);
             }
         }
 

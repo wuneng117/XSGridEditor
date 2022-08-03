@@ -20,7 +20,7 @@ namespace XSSLG
             return null;
         }
 
-        Bounds GetMaxBounds()
+        public Bounds GetMaxBounds()
         {
             var renderers = this.GetComponentsInChildren<Renderer>();
             if (renderers.Length == 0) 
