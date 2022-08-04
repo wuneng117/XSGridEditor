@@ -21,13 +21,20 @@ namespace XSSLG
 
         /// <summary> unit 管理 </summary>
         public XSUnitMgr UnitMgr { get; set; }
+
+        /// <summary> 格子显示管理 </summary>
+        public GridShowMgr GridShowMgr { get; set; }
+
         /// <summary> 当前是否在寻路中 </summary>
         public bool IsMoving { get; private set; } = false;
-        /// <summary> 行走的对象 </summary>
-        public GameObject role = null;
+        
         public PanAndZoom PanObj;
 
+        public List<Vector3Int> MoveRegion { get; private set; }
+
         protected XSUnitData SelectedUnit { get; set; } = null;
+
+
 
         // Start is called before the first frame update
         void Start()
@@ -42,8 +49,9 @@ namespace XSSLG
                 var gridHelper = XSInstance.Instance.GridHelper;
                 if (gridHelper)
                     this.PanObj.SetConfinerBound(gridHelper.GetBounds());
-                    
+
                 this.UnitMgr = new XSUnitMgr(gridHelper);
+                this.GridShowMgr = new GridShowMgr(this.GridMgr, gridHelper);
             }
 
 
@@ -57,28 +65,57 @@ namespace XSSLG
         // Update is called once per frame
         void Update()
         {
-            // 左键点击进行寻路
-            if (Mouse.current.leftButton.wasPressedThisFrame && !this.IsMoving)
+            /************************* 处理选择 unit ，然后移动 begin ***********************/
+            if (!this.IsMoving)
             {
-                if (this.SelectedUnit == null)
+                // 左键点击进行寻路
+                if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
-                    var unit = XSUG.GetMouseTargetUnit();
-                    if (unit != null)
+                    if (this.SelectedUnit)
                     {
-                        Debug.Log("SelectedUnit: " + unit.name);
-                        this.SelectedUnit = unit;
+                        var tile = XSUG.GetMouseTargetTile();
+                        Debug.Log("tilePos: " + tile.TilePos);
+
+                        // 要在移动范围内的格子
+                        if (this.MoveRegion.Contains(tile.TilePos))
+                        {
+                            this.GridShowMgr.ClearMoveRegion();
+                            this.MoveRegion = null;
+                            //缓存
+                            if (this.SelectedUnit.CachedPaths != null && this.SelectedUnit.CachedPaths.ContainsKey(tile.TilePos))
+                                this.WalkTo(this.SelectedUnit.CachedPaths[tile.TilePos]);
+                            else
+                            {
+                                var srcTile = this.GridMgr.GetTile(this.SelectedUnit.transform.position);
+                                var path = this.GridMgr.FindPath(srcTile, tile);
+                                this.WalkTo(path);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var unit = XSUG.GetMouseTargetUnit();
+                        if (unit != null)
+                        {
+                            Debug.Log("SelectedUnit: " + unit.name);
+                            this.MoveRegion = this.GridShowMgr.ShowMoveRegion(unit);
+                            this.SelectedUnit = unit;
+                        }
+
+                    }
+
+
+                    /************************* 处理选择 unit ，然后移动  end  ***********************/
+
+                }
+                else if (Mouse.current.rightButton.wasPressedThisFrame)
+                {
+                    if (this.SelectedUnit)
+                    {
+                        this.GridShowMgr.ClearMoveRegion();
+                        this.SelectedUnit = null;
                     }
                 }
-                else
-                {
-
-                }
-                // var tile = XSUG.GetMouseTargetTile();
-                // Debug.Log("tilePos: " + tile.TilePos);
-
-                // var srcTile = this.GridMgr.GetTile(role.transform.position);
-                // var path = this.GridMgr.FindPath(srcTile, tile);
-                // this.WalkTo(path);
             }
         }
 
@@ -88,6 +125,7 @@ namespace XSSLG
         /// <param name="path">移动路径</param>
         public void WalkTo(List<Vector3Int> path)
         {
+
             if (this.movementAnimationSpeed > 0)
                 StartCoroutine(MovementAnimation(path));
         }
@@ -100,12 +138,13 @@ namespace XSSLG
             foreach (var pos in path)
             {
                 var worldPos = this.GridMgr.GetTile(pos).WorldPos;
-                while (this.role.transform.position != worldPos)
+                while (this.SelectedUnit.transform.position != worldPos)
                 {
-                    this.role.transform.position = Vector3.MoveTowards(this.role.transform.position, worldPos, Time.deltaTime * movementAnimationSpeed);
+                    this.SelectedUnit.transform.position = Vector3.MoveTowards(this.SelectedUnit.transform.position, worldPos, Time.deltaTime * movementAnimationSpeed);
                     yield return 0;
                 }
             }
+            this.SelectedUnit = null;
             this.IsMoving = false;
         }
     }

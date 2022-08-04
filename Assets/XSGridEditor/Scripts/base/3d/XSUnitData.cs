@@ -5,6 +5,7 @@
 /// </summary>
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace XSSLG
@@ -13,7 +14,17 @@ namespace XSSLG
     public class XSUnitData : MonoBehaviour
     {
         /// <summary> 用字符串表示id比较通用 </summary>
-        public string Id = "-1";
+        [SerializeField]
+        private string id = "-1";
+        public string Id { get => id; set => id = value; }
+
+
+        [SerializeField]
+        private int move = 6;
+
+        public int Move { get => move; set => move = value; }
+
+        public Dictionary<Vector3Int, List<Vector3Int>> CachedPaths { get; private set; }
 
         public virtual GameObject GetGameObj()
         {
@@ -23,12 +34,32 @@ namespace XSSLG
         public Bounds GetMaxBounds()
         {
             var renderers = this.GetComponentsInChildren<Renderer>();
-            if (renderers.Length == 0) 
+            if (renderers.Length == 0)
                 return new Bounds(this.transform.position, Vector3.zero);
 
             var ret = renderers[0].bounds;
             foreach (Renderer r in renderers)
                 ret.Encapsulate(r.bounds);
+            return ret;
+        }
+
+        /// <summary>
+        /// 获取移动范围
+        /// </summary>
+        /// <returns></returns>
+        public List<Vector3Int> GetMoveRegion()
+        {
+            var gridMgr = XSInstance.Instance.GridMgr;
+            var srcTile = gridMgr.GetTile(this.transform.position);
+            // 缓存起来哈
+            this.CachedPaths = gridMgr.FindAllPath(srcTile, this.Move);
+            // 把this.CachedPaths累加起来
+            var ret = this.CachedPaths.Aggregate(new List<Vector3Int>(), (ret, pair) =>
+            {
+                // 去重
+                ret.AddRange(pair.Value.Distinct());
+                return ret;
+            }).Distinct().ToList(); // 去重
             return ret;
         }
     }

@@ -27,11 +27,10 @@ namespace XSSLG
         /************************* 变量  end  ***********************/
 
         /// <summary> 初始化网格的贴花管理 </summary>
-        public GridShowMgr(IGridMgr mgr)
+        public GridShowMgr(IGridMgr mgr, XSGridHelper gridHelper)
         {
             this.mgr = mgr;
 
-            var gridHelper = Component.FindObjectOfType<XSGridHelper>();
             if (gridHelper)
             {
                 Func<Vector3Int, Vector3> tileToWorld = this.mgr.TileToWorld;
@@ -54,19 +53,19 @@ namespace XSSLG
         /// <param name="unit">显示范围的单位</param>
         public void TestShowRegion(List<Vector3Int> list) => this.MoveShowRegion.ShowRegion(list);
 
-        // /// <summary>
-        // /// 显示单位移动范围
-        // /// </summary>
-        // /// <param name="unit">显示范围的单位</param>
-        // public List<Vector3Int> ShowMoveRegion(Unit unit)
-        // {
-        //     var moveRegion = unit.GetMoveRegion();
-        //     this.MoveShowRegion.ShowRegion(moveRegion);
-        //     return moveRegion;
-        // }
+        /// <summary>
+        /// 显示单位移动范围
+        /// </summary>
+        /// <param name="unit">显示范围的单位</param>
+        public List<Vector3Int> ShowMoveRegion(XSUnitData unit)
+        {
+            var moveRegion = unit.GetMoveRegion();
+            this.MoveShowRegion.ShowRegion(moveRegion);
+            return moveRegion;
+        }
 
-        // /// <summary> 清除单位移动范围 </summary>
-        // public void ClearMoveRegion() => this.MoveShowRegion.ClearRegion();
+        /// <summary> 清除单位移动范围 </summary>
+        public void ClearMoveRegion() => this.MoveShowRegion.ClearRegion();
 
         // /// <summary>
         // /// 显示单位攻击范围
