@@ -5,48 +5,45 @@ namespace XSSLG
     /// <summary>
     /// Implementation of A* pathfinding algorithm.
     /// </summary>
-    class AStarPathfinding : IPathfinding
+    class AStarPathfinding
     {
+
+
         /// <summary> 查找返回一条路径 </summary>
-        public override List<T> FindPath<T>(Dictionary<T, Dictionary<T, float>> edges, T originNode, T destinationNode)
+        public List<XSTile> FindPath(XSTile src, XSTile dest)
         {
-            IPriorityQueue<T> frontier = new HeapPriorityQueue<T>();
-            frontier.Enqueue(originNode, 0);
+            IPriorityQueue<XSTile> frontier = new HeapPriorityQueue<XSTile>();
+            frontier.Enqueue(src, 0);
 
-            Dictionary<T, T> cameFrom = new Dictionary<T, T>();
-            cameFrom.Add(originNode, default(T));
-            Dictionary<T, float> costSoFar = new Dictionary<T, float>();
-            costSoFar.Add(originNode, 0);
-
+            var aStarTileDict = new Dictionary<global::XSSLG.XSTile, AStarTile>();
+            aStarTileDict.Add(src, new AStarTile(0, null));
+            
             while (frontier.Count != 0)
             {
                 var current = frontier.Dequeue();
-                if (current.Equals(destinationNode)) break;
+                if (current.Equals(dest)) break;
 
-                var neighbours = GetNeigbours(edges, current);
-                foreach (var neighbour in neighbours)
+                current.NearTileList.ForEach(tile => 
                 {
-                    var newCost = costSoFar[current] + edges[current][neighbour];
-                    if (!costSoFar.ContainsKey(neighbour) || newCost < costSoFar[neighbour])
+                    var newCost = aStarTileDict[current].Cost + tile.Cost;
+                    if (!aStarTileDict.ContainsKey(tile) || newCost < aStarTileDict[tile].Cost)
                     {
-                        costSoFar[neighbour] = newCost;
-                        cameFrom[neighbour] = current;
-                        var priority = newCost + 1;
-                        frontier.Enqueue(neighbour, priority);
+                        aStarTileDict[tile] = new AStarTile(newCost, current);
+                        frontier.Enqueue(tile, newCost + 1);
                     }
-                }
+                });
             }
 
-            List<T> path = new List<T>();
-            if (!cameFrom.ContainsKey(destinationNode))
+            List<XSTile> path = new List<XSTile>();
+            if (!aStarTileDict.ContainsKey(dest))
                 return path;
 
-            path.Add(destinationNode);
-            var temp = destinationNode;
+            path.Add(dest);
+            var temp = dest;
 
-            while (!cameFrom[temp].Equals(originNode))
+            while (aStarTileDict[temp].PrevTile != src)
             {
-                var currentPathElement = cameFrom[temp];
+                var currentPathElement = aStarTileDict[temp].PrevTile;
                 path.Add(currentPathElement);
 
                 temp = currentPathElement;

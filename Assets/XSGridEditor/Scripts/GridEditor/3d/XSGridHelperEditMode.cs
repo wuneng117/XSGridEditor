@@ -63,7 +63,7 @@ namespace XSSLG
         public bool AddXSTile(XSTileData tileData)
         {
             var mgr = XSEditorInstance.Instance.GridMgr;
-            var ret = mgr.AddXSTile(tileData, mgr.TileDict);
+            var ret = mgr.AddXSTile(tileData);
             if (!ret)
                 return ret;
 
@@ -88,7 +88,7 @@ namespace XSSLG
         public bool RemoveXSTile(XSTileData tileData)
         {
             var mgr = XSEditorInstance.Instance.GridMgr;
-            return mgr.RemoveXSTile(tileData, mgr.TileDict);
+            return mgr.RemoveXSTile(tileData);
         }
 
         /// <summary>
