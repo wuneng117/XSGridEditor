@@ -7,15 +7,13 @@ namespace XSSLG
     /// </summary>
     class AStarPathfinding
     {
-
-
         /// <summary> 查找返回一条路径 </summary>
         public List<XSTile> FindPath(XSTile src, XSTile dest)
         {
-            IPriorityQueue<XSTile> frontier = new HeapPriorityQueue<XSTile>();
+            var frontier = new PriorityQueue<XSTile>();
             frontier.Enqueue(src, 0);
 
-            var aStarTileDict = new Dictionary<global::XSSLG.XSTile, AStarTile>();
+            var aStarTileDict = new Dictionary<XSTile, AStarTile>();
             aStarTileDict.Add(src, new AStarTile(0, null));
             
             while (frontier.Count != 0)
@@ -34,7 +32,7 @@ namespace XSSLG
                 });
             }
 
-            List<XSTile> path = new List<XSTile>();
+            var path = new List<XSTile>();
             if (!aStarTileDict.ContainsKey(dest))
                 return path;
 

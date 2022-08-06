@@ -8,18 +8,16 @@ namespace XSSLG
     /// </summary>
     class DijkstraPathfinding
     {
-        /// <summary> 查找返回所有可能的路径 </summary>
         /// <summary>
-        /// 
+        /// 查找返回所有可能的路径
         /// </summary>
-        /// <param name="edges"></param>
         /// <param name="src"></param>
         /// <param name="totalCost">总消耗，相当于移动范围差不多，默认-1和小于0都表示不限制</param>
         /// <typeparam name="XSTile"></typeparam>
         /// <returns></returns>
         public Dictionary<XSTile, List<XSTile>> FindAllPaths(XSTile src, int totalCost)
         {
-            IPriorityQueue<XSTile> openQueue = new HeapPriorityQueue<XSTile>();
+            var openQueue = new PriorityQueue<XSTile>();
             openQueue.Enqueue(src, 0);
 
             var aStarTileDict = new Dictionary<XSTile, AStarTile>();
@@ -44,7 +42,7 @@ namespace XSSLG
                 });
             }
 
-            Dictionary<XSTile, List<XSTile>> paths = new Dictionary<XSTile, List<XSTile>>();
+            var paths = new Dictionary<XSTile, List<XSTile>>();
             aStarTileDict.Keys.ToList().ForEach(tile =>
             {
                 List<XSTile> path = new List<XSTile>();
