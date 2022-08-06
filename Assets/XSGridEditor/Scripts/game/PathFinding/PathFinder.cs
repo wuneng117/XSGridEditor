@@ -13,11 +13,10 @@ namespace XSSLG
     public class PathFinder
     {
         /// <summary> 寻路插件 </summary>
-        private static AStarPathfinding _fallbackPathfinder = new AStarPathfinding();
+        private static AStarPath _aStarPath = new AStarPath();
 
         // /// <summary> 寻路插件，可以用来显示所有的路径 </summary>
-        private static DijkstraPathfinding _pathfinder = new DijkstraPathfinding();
-
+        private static DijkstraPath _dijkstraPath = new DijkstraPath();
 
         /// <summary>
         /// 寻路函数
@@ -36,7 +35,7 @@ namespace XSSLG
                 return ret;
             }
 
-            var pathTileList = _fallbackPathfinder.FindPath(srcTile, destTile);
+            var pathTileList = _aStarPath.FindPath(srcTile, destTile);
             return pathTileList.Select(pathTile => pathTile.TilePos).ToList();
         }
 
@@ -52,7 +51,7 @@ namespace XSSLG
             if (srcTile == null)
                 return new Dictionary<Vector3Int, List<Vector3Int>>();
 
-            var allPaths = _pathfinder.FindAllPaths(srcTile, moveRange);
+            var allPaths = _dijkstraPath.FindAllPaths(srcTile, moveRange);
             //移动到原地的路径长度为0，为了不和没有路径搞混，原地网格加进去
             allPaths[srcTile].Add(srcTile);
             // 把PathFinderTile全部转为对应的TilePos，并且过滤掉不能作为终点的路径

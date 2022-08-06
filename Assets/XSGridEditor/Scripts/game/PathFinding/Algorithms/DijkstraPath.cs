@@ -6,7 +6,7 @@ namespace XSSLG
     /// <summary>
     /// Implementation of Dijkstra pathfinding algorithm.
     /// </summary>
-    class DijkstraPathfinding
+    class DijkstraPath
     {
         /// <summary>
         /// 查找返回所有可能的路径
@@ -26,18 +26,19 @@ namespace XSSLG
             while (openQueue.Count != 0)
             {
                 var current = openQueue.Dequeue();
+                
                 current.NearTileList.ForEach(tile => 
                 {
-                    var newCost = aStarTileDict[current].Cost + tile.Cost;
+                    var cost = aStarTileDict[current].Cost + tile.Cost;
                     
                     // 必须小于总消耗
-                    if (totalCost >= 0 && newCost > totalCost)
+                    if (totalCost >= 0 && cost > totalCost)
                         return;
 
-                    if (!aStarTileDict.ContainsKey(tile) || newCost < aStarTileDict[tile].Cost)
+                    if (!aStarTileDict.ContainsKey(tile) || cost < aStarTileDict[tile].Cost)
                     {
-                        aStarTileDict[tile] = new AStarTile(newCost, current);
-                        openQueue.Enqueue(tile, newCost);
+                        aStarTileDict[tile] = new AStarTile(cost, current);
+                        openQueue.Enqueue(tile, cost);
                     }
                 });
             }

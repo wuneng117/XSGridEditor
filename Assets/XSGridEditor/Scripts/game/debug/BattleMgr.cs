@@ -82,14 +82,14 @@ namespace XSSLG
                             this.GridShowMgr.ClearMoveRegion();
                             this.MoveRegion = null;
                             //缓存
-                            if (this.SelectedUnit.CachedPaths != null && this.SelectedUnit.CachedPaths.ContainsKey(tile.TilePos))
-                                this.WalkTo(this.SelectedUnit.CachedPaths[tile.TilePos]);
-                            else
-                            {
+                            // if (this.SelectedUnit.CachedPaths != null && this.SelectedUnit.CachedPaths.ContainsKey(tile.TilePos))
+                            //     this.WalkTo(this.SelectedUnit.CachedPaths[tile.TilePos]);
+                            // else
+                            // {
                                 var srcTile = this.GridMgr.GetTile(this.SelectedUnit.transform.position);
                                 var path = this.GridMgr.FindPath(srcTile, tile);
                                 this.WalkTo(path);
-                            }
+                            // }
                         }
                     }
                     else
