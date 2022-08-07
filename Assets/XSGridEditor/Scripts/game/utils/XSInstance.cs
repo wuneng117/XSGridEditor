@@ -21,7 +21,7 @@ namespace XSSLG
                 return instance;
             }
         }
-        public GridMgr GridMgr { get; set; } = null;
+        public IGridMgr GridMgr { get; set; } = null;
         public XSGridHelper GridHelper { get; set; } = null;
 
         /************************* 变量  end  ***********************/

@@ -1,10 +1,3 @@
-/// <summary>
-/// @Author: xiaoshi
-/// @Date: 2022/2/9
-/// @Description: tile 上放置的 object 数据结构
-/// </summary>
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -20,30 +13,15 @@ namespace XSSLG
 
         void Start()
         {
-            if (XSUE.IsEditor())
-                this.AddGameObj();
-            else
+            if (!XSUE.IsEditor())
                 this.enabled = false;
         }
 
-        private void OnDestroy()
-        {
-            if (XSUE.IsEditor())
-            {
-                UnityUtils.ActionChildren(this.gameObject, (child) =>
-                {
-                    if (!PrefabUtility.IsPartOfAnyPrefab(child))
-                        XSUE.RemoveObj(child);
-                });
-            }
-        }
-
-        // Update is called once per frame
         void Update()
         {
             if (XSUE.IsEditor())
             {
-                // XSU.Log("XSObjectData Update");
+                // XSU.Log("XSUnitDataEditMode Update");
                 var gridMgr = XSEditorInstance.Instance.GridMgr;
                 var pos = gridMgr.WorldToTileCenterWorld(this.transform.position);
                 // zero 表示返回的为空，tile获取有问题
@@ -55,26 +33,6 @@ namespace XSSLG
                 else
                 {
                     this.transform.position = this.PrevPos;
-                }
-            }
-        }
-
-        virtual protected void AddGameObj()
-        {
-            if (XSUE.IsEditor())
-            {
-                var objData = this.GetComponent<XSUnitData>();
-                var obj = objData.GetGameObj();
-                if (obj)
-                {
-                    UnityUtils.ActionChildren(this.gameObject, (child) =>
-                    {
-                        if (PrefabUtility.IsPartOfAnyPrefab(child))
-                            child.SetActive(false);
-                        else
-                            XSUE.RemoveObj(child);
-                    });
-                    obj.transform.parent = this.transform;
                 }
             }
         }

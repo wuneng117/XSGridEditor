@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/2/2
-/// @Description: Demo_1 场景测试寻路
+/// @Description: Demo_1 场景测试
 /// </summary>
 using System.Collections;
 using System.Collections.Generic;
@@ -10,14 +10,16 @@ using UnityEngine.InputSystem;
 
 namespace XSSLG
 {
-    /// <summary> Demo_1 场景测试寻路 </summary>
+    /// <summary> Demo_1 场景测试 </summary>
     public class BattleMgr : MonoBehaviour
     {
         /// <summary> 行走速度 </summary>
         public int movementAnimationSpeed = 2;
 
+        public XSCamera XSCamera;
+
         /// <summary> tile 管理 </summary>
-        public GridMgr GridMgr { get; set; }
+        public IGridMgr GridMgr { get; set; }
 
         /// <summary> unit 管理 </summary>
         public XSUnitMgr UnitMgr { get; set; }
@@ -25,41 +27,29 @@ namespace XSSLG
         /// <summary> 格子显示管理 </summary>
         public GridShowMgr GridShowMgr { get; set; }
 
-        /// <summary> 当前是否在寻路中 </summary>
+        /// <summary> 当前是否在移动中 </summary>
         public bool IsMoving { get; private set; } = false;
         
-        public PanAndZoom PanObj;
 
         public List<Vector3> MoveRegion { get; private set; }
 
         protected XSUnitData SelectedUnit { get; set; } = null;
 
 
-
-        // Start is called before the first frame update
         void Start()
         {
             if (UnityUtils.IsEditor())
-            {
                 this.enabled = false;
-            }
             else
             {
                 this.GridMgr = XSInstance.Instance.GridMgr;
                 var gridHelper = XSInstance.Instance.GridHelper;
                 if (gridHelper)
-                    this.PanObj.SetConfinerBound(gridHelper.GetBounds());
+                    this.XSCamera.SetConfinerBound(gridHelper.GetBounds());
 
                 this.UnitMgr = new XSUnitMgr(gridHelper);
-                this.GridShowMgr = new GridShowMgr(this.GridMgr, gridHelper);
+                this.GridShowMgr = new GridShowMgr(gridHelper.MoveTilePrefab);
             }
-
-
-            // var showMgr = new GridShowMgr(this.GridMgr);
-            // var list = new List<Vector3Int>();
-            // list.Add(new Vector3Int(0, 0, 0));
-            // list.Add(new Vector3Int(1, 1, 0));
-            // showMgr.TestShowRegion(list);
         }
 
         // Update is called once per frame
@@ -99,10 +89,7 @@ namespace XSSLG
                         }
 
                     }
-
-
                     /************************* 处理选择 unit ，然后移动  end  ***********************/
-
                 }
                 else if (Mouse.current.rightButton.wasPressedThisFrame)
                 {
@@ -121,7 +108,6 @@ namespace XSSLG
         /// <param name="path">移动路径</param>
         public void WalkTo(List<Vector3> path)
         {
-
             if (this.movementAnimationSpeed > 0)
                 StartCoroutine(MovementAnimation(path));
         }

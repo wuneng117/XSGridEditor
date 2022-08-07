@@ -20,38 +20,32 @@ namespace XSSLG
         /************************* 变量  end  ***********************/
         public XSUnitMgr(XSGridHelper helper)
         {
-            // this.UnitRoot = helper?.UnitRoot;
-            this.UnitDict = this.CreateXSUnitDict(helper);
+            this.CreateXSUnitDict(helper);
         }
 
-        protected UnitDict CreateXSUnitDict(XSGridHelper helper)
+        protected void CreateXSUnitDict(XSGridHelper helper)
         {
-            var ret = new UnitDict();
             if (helper == null)
-                return ret;
+                return;
 
             var unitDataList = helper.GetUnitDataList();
             if (unitDataList == null || unitDataList.Count == 0)
-                return ret;
-
+                return;
 
             // 遍历Tile
-            unitDataList.ForEach(tileData => this.AddXSUnit(tileData, ret));
-
-            return ret;
+            unitDataList.ForEach(unitData => this.AddXSUnit(unitData));
         }
 
         /// <summary>
         /// 添加XSTile到字典中
         /// </summary>
         /// <param name="unitData"></param>
-        /// <param name="unitDict"></param>
         /// <returns></returns>
-        public bool AddXSUnit(XSUnitData unitData, UnitDict unitDict)
+        public bool AddXSUnit(XSUnitData unitData)
         {
             var gridMgr = XSInstance.Instance.GridMgr;
             var tilePos = gridMgr.WorldToTile(unitData.transform.position);
-            if (unitDict.ContainsKey(tilePos))
+            if (this.UnitDict.ContainsKey(tilePos))
             {
                 Debug.LogError("XSUnitMgr.AddXSUnit: 同一tilePos上已经存在unitData：" + tilePos);
                 return false;
@@ -68,8 +62,7 @@ namespace XSSLG
                     collider.size = bounds.size;
                 }
 
-
-                unitDict.Add(tilePos, unitData);
+                this.UnitDict.Add(tilePos, unitData);
                 return true;
             }
         }

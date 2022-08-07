@@ -18,24 +18,17 @@ namespace XSSLG
         private string id = "-1";
         public string Id { get => id; set => id = value; }
 
-
         [SerializeField]
         private int move = 6;
-
         public int Move { get => move; set => move = value; }
 
         public Dictionary<Vector3, List<Vector3>> CachedPaths { get; private set; }
-
-        public virtual GameObject GetGameObj()
-        {
-            return null;
-        }
 
         public Bounds GetMaxBounds()
         {
             var renderers = this.GetComponentsInChildren<Renderer>();
             if (renderers.Length == 0)
-                return new Bounds(this.transform.position, Vector3.zero);
+                return new Bounds();
 
             var ret = renderers[0].bounds;
             foreach (Renderer r in renderers)

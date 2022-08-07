@@ -5,9 +5,7 @@
 /// </summary>
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace XSSLG
 {
@@ -60,16 +58,6 @@ namespace XSSLG
                         pair.Value.NearTileList.Add(this.TileDict[nearPos]);
                 }
             }
-        }
-
-        public Vector3 TileToWorld(Vector3Int tilePos)
-        {
-            tilePos.y = 0;
-            var tile = this.GetXSTile(tilePos);
-            if (tile == null)
-                return Vector3.zero;
-
-            return tile.WorldPos;
         }
 
         public Vector3Int WorldToTile(Vector3 worldPos)
@@ -183,11 +171,6 @@ namespace XSSLG
                 return null;
         }
 
-        /// <summary>
-        /// 添加XSTile
-        /// </summary>
-        /// <param name="tileData"></param>
-        /// <returns></returns>
         public void UpdateTileSize(Vector3 tileSize)
         {
             this.TileSize = new Vector3(tileSize.x, tileSize.z, tileSize.y);

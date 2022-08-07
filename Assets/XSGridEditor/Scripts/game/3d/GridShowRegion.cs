@@ -14,13 +14,13 @@ namespace XSSLG
         /************************* 变量 begin ***********************/
         /// <summary> 高亮图块的根节点路径 </summary>
         public string RootPath { get; }
-        /// <summary> 高亮图块使用的精灵 </summary>
-        public Sprite Asset { get; }
         /// <summary> 高亮图块使用的prefab </summary>
         public GameObject Prefab { get; }
 
         /// <summary> sprite 排序规则 </summary>
-        private int SortOrder { get; }
+        protected int SortOrder { get; }
+
+        protected Transform Root { get; set; }
 
         /************************* 变量  end  ***********************/
 
@@ -28,27 +28,20 @@ namespace XSSLG
         /// 构造函数
         /// </summary>
         /// <param name="rootPath">高亮图块的根节点路径</param>
-        /// <param name="Asset">图片精灵</param>
-        public GridShowRegion(string rootPath, Sprite Asset, GameObject prefab, int sortOrder)
+        public GridShowRegion(string rootPath, GameObject prefab, int sortOrder)
         {
-            this.RootPath = rootPath;
-            this.Asset = Asset;
-            this.Prefab = prefab;
-            this.SortOrder = sortOrder;
+            (this.RootPath,  this.Prefab, this.SortOrder) = (rootPath, prefab, sortOrder);
             this.CreateRootNode();
         }
 
         protected virtual void CreateRootNode()
         {
-            if (GameObject.Find(this.RootPath))
-             return;
+            var parent = XSInstance.Instance.GridHelper?.transform;
+            if (parent == null) 
+                return;
 
-            var root = XSInstance.Instance.GridHelper?.transform;
-            if (root ==null) return;
-
-            // 取名字，路径不要
-            var parentObj = new GameObject(this.RootPath);
-            parentObj.transform.SetParent(root.transform);
+            this.Root = new GameObject(this.RootPath).transform;
+            this.Root.SetParent(parent);
         }
 
         /// <summary>
@@ -57,20 +50,20 @@ namespace XSSLG
         /// <param name="worldPosList">图块所在的网格坐标</param>
         public void ShowRegion(List<Vector3> worldPosList)
         {
+            if (this.Root == null ||  this.Prefab == null)
+                return;
+
             worldPosList.ForEach(pos =>
             {
-                var parent = GameObject.Find(this.RootPath)?.transform;
-                if (parent ==null) return;
-
-                var obj = GameObject.Instantiate(this.Prefab, parent);
-                if (obj == null) return;
+                var obj = GameObject.Instantiate(this.Prefab, this.Root);
+                if (obj == null) 
+                    return;
 
                 // 设置layer默认。不要遮挡射线到 tile 的检测
                 obj.layer = LayerMask.NameToLayer("Default");
                 obj.transform.position = pos;
 
                 var spr = obj.GetComponentInChildren<SpriteRenderer>();
-                spr.sprite = this.Asset;
                 spr.sortingOrder = this.SortOrder;
             });
         }
@@ -78,10 +71,10 @@ namespace XSSLG
         /// <summary> 清除高亮显示 </summary>
         public void ClearRegion() 
         {
-            var parentObj = GameObject.Find(this.RootPath);
-            if (parentObj ==null) return;
+            if (this.Root == null)
+                return;
 
-            XSUG.RemoveChildren(parentObj);
+            XSUG.RemoveChildren(this.Root.gameObject);
         } 
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1069487499210864933}
   - component: {fileID: 8709288698415181090}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: TileRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,10 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb7d7e5a936ca4abd59f9449351369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileSpriteMove: {fileID: 21300000, guid: 00f0ed3d716a5ac488230ea2d916d8ca, type: 3}
-  TileSpriteAttack: {fileID: 21300000, guid: 850c42b4690ff8742883c62537d4f551, type: 3}
-  TileSpriteAttackEffect: {fileID: 21300000, guid: 850c42b4690ff8742883c62537d4f551, type: 3}
-  TilePrefab: {fileID: 5482847116410207803, guid: ce63ef7064609974f91fa067e66f0fc1, type: 3}
+  TileRoot: {fileID: 1069487499210864933}
+  UnitRoot: {fileID: 4814224501978280861}
+  MoveTilePrefab: {fileID: 5482847116410207803, guid: af9bcb27486b4774791387f525475ebf, type: 3}
 --- !u!114 &5669126898807875618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,9 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d13521a83638e4ebca4ab734d2ce22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitRoot: {fileID: 4814224501978280861}
-  TileRoot: {fileID: 1069487499210864933}
   ObjectPrefab: {fileID: 3590657989057605550, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
-  Precision: 0.01
-  TopDistance: 100
   IsShowCost: 0

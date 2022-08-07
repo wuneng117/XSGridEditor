@@ -5,7 +5,6 @@
 /// </summary>
 using UnityEngine;
 using Cinemachine;
-using XSSLG;
 using System.Collections;
 using UnityEngine.InputSystem;
 
@@ -21,44 +20,45 @@ namespace XSSLG
     [RequireComponent(typeof(CinemachineInputProvider))]
     [RequireComponent(typeof(CinemachineVirtualCamera))]
     [RequireComponent(typeof(CinemachineConfiner))]
-    public class PanAndZoom : MonoBehaviour
+    public class XSCamera : MonoBehaviour
     {
         /************************* 变量 begin ***********************/
 
         [SerializeField]
         /// <summary> 边缘移动速度 </summary>
-        private float panSpeed = 30f;
+        protected float moveSpeed = 30f;
 
         [SerializeField]
         /// <summary> 放大缩小速度 </summary>
-        private float zoomSpeed = 20f;
+        protected float zoomSpeed = 20f;
 
         [SerializeField]
         /// <summary> 摄像机上下移动范围 </summary>
-        private float cameraSizeY = 20;
+        protected float cameraSizeY = 20;
+
+        [SerializeField]
+        ///<summary> 按键每次旋转角度 </summary>
+        protected float RotationStep = 22.5f;
 
         /// <summary> cinema输入组件 </summary>
-        private CinemachineInputProvider InputProvider { set; get; } = null;
+        protected CinemachineInputProvider InputProvider { set; get; } = null;
         /// <summary> cinema虚拟相机组件 </summary>
-        private CinemachineVirtualCamera VirtualCamera { set; get; } = null;
+        protected CinemachineVirtualCamera VirtualCamera { set; get; } = null;
         /// <summary> cinema虚拟相机限制范围 </summary>
-        private CinemachineConfiner Confier { set; get; } = null;
+        protected CinemachineConfiner Confier { set; get; } = null;
 
         /// <summary> 摄像机是否可以移动 </summary>
         public bool CanFreeMove { set; get; } = true;
 
         /// <summary> 是否正在移动到某个位置，这个时候不能通过鼠标控制 </summary>
-        private bool IsMoving { set; get; } = false;
+        protected bool IsMoving { set; get; } = false;
 
         /// <summary> 地图大小 </summary>
         public Bounds Bound { get; set; } = new Bounds();
 
-        ///<summary> 按键每次旋转角度 </summary>
-        protected float RotationStep = 22.5f;
-
         /************************* 变量  end  ***********************/
 
-        protected virtual void Awake()
+        void Awake()
         {
             this.InputProvider = this.GetComponent<CinemachineInputProvider>();
             this.VirtualCamera = this.GetComponent<CinemachineVirtualCamera>();
@@ -66,7 +66,7 @@ namespace XSSLG
         }
 
         // Update is called once per frame
-        protected virtual void Update()
+        void Update()
         {
             if (!this.IsMoving && this.CanFreeMove)
             {
@@ -74,7 +74,7 @@ namespace XSSLG
                 float y = this.InputProvider.GetAxisValue(1);
                 float z = this.InputProvider.GetAxisValue(2);
                 if (x != 0 || y != 0)
-                    this.PanScreen(x, y);
+                    this.MoveScreen(x, y);
 
                 if (z != 0)
                     this.ZoomScreen(z);
@@ -88,9 +88,9 @@ namespace XSSLG
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        protected virtual void PanScreen(float x, float y)
+        protected virtual void MoveScreen(float x, float y)
         {
-            var direction = this.PanDirection(x, y);
+            var direction = this.MoveDirection(x, y);
             this.UpdatePos(direction.normalized);
         }
 
@@ -100,7 +100,7 @@ namespace XSSLG
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        protected virtual Vector3 PanDirection(float x, float y)
+        protected virtual Vector3 MoveDirection(float x, float y)
         {
             Vector3 direction = Vector3.zero;
             if (y >= Screen.height * 0.95f)
@@ -124,7 +124,7 @@ namespace XSSLG
         /// <param name="direction"></param>
         protected virtual void UpdatePos(Vector3 direction)
         {
-            var targetPosition = this.transform.position + direction * this.panSpeed;
+            var targetPosition = this.transform.position + direction * this.moveSpeed;
             targetPosition = Vector3.Lerp(this.transform.position,
                                                     targetPosition,
                                                     Time.deltaTime);
@@ -151,25 +151,13 @@ namespace XSSLG
         {
             var eulerAngles = this.transform.rotation.eulerAngles;
             if (Keyboard.current.upArrowKey.wasPressedThisFrame)
-            {
                 eulerAngles.x = Mathf.Clamp(eulerAngles.x - this.RotationStep, this.RotationStep, 90.0f);
-                // XSU.Log("upArrowKey");
-            }
             else if (Keyboard.current.downArrowKey.wasPressedThisFrame)
-            {
                 eulerAngles.x = Mathf.Clamp(eulerAngles.x + this.RotationStep, this.RotationStep, 90.0f);
-                // XSU.Log("downArrowKey");
-            }
             else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
-            {
                 eulerAngles.y -= this.RotationStep;
-                // XSU.Log("leftArrowKey");
-            }
             else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
-            {
                 eulerAngles.y += this.RotationStep;
-                // XSU.Log("rightArrowKey");
-            }
             else
                 return;
             
@@ -200,7 +188,7 @@ namespace XSSLG
         public virtual void MoveTo(Vector3 worldPos) => this.StartCoroutine(MovementAnimation(worldPos));
 
         /// <summary> 携程函数处理移动 </summary>
-        public virtual IEnumerator MovementAnimation(Vector3 worldPos)
+        protected virtual IEnumerator MovementAnimation(Vector3 worldPos)
         {
             this.IsMoving = true;
             var pos = XSUG.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
@@ -229,9 +217,7 @@ namespace XSSLG
             float sizeY = 0;
             var offset = Vector3.zero;
             if (halfFov >= degreeA)
-            {
                 sizeY = cameraSizeY;
-            }
             // 当 halfFov < degreeA 时，cameraSizeY 就没有用了，因为 collider.transform.position 需要移动，否则会导致在边缘时无法看到全部地图
             // 我们保证 collider.size 还是和地图大小保持一致，然后计算 cameraSizeY ，以及 collider.transform.position 的移动
             else

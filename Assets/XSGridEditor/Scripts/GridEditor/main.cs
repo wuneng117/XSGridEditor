@@ -19,10 +19,4 @@ public class main : MonoBehaviour
             var instance = XSInstance.Instance;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

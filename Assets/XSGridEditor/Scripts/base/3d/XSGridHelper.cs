@@ -19,16 +19,8 @@ namespace XSSLG
         /// <summary> unit根节点 </summary>
         public Transform UnitRoot = null;
 
-        /// <summary> 移动范围用的图片 </summary>
-        public Sprite TileSpriteMove = null;
-
-        /// <summary> 攻击范围用的图片 </summary>
-        public Sprite TileSpriteAttack = null;
-        /// <summary> 攻击效果范围用的图片 </summary>
-        public Sprite TileSpriteAttackEffect = null;
-
-        /// <summary> tile 的prefab 文件 </summary>
-        public GameObject TilePrefab = null;
+        /// <summary> 移动范围用的 prefab </summary>
+        public GameObject MoveTilePrefab = null;
 
         /// <summary> 获取所有 XSTileData 节点 </summary>
         public List<XSTileData> GetTileDataList()=> this.TileRoot.GetComponentsInChildren<XSTileData>().ToList();
@@ -46,9 +38,18 @@ namespace XSSLG
             if (tiles.Count == 0)
                 return ret;
 
-            var bound = tiles[0].GetComponent<BoxCollider>().bounds;
-            foreach (var tile in tiles)
-                bound.Encapsulate(tile.GetComponent<BoxCollider>().bounds);
+            var collider = tiles[0].GetComponent<BoxCollider>();
+            if (collider == null)
+                return ret;
+
+            var bound = collider.bounds;
+            tiles.ForEach(tile =>
+            {
+                var col = tile.GetComponent<BoxCollider>();
+                if (col)
+                    bound.Encapsulate(col.bounds);
+            });
+            
             return bound;
         }
     }

@@ -1,16 +1,9 @@
-/// <summary>
-/// @Author: xiaoshi
-/// @Date: 2022/2/9
-/// @Description: tile 上放置的 object 数据结构
-/// </summary>
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace XSSLG
 {
     /// <summary> XSObjectData 的编辑器操作 </summary>
+    [RequireComponent(typeof(XSTileData))]
     [ExecuteInEditMode]
     public class XSTileDataEditMode : MonoBehaviour
     {
@@ -28,7 +21,6 @@ namespace XSSLG
                 
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (XSUE.IsEditor())
