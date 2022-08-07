@@ -35,6 +35,7 @@ namespace XSSLG
             if (allPaths[srcTile] == null)
                 allPaths[srcTile] = new List<XSTile>();
             allPaths[srcTile].Add(srcTile);
+            
             // 把PathFinderTile全部转为对应的TilePos，并且过滤掉不能作为终点的路径
             var allTilePosPaths = allPaths.Where(path => path.Key.CanBeDustFunc == null || path.Key.CanBeDustFunc(path.Key.TilePos))
                                           .ToDictionary(pair => pair.Key.WorldPos, pair => pair.Value.Select(pathTile => pathTile.WorldPos).ToList());

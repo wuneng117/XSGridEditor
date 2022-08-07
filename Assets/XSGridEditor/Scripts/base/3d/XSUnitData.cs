@@ -50,7 +50,7 @@ namespace XSSLG
         public List<Vector3> GetMoveRegion()
         {
             var gridMgr = XSInstance.Instance.GridMgr;
-            var srcTile = gridMgr.GetTile(this.transform.position);
+            var srcTile = gridMgr.GetXSTile(this.transform.position);
             // 缓存起来哈
             this.CachedPaths = gridMgr.FindAllPath(srcTile, this.Move);
             // 把this.CachedPaths累加起来

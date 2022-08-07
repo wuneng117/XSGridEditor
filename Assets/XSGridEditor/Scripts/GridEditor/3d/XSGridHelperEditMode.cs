@@ -60,24 +60,15 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public bool AddXSTile(XSTileData tileData)
+        public XSTile AddXSTile(XSTileData tileData)
         {
             var mgr = XSEditorInstance.Instance.GridMgr;
-            var ret = mgr.AddXSTile(tileData);
-            if (!ret)
-                return ret;
+            var tile = mgr.AddXSTile(tileData);
+            if (tile == null)
+                return tile;
 
-            // var box = tileData.GetComponentInChildren<Renderer>().bounds.size;
-
-            var posChangeRet = this.SetTileToNearTerrain(tileData);
-            if (posChangeRet)
-            {
-                var tileDataEditMode = tileData.GetComponent<XSTileDataEditMode>();
-                if (tileDataEditMode)
-                    tileDataEditMode.PrevPos = tileData.transform.localPosition;
-            }
-
-            return ret;
+            this.SetTileToNearTerrain(tile);
+            return tile;
         }
 
         /// <summary>
@@ -96,7 +87,7 @@ namespace XSSLG
         /// </summary>
         public virtual void SetTileToNearTerrain()
         {
-            foreach (var tile in XSEditorInstance.Instance.GridMgr.TileDict.Values)
+            foreach (var tile in XSEditorInstance.Instance.GridMgr.GetAllTiles())
                 this.SetTileToNearTerrain(tile);
         }
 
@@ -116,10 +107,6 @@ namespace XSSLG
 
             // 调整了位置，需要更新XSTile和XSTileDataEditMode的位置
             tile.WorldPos = tile.Node.transform.position;
-            var tileDataEditMode = tile.Node.GetComponent<XSTileDataEditMode>();
-            if (tileDataEditMode)
-                tileDataEditMode.PrevPos = tile.Node.transform.localPosition;
-
             return ret;
         }
 
@@ -160,19 +147,11 @@ namespace XSSLG
             return ret;
         }
 
-        //更新TileDict
-        public virtual void UpdateXSTile(XSTileData tileData, Vector3Int tilePos, Vector3 worldPos, int cost, Func<Vector3Int, bool> isWalkable = null, Func<Vector3Int, bool> canBeDustFunc = null)
-        {
-            var tile = new XSTile(tilePos, worldPos, cost, tileData, isWalkable, canBeDustFunc);
-            XSEditorInstance.Instance.GridMgr.UpdateTileDict(tile);
-        }
-
         /// <summary> 删除所有的 tile </summary>
         public virtual void ClearTiles()
         {
             XSUE.RemoveChildren(XSEditorInstance.Instance.GridHelper.TileRoot.gameObject);
-            XSEditorInstance.Instance.GridMgr.TileDict.Clear();
-
+            XSEditorInstance.Instance.GridMgr.ClearAllTiles();
         }
 
         /// <summary>
@@ -218,7 +197,7 @@ namespace XSSLG
                 var textRoot = new GameObject();
                 textRoot.name = rootName;
                 textRoot.transform.SetParent(this.GetUnitRoot());
-                foreach (var tile in XSEditorInstance.Instance.GridMgr.TileDict.Values)
+                foreach (var tile in XSEditorInstance.Instance.GridMgr.GetAllTiles())
                 {
                     if (tile.Node != null)
                     {

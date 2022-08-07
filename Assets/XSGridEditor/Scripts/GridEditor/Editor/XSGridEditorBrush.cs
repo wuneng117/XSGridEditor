@@ -36,7 +36,7 @@ namespace XSSLG
 
             var mgr = XSEditorInstance.Instance.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
-            var existTile = mgr.GetTile(worldPos);
+            var existTile = mgr.GetXSTile(worldPos);
             if (existTile != null)
                 return;
                 
@@ -54,9 +54,9 @@ namespace XSSLG
 
             tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
             //添加到TileDict
-            var ret = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileData>());
+            var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileData>());
 
-            if (ret == null)
+            if (tile == null)
             {
                 Debug.LogError("AddXSTileData failed");
                 GameObject.DestroyImmediate(tileObj);
@@ -86,7 +86,7 @@ namespace XSSLG
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
             var worldPos = gridLayout.CellToWorld(position);
-            var existTile = XSEditorInstance.Instance.GridMgr.GetTile(worldPos);
+            var existTile = XSEditorInstance.Instance.GridMgr.GetXSTile(worldPos);
             if (existTile == null || existTile.Node == null)
                 return;
 

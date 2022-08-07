@@ -13,7 +13,21 @@ namespace XSSLG
     public class XSTile
     {
         /// <summary> 世界坐标 </summary>
-        public Vector3 WorldPos { get; set; }
+        protected Vector3 worldPos;
+        public Vector3 WorldPos
+        {
+            get => worldPos;
+            set
+            {
+                this.worldPos = value;
+                if (UnityUtils.IsEditor())
+                {
+                    var dataEdit = this.Node?.GetComponent<XSTileDataEditMode>();
+                    if (dataEdit)
+                        dataEdit.PrevPos = this.Node.transform.localPosition;
+                }
+            }
+        }
 
         /// <summary> 网格坐标 </summary>
         public Vector3Int TilePos { get; } = new Vector3Int();
@@ -31,8 +45,6 @@ namespace XSSLG
 
         /// <summary> 邻接的格子，在PathFinder初始化时计算 </summary>
         public List<XSTile> NearTileList { get; } = new List<XSTile>();
-
-
 
         // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
         public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSTileData node, Func<Vector3Int, bool> isWalkable = null, Func<Vector3Int, bool> canBeDustFunc = null)

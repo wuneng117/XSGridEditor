@@ -96,6 +96,9 @@ namespace XSSLG
         /// <param name="obj">父节点</param>
         public static void ActionChildren(GameObject obj, Action<GameObject> action)
         {
+            if (obj == null)
+                return;
+                
             int childCount = obj.transform.childCount;
             for (int i = childCount - 1; i >= 0; i--)
                 action(obj.transform.GetChild(i).gameObject);

@@ -3,9 +3,6 @@ using System.Linq;
 
 namespace XSSLG
 {
-    /// <summary>
-    /// Implementation of Dijkstra pathfinding algorithm.
-    /// </summary>
     class DijkstraPath
     {
         /// <summary>
@@ -13,7 +10,6 @@ namespace XSSLG
         /// </summary>
         /// <param name="src"></param>
         /// <param name="totalCost">总消耗，相当于移动范围差不多，默认-1和小于0都表示不限制</param>
-        /// <typeparam name="XSTile"></typeparam>
         /// <returns></returns>
         public Dictionary<XSTile, List<XSTile>> FindAllPaths(XSTile src, int totalCost)
         {

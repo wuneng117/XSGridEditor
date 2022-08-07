@@ -41,7 +41,7 @@ public class XSUG : UnityUtils
         if (tileData == null)
             return XSTile.Default();
 
-        var tile = XSInstance.Instance.GridMgr.GetTile(tileData.transform.position);
+        var tile = XSInstance.Instance.GridMgr.GetXSTile(tileData.transform.position);
         return tile ?? XSTile.Default();
     }
 

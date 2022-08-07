@@ -20,10 +20,19 @@ namespace XSSLG
         private static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(0, 0, 1), };
 
         /// <summary> 以tilepos为key存储所有tile。 </summary>
-        public TileDict TileDict { get; protected set; } = new TileDict();
+        protected TileDict TileDict { get; set; } = new TileDict();
+
+        public List<XSTile> GetAllTiles() => this.TileDict.Values.ToList();
+
+        public void ClearAllTiles()
+        {
+            XSUE.RemoveChildren(this.TileRoot?.gameObject);
+           this.TileDict.Clear();
+        }
 
         /// <summary> tile父节点，提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
         private Transform TileRoot { get; }
+
         /// <summary> tile 大小，用来计算 tilePos </summary>
         private Vector3 TileSize { set; get; } = Vector3.zero;
 
@@ -38,23 +47,34 @@ namespace XSSLG
                 this.TileSize = new Vector3(1, 1, 1);
         }
 
+        public virtual void Init(XSGridHelper helper)
+        {
+            this.CreateXSTileDict(helper);
+            // 为每个PathFinderTile计算它的链接格子
+            foreach (var pair in this.TileDict)
+            {
+                foreach (var pos in NearPosArray)
+                {
+                    var nearPos = pair.Key + pos;
+                    if (this.TileDict.ContainsKey(nearPos))
+                        pair.Value.NearTileList.Add(this.TileDict[nearPos]);
+                }
+            }
+        }
+
         public Vector3 TileToWorld(Vector3Int tilePos)
         {
-            var ret = new Vector3(0, 0, 0);
-
-            // if (tilePos.x < 0 || tilePos.z < 0)
-            //     return ret;
-
             tilePos.y = 0;
-            var tile = this.GetTile(tilePos);
-            if (tile == null) return ret;
+            var tile = this.GetXSTile(tilePos);
+            if (tile == null)
+                return Vector3.zero;
 
             return tile.WorldPos;
         }
 
         public Vector3Int WorldToTile(Vector3 worldPos)
         {
-            var ret = new Vector3Int(-1, 0, -1);
+            var ret = Vector3Int.zero;
             if (this.TileRoot == null)
                 return ret;
 
@@ -63,6 +83,7 @@ namespace XSSLG
             ret.z = Mathf.FloorToInt((localPos.z) / this.TileSize.z);
             return ret;
         }
+
         public Vector3 WorldToTileCenterWorld(Vector3 worldPos)
         {
             var ret = Vector3.zero;
@@ -93,12 +114,6 @@ namespace XSSLG
             if (tileDataList == null || tileDataList.Count == 0)
                 return;
 
-            // TODO tile要适配大小刚好为Tile
-            // this.TileSize = Mathf.FloorToInt(tileData.gameObject.transform.localScale.x);
-            // var sprite = tileData.GetComponent<SpriteRenderer>();
-            // if (sprite)
-            //     this.TileSize *= Mathf.FloorToInt(sprite.size.x);
-
             // 遍历Tile
             tileDataList.ForEach(tileData => this.AddXSTile(tileData));
         }
@@ -108,14 +123,14 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public bool AddXSTile(XSTileData tileData)
+        public XSTile AddXSTile(XSTileData tileData)
         {
             var tilePos = this.WorldToTile(tileData.transform.position);
             // 判断 tileDict[tilePos].Node 是因为实际节点可能是被其他情况下清除了
             if (this.TileDict.ContainsKey(tilePos) && this.TileDict[tilePos].Node != null)
             {
                 Debug.LogError("GridMgr.AddXSTile: 已经存在相同的tilePos：" + tilePos);
-                return false;
+                return null;
             }
             else
             {
@@ -127,7 +142,7 @@ namespace XSSLG
 
                 var tile = new XSTile(tilePos, tileData.transform.position, tileData.Cost, tileData);
                 this.TileDict.Add(tilePos, tile);
-                return true;
+                return tile;
             }
         }
 
@@ -154,6 +169,20 @@ namespace XSSLG
             return ret;
         }
 
+        public XSTile GetXSTile(Vector3 worldPos)
+        {
+            var tilelPos = this.WorldToTile(worldPos);
+            return this.GetXSTile(tilelPos);
+        }
+
+        protected XSTile GetXSTile(Vector3Int tilePos)
+        {
+            if (this.TileDict.ContainsKey(tilePos))
+                return this.TileDict[tilePos];
+            else
+                return null;
+        }
+
         /// <summary>
         /// 添加XSTile
         /// </summary>
@@ -164,57 +193,15 @@ namespace XSSLG
             this.TileSize = new Vector3(tileSize.x, tileSize.z, tileSize.y);
             foreach (var tile in this.TileDict.Values)
             {
-                if (tile.Node != null)
-                {
-                    var newWorldPos = this.TileToTileCenterWorld(tile.TilePos);
-                    tile.Node.transform.position = newWorldPos;
-                    tile.WorldPos = newWorldPos;
-                    var tileDataEditMode = tile.Node.GetComponent<XSTileDataEditMode>();
-                    if (tileDataEditMode)
-                        tileDataEditMode.PrevPos = tile.Node.transform.localPosition;
-                }
+                if (tile.Node == null)
+                    continue;
+
+                var newWorldPos = this.TileToTileCenterWorld(tile.TilePos);
+                tile.Node.transform.position = newWorldPos;
+                tile.WorldPos = newWorldPos;
             }
         }
 
-                public virtual void Init(XSGridHelper helper)
-        {
-            this.CreateXSTileDict(helper);
-            // 为每个PathFinderTile计算它的链接格子
-            foreach (var pair in this.TileDict)
-            {
-                foreach (var pos in NearPosArray)
-                {
-                    var nearPos = pair.Key + pos;
-                    if (this.TileDict.ContainsKey(nearPos))
-                        pair.Value.NearTileList.Add(this.TileDict[nearPos]);
-                }
-            }
-        }
-
-        /// <summary> 以tilepos为key更新TileDict。 </summary>
-        public void UpdateTileDict(XSTile tile)
-        {
-            // 更新tile必须是同一个Node
-            if (this.TileDict.ContainsKey(tile.TilePos) && this.TileDict[tile.TilePos].Node == tile.Node)
-                this.TileDict[tile.TilePos] = tile;
-            else
-                this.TileDict.Add(tile.TilePos, tile);
-        }
-
-        //1game
-        public XSTile GetTile(Vector3 worldPos)
-        {
-            var tilelPos = this.WorldToTile(worldPos);
-            return this.GetTile(tilelPos);
-        }
-
-        public XSTile GetTile(Vector3Int tilePos)
-        {
-            if (this.TileDict.ContainsKey(tilePos))
-                return this.TileDict[tilePos];
-            else
-                return null;
-        }
 
         /// <summary>
         /// 返回所有的路径

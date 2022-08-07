@@ -26,13 +26,7 @@ namespace XSSLG
         /// 从 worldPos 获取tile
         /// </summary>
         /// <param name="worldPos">unity 的世界坐标</param>
-        XSTile GetTile(Vector3 worldPos);
-
-        /// <summary>
-        /// 从  tilePos 获取 tile
-        /// </summary>
-        /// <param name="tilePos">表示每个 tile 的坐标</param>
-        XSTile GetTile(Vector3Int tilePos);
+        XSTile GetXSTile(Vector3 worldPos);
 
         /// <summary>
         /// 获取随意一点世界坐标对应 tile 的中心位置
