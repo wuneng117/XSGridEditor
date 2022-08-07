@@ -24,7 +24,7 @@ namespace XSSLG
 
         public int Move { get => move; set => move = value; }
 
-        public Dictionary<Vector3Int, List<Vector3Int>> CachedPaths { get; private set; }
+        public Dictionary<Vector3, List<Vector3>> CachedPaths { get; private set; }
 
         public virtual GameObject GetGameObj()
         {
@@ -47,14 +47,14 @@ namespace XSSLG
         /// 获取移动范围
         /// </summary>
         /// <returns></returns>
-        public List<Vector3Int> GetMoveRegion()
+        public List<Vector3> GetMoveRegion()
         {
             var gridMgr = XSInstance.Instance.GridMgr;
             var srcTile = gridMgr.GetTile(this.transform.position);
             // 缓存起来哈
             this.CachedPaths = gridMgr.FindAllPath(srcTile, this.Move);
             // 把this.CachedPaths累加起来
-            var ret = this.CachedPaths.Aggregate(new List<Vector3Int>(), (ret, pair) =>
+            var ret = this.CachedPaths.Aggregate(new List<Vector3>(), (ret, pair) =>
             {
                 // 去重
                 ret.AddRange(pair.Value.Distinct());

@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/1/23
-/// @Description: 这是一个正方形网格寻路模块，先将网格数据全部转成PathFInderTile，再调用寻路
+/// @Description: 这是一个正方形网格寻路模块，先将网格数据全部转成XSTile，再调用寻路
 /// </summary>
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,9 @@ using UnityEngine;
 
 namespace XSSLG
 {
+    using TileDict = Dictionary<Vector3Int, XSTile>;
+    using PathsDict = Dictionary<Vector3, List<Vector3>>;
+    
     /// <summary> 寻路 </summary>
     public class PathFinder
     {
@@ -25,18 +28,17 @@ namespace XSSLG
         /// <param name="srcTile">起点tile</param>
         /// <param name="destTile">目的地 tile </param>
         /// <returns></returns>
-        public static List<Vector3Int> FindPath(Dictionary<Vector3Int, XSTile> TileDict, XSTile srcTile, XSTile destTile)
+        public static List<Vector3> FindPath(TileDict TileDict, XSTile srcTile, XSTile destTile)
         {
             if (srcTile == destTile)
             {
-                var ret = new List<Vector3Int>();
-                // ret.Add(dest.TilePos);
+                var ret = new List<Vector3>();
                 ret.Add(destTile.TilePos);
                 return ret;
             }
 
             var pathTileList = _aStarPath.FindPath(srcTile, destTile);
-            return pathTileList.Select(pathTile => pathTile.TilePos).ToList();
+            return pathTileList.Select(pathTile => pathTile.WorldPos).ToList();
         }
 
         /// <summary>
@@ -46,44 +48,20 @@ namespace XSSLG
         /// <param name="srcTile">起点tile</param>
         /// <param name="moveRange">移动范围，默认-1和小于0都表示不限制移动范围</param>
         /// <returns></returns>
-        public static Dictionary<Vector3Int, List<Vector3Int>> FindAllPath(Dictionary<Vector3Int, XSTile> TileDict, XSTile srcTile, int moveRange)
+        public static PathsDict FindAllPath(TileDict TileDict, XSTile srcTile, int moveRange)
         {
             if (srcTile == null)
-                return new Dictionary<Vector3Int, List<Vector3Int>>();
+                return new PathsDict();
 
             var allPaths = _dijkstraPath.FindAllPaths(srcTile, moveRange);
             //移动到原地的路径长度为0，为了不和没有路径搞混，原地网格加进去
+            if (allPaths[srcTile] == null)
+                allPaths[srcTile] = new List<XSTile>();
             allPaths[srcTile].Add(srcTile);
             // 把PathFinderTile全部转为对应的TilePos，并且过滤掉不能作为终点的路径
             var allTilePosPaths = allPaths.Where(path => path.Key.CanBeDustFunc == null || path.Key.CanBeDustFunc(path.Key.TilePos))
-                                          .ToDictionary(pair => pair.Key.TilePos, pair => pair.Value.Select(pathTile => pathTile.TilePos).ToList());
+                                          .ToDictionary(pair => pair.Key.WorldPos, pair => pair.Value.Select(pathTile => pathTile.WorldPos).ToList());
             return allTilePosPaths;
-        }
-
-        /// <summary>
-        /// 返回一个tile作为key，value的key是他链接的格子，value的value是格子的移动损耗
-        /// </summary>
-        protected static Dictionary<XSTile, Dictionary<XSTile, float>> GetGraphEdges(List<XSTile> pathTileList)
-        {
-            var ret = new Dictionary<XSTile, Dictionary<XSTile, float>>();
-
-            pathTileList.ForEach(pathTile =>
-            {
-                // 这个tile上敌人，不能往上面走过
-                if (pathTile.IsWalkableFunc != null && !pathTile.IsWalkableFunc(pathTile.TilePos))
-                    return;
-
-                ret[pathTile] = new Dictionary<XSTile, float>();
-                foreach (var nearTile in pathTile.NearTileList)
-                {
-                    // 这个tile上敌人，不能往上面走过
-                    if (pathTile.IsWalkableFunc != null && !pathTile.IsWalkableFunc(pathTile.TilePos))
-                        continue;
-
-                    ret[pathTile][nearTile] = nearTile.Cost;
-                }
-            });
-            return ret;
         }
     }
 }

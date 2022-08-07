@@ -18,8 +18,6 @@ namespace XSSLG
         public Sprite Asset { get; }
         /// <summary> 高亮图块使用的prefab </summary>
         public GameObject Prefab { get; }
-        /// <summary> 网格坐标转世界坐标 </summary>
-        public Func<Vector3Int, Vector3> TileToWorldHander { get; }
 
         /// <summary> sprite 排序规则 </summary>
         private int SortOrder { get; }
@@ -31,12 +29,11 @@ namespace XSSLG
         /// </summary>
         /// <param name="rootPath">高亮图块的根节点路径</param>
         /// <param name="Asset">图片精灵</param>
-        public GridShowRegion(string rootPath, Sprite Asset, GameObject prefab, Func<Vector3Int, Vector3> TileToWorldHander, int sortOrder)
+        public GridShowRegion(string rootPath, Sprite Asset, GameObject prefab, int sortOrder)
         {
             this.RootPath = rootPath;
             this.Asset = Asset;
             this.Prefab = prefab;
-            this.TileToWorldHander = TileToWorldHander;
             this.SortOrder = sortOrder;
             this.CreateRootNode();
         }
@@ -57,10 +54,10 @@ namespace XSSLG
         /// <summary>
         /// 显示高亮范围
         /// </summary>
-        /// <param name="tilePosList">图块所在的网格坐标</param>
-        public void ShowRegion(List<Vector3Int> tilePosList)
+        /// <param name="worldPosList">图块所在的网格坐标</param>
+        public void ShowRegion(List<Vector3> worldPosList)
         {
-            tilePosList.ForEach(pos =>
+            worldPosList.ForEach(pos =>
             {
                 var parent = GameObject.Find(this.RootPath)?.transform;
                 if (parent ==null) return;
@@ -70,8 +67,7 @@ namespace XSSLG
 
                 // 设置layer默认。不要遮挡射线到 tile 的检测
                 obj.layer = LayerMask.NameToLayer("Default");
-                var worldPos = this.TileToWorldHander(pos);
-                obj.transform.position = worldPos;
+                obj.transform.position = pos;
 
                 var spr = obj.GetComponentInChildren<SpriteRenderer>();
                 spr.sprite = this.Asset;

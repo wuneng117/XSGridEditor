@@ -11,6 +11,8 @@ using UnityEngine.Tilemaps;
 
 namespace XSSLG
 {
+    using TileDict = Dictionary<Vector3Int, XSTile>;
+
     /// <summary> tile 管理类，负责tile 坐标转化，数据等功能 </summary>
     public class GridMgr : IGridMgr
     {
@@ -18,7 +20,7 @@ namespace XSSLG
         private static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(0, 0, 1), };
 
         /// <summary> 以tilepos为key存储所有tile。 </summary>
-        public Dictionary<Vector3Int, XSTile> TileDict { get; protected set; } = new Dictionary<Vector3Int, XSTile>();
+        public TileDict TileDict { get; protected set; } = new TileDict();
 
         /// <summary> tile父节点，提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
         private Transform TileRoot { get; }
@@ -83,7 +85,7 @@ namespace XSSLG
 
         protected void CreateXSTileDict(XSGridHelper helper)
         {
-            this.TileDict = new Dictionary<Vector3Int, XSTile>();
+            this.TileDict = new TileDict();
             if (helper == null)
                 return;
 
@@ -220,7 +222,7 @@ namespace XSSLG
         /// <param name="srcTile">起点tile</param>
         /// <param name="destTile">目的地 tile </param>
         /// <returns></returns>
-        public List<Vector3Int> FindPath(XSTile srcTile, XSTile destTile) => PathFinder.FindPath(this.TileDict, srcTile, destTile);
+        public List<Vector3> FindPath(XSTile srcTile, XSTile destTile) => PathFinder.FindPath(this.TileDict, srcTile, destTile);
 
         /// <summary>
         /// 返回所有的路径
@@ -228,6 +230,6 @@ namespace XSSLG
         /// <param name="srcTile">起点tile</param>
         /// <param name="moveRange">移动范围，默认-1和小于0都表示不限制移动范围</param>
         /// <returns></returns>
-        public Dictionary<Vector3Int, List<Vector3Int>> FindAllPath(XSTile srcTile, int moveRange) => PathFinder.FindAllPath(this.TileDict, srcTile, moveRange);
+        public Dictionary<Vector3, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange) => PathFinder.FindAllPath(this.TileDict, srcTile, moveRange);
     }
 }

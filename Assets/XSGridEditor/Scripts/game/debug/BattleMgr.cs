@@ -30,7 +30,7 @@ namespace XSSLG
         
         public PanAndZoom PanObj;
 
-        public List<Vector3Int> MoveRegion { get; private set; }
+        public List<Vector3> MoveRegion { get; private set; }
 
         protected XSUnitData SelectedUnit { get; set; } = null;
 
@@ -77,18 +77,20 @@ namespace XSSLG
                         Debug.Log("tilePos: " + tile.TilePos);
 
                         // 要在移动范围内的格子
-                        if (this.MoveRegion.Contains(tile.TilePos))
+                        if (this.MoveRegion.Contains(tile.WorldPos))
                         {
                             this.GridShowMgr.ClearMoveRegion();
                             this.MoveRegion = null;
                             //缓存
-                            // if (this.SelectedUnit.CachedPaths != null && this.SelectedUnit.CachedPaths.ContainsKey(tile.TilePos))
-                            //     this.WalkTo(this.SelectedUnit.CachedPaths[tile.TilePos]);
+                            if (this.SelectedUnit.CachedPaths != null && this.SelectedUnit.CachedPaths.ContainsKey(tile.WorldPos))
+                                this.WalkTo(this.SelectedUnit.CachedPaths[tile.WorldPos]);
+                            else
+                                this.SelectedUnit = null;
                             // else
                             // {
-                                var srcTile = this.GridMgr.GetTile(this.SelectedUnit.transform.position);
-                                var path = this.GridMgr.FindPath(srcTile, tile);
-                                this.WalkTo(path);
+                            //     var srcTile = this.GridMgr.GetTile(this.SelectedUnit.transform.position);
+                            //     var path = this.GridMgr.FindPath(srcTile, tile);
+                            //     this.WalkTo(path);
                             // }
                         }
                     }
@@ -123,7 +125,7 @@ namespace XSSLG
         /// 移动到指定位置
         /// </summary>
         /// <param name="path">移动路径</param>
-        public void WalkTo(List<Vector3Int> path)
+        public void WalkTo(List<Vector3> path)
         {
 
             if (this.movementAnimationSpeed > 0)
@@ -131,16 +133,15 @@ namespace XSSLG
         }
 
         /// <summary> 携程函数处理移动 </summary>
-        public virtual IEnumerator MovementAnimation(List<Vector3Int> path)
+        public virtual IEnumerator MovementAnimation(List<Vector3> path)
         {
             this.IsMoving = true;
             path.Reverse(); // 寻路要反一下顺序
             foreach (var pos in path)
             {
-                var worldPos = this.GridMgr.GetTile(pos).WorldPos;
-                while (this.SelectedUnit.transform.position != worldPos)
+                while (this.SelectedUnit.transform.position != pos)
                 {
-                    this.SelectedUnit.transform.position = Vector3.MoveTowards(this.SelectedUnit.transform.position, worldPos, Time.deltaTime * movementAnimationSpeed);
+                    this.SelectedUnit.transform.position = Vector3.MoveTowards(this.SelectedUnit.transform.position, pos, Time.deltaTime * movementAnimationSpeed);
                     yield return 0;
                 }
             }

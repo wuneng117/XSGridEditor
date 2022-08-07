@@ -33,10 +33,9 @@ namespace XSSLG
 
             if (gridHelper)
             {
-                Func<Vector3Int, Vector3> tileToWorld = this.mgr.TileToWorld;
-                this.MoveShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_MOVE, gridHelper.TileSpriteMove, gridHelper.TilePrefab, tileToWorld, 10);
-                this.AttackShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_ATTACK_RANGE, gridHelper.TileSpriteAttack, gridHelper.TilePrefab, tileToWorld, 20);
-                this.AttackEffectShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_ATTACK_EFFECT_RANGE, gridHelper.TileSpriteAttackEffect, gridHelper.TilePrefab, tileToWorld, 30);
+                this.MoveShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_MOVE, gridHelper.TileSpriteMove, gridHelper.TilePrefab, 10);
+                this.AttackShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_ATTACK_RANGE, gridHelper.TileSpriteAttack, gridHelper.TilePrefab, 20);
+                this.AttackEffectShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_ATTACK_EFFECT_RANGE, gridHelper.TileSpriteAttackEffect, gridHelper.TilePrefab, 30);
                 // var ret = this.mgr.Data.GetVaildTileDataList().Select(tileData => new Vector3Int(tileData.XIndex, tileData.YIndex, tileData.ZIndex)).ToList();
                 // if (XSU.GetBattleDebugCfg().isShowCellPos)
                 // {
@@ -51,13 +50,13 @@ namespace XSSLG
         /// 测试显示范围
         /// </summary>
         /// <param name="unit">显示范围的单位</param>
-        public void TestShowRegion(List<Vector3Int> list) => this.MoveShowRegion.ShowRegion(list);
+        public void TestShowRegion(List<Vector3> list) => this.MoveShowRegion.ShowRegion(list);
 
         /// <summary>
         /// 显示单位移动范围
         /// </summary>
         /// <param name="unit">显示范围的单位</param>
-        public List<Vector3Int> ShowMoveRegion(XSUnitData unit)
+        public List<Vector3> ShowMoveRegion(XSUnitData unit)
         {
             var moveRegion = unit.GetMoveRegion();
             this.MoveShowRegion.ShowRegion(moveRegion);

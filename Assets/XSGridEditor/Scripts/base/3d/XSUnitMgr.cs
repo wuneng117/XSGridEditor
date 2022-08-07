@@ -8,14 +8,14 @@ using UnityEngine;
 /// </summary>
 namespace XSSLG
 {
-    using XSUnitDict = Dictionary<Vector3Int, XSUnitData>;
+    using UnitDict = Dictionary<Vector3Int, XSUnitData>;
 
     /// <summary>  </summary>
     public class XSUnitMgr
     {
         /************************* 变量 begin ***********************/
         // private Transform UnitRoot { get; }
-        public XSUnitDict UnitDict { get; private set; } = new XSUnitDict();
+        public UnitDict UnitDict { get; private set; } = new UnitDict();
 
         /************************* 变量  end  ***********************/
         public XSUnitMgr(XSGridHelper helper)
@@ -24,9 +24,9 @@ namespace XSSLG
             this.UnitDict = this.CreateXSUnitDict(helper);
         }
 
-        protected XSUnitDict CreateXSUnitDict(XSGridHelper helper)
+        protected UnitDict CreateXSUnitDict(XSGridHelper helper)
         {
-            var ret = new XSUnitDict();
+            var ret = new UnitDict();
             if (helper == null)
                 return ret;
 
@@ -47,7 +47,7 @@ namespace XSSLG
         /// <param name="unitData"></param>
         /// <param name="unitDict"></param>
         /// <returns></returns>
-        public bool AddXSUnit(XSUnitData unitData, XSUnitDict unitDict)
+        public bool AddXSUnit(XSUnitData unitData, UnitDict unitDict)
         {
             var gridMgr = XSInstance.Instance.GridMgr;
             var tilePos = gridMgr.WorldToTile(unitData.transform.position);
