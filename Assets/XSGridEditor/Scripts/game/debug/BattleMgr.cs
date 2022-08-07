@@ -86,12 +86,6 @@ namespace XSSLG
                                 this.WalkTo(this.SelectedUnit.CachedPaths[tile.WorldPos]);
                             else
                                 this.SelectedUnit = null;
-                            // else
-                            // {
-                            //     var srcTile = this.GridMgr.GetTile(this.SelectedUnit.transform.position);
-                            //     var path = this.GridMgr.FindPath(srcTile, tile);
-                            //     this.WalkTo(path);
-                            // }
                         }
                     }
                     else

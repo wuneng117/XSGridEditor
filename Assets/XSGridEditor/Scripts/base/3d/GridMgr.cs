@@ -217,14 +217,6 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 寻路函数
-        /// </summary>
-        /// <param name="srcTile">起点tile</param>
-        /// <param name="destTile">目的地 tile </param>
-        /// <returns></returns>
-        public List<Vector3> FindPath(XSTile srcTile, XSTile destTile) => PathFinder.FindPath(this.TileDict, srcTile, destTile);
-
-        /// <summary>
         /// 返回所有的路径
         /// </summary>
         /// <param name="srcTile">起点tile</param>
