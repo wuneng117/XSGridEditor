@@ -34,9 +34,9 @@ namespace XSSLG
                 this.enabled = false;
             else
             {
-                this.Grid = this.GetTileRoot()?.GetComponent<Grid>();
-                if (this.Grid)
-                    this.PrevTileSize = this.Grid.cellSize;
+                // this.Grid = this.GetTileRoot()?.GetComponent<Grid>();
+                // if (this.Grid)
+                //     this.PrevTileSize = this.Grid.cellSize;
             }
         }
 
