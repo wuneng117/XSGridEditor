@@ -28,8 +28,8 @@ public class XSAssetPostprocessor :AssetPostprocessor
         if (!HasLayer(XSGridDefine.LAYER_UNIT))
             AddLayer(XSGridDefine.LAYER_UNIT);
 
-        if (!HasLayer(XSGridDefine.LAYER_GROUND))
-            AddLayer(XSGridDefine.LAYER_GROUND);
+        // if (!HasLayer(XSGridDefine.LAYER_GROUND))
+        //     AddLayer(XSGridDefine.LAYER_GROUND);
     }
 
     static bool HasLayer(string layer) => LayerMask.NameToLayer(layer) != -1;

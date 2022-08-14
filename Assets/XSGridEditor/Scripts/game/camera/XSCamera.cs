@@ -180,32 +180,33 @@ namespace XSSLG
             this.transform.position = targetPosition;
         }
 
-        /// <summary>
-        /// 摄像机保持角度看向指定世界坐标
-        /// 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离
-        /// </summary>
-        /// <param name="worldPos"></param>
-        public virtual void MoveTo(Vector3 worldPos) => this.StartCoroutine(MovementAnimation(worldPos));
+        // /// <summary>
+        // /// 摄像机保持角度看向指定世界坐标
+        // /// 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离
+        // /// 当前看向的世界坐标和目标都是高度为0的tile所在的坐标
+        // /// </summary>
+        // /// <param name="worldPos"></param>
+        // public virtual void MoveTo(Vector3 worldPos) => this.StartCoroutine(MovementAnimation(worldPos));
 
-        /// <summary> 携程函数处理移动 </summary>
-        protected virtual IEnumerator MovementAnimation(Vector3 worldPos)
-        {
-            this.IsMoving = true;
-            var pos = XSUG.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
-            var targetPos = this.transform.position + worldPos - pos;
-            var dir = -(worldPos - pos).normalized;
-            while (true)
-            {
-                var prevPos = XSUG.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
-                var direction = worldPos - prevPos;
-                if (Vector3.Dot(direction, dir) < 0)
-                    break;
-                this.UpdatePos(dir);
-                yield return 0;
-            }
-            this.SetCameraPosition(targetPos);
-            this.IsMoving = false;
-        }
+        // /// <summary> 携程函数处理移动 </summary>
+        // protected virtual IEnumerator MovementAnimation(Vector3 worldPos)
+        // {
+        //     this.IsMoving = true;
+        //     var pos = XSUG.ScreenPosToTileWorldPos(new Vector2(Screen.width, Screen.height) / 2);
+        //     var targetPos = this.transform.position + worldPos - pos;
+        //     var dir = -(worldPos - pos).normalized;
+        //     while (true)
+        //     {
+        //         var prevPos = XSUG.ScreenPosToTileWorldPos(new Vector2(Screen.width, Screen.height) / 2);
+        //         var direction = worldPos - prevPos;
+        //         if (Vector3.Dot(direction, dir) < 0)
+        //             break;
+        //         this.UpdatePos(dir);
+        //         yield return 0;
+        //     }
+        //     this.SetCameraPosition(targetPos);
+        //     this.IsMoving = false;
+        // }
 
         public virtual void SetConfinerBound(Bounds bound)
         {

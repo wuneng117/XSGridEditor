@@ -76,23 +76,15 @@ public class XSUG : UnityUtils
         return unitData;
     }
 
-    /// <summary> 获取鼠标所在的世界坐标 </summary>
-    public static Vector3 GetMousePosition()
-    {
-        // XSU.Log(this.GetBattleNode()?.mainCamera);
-        var screenPos = Pointer.current.position.ReadValue();
-        return XSUG.ScreenPosToWorldPos(screenPos);
-    }
-
-    /// <summary> 
-    /// 获取鼠标所在的世界坐标 
-    /// </summary>
-    /// <param name="screenPos">屏幕坐标</param>
-    /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
-    /// <returns></returns>
-    public static Vector3 ScreenPosToWorldPos(Vector2 screenPos, Camera camera = null)
-    {
-        var hit = XSUG.GetMouseHit(screenPos, camera, "Ground");
-        return hit.point;
-    }
+    // /// <summary> 
+    // /// 获取鼠标所在的世界坐标 
+    // /// </summary>
+    // /// <param name="screenPos">屏幕坐标</param>
+    // /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
+    // /// <returns></returns>
+    // public static Vector3 ScreenPosToTileWorldPos(Vector2 screenPos, Camera camera = null)
+    // {
+    //     var hit = XSUG.GetMouseHit(screenPos, camera, "Ground");
+    //     return hit.point;
+    // }
 }

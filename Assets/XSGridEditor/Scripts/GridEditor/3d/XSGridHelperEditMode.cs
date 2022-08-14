@@ -149,7 +149,7 @@ namespace XSSLG
                 var newPos = hitInfo.point + new Vector3(0, Precision, 0);
                 tileData.transform.position = newPos;
             }
-            // 如果贴不到地面，那就设置localpos的高度y为0
+            // 如果贴不到任何东西，那就设置localpos的高度y为0
             else if (tileData.transform.localPosition.y != 0)
             {
                 ret = true;
