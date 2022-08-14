@@ -10,7 +10,7 @@ namespace XSSLG
 {
     public class XSGridEditorMenu : MonoBehaviour
     {
-        [MenuItem("GameObject/XSGridEditor/CreateGrid")]
+        [MenuItem("Tools/XSGridEditor/CreateGrid")]
         static public void CreateGrid()
         {
             var gridNode = Component.FindObjectOfType<XSGridHelperEditMode>();
@@ -29,6 +29,8 @@ namespace XSSLG
             }
 
             ret.name = "XSGridEditor";
+
+            XSAssetPostprocessor.CheckLayer();
         }
     }
 }

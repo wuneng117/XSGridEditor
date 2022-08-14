@@ -24,5 +24,9 @@ namespace XSSLG
             Color.yellow,
             Color.red,
         };
+
+        public static readonly string LAYER_TILE = "Tile";
+        public static readonly string LAYER_GROUND = "Ground";
+        public static readonly string LAYER_UNIT = "Unit";
     }
 }

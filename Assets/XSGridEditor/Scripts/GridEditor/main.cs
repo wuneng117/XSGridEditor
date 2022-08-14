@@ -19,4 +19,6 @@ public class main : MonoBehaviour
             var instance = XSInstance.Instance;
         }
     }
+
+
 }

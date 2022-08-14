@@ -122,11 +122,27 @@ namespace XSSLG
             }
             else
             {
-                if (!UnityUtils.IsEditor())
+                if (UnityUtils.IsEditor())
+                {
+                    var layer = tileData.gameObject.layer;
+                    var defaultLayer = LayerMask.NameToLayer(XSGridDefine.LAYER_TILE);
+                    if (defaultLayer != -1 && defaultLayer != layer)
+                    {
+                        
+                    }
+                    if (defaultLayer != -1 && defaultLayer != layer)
+                    {
+
+                        Debug.LogWarning("GridMgr.AddXSTile: 坐标" + tilePos + "的tile layer设置错误，已经设置为正确值");
+                    }
+                }
+                else
                 {
                     var collider = tileData.gameObject.AddComponent<BoxCollider>();
                     collider.size = this.TileSize;
                 }
+
+
 
                 var tile = new XSTile(tilePos, tileData.transform.position, tileData.Cost, tileData);
                 this.TileDict.Add(tilePos, tile);

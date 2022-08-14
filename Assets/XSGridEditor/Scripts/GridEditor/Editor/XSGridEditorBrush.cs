@@ -5,13 +5,12 @@
 /// 1.画完之后，把每个 tile 的 y 设置到障碍物的顶端
 /// </summary>
 /// 
-using System;
+#if ENABLE_TILEMAP
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace XSSLG
 {
@@ -43,6 +42,7 @@ namespace XSSLG
             }
 
             tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
+            tileObj.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_TILE);
 
             //添加到TileDict
             var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileData>());
@@ -93,3 +93,5 @@ namespace XSSLG
 
     }
 }
+
+#endif

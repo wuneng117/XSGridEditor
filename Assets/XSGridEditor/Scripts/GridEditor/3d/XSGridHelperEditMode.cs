@@ -262,6 +262,7 @@ namespace XSSLG
                 return;
 
             ret.transform.position = defaultGrid.position;
+            ret.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_UNIT);
         }
 
         #endregion

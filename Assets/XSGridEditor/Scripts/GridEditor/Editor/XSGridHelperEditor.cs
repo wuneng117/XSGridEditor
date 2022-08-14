@@ -21,21 +21,21 @@ namespace XSSLG
             var helper = (XSGridHelperEditMode)target;
 
             // 将地体块贴到合适的地方
-            this.DrawButton("tile贴到地面", helper.SetTileToNearTerrain);
+            this.DrawButton("Update Tile", helper.SetTileToNearTerrain);
 
             // 显示tilepos
-            this.DrawButton(!helper.IsShowTilePos ? "显示tile坐标" : "隐藏tile坐标", 
+            this.DrawButton(!helper.IsShowTilePos ? "Show Tile Position" : "Hide Tile Position", 
                             () => helper.SetTilePosShow(!helper.IsShowTilePos)
             );
 
             // 显示tilepos
-            this.DrawButton(!helper.IsShowTileCost ? "显示tile移动消耗" : "隐藏tile移动消耗", 
+            this.DrawButton(!helper.IsShowTileCost ? "Show Tile Cost" : "Hide Tile Cost", 
                             () => helper.SetTileCostShow(!helper.IsShowTileCost)
             );
 
-            this.DrawButton("删除所有tile", helper.ClearTiles);
+            this.DrawButton("Remove All Tiles", helper.ClearTiles);
 
-            this.DrawButton("创建1个XSObject", helper.CreateObject);
+            this.DrawButton("Create A XSUnit", helper.CreateObject);
 
             // this.DrawButton("对齐所有XSObject", helper.SetObjectToTileCenter);
         }
