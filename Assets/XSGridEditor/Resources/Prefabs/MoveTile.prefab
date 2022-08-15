@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5482847116410207802}
   - component: {fileID: 9133044330056407704}
   - component: {fileID: 1192765026021036148}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MoveTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
