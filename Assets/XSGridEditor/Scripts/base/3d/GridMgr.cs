@@ -5,7 +5,16 @@
 /// </summary>
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using System;
+// using UnityEngine;
+
+using Vector3 = UnityEngine.Vector3;
+using Vector3Int = UnityEngine.Vector3Int;
+using Mathf = UnityEngine.Mathf;
+using Debug = UnityEngine.Debug;
+using BoxCollider = UnityEngine.BoxCollider;
+using Grid = UnityEngine.Grid;
+using LayerMask = UnityEngine.LayerMask;
 
 namespace XSSLG
 {
@@ -24,20 +33,22 @@ namespace XSSLG
 
         public void ClearAllTiles()
         {
-            XSUE.RemoveChildren(this.TileRoot?.gameObject);
            this.TileDict.Clear();
+           this.TileRoot.ClearAllTiles();
         }
 
-        /// <summary> tile父节点，提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
-        private Transform TileRoot { get; }
+        /// <summary> 提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
+        private ITileRootCpt TileRoot { get; }
 
         /// <summary> tile 大小，用来计算 tilePos </summary>
         private Vector3 TileSize { set; get; } = Vector3.zero;
 
         public GridMgr(XSGridHelper helper)
         {
-            this.TileRoot = helper?.TileRoot;
-            var grid = this.TileRoot?.GetComponent<Grid>();
+            if (helper && helper.TileRoot)
+                this.TileRoot = helper.TileRoot.GetComponent<TileRootCpt>();
+
+            var grid = helper.TileRoot?.GetComponent<Grid>();
             if (grid)
                 // y和z换一下是因为Grid组件里y表示横坐标，z表示高度，而我们的tile为了和3d空间一直，里y表示高度，z表示横坐标
                 this.TileSize = new Vector3(grid.cellSize.x, grid.cellSize.z, grid.cellSize.y);
@@ -75,9 +86,6 @@ namespace XSSLG
         public Vector3 WorldToTileCenterWorld(Vector3 worldPos)
         {
             var ret = Vector3.zero;
-            if (this.TileRoot == null)
-                return ret;
-
             var tilePos = this.WorldToTile(worldPos);
             return this.TileToTileCenterWorld(tilePos);
         }
