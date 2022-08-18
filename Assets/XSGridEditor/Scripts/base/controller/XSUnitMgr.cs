@@ -55,7 +55,7 @@ namespace XSSLG
             else
             {
                 // 根据子节点的collider获取总的collider，用于射线检测
-                if (!UnityUtils.IsEditor())
+                if (!XSUnityUtils.IsEditor())
                     unitData.AddBoxCollider();
 
                 this.UnitDict.Add(tilePos, unitData);

@@ -105,8 +105,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3590657989057605554}
-  - component: {fileID: 4038664066360426836}
-  - component: {fileID: 2903754064977427680}
+  - component: {fileID: 715119746889966820}
+  - component: {fileID: 4505049116064722054}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -129,7 +129,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4038664066360426836
+--- !u!114 &715119746889966820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,20 +138,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3590657989057605550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d674bfe0bc250048b80dc983dd4a2d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2903754064977427680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3590657989057605550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec7184c54f5f5841a9740f52f65f1f7, type: 3}
+  m_Script: {fileID: 11500000, guid: a3f0f81e3103de945ada428e6b82073b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: -1
   move: 6
+--- !u!114 &4505049116064722054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590657989057605550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e73f2abca2f914ba64712ff3e6ca6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

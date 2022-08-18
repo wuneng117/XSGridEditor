@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using XSSLG;
 
-public class XSUE : UnityUtils
+public class XSUE : XSUnityUtils
 {
     /// <summary>
     /// 生成一个适配size大小的textmeshpro字体节点，暂时用的默认字体

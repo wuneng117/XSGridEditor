@@ -22,19 +22,19 @@ namespace XSSLG
         /// <summary> 移动范围用的 prefab </summary>
         public GameObject MoveTilePrefab = null;
 
-        /// <summary> 获取所有 XSTileData 节点 </summary>
-        public List<XSTileData> GetTileDataList()=> this.TileRoot.GetComponentsInChildren<XSTileData>().ToList();
+        /// <summary> 获取所有 XSTileNode 节点 </summary>
+        public List<XSTileNode> GetTileNodeList()=> this.TileRoot.GetComponentsInChildren<XSTileNode>().ToList();
 
         /// <summary> 获取所有 XSObjectData 节点 </summary>
-        public List<XSUnitData> GetUnitDataList()=> this.UnitRoot.GetComponentsInChildren<XSUnitData>().ToList();
+        public List<XSUnitNode> GetUnitDataList()=> this.UnitRoot.GetComponentsInChildren<XSUnitNode>().ToList();
 
         public Bounds GetBounds()
         {
             var ret = new Bounds();
-            if (UnityUtils.IsEditor())
+            if (XSUnityUtils.IsEditor())
                 return ret;
 
-            var tiles = this.GetTileDataList();
+            var tiles = this.GetTileNodeList();
             if (tiles.Count == 0)
                 return ret;
 

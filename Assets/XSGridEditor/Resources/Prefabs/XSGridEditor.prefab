@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1069487499210864933}
   - component: {fileID: 8709288698415181090}
-  - component: {fileID: 2580008921972724087}
+  - component: {fileID: 4325828756586440885}
   m_Layer: 0
   m_Name: TileRoot
   m_TagString: Untagged
@@ -44,7 +44,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 1
---- !u!114 &2580008921972724087
+--- !u!114 &4325828756586440885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3560293178530259139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac2e6f49b1b58543b2d985fac4dd380, type: 3}
+  m_Script: {fileID: 11500000, guid: c7831488a122d9a4c9a794e7d92ce9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5346431015244865942

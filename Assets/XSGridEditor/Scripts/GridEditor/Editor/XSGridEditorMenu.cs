@@ -21,7 +21,7 @@ namespace XSSLG
             }
 
             // 从prefab创建引用的gameobject
-            var ret = ResLoadMgr.LoadGameObject("Prefabs/XSGridEditor");
+            var ret = XSResLoadMgr.LoadGameObject("Prefabs/XSGridEditor");
             if (ret == null)
             {
                 XSUEE.ShowTip("未找到Prefabs/XSGridEditor");

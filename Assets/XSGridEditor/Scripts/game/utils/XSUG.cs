@@ -4,7 +4,7 @@ using UnityEngine;
 using XSSLG;
 using UnityEngine.InputSystem;
 
-public class XSUG : UnityUtils
+public class XSUG : XSUnityUtils
 {
     /// <summary>
     /// 返回场景中的第一个Camera，名字为SceneCamera是系统的（暂时不清楚什么用），不是场景中的一般camera
@@ -55,7 +55,7 @@ public class XSUG : UnityUtils
     {
         var screenPos = Pointer.current.position.ReadValue();
         var hit = XSUG.GetMouseHit(screenPos, camera, "Tile");
-        var tileData = hit.collider?.gameObject.GetComponent<XSTileData>();
+        var tileData = hit.collider?.gameObject.GetComponent<XSTileNode>();
         if (tileData == null)
             return XSTile.Default();
 
@@ -68,11 +68,11 @@ public class XSUG : UnityUtils
     /// </summary>
     /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
     /// <returns></returns>
-    public static XSUnitData GetMouseTargetUnit(Camera camera = null)
+    public static XSUnitNode GetMouseTargetUnit(Camera camera = null)
     {
         var screenPos = Pointer.current.position.ReadValue();
         var hit = XSUG.GetMouseHit(screenPos, camera, "Unit");
-        var unitData = hit.collider?.gameObject.GetComponent<XSUnitData>();
+        var unitData = hit.collider?.gameObject.GetComponent<XSUnitNode>();
         return unitData;
     }
 

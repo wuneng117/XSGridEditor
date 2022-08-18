@@ -45,10 +45,10 @@ namespace XSSLG
             tileObj.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_TILE);
 
             //添加到TileDict
-            var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileData>());
+            var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileNode>());
             if (tile == null)
             {
-                Debug.LogError("AddXSTileData failed");
+                Debug.LogError("AddXSTileNode failed");
                 GameObject.DestroyImmediate(tileObj);
             }
         }
@@ -61,7 +61,7 @@ namespace XSSLG
             if (existTile == null || existTile.Node == null)
                 return;
 
-            XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile((XSTileData)existTile.Node);
+            XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile((XSTileNode)existTile.Node);
         }
 
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill failed");

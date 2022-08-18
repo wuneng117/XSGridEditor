@@ -11,7 +11,7 @@ public class XSUEE
     /// <summary> 弹窗提醒 </summary>
     public static void ShowTip(string desc)
     {
-        var tip = ScriptableObject.CreateInstance<PopUpView>();
+        var tip = ScriptableObject.CreateInstance<XSPopUpView>();
         tip.Init(300, 100, desc);
         tip.ShowPopup();
     }

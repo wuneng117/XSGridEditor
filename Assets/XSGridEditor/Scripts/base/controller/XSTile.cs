@@ -24,7 +24,7 @@ namespace XSSLG
             set
             {
                 this.worldPos = value;
-                if (UnityUtils.IsEditor())
+                if (XSUnityUtils.IsEditor())
                     this.Node?.UpdateEditModePrevPos();
             }
         }

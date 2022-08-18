@@ -25,13 +25,13 @@ class XSTile
 {
     +Node
 }
-XSTile::Node --> XSTileData
+XSTile::Node --> XSTileNode
 
-class XSTileData
+class XSTileNode
 {
     +Tile
 }
-' XSTileData <-- PathFinderTile
+' XSTileNode <-- PathFinderTile
 
 class PathFinder静态类
 {
@@ -74,7 +74,7 @@ class XSGridHelperEditMode
 }
 
 
-XSGridHelper ..> XSTileData
+XSGridHelper ..> XSTileNode
 XSGridHelper ..> XSObjectData
 
 ' class ChatMsg

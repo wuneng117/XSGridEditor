@@ -16791,7 +16791,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 732642748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac2e6f49b1b58543b2d985fac4dd380, type: 3}
+  m_Script: {fileID: 11500000, guid: c7831488a122d9a4c9a794e7d92ce9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &736429641
@@ -27916,8 +27916,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1309060206}
-  - component: {fileID: 1309060205}
   - component: {fileID: 1309060207}
+  - component: {fileID: 1309060205}
   m_Layer: 0
   m_Name: main
   m_TagString: Untagged
@@ -27934,7 +27934,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1309060204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1750d258788dc0b40b036f640d60f7ec, type: 3}
+  m_Script: {fileID: 11500000, guid: a0255c19245bc3d439b6cdcc91cdf15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1309060206
@@ -27960,7 +27960,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1309060204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a9aeabe11309d7468dbb66eb3f572d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fb7549318c63564ab8c2d0afc1af5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementAnimationSpeed: 3

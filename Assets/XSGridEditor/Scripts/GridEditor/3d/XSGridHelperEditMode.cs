@@ -64,7 +64,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public XSTile AddXSTile(XSTileData tileData)
+        public XSTile AddXSTile(XSTileNode tileData)
         {
             if (!XSUE.IsEditor())
                 return null;
@@ -86,7 +86,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public bool RemoveXSTile(XSTileData tileData)
+        public bool RemoveXSTile(XSTileNode tileData)
         {
             if (!XSUE.IsEditor())
                 return false;
@@ -117,12 +117,12 @@ namespace XSSLG
             if (tile.Node == null)
                 return ret;
 
-            var node = (XSTileData)tile.Node;
+            var node = (XSTileNode)tile.Node;
             ret = this.SetTileToNearTerrain(node);
             if (!ret)
                 return ret;
 
-            // 调整了位置，需要更新XSTile和XSTileDataEditMode的位置
+            // 调整了位置，需要更新XSTile和XSTileNodeEditMode的位置
             tile.WorldPos = node.transform.position;
             return ret;
         }
@@ -131,12 +131,12 @@ namespace XSSLG
         /// 每个 tile 根据中心可能有高低不平的障碍物，调整 tile 的高度到障碍物的顶端
         /// 比如从 tile 中心点抬高100，再检测100以内有没有碰撞物，碰到的话就把 tile 的高度设置到碰撞点的位置
         /// </summary>
-        protected virtual bool SetTileToNearTerrain(XSTileData tileData)
+        protected virtual bool SetTileToNearTerrain(XSTileNode tileData)
         {
             // 隐藏tile ，防止射线碰到 tile
             tileData.gameObject.SetActive(false);
             // 隐藏所有unit，防止参与射线检测
-            UnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
+            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
             var pos = tileData.transform.position;
             // 射线发射点，抬高 tile 以后的中心点
             var top = new Vector3(pos.x, TopDistance, pos.z);
@@ -160,7 +160,7 @@ namespace XSSLG
             //激活tile
             tileData.gameObject.SetActive(true);
             // 显示所有unit，防止参与射线检测
-            UnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(true));
+            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(true));
             return ret;
         }
 
@@ -227,7 +227,7 @@ namespace XSSLG
                     if (tile.Node == null)
                         continue;
 
-                    var node = (XSTileData)tile.Node;
+                    var node = (XSTileNode)tile.Node;
                     var parTrans = node.transform;
                     var size = new Vector2(parTrans.localScale.x * 0.8f, parTrans.localScale.z * 0.85f);
                     var text = XSUE.CreateTextMesh(size, textRoot.transform);
