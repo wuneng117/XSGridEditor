@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 // using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 using Vector3Int = UnityEngine.Vector3Int;
+using Debug = UnityEngine.Debug;
 
 /// <summary>
 /// @Author: xiaoshi

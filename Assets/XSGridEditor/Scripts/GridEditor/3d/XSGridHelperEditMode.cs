@@ -117,12 +117,13 @@ namespace XSSLG
             if (tile.Node == null)
                 return ret;
 
-            ret = this.SetTileToNearTerrain(tile.Node);
+            var node = (XSTileData)tile.Node;
+            ret = this.SetTileToNearTerrain(node);
             if (!ret)
                 return ret;
 
             // 调整了位置，需要更新XSTile和XSTileDataEditMode的位置
-            tile.WorldPos = tile.Node.transform.position;
+            tile.WorldPos = node.transform.position;
             return ret;
         }
 
@@ -226,7 +227,8 @@ namespace XSSLG
                     if (tile.Node == null)
                         continue;
 
-                    var parTrans = tile.Node.transform;
+                    var node = (XSTileData)tile.Node;
+                    var parTrans = node.transform;
                     var size = new Vector2(parTrans.localScale.x * 0.8f, parTrans.localScale.z * 0.85f);
                     var text = XSUE.CreateTextMesh(size, textRoot.transform);
                     text.transform.position = parTrans.position;

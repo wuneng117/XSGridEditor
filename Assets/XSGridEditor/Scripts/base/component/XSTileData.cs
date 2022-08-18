@@ -20,8 +20,8 @@ namespace XSSLG
             if (dataEdit)
                 dataEdit.PrevPos = this.transform.localPosition;
         }
+
+        public void UpdateWorldPos(Vector3 worldPos) => this.transform.position = worldPos;
     }
-
-
 
 }

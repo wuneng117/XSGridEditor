@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Vector3 = UnityEngine.Vector3;
 
 namespace XSSLG
@@ -7,7 +8,8 @@ namespace XSSLG
         void AddBoxCollider();
 
         List<Vector3> GetMoveRegion();
-        
+
         Vector3 WorldPos { get; }
+
     }
 }

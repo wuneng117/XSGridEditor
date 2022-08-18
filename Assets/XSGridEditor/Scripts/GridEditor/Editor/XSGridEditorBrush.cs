@@ -61,7 +61,7 @@ namespace XSSLG
             if (existTile == null || existTile.Node == null)
                 return;
 
-            XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile(existTile.Node);
+            XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile((XSTileData)existTile.Node);
         }
 
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill failed");

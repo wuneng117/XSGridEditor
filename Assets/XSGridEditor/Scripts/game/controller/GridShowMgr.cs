@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 // using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
+using GameObject = UnityEngine.GameObject;  // TODO1
 
 namespace XSSLG
 {
@@ -19,7 +20,20 @@ namespace XSSLG
         public GridShowMgr(GameObject moveTilePrefab)
         {
             if (moveTilePrefab)
-                this.MoveShowRegion = new GridShowRegion(XSGridDefine.SCENE_GRID_MOVE, moveTilePrefab, 10);
+                this.MoveShowRegion = this.CreateMoveShowRegion(XSGridDefine.SCENE_GRID_MOVE, moveTilePrefab, 10);
+        }
+
+        protected virtual GridShowRegion CreateMoveShowRegion(string rootPath, GameObject moveTilePrefab, int sortOrder)
+        {
+            var parent = XSInstance.Instance.GridHelper?.transform;
+            if (parent == null)
+                return null;
+
+            var node = new GameObject(rootPath).transform;
+            node.SetParent(parent);
+            var showRegion = node.gameObject.AddComponent<GridShowRegion>();
+            showRegion.Init(moveTilePrefab, sortOrder);
+            return showRegion;
         }
 
         /// <summary>

@@ -9505,8 +9505,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 409403843}
-  - component: {fileID: 409403842}
   - component: {fileID: 409403841}
+  - component: {fileID: 409403842}
   m_Layer: 0
   m_Name: XSGridEditor
   m_TagString: Untagged
@@ -9536,7 +9536,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 409403840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1deb7d7e5a936ca4abd59f9449351369, type: 3}
+  m_Script: {fileID: 11500000, guid: c59b85aa18618bc41ab08de12a848216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TileRoot: {fileID: 732642749}
@@ -16791,7 +16791,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 732642748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3462f5f048f3bc04a9b884118c2c97e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac2e6f49b1b58543b2d985fac4dd380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &736429641

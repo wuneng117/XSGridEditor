@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    public class TileRootCpt : MonoBehaviour, ITileRootCpt
+    public class TileRootCpt : MonoBehaviour, ITileRoot
     {
         // Start is called before the first frame update
         void Start()

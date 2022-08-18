@@ -198,7 +198,7 @@ namespace XSSLG
                     continue;
 
                 var newWorldPos = this.TileToTileCenterWorld(tile.TilePos);
-                tile.Node.transform.position = newWorldPos;
+                tile.Node.UpdateWorldPos(newWorldPos);
                 tile.WorldPos = newWorldPos;
             }
         }

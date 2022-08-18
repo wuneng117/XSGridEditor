@@ -28,14 +28,14 @@ namespace XSSLG
 
         public void AddBoxCollider()
         {
-            var collider = this.AddComponent<BoxCollider>();
-            var bounds = unitData.GetMaxBounds();
+            var collider = this.gameObject.AddComponent<BoxCollider>();
+            var bounds = this.GetMaxBounds();
             collider.bounds.SetMinMax(bounds.min, bounds.max);
             collider.center = collider.transform.InverseTransformPoint(bounds.center);
             collider.size = bounds.size;
         }
 
-        public Bounds GetMaxBounds()
+        protected Bounds GetMaxBounds()
         {
             var renderers = this.GetComponentsInChildren<Renderer>();
             if (renderers.Length == 0)
