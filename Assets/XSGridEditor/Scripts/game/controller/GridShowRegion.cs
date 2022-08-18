@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
+
 /// <summary>
 /// @Author: xiaoshi
 /// @Date:2021/5/26
 /// @Description: 配合GridMgr使用，常用显示范围
 /// </summary>
+这个应该写成component，因为这个只和unity内的显示相关
 namespace XSSLG
 {
     /// <summary> 常用显示范围 </summary>

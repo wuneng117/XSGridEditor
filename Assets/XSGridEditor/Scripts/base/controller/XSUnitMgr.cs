@@ -1,5 +1,7 @@
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
+using Vector3Int = UnityEngine.Vector3Int;
 
 /// <summary>
 /// @Author: xiaoshi
@@ -8,7 +10,7 @@ using UnityEngine;
 /// </summary>
 namespace XSSLG
 {
-    using UnitDict = Dictionary<Vector3Int, XSUnitData>;
+    using UnitDict = Dictionary<Vector3Int, XSIUnitNode>;
 
     /// <summary>  </summary>
     public class XSUnitMgr
@@ -41,10 +43,10 @@ namespace XSSLG
         /// </summary>
         /// <param name="unitData"></param>
         /// <returns></returns>
-        public bool AddXSUnit(XSUnitData unitData)
+        public bool AddXSUnit(XSIUnitNode unitData)
         {
             var gridMgr = XSInstance.Instance.GridMgr;
-            var tilePos = gridMgr.WorldToTile(unitData.transform.position);
+            var tilePos = gridMgr.WorldToTile(unitData.WorldPos);
             if (this.UnitDict.ContainsKey(tilePos))
             {
                 Debug.LogError("XSUnitMgr.AddXSUnit: 同一tilePos上已经存在unitData：" + tilePos);
@@ -54,13 +56,7 @@ namespace XSSLG
             {
                 // 根据子节点的collider获取总的collider，用于射线检测
                 if (!UnityUtils.IsEditor())
-                {
-                    var collider = unitData.gameObject.AddComponent<BoxCollider>();
-                    var bounds = unitData.GetMaxBounds();
-                    collider.bounds.SetMinMax (bounds.min, bounds.max);
-                    collider.center = collider.transform.InverseTransformPoint (bounds.center);
-                    collider.size = bounds.size;
-                }
+                    unitData.AddBoxCollider();
 
                 this.UnitDict.Add(tilePos, unitData);
                 return true;

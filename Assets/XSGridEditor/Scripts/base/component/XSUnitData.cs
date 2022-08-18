@@ -11,7 +11,7 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> tile 上放置的 object 数据结构 </summary>
-    public class XSUnitData : MonoBehaviour
+    public class XSUnitData : MonoBehaviour, XSIUnitNode
     {
         /// <summary> 用字符串表示id比较通用 </summary>
         [SerializeField]
@@ -23,6 +23,17 @@ namespace XSSLG
         public int Move { get => move; set => move = value; }
 
         public Dictionary<Vector3, List<Vector3>> CachedPaths { get; private set; }
+
+        public Vector3 WorldPos { get => this.transform.position; }
+
+        public void AddBoxCollider()
+        {
+            var collider = this.AddComponent<BoxCollider>();
+            var bounds = unitData.GetMaxBounds();
+            collider.bounds.SetMinMax(bounds.min, bounds.max);
+            collider.center = collider.transform.InverseTransformPoint(bounds.center);
+            collider.size = bounds.size;
+        }
 
         public Bounds GetMaxBounds()
         {
