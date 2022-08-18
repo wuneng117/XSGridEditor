@@ -22,6 +22,19 @@ namespace XSSLG
         }
 
         public void UpdateWorldPos(Vector3 worldPos) => this.transform.position = worldPos;
+
+        public void AddBoxCollider(Vector3 tileSize)
+        {
+            var layer = this.gameObject.layer;
+            var tileLayer = LayerMask.NameToLayer(XSGridDefine.LAYER_TILE);
+            if (tileLayer == -1)
+                Debug.LogWarning("XSTileNode.AddBoxCollider:" + this.transform.position + "tile layer error，please add \"Tile\" to layer");
+            else if (tileLayer != layer)
+                Debug.LogWarning("XSTileNode.AddBoxCollider:" + this.transform.position + "tile layer error，error，please set layer insteat of \"Tile\"");
+
+            var collider = this.gameObject.AddComponent<BoxCollider>();
+            collider.size = tileSize;
+        }
     }
 
 }

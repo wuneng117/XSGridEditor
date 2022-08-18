@@ -5,6 +5,8 @@ namespace XSSLG
     {
         void UpdateEditModePrevPos();
         void UpdateWorldPos(Vector3 worldPos);
+        public void AddBoxCollider(Vector3 tileSize);
+
 
     }
 }

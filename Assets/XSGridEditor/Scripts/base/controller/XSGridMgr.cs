@@ -5,16 +5,11 @@
 /// </summary>
 using System.Collections.Generic;
 using System.Linq;
-using System;
-// using UnityEngine;
 
 using Vector3 = UnityEngine.Vector3;
 using Vector3Int = UnityEngine.Vector3Int;
 using Mathf = UnityEngine.Mathf;
 using Debug = UnityEngine.Debug;
-using BoxCollider = UnityEngine.BoxCollider;
-using Grid = UnityEngine.Grid;
-using LayerMask = UnityEngine.LayerMask;
 
 namespace XSSLG
 {
@@ -43,17 +38,12 @@ namespace XSSLG
         /// <summary> tile 大小，用来计算 tilePos </summary>
         private Vector3 TileSize { set; get; } = Vector3.zero;
 
-        public XSGridMgr(XSGridHelper helper)
+        public XSGridMgr(XSITileRoot tileRoot, Vector3 cellSize)
         {
-            if (helper && helper.TileRoot)
-                this.TileRoot = helper.TileRoot.GetComponent<XSTileRootCpt>();
+            this.TileRoot = tileRoot;
 
-            var grid = helper.TileRoot?.GetComponent<Grid>();
-            if (grid)
-                // y和z换一下是因为Grid组件里y表示横坐标，z表示高度，而我们的tile为了和3d空间一直，里y表示高度，z表示横坐标
-                this.TileSize = new Vector3(grid.cellSize.x, grid.cellSize.z, grid.cellSize.y);
-            else
-                this.TileSize = new Vector3(1, 1, 1);
+            // y和z换一下是因为Grid组件里y表示横坐标，z表示高度，而我们的tile为了和3d空间一直，里y表示高度，z表示横坐标
+            this.TileSize = new Vector3(cellSize.x, cellSize.z, cellSize.y);
         }
 
         public virtual void Init(XSGridHelper helper)
@@ -117,11 +107,11 @@ namespace XSSLG
         /// <summary>
         /// 添加XSTile到字典中
         /// </summary>
-        /// <param name="tileData"></param>
+        /// <param name="tileNode"></param>
         /// <returns></returns>
-        public XSTile AddXSTile(XSTileNode tileData)
+        public XSTile AddXSTile(XSTileNode tileNode)
         {
-            var tilePos = this.WorldToTile(tileData.transform.position);
+            var tilePos = this.WorldToTile(tileNode.transform.position);
             // 判断 tileDict[tilePos].Node 是因为实际节点可能是被其他情况下清除了
             if (this.TileDict.ContainsKey(tilePos) && this.TileDict[tilePos].Node != null)
             {
@@ -130,23 +120,10 @@ namespace XSSLG
             }
             else
             {
-                if (XSUnityUtils.IsEditor())
-                {
-                }
-                else
-                {
-                    var layer = tileData.gameObject.layer;
-                    var tileLayer = LayerMask.NameToLayer(XSGridDefine.LAYER_TILE);
-                    if (tileLayer == -1)
-                        Debug.LogWarning("GridMgr.AddXSTile:" + tilePos + "tile layer error，please add \"Tile\" to layer");
-                    else if (tileLayer != layer)
-                        Debug.LogWarning("GridMgr.AddXSTile:" + tilePos + "tile layer error，error，please set layer insteat of \"Tile\"");
+                if (!XSUnityUtils.IsEditor())
+                    tileNode.AddBoxCollider(this.TileSize);
 
-                    var collider = tileData.gameObject.AddComponent<BoxCollider>();
-                    collider.size = this.TileSize;
-                }
-
-                var tile = new XSTile(tilePos, tileData.transform.position, tileData.Cost, tileData);
+                var tile = new XSTile(tilePos, tileNode.transform.position, tileNode.Cost, tileNode);
                 this.TileDict.Add(tilePos, tile);
                 return tile;
             }

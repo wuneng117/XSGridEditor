@@ -15,7 +15,17 @@ namespace XSSLG
                 {
                     instance = new XSInstance();
                     instance.GridHelper = Component.FindObjectOfType<XSGridHelper>();
-                    instance.GridMgr = new XSGridMgr(instance.GridHelper);
+
+
+                    var tileRoot = instance.GridHelper.TileRoot;
+                    Debug.Assert(tileRoot);
+
+                    var tileRootCpt = tileRoot.GetComponent<XSTileRootCpt>();
+                    Debug.Assert(tileRootCpt);
+                    
+                     var grid = tileRoot.GetComponent<Grid>();
+                    Debug.Assert(grid);
+                    instance.GridMgr = new XSGridMgr(tileRootCpt, grid.cellSize);
                     instance.GridMgr.Init(instance.GridHelper);
                 }
                 return instance;
