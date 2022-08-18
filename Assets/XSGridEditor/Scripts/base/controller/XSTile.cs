@@ -5,7 +5,9 @@
 /// </summary>
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
+using Vector3Int = UnityEngine.Vector3Int;
 
 namespace XSSLG
 {
@@ -23,11 +25,7 @@ namespace XSSLG
             {
                 this.worldPos = value;
                 if (UnityUtils.IsEditor())
-                {
-                    var dataEdit = this.Node?.GetComponent<XSTileDataEditMode>();
-                    if (dataEdit)
-                        dataEdit.PrevPos = this.Node.transform.localPosition;
-                }
+                    this.Node?.UpdateEditModePrevPos();
             }
         }
 
@@ -38,7 +36,7 @@ namespace XSSLG
         public int Cost { get; } = 0;
 
         /// <summary> 对应节点 </summary>
-        public XSTileData Node { get; } = null;
+        public XSITileNode Node { get; } = null;
 
         /// <summary> 有单位会有阻挡（敌人会阻挡去路） </summary>
         public TileFunc IsWalkableFunc { get; } = (Vector3Int pos) => true;
@@ -49,7 +47,7 @@ namespace XSSLG
         public List<XSTile> NearTileList { get; } = new List<XSTile>();
 
         // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
-        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSTileData node, TileFunc isWalkable = null, TileFunc canBeDustFunc = null)
+        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable = null, TileFunc canBeDustFunc = null)
         {
             this.TilePos = tilePos;
             this.WorldPos = worldPos;

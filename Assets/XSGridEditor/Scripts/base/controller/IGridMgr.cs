@@ -4,7 +4,9 @@
 /// @Description: tile 管理类接口，负责tile 坐标转化，数据等功能
 /// </summary>
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
+using Vector3Int = UnityEngine.Vector3Int;
 
 namespace XSSLG
 {
@@ -23,7 +25,6 @@ namespace XSSLG
         /// </summary>
         /// <param name="worldPos">unity 的世界坐标</param>
         Vector3Int WorldToTile(Vector3 worldPos);
-
 
         /// <summary>
         /// 获取随意一点世界坐标对应 tile 的中心位置

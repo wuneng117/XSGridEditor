@@ -38,7 +38,7 @@ namespace XSSLG
         }
 
         /// <summary> 提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
-        private ITileRootCpt TileRoot { get; }
+        private ITileRoot TileRoot { get; }
 
         /// <summary> tile 大小，用来计算 tilePos </summary>
         private Vector3 TileSize { set; get; } = Vector3.zero;
