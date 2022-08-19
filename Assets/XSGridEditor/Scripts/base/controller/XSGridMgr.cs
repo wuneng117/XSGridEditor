@@ -38,7 +38,7 @@ namespace XSSLG
         /// <summary> tile 大小，用来计算 tilePos </summary>
         protected Vector3 TileSize { set; get; } = Vector3.zero;
 
-        public virtual XSGridMgr(XSITileRoot tileRoot, Vector3 cellSize)
+        public XSGridMgr(XSITileRoot tileRoot, Vector3 cellSize)
         {
             this.TileRoot = tileRoot;
 

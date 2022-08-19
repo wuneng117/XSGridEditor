@@ -49,7 +49,7 @@ namespace XSSLG
 
                 this.UnitMgr = new XSUnitMgr(gridHelper);
 
-                var moveRegionCpt = XSGridShowRegionCpt.Create(XSGridDefine.SCENE_GRID_MOVE, moveTilePrefab, 10);
+                var moveRegionCpt = XSGridShowRegionCpt.Create(XSGridDefine.SCENE_GRID_MOVE, gridHelper.MoveTilePrefab, 10);
                 this.GridShowMgr = new XSGridShowMgr(moveRegionCpt);
             }
         }

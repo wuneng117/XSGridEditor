@@ -20,7 +20,7 @@ namespace XSSLG
 
         /************************* 变量  end  ***********************/
 
-        public static virtual XSGridShowRegionCpt Create(string rootPath, GameObject moveTilePrefab, int sortOrder)
+        public static XSGridShowRegionCpt Create(string rootPath, GameObject moveTilePrefab, int sortOrder)
         {
             var parent = XSInstance.Instance.GridHelper?.transform;
             if (parent == null)

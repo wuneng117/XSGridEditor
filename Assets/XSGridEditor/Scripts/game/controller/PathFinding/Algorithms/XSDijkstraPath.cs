@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace XSSLG
 {
-    class XSDijkstraPath
+    public class XSDijkstraPath
     {
         /// <summary>
         /// 查找返回所有可能的路径
