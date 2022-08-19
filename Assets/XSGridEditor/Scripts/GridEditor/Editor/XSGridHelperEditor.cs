@@ -45,7 +45,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="name">按钮显示文字</param>
         /// <param name="callback">按钮执行回调</param>
-        private void DrawButton(string name, Action callback)
+        protected virtual void DrawButton(string name, Action callback)
         {
             EditorGUILayout.Space();
             EditorGUILayout.Space();

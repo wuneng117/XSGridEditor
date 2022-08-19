@@ -19,26 +19,26 @@ namespace XSSLG
     public class XSGridMgr : XSIGridMgr
     {
         /// <summary> 四边形地图链接格子就是这4个位置偏移 </summary>
-        private static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(0, 0, 1), };
+        protected static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(0, 0, 1), };
 
         /// <summary> 以tilepos为key存储所有tile。 </summary>
         protected TileDict TileDict { get; set; } = new TileDict();
 
-        public List<XSTile> GetAllTiles() => this.TileDict.Values.ToList();
+        public virtual List<XSTile> GetAllTiles() => this.TileDict.Values.ToList();
 
-        public void ClearAllTiles()
+        public virtual void ClearAllTiles()
         {
            this.TileDict.Clear();
            this.TileRoot.ClearAllTiles();
         }
 
         /// <summary> 提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
-        private XSITileRoot TileRoot { get; }
+        protected XSITileRoot TileRoot { get; }
 
         /// <summary> tile 大小，用来计算 tilePos </summary>
-        private Vector3 TileSize { set; get; } = Vector3.zero;
+        protected Vector3 TileSize { set; get; } = Vector3.zero;
 
-        public XSGridMgr(XSITileRoot tileRoot, Vector3 cellSize)
+        public virtual XSGridMgr(XSITileRoot tileRoot, Vector3 cellSize)
         {
             this.TileRoot = tileRoot;
 
@@ -61,7 +61,7 @@ namespace XSSLG
             }
         }
 
-        public Vector3Int WorldToTile(Vector3 worldPos)
+        public virtual Vector3Int WorldToTile(Vector3 worldPos)
         {
             var ret = Vector3Int.zero;
             if (this.TileRoot == null)
@@ -73,14 +73,14 @@ namespace XSSLG
             return ret;
         }
 
-        public Vector3 WorldToTileCenterWorld(Vector3 worldPos)
+        public virtual Vector3 WorldToTileCenterWorld(Vector3 worldPos)
         {
             var ret = Vector3.zero;
             var tilePos = this.WorldToTile(worldPos);
             return this.TileToTileCenterWorld(tilePos);
         }
 
-        protected Vector3 TileToTileCenterWorld(Vector3Int tilePos)
+        protected virtual Vector3 TileToTileCenterWorld(Vector3Int tilePos)
         {
             var ret = Vector3.zero;
             ret.x = tilePos.x * this.TileSize.x + (float)this.TileSize.x / 2;
@@ -90,7 +90,7 @@ namespace XSSLG
             return ret;
         }
 
-        protected void CreateXSTileDict(XSGridHelper helper)
+        protected virtual void CreateXSTileDict(XSGridHelper helper)
         {
             this.TileDict = new TileDict();
             if (helper == null)
@@ -109,7 +109,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileNode"></param>
         /// <returns></returns>
-        public XSTile AddXSTile(XSTileNode tileNode)
+        public virtual XSTile AddXSTile(XSTileNode tileNode)
         {
             var tilePos = this.WorldToTile(tileNode.transform.position);
             // 判断 tileDict[tilePos].Node 是因为实际节点可能是被其他情况下清除了
@@ -134,7 +134,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public bool RemoveXSTile(XSTileNode tileData)
+        public virtual bool RemoveXSTile(XSTileNode tileData)
         {
             var tilePos = this.WorldToTile(tileData.transform.position);
             var ret = false;
@@ -152,13 +152,13 @@ namespace XSSLG
             return ret;
         }
 
-        public XSTile GetXSTile(Vector3 worldPos)
+        public virtual XSTile GetXSTile(Vector3 worldPos)
         {
             var tilelPos = this.WorldToTile(worldPos);
             return this.GetXSTile(tilelPos);
         }
 
-        protected XSTile GetXSTile(Vector3Int tilePos)
+        protected virtual XSTile GetXSTile(Vector3Int tilePos)
         {
             if (this.TileDict.ContainsKey(tilePos))
                 return this.TileDict[tilePos];
@@ -166,7 +166,7 @@ namespace XSSLG
                 return null;
         }
 
-        public void UpdateTileSize(Vector3 tileSize)
+        public virtual void UpdateTileSize(Vector3 tileSize)
         {
             this.TileSize = new Vector3(tileSize.x, tileSize.z, tileSize.y);
             foreach (var tile in this.TileDict.Values)
@@ -187,6 +187,6 @@ namespace XSSLG
         /// <param name="srcTile">起点tile</param>
         /// <param name="moveRange">移动范围，默认-1和小于0都表示不限制移动范围</param>
         /// <returns></returns>
-        public Dictionary<Vector3, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange) => XSPathFinder.FindAllPath(this.TileDict, srcTile, moveRange);
+        public virtual Dictionary<Vector3, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange) => XSPathFinder.FindAllPath(this.TileDict, srcTile, moveRange);
     }
 }

@@ -16,7 +16,7 @@ namespace XSSLG
     public class XSPathFinder
     {
         // /// <summary> 寻路插件，可以用来显示所有的路径 </summary>
-        private static XSDijkstraPath _dijkstraPath = new XSDijkstraPath();
+        protected static XSDijkstraPath _dijkstraPath = new XSDijkstraPath();
 
         /// <summary>
         /// 返回所有的路径
@@ -25,7 +25,7 @@ namespace XSSLG
         /// <param name="srcTile">起点tile</param>
         /// <param name="moveRange">移动范围，默认-1和小于0都表示不限制移动范围</param>
         /// <returns></returns>
-        public static PathsDict FindAllPath(TileDict TileDict, XSTile srcTile, int moveRange)
+        public virtual static PathsDict FindAllPath(TileDict TileDict, XSTile srcTile, int moveRange)
         {
             if (srcTile == null)
                 return new PathsDict();

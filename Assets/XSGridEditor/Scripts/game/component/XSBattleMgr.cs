@@ -48,7 +48,9 @@ namespace XSSLG
                     this.XSCamera.SetConfinerBound(gridHelper.GetBounds());
 
                 this.UnitMgr = new XSUnitMgr(gridHelper);
-                this.GridShowMgr = new XSGridShowMgr(gridHelper.MoveTilePrefab);
+
+                var moveRegionCpt = XSGridShowRegionCpt.Create(XSGridDefine.SCENE_GRID_MOVE, moveTilePrefab, 10);
+                this.GridShowMgr = new XSGridShowMgr(moveRegionCpt);
             }
         }
 

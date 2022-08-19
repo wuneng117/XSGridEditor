@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/2/9
-/// @Description: tile 上放置的 object 数据结构
+/// @Description: tile 上放置的 object 的组件
 /// </summary>
 using System.Collections;
 using System.Collections.Generic;
@@ -15,18 +15,18 @@ namespace XSSLG
     {
         /// <summary> 用字符串表示id比较通用 </summary>
         [SerializeField]
-        private string id = "-1";
+        protected string id = "-1";
         public string Id { get => id; set => id = value; }
 
         [SerializeField]
-        private int move = 6;
+        protected int move = 6;
         public int Move { get => move; set => move = value; }
 
-        public Dictionary<Vector3, List<Vector3>> CachedPaths { get; private set; }
+        public Dictionary<Vector3, List<Vector3>> CachedPaths { get; protected set; }
 
         public Vector3 WorldPos { get => this.transform.position; }
 
-        public void AddBoxCollider()
+        public virtual void AddBoxCollider()
         {
             var collider = this.gameObject.AddComponent<BoxCollider>();
             var bounds = this.GetMaxBounds();
@@ -35,7 +35,7 @@ namespace XSSLG
             collider.size = bounds.size;
         }
 
-        protected Bounds GetMaxBounds()
+        protected virtual Bounds GetMaxBounds()
         {
             var renderers = this.GetComponentsInChildren<Renderer>();
             if (renderers.Length == 0)
@@ -51,7 +51,7 @@ namespace XSSLG
         /// 获取移动范围
         /// </summary>
         /// <returns></returns>
-        public List<Vector3> GetMoveRegion()
+        public virtual List<Vector3> GetMoveRegion()
         {
             var gridMgr = XSInstance.Instance.GridMgr;
             var srcTile = gridMgr.GetXSTile(this.transform.position);

@@ -11,7 +11,7 @@ namespace XSSLG
         /// <param name="src"></param>
         /// <param name="totalCost">总消耗，相当于移动范围差不多，默认-1和小于0都表示不限制</param>
         /// <returns></returns>
-        public Dictionary<XSTile, List<XSTile>> FindAllPaths(XSTile src, int totalCost)
+        public virtual Dictionary<XSTile, List<XSTile>> FindAllPaths(XSTile src, int totalCost)
         {
             var openQueue = new PriorityQueue<XSTile>();
             openQueue.Enqueue(src, 0);

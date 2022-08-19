@@ -58,7 +58,7 @@ namespace XSSLG
 
         /************************* 变量  end  ***********************/
 
-        void Awake()
+        public virtual void Awake()
         {
             this.InputProvider = this.GetComponent<CinemachineInputProvider>();
             this.VirtualCamera = this.GetComponent<CinemachineVirtualCamera>();
@@ -66,7 +66,7 @@ namespace XSSLG
         }
 
         // Update is called once per frame
-        void Update()
+        public virtual void Update()
         {
             if (!this.IsMoving && this.CanFreeMove)
             {

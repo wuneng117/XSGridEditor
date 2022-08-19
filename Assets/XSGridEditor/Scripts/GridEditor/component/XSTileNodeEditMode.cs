@@ -10,7 +10,7 @@ namespace XSSLG
         /// <summary> 编辑器模式下记录上一次的坐标 </summary>
         public Vector3 PrevPos { get; set; }
 
-        void Start()
+        public virtual void Start()
         {
             if (XSUE.IsEditor())
             {
@@ -21,7 +21,7 @@ namespace XSSLG
                 
         }
 
-        void Update()
+        public virtual void Update()
         {
             if (XSUE.IsEditor())
             {

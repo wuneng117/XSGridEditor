@@ -26,9 +26,9 @@ namespace XSSLG
         /// <summary> 监控CellSize变化 </summary>
         private Grid Grid { get; set; } = null;
 
-        private Vector3 PrevTileSize { get; set; } = Vector3.zero;
+        protected Vector3 PrevTileSize { get; set; } = Vector3.zero;
 
-        public void Start()
+        public virtual void Start()
         {
             if (!XSUE.IsEditor())
                 this.enabled = false;
@@ -40,9 +40,9 @@ namespace XSSLG
             }
         }
 
-        virtual protected Transform GetUnitRoot() => XSEditorInstance.Instance.GridHelper.UnitRoot;
+        protected virtual Transform GetUnitRoot() => XSEditorInstance.Instance.GridHelper.UnitRoot;
 
-        virtual protected Transform GetTileRoot() => XSEditorInstance.Instance.GridHelper.TileRoot;
+        protected virtual Transform GetTileRoot() => XSEditorInstance.Instance.GridHelper.TileRoot;
 
 
         #region  Tile 操作
@@ -64,7 +64,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public XSTile AddXSTile(XSTileNode tileData)
+        public virtual XSTile AddXSTile(XSTileNode tileData)
         {
             if (!XSUE.IsEditor())
                 return null;
@@ -86,7 +86,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public bool RemoveXSTile(XSTileNode tileData)
+        public virtual bool RemoveXSTile(XSTileNode tileData)
         {
             if (!XSUE.IsEditor())
                 return false;
@@ -244,7 +244,7 @@ namespace XSSLG
 
         #region Unit 操作
         /// <summary> 创建一个XSObject </summary>
-        public void CreateObject()
+        public virtual void CreateObject()
         {
             if (!XSUE.IsEditor())
                 return;
@@ -269,7 +269,7 @@ namespace XSSLG
 
         #endregion
 
-        void Update()
+        public virtual void Update()
         {
             if (!XSUE.IsEditor())
                 return;

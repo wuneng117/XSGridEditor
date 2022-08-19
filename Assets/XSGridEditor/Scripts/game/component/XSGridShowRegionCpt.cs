@@ -1,16 +1,15 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
 /// <summary>
 /// @Author: xiaoshi
 /// @Date:2021/5/26
 /// @Description: 配合GridMgr使用，常用显示范围
 /// </summary>
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 namespace XSSLG
 {
     /// <summary> 常用显示范围 </summary>
-    public class XSGridShowRegionCpt : MonoBehaviour
+    public class XSGridShowRegionCpt : MonoBehaviour, XSIGridShowRegion
     {
         /************************* 变量 begin ***********************/
         /// <summary> 高亮图块使用的prefab </summary>
@@ -21,21 +20,31 @@ namespace XSSLG
 
         /************************* 变量  end  ***********************/
 
+        public static virtual XSGridShowRegionCpt Create(string rootPath, GameObject moveTilePrefab, int sortOrder)
+        {
+            var parent = XSInstance.Instance.GridHelper?.transform;
+            if (parent == null)
+                return null;
+
+            var node = new GameObject(rootPath).transform;
+            node.SetParent(parent);
+            var showRegion = node.gameObject.AddComponent<XSGridShowRegionCpt>();
+            showRegion.Init(moveTilePrefab, sortOrder);
+            return showRegion;
+        }
+
         /// <summary>
         /// 初始化
         /// </summary>
         /// <param name="prefab"></param>
         /// <param name="sortOrder"></param>
-        public void Init(GameObject prefab, int sortOrder)
-        {
-            (this.Prefab, this.SortOrder) = (prefab, sortOrder);
-        }
+        public virtual void Init(GameObject prefab, int sortOrder) => (this.Prefab, this.SortOrder) = (prefab, sortOrder);
 
         /// <summary>
         /// 显示高亮范围
         /// </summary>
         /// <param name="worldPosList">图块所在的网格坐标</param>
-        public void ShowRegion(List<Vector3> worldPosList)
+        public virtual void ShowRegion(List<Vector3> worldPosList)
         {
             if (this.Prefab == null)
                 return;
@@ -56,6 +65,6 @@ namespace XSSLG
         }
 
         /// <summary> 清除高亮显示 </summary>
-        public void ClearRegion() => XSUG.RemoveChildren(this.transform.gameObject);
+        public virtual void ClearRegion() => XSUG.RemoveChildren(this.transform.gameObject);
     }
 }

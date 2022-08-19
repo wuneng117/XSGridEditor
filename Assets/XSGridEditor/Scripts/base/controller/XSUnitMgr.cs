@@ -1,13 +1,14 @@
-using System.Collections.Generic;
-// using UnityEngine;
-using Vector3Int = UnityEngine.Vector3Int;
-using Debug = UnityEngine.Debug;
-
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-08-01 20:40:16
 /// @Description: xxsobjectdata对象管理
 /// </summary>
+using System.Collections.Generic;
+// using UnityEngine;
+using Vector3Int = UnityEngine.Vector3Int;
+using Debug = UnityEngine.Debug;
+
+
 namespace XSSLG
 {
     using UnitDict = Dictionary<Vector3Int, XSIUnitNode>;
@@ -25,7 +26,7 @@ namespace XSSLG
             this.CreateXSUnitDict(helper);
         }
 
-        protected void CreateXSUnitDict(XSGridHelper helper)
+        protected virtual void CreateXSUnitDict(XSGridHelper helper)
         {
             if (helper == null)
                 return;
@@ -41,12 +42,12 @@ namespace XSSLG
         /// <summary>
         /// 添加XSTile到字典中
         /// </summary>
-        /// <param name="unitData"></param>
+        /// <param name="unitNode"></param>
         /// <returns></returns>
-        public bool AddXSUnit(XSIUnitNode unitData)
+        public virtual bool AddXSUnit(XSIUnitNode unitNode)
         {
             var gridMgr = XSInstance.Instance.GridMgr;
-            var tilePos = gridMgr.WorldToTile(unitData.WorldPos);
+            var tilePos = gridMgr.WorldToTile(unitNode.WorldPos);
             if (this.UnitDict.ContainsKey(tilePos))
             {
                 Debug.LogError("XSUnitMgr.AddXSUnit: 同一tilePos上已经存在unitData：" + tilePos);
@@ -56,9 +57,9 @@ namespace XSSLG
             {
                 // 根据子节点的collider获取总的collider，用于射线检测
                 if (!XSUnityUtils.IsEditor())
-                    unitData.AddBoxCollider();
+                    unitNode.AddBoxCollider();
 
-                this.UnitDict.Add(tilePos, unitData);
+                this.UnitDict.Add(tilePos, unitNode);
                 return true;
             }
         }

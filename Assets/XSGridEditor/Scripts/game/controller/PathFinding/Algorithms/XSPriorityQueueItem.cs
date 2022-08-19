@@ -19,17 +19,17 @@ namespace XSSLG
     /// <summary> 优先级队列 </summary>
     class PriorityQueue<T>
     {
-        private List<XSPriorityQueueItem<T>> list = new List<XSPriorityQueueItem<T>>();
+        protected List<XSPriorityQueueItem<T>> list = new List<XSPriorityQueueItem<T>>();
 
         public int Count { get => this.list.Count; }
 
-        public void Enqueue(T item, int priority)
+        public virtual void Enqueue(T item, int priority)
         {
             this.list.Add(new XSPriorityQueueItem<T>(item, priority));
             this.list.Sort((x, y) => y.Priority - x.Priority);
         }
 
-        public T Dequeue()
+        public virtual T Dequeue()
         {
             if (this.list.Count == 0)
                 return default(T);

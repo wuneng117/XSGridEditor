@@ -28,7 +28,7 @@ namespace XSSLG
         /// <summary> 获取所有 XSObjectData 节点 </summary>
         public List<XSUnitNode> GetUnitDataList()=> this.UnitRoot.GetComponentsInChildren<XSUnitNode>().ToList();
 
-        public Bounds GetBounds()
+        public virtual Bounds GetBounds()
         {
             var ret = new Bounds();
             if (XSUnityUtils.IsEditor())
