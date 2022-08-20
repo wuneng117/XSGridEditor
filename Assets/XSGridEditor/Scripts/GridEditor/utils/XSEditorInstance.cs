@@ -26,8 +26,8 @@ namespace XSSLG
                     var tileRoot = instance.GridHelper.TileRoot;
                     Debug.Assert(tileRoot);
 
-                    var tileRootCpt = tileRoot.GetComponent<XSTileRootCpt>();
-                    Debug.Assert(tileRootCpt);
+                    var tileRootCpt = tileRoot.GetComponent<XSITileRoot>();
+                    Debug.Assert(tileRootCpt != null);
 
                     var grid = tileRoot.GetComponent<Grid>();
                     Debug.Assert(grid);

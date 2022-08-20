@@ -55,11 +55,11 @@ public class XSUG : XSUnityUtils
     {
         var screenPos = Pointer.current.position.ReadValue();
         var hit = XSUG.GetMouseHit(screenPos, camera, "Tile");
-        var tileData = hit.collider?.gameObject.GetComponent<XSTileNode>();
+        var tileData = hit.collider?.gameObject.GetComponent<XSITileNode>();
         if (tileData == null)
             return XSTile.Default();
 
-        var tile = XSInstance.Instance.GridMgr.GetXSTile(tileData.transform.position);
+        var tile = XSInstance.Instance.GridMgr.GetXSTile(tileData.WorldPos);
         return tile ?? XSTile.Default();
     }
 
@@ -68,11 +68,11 @@ public class XSUG : XSUnityUtils
     /// </summary>
     /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
     /// <returns></returns>
-    public static XSUnitNode GetMouseTargetUnit(Camera camera = null)
+    public static XSIUnitNode GetMouseTargetUnit(Camera camera = null)
     {
         var screenPos = Pointer.current.position.ReadValue();
         var hit = XSUG.GetMouseHit(screenPos, camera, "Unit");
-        var unitData = hit.collider?.gameObject.GetComponent<XSUnitNode>();
+        var unitData = hit.collider?.gameObject.GetComponent<XSIUnitNode>();
         return unitData;
     }
 

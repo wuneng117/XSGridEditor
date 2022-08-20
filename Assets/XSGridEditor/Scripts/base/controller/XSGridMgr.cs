@@ -109,9 +109,9 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileNode"></param>
         /// <returns></returns>
-        public virtual XSTile AddXSTile(XSTileNode tileNode)
+        public virtual XSTile AddXSTile(XSITileNode tileNode)
         {
-            var tilePos = this.WorldToTile(tileNode.transform.position);
+            var tilePos = this.WorldToTile(tileNode.WorldPos);
             // 判断 tileDict[tilePos].Node 是因为实际节点可能是被其他情况下清除了
             if (this.TileDict.ContainsKey(tilePos) && this.TileDict[tilePos].Node != null)
             {
@@ -123,7 +123,7 @@ namespace XSSLG
                 if (!XSUnityUtils.IsEditor())
                     tileNode.AddBoxCollider(this.TileSize);
 
-                var tile = new XSTile(tilePos, tileNode.transform.position, tileNode.Cost, tileNode);
+                var tile = new XSTile(tilePos, tileNode.WorldPos, tileNode.Cost, tileNode);
                 this.TileDict.Add(tilePos, tile);
                 return tile;
             }

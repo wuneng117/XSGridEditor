@@ -3,7 +3,7 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> XSObjectData 的编辑器操作 </summary>
-    [RequireComponent(typeof(XSTileNode))]
+    [RequireComponent(typeof(XSITileNode))]
     [ExecuteInEditMode]
     public class XSTileNodeEditMode : MonoBehaviour
     {

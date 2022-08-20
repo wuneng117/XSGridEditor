@@ -82,7 +82,7 @@ namespace XSSLG
                     }
                     else
                     {
-                        var unit = XSUG.GetMouseTargetUnit();
+                        var unit = (XSUnitNode)XSUG.GetMouseTargetUnit();
                         if (unit != null)
                         {
                             Debug.Log("SelectedUnit: " + unit.name);

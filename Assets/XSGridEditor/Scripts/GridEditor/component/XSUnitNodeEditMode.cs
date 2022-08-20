@@ -4,7 +4,7 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> XSObjectData 的编辑器操作 </summary>
-    [RequireComponent(typeof(XSUnitNode))]
+    [RequireComponent(typeof(XSIUnitNode))]
     [ExecuteInEditMode]
     public class XSUnitNodeEditMode : MonoBehaviour
     {

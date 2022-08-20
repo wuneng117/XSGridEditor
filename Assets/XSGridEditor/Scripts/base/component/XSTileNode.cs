@@ -12,8 +12,11 @@ namespace XSSLG
     public class XSTileNode : MonoBehaviour, XSITileNode
     {
         /// <summary> 移动消耗 </summary>
-        public int Cost = 0;
-        
+        [SerializeField]
+        protected int cost = 1;
+
+        public int Cost { get => this.cost; }
+
         public Vector3 WorldPos { get => this.transform.position; set => this.transform.position = value; }
 
         public virtual void UpdateEditModePrevPos()

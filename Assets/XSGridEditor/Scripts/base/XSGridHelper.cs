@@ -22,11 +22,11 @@ namespace XSSLG
         /// <summary> 移动范围用的 prefab </summary>
         public GameObject MoveTilePrefab = null;
 
-        /// <summary> 获取所有 XSTileNode 节点 </summary>
-        public List<XSTileNode> GetTileNodeList()=> this.TileRoot.GetComponentsInChildren<XSTileNode>().ToList();
+        /// <summary> 获取所有 XSITileNode 节点 </summary>
+        public List<XSITileNode> GetTileNodeList()=> this.TileRoot.GetComponentsInChildren<XSITileNode>().ToList();
 
         /// <summary> 获取所有 XSObjectData 节点 </summary>
-        public List<XSUnitNode> GetUnitDataList()=> this.UnitRoot.GetComponentsInChildren<XSUnitNode>().ToList();
+        public List<XSIUnitNode> GetUnitDataList()=> this.UnitRoot.GetComponentsInChildren<XSIUnitNode>().ToList();
 
         public virtual Bounds GetBounds()
         {
@@ -38,14 +38,14 @@ namespace XSSLG
             if (tiles.Count == 0)
                 return ret;
 
-            var collider = tiles[0].GetComponent<BoxCollider>();
+            var collider = ((XSTileNode)tiles[0]).GetComponent<BoxCollider>();
             if (collider == null)
                 return ret;
 
             var bound = collider.bounds;
             tiles.ForEach(tile =>
             {
-                var col = tile.GetComponent<BoxCollider>();
+                var col = ((XSTileNode)tile).GetComponent<BoxCollider>();
                 if (col)
                     bound.Encapsulate(col.bounds);
             });

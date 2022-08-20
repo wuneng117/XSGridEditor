@@ -65,7 +65,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="tileData"></param>
         /// <returns></returns>
-        public virtual XSTile AddXSTile(XSTileNode tileData)
+        public virtual XSTile AddXSTile(XSITileNode tileData)
         {
             if (!XSUE.IsEditor())
                 return null;
@@ -118,13 +118,13 @@ namespace XSSLG
             if (tile.Node == null)
                 return ret;
 
-            var node = (XSTileNode)tile.Node;
-            ret = this.SetTileToNearTerrain(node);
+            var node = tile.Node;
+            ret = this.SetTileToNearTerrain((XSTileNode)node);
             if (!ret)
                 return ret;
 
             // 调整了位置，需要更新XSTile和XSTileNodeEditMode的位置
-            tile.WorldPos = node.transform.position;
+            tile.WorldPos = node.WorldPos;
             return ret;
         }
 

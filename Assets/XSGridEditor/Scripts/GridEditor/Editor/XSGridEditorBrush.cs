@@ -31,7 +31,7 @@ namespace XSSLG
                 return;
 
             //添加到TileDict
-            var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileNode>());
+            var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSITileNode>());
             if (tile == null)
             {
                 Debug.LogError("AddXSTileNode failed");

@@ -34,7 +34,7 @@ namespace XSSLG
 
         Vector3 TileToTileCenterWorld(Vector3Int tilePos);
 
-        XSTile AddXSTile(XSTileNode tileData);
+        XSTile AddXSTile(XSITileNode tileData);
 
         bool RemoveXSTile(Vector3 worldPos);
         

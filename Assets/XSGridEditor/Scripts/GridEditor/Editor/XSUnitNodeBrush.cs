@@ -34,7 +34,7 @@ namespace XSSLG
                 return;
 
             //添加到UnitDict
-            var ret = unitMgr.AddXSUnit(unitObj.GetComponent<XSUnitNode>());
+            var ret = unitMgr.AddXSUnit(unitObj.GetComponent<XSIUnitNode>());
             if (!ret)
             {
                 Debug.LogError("AddXSUnit failed");
