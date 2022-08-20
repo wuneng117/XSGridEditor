@@ -81,7 +81,7 @@ namespace XSSLG
             }
             else
             {
-                Debug.LogError("XSUnitMgr.RemoveXSUnit: 这个位置上不存在unit，tilePos：" + unitTilePos);
+                Debug.Log("XSUnitMgr.RemoveXSUnit: 这个位置上不存在unit，tilePos：" + unitTilePos);
                 return false;
             }
         }

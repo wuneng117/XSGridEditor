@@ -15,78 +15,50 @@ using UnityEngine;
 namespace XSSLG
 {
     [CustomGridBrush(true, false, false, "XSUnitNode Brush")]
-    public class XSUnitNodeBrush : GridBrushBase
+    public class XSUnitNodeBrush : XSBrushBase
     {
-        [SerializeField]
-        public GameObject brushObj;
-        void Start()
-        {
-            Debug.Log("XSUnitNodeBrush Start");
-        }
-
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            var brushObj = this.brushObj?.gameObject;
-            if (brushObj == null)
+            if (this.brushObj?.gameObject == null)
                 return;
 
-            var mgr = XSEditorInstance.Instance.GridMgr;
-            var worldPos = gridLayout.CellToWorld(position);
-            var existTile = mgr.GetXSTile(worldPos);
-            if (existTile == null)
+            if (!this.IsExistTile(gridLayout, position))
                 return;
 
-            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-            var main = currentStageHandle.FindComponentOfType<XSMain>();
-            var unitMgr = main.UnitMgr;
+            var unitMgr = this.GetUnitMgr();
             if (unitMgr == null)
                 return;
-                
-            GameObject tileObj;
-            if (PrefabUtility.IsPartOfPrefabAsset(brushObj))
-                tileObj = (GameObject)PrefabUtility.InstantiatePrefab(brushObj, brushTarget.transform) as GameObject;
-            else
-            {
-                tileObj = Instantiate(brushObj, brushTarget.transform);
-                tileObj.name = brushObj.name;
-            }
 
-            tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
-            tileObj.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_UNIT);
+            var unitObj = this.AddGameObject(brushTarget.transform, gridLayout, position, XSGridDefine.LAYER_UNIT);
+            if (unitObj == null)
+                return;
 
-            //添加到TileDict
-            var ret = unitMgr.AddXSUnit(tileObj.GetComponent<XSUnitNode>());
+            //添加到UnitDict
+            var ret = unitMgr.AddXSUnit(unitObj.GetComponent<XSUnitNode>());
             if (!ret)
             {
                 Debug.LogError("AddXSUnit failed");
-                GameObject.DestroyImmediate(tileObj);
+                GameObject.DestroyImmediate(unitObj);
             }
         }
 
         /// <param name="position">The coordinates of the cell to erase data from.</param>
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            var worldPos = gridLayout.CellToWorld(position);
-            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-            var main = currentStageHandle.FindComponentOfType<XSMain>();
-            var unitMgr = main.UnitMgr;
+            var unitMgr = this.GetUnitMgr();
             if (unitMgr == null)
                 return;
-                
+
+            var worldPos = gridLayout.CellToWorld(position);
             unitMgr.RemoveXSUnit(worldPos);
         }
 
-        public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill failed");
-
-        public override void Rotate(RotationDirection direction, GridLayout.CellLayout layout) => Debug.LogWarning("Rotate failed");
-
-        public override void Flip(FlipAxis flip, GridLayout.CellLayout layout) => Debug.LogWarning("Flip failed");
-
-        public override void Pick(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, Vector3Int pivot) => Debug.LogWarning("Pick failed");
-
-        public override void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveStart failed");
-
-        public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveEnd failed");
+        protected virtual XSUnitMgr GetUnitMgr()
+        {
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            var main = currentStageHandle.FindComponentOfType<XSMain>();
+            return main?.UnitMgr;
+        }
     }
 
     [CustomEditor(typeof(XSUnitNodeBrush))]

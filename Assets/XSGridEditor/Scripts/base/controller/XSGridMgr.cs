@@ -146,7 +146,7 @@ namespace XSSLG
             }
             else
             {
-                Debug.LogWarning("GridMgr.RemoveXSTile: 这个位置上不存在tile，tilePos：" + tilePos);
+                Debug.Log("GridMgr.RemoveXSTile: 这个位置上不存在tile，tilePos：" + tilePos);
                 return false;
             }
         }
