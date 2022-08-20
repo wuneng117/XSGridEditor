@@ -24,7 +24,7 @@ namespace XSSLG
 
         public Dictionary<Vector3, List<Vector3>> CachedPaths { get; protected set; }
 
-        public Vector3 WorldPos { get => this.transform.position; }
+        public Vector3 WorldPos { get => this.transform.position; set => this.transform.position = value; }
 
         public virtual void AddBoxCollider()
         {
@@ -66,5 +66,8 @@ namespace XSSLG
             }).Distinct().ToList(); // 去重
             return ret;
         }
+
+
+        public virtual void RemoveNode() => XSUnityUtils.RemoveObj(this.gameObject);
     }
 }

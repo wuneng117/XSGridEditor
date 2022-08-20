@@ -4,8 +4,12 @@ using UnityEngine;
 using XSSLG;
 
 [DefaultExecutionOrder(-1000)]
+[ExecuteInEditMode]
 public class XSMain : MonoBehaviour
 {
+    /// <summary> unit 管理 </summary>
+    public XSUnitMgr UnitMgr { get; protected set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,7 @@ public class XSMain : MonoBehaviour
         if (XSUnityUtils.IsEditor())
         {
             var instance = XSEditorInstance.Instance;
+            this.UnitMgr = new XSUnitMgr(instance.GridHelper);
         }
         else
         {

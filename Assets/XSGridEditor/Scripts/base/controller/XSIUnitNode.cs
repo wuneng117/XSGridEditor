@@ -10,11 +10,14 @@ namespace XSSLG
 {
     public interface XSIUnitNode
     {
+        Vector3 WorldPos { get; set; }
+
         void AddBoxCollider();
 
         List<Vector3> GetMoveRegion();
 
-        Vector3 WorldPos { get; }
+        void RemoveNode();
+
 
     }
 }

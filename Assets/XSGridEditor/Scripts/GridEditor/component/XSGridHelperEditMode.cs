@@ -6,6 +6,7 @@
 using System;
 using TMPro;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace XSSLG
@@ -34,9 +35,9 @@ namespace XSSLG
                 this.enabled = false;
             else
             {
-                // this.Grid = this.GetTileRoot()?.GetComponent<Grid>();
-                // if (this.Grid)
-                //     this.PrevTileSize = this.Grid.cellSize;
+                this.Grid = this.GetTileRoot()?.GetComponent<Grid>();
+                if (this.Grid)
+                    this.PrevTileSize = this.Grid.cellSize;
             }
         }
 
@@ -82,17 +83,17 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 添加XSTile
+        /// 删除XSTile
         /// </summary>
-        /// <param name="tileData"></param>
+        /// <param name="worldPos"></param>
         /// <returns></returns>
-        public virtual bool RemoveXSTile(XSTileNode tileData)
+        public virtual bool RemoveXSTile(Vector3 worldPos)
         {
             if (!XSUE.IsEditor())
                 return false;
 
             var mgr = XSEditorInstance.Instance.GridMgr;
-            return mgr.RemoveXSTile(tileData);
+            return mgr.RemoveXSTile(worldPos);
         }
 
         /// <summary>
@@ -279,8 +280,11 @@ namespace XSSLG
                 this.PrevTileSize = this.Grid.cellSize;
 
                 XSEditorInstance.Instance.GridMgr?.UpdateTileSize(this.PrevTileSize);
-            }
 
+                StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+                var main = currentStageHandle.FindComponentOfType<XSMain>();
+                main.UnitMgr?.UpdateUnitPos();
+            }
         }
     }
 }

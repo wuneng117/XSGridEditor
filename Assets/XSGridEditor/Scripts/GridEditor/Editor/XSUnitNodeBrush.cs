@@ -14,11 +14,15 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    [CustomGridBrush(true, false, true, "XSGridEditor Brush")]
-    public class XSGridEditorBrush : GridBrushBase
+    [CustomGridBrush(true, false, false, "XSUnitNode Brush")]
+    public class XSUnitNodeBrush : GridBrushBase
     {
         [SerializeField]
         public GameObject brushObj;
+        void Start()
+        {
+            Debug.Log("XSUnitNodeBrush Start");
+        }
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
@@ -29,7 +33,13 @@ namespace XSSLG
             var mgr = XSEditorInstance.Instance.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
             var existTile = mgr.GetXSTile(worldPos);
-            if (existTile != null)
+            if (existTile == null)
+                return;
+
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            var main = currentStageHandle.FindComponentOfType<XSMain>();
+            var unitMgr = main.UnitMgr;
+            if (unitMgr == null)
                 return;
                 
             GameObject tileObj;
@@ -42,22 +52,28 @@ namespace XSSLG
             }
 
             tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
-            tileObj.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_TILE);
+            tileObj.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_UNIT);
 
             //添加到TileDict
-            var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSTileNode>());
-            if (tile == null)
+            var ret = unitMgr.AddXSUnit(tileObj.GetComponent<XSUnitNode>());
+            if (!ret)
             {
-                Debug.LogError("AddXSTileNode failed");
+                Debug.LogError("AddXSUnit failed");
                 GameObject.DestroyImmediate(tileObj);
-            } 
+            }
         }
 
         /// <param name="position">The coordinates of the cell to erase data from.</param>
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
             var worldPos = gridLayout.CellToWorld(position);
-            XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile(worldPos);
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            var main = currentStageHandle.FindComponentOfType<XSMain>();
+            var unitMgr = main.UnitMgr;
+            if (unitMgr == null)
+                return;
+                
+            unitMgr.RemoveXSUnit(worldPos);
         }
 
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill failed");
@@ -73,8 +89,8 @@ namespace XSSLG
         public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveEnd failed");
     }
 
-    [CustomEditor(typeof(XSGridEditorBrush))]
-    public class XSGridEditorBrushEditor : GridBrushEditorBase
+    [CustomEditor(typeof(XSUnitNodeBrush))]
+    public class XSUnitNodeBrushEditor : GridBrushEditorBase
     {
         public override bool canChangeZPosition { get => false; }
 
@@ -84,7 +100,7 @@ namespace XSSLG
             {
                 StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
                 return currentStageHandle.FindComponentsOfType<GridLayout>().Select(grid => grid.gameObject)
-                                                                            .Where(gameObject => gameObject.scene.isLoaded && gameObject.activeInHierarchy && gameObject.name == "TileRoot").ToArray();
+                                                                            .Where(gameObject => gameObject.scene.isLoaded && gameObject.activeInHierarchy && gameObject.name == "UnitRoot").ToArray();
             }
         }
 

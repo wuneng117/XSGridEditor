@@ -80,7 +80,7 @@ namespace XSSLG
             return this.TileToTileCenterWorld(tilePos);
         }
 
-        protected virtual Vector3 TileToTileCenterWorld(Vector3Int tilePos)
+        public virtual Vector3 TileToTileCenterWorld(Vector3Int tilePos)
         {
             var ret = Vector3.zero;
             ret.x = tilePos.x * this.TileSize.x + (float)this.TileSize.x / 2;
@@ -132,24 +132,23 @@ namespace XSSLG
         /// <summary>
         /// 从字典中删除XSTile
         /// </summary>
-        /// <param name="tileData"></param>
+        /// <param name="worldPos">tila世界坐标</param>
         /// <returns></returns>
-        public virtual bool RemoveXSTile(XSTileNode tileData)
+        public virtual bool RemoveXSTile(Vector3 worldPos)
         {
-            var tilePos = this.WorldToTile(tileData.transform.position);
-            var ret = false;
-
+            var tilePos = this.WorldToTile(worldPos);
             if (this.TileDict.ContainsKey(tilePos))
             {
+                var tile = this.TileDict[tilePos];
+                tile.Node.RemoveNode();
                 this.TileDict.Remove(tilePos);
-                ret = true;
+                return true;
             }
             else
-                Debug.LogError("GridMgr.RemoveXSTile: 这个位置上不存在tile，tilePos：" + tilePos);
-
-
-            XSUnityUtils.RemoveObj(tileData.gameObject);
-            return ret;
+            {
+                Debug.LogWarning("GridMgr.RemoveXSTile: 这个位置上不存在tile，tilePos：" + tilePos);
+                return false;
+            }
         }
 
         public virtual XSTile GetXSTile(Vector3 worldPos)
@@ -175,7 +174,7 @@ namespace XSSLG
                     continue;
 
                 var newWorldPos = this.TileToTileCenterWorld(tile.TilePos);
-                tile.Node.UpdateWorldPos(newWorldPos);
+                tile.Node.WorldPos = newWorldPos;
                 tile.WorldPos = newWorldPos;
             }
         }

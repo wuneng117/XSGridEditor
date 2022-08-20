@@ -32,9 +32,11 @@ namespace XSSLG
         /// <param name="worldPos">unity 的世界坐标</param>
         Vector3 WorldToTileCenterWorld(Vector3 worldPos);
 
+        Vector3 TileToTileCenterWorld(Vector3Int tilePos);
+
         XSTile AddXSTile(XSTileNode tileData);
 
-        bool RemoveXSTile(XSTileNode tileData);
+        bool RemoveXSTile(Vector3 worldPos);
         
         /// <summary>
         /// 从 worldPos 获取tile

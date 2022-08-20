@@ -22,7 +22,7 @@ namespace XSSLG
         public XSIGridMgr GridMgr { get; set; }
 
         /// <summary> unit 管理 </summary>
-        public XSUnitMgr UnitMgr { get; set; }
+        public XSUnitMgr UnitMgr { get; protected set; }
 
         /// <summary> 格子显示管理 </summary>
         public XSGridShowMgr GridShowMgr { get; set; }

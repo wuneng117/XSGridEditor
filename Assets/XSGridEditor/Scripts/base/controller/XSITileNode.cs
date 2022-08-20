@@ -8,9 +8,13 @@ namespace XSSLG
 {
     public interface XSITileNode
     {
+        Vector3 WorldPos { set; }
+
         void UpdateEditModePrevPos();
-        void UpdateWorldPos(Vector3 worldPos);
-        public void AddBoxCollider(Vector3 tileSize);
+
+        void AddBoxCollider(Vector3 tileSize);
+
+        void RemoveNode();
 
 
     }
