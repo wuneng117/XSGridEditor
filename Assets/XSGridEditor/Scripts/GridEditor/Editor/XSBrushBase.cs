@@ -35,7 +35,7 @@ namespace XSSLG
                 tileObj.name = obj.name;
             }
 
-            var mgr = XSEditorInstance.Instance.GridMgr;
+            var mgr = XSInstance.Instance.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
             tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
             tileObj.layer = LayerMask.NameToLayer(layerName);
@@ -44,7 +44,7 @@ namespace XSSLG
 
         protected virtual bool IsExistTile(GridLayout gridLayout, Vector3Int position)
         {
-            var mgr = XSEditorInstance.Instance.GridMgr;
+            var mgr = XSInstance.Instance.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
             var existTile = mgr.GetXSTile(worldPos);
             return existTile != null;
@@ -54,7 +54,7 @@ namespace XSSLG
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
             var worldPos = gridLayout.CellToWorld(position);
-            XSEditorInstance.Instance.GridHelperEditMode.RemoveXSTile(worldPos);
+            XSInstance.Instance.GridHelperEditMode.RemoveXSTile(worldPos);
         }
 
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill failed");

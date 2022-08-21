@@ -19,6 +19,10 @@ namespace XSSLG
     {
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
+            Debug.Log("test:" + XSInstance.Instance.GridHelperEditMode.gettest());
+             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            var curHe = currentStageHandle.FindComponentsOfType<XSGridHelperEditMode>();
+            Debug.Log("test222:" + curHe[0].gettest());
             if (this.brushObj?.gameObject == null)
                 return;
 
@@ -31,7 +35,7 @@ namespace XSSLG
                 return;
 
             //添加到TileDict
-            var tile = XSEditorInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSITileNode>());
+            var tile = XSInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSITileNode>());
             if (tile == null)
             {
                 Debug.LogError("AddXSTileNode failed");

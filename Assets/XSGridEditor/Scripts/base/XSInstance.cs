@@ -15,24 +15,45 @@ namespace XSSLG
                 {
                     instance = new XSInstance();
                     instance.GridHelper = Component.FindObjectOfType<XSGridHelper>();
-
+                    
 
                     var tileRoot = instance.GridHelper.TileRoot;
                     Debug.Assert(tileRoot);
 
                     var tileRootCpt = tileRoot.GetComponent<XSITileRoot>();
                     Debug.Assert(tileRootCpt != null);
-                    
-                     var grid = tileRoot.GetComponent<Grid>();
+
+                    var grid = tileRoot.GetComponent<Grid>();
                     Debug.Assert(grid);
                     instance.GridMgr = new XSGridMgr(tileRootCpt, grid.cellSize);
                     instance.GridMgr.Init(instance.GridHelper);
+
+
+                    instance.GridHelperEditMode = Component.FindObjectOfType<XSGridHelperEditMode>();
                 }
                 return instance;
             }
         }
+        public static void DestroyInstance() => instance = null;
+
         public XSIGridMgr GridMgr { get; set; } = null;
         public XSGridHelper GridHelper { get; set; } = null;
+
+        protected XSGridHelperEditMode gridHelperEditMode = null;
+        public XSGridHelperEditMode GridHelperEditMode 
+        { 
+            get
+            {
+                if (!XSUE.IsEditor())
+                {
+                    Debug.LogError("XSEditorInstance.Instance: 只能在编辑器中使用");
+                    return null;
+                }
+
+                return this.gridHelperEditMode;
+            }
+            set => this.gridHelperEditMode = value; 
+        }
 
         /************************* 变量  end  ***********************/
     }

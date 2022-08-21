@@ -16,7 +16,7 @@ public class XSMain : MonoBehaviour
         // 最先初始化单例，保证使用时肯定是初始化好的
         if (XSUnityUtils.IsEditor())
         {
-            var instance = XSEditorInstance.Instance;
+            var instance = XSInstance.Instance;
             this.UnitMgr = new XSUnitMgr(instance.GridHelper);
         }
         else
@@ -25,5 +25,8 @@ public class XSMain : MonoBehaviour
         }
     }
 
-
+    void OnDestroy()
+    {
+        XSInstance.DestroyInstance();
+    }
 }

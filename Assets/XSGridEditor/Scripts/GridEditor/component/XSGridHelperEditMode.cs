@@ -16,6 +16,8 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
+        public int gettest() => 1;
+
         [SerializeField]
         protected GameObject UniytPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
@@ -41,9 +43,9 @@ namespace XSSLG
             }
         }
 
-        protected virtual Transform GetUnitRoot() => XSEditorInstance.Instance.GridHelper.UnitRoot;
+        protected virtual Transform GetUnitRoot() => XSInstance.Instance.GridHelper.UnitRoot;
 
-        protected virtual Transform GetTileRoot() => XSEditorInstance.Instance.GridHelper.TileRoot;
+        protected virtual Transform GetTileRoot() => XSInstance.Instance.GridHelper.TileRoot;
 
 
         #region  Tile 操作
@@ -73,7 +75,7 @@ namespace XSSLG
             if (tileData == null)
                 return null;
 
-            var mgr = XSEditorInstance.Instance.GridMgr;
+            var mgr = XSInstance.Instance.GridMgr;
             var tile = mgr.AddXSTile(tileData);
             if (tile == null)
                 return null;
@@ -92,7 +94,7 @@ namespace XSSLG
             if (!XSUE.IsEditor())
                 return false;
 
-            var mgr = XSEditorInstance.Instance.GridMgr;
+            var mgr = XSInstance.Instance.GridMgr;
             return mgr.RemoveXSTile(worldPos);
         }
 
@@ -104,7 +106,7 @@ namespace XSSLG
             if (!XSUE.IsEditor())
                 return;
 
-            foreach (var tile in XSEditorInstance.Instance.GridMgr.GetAllTiles())
+            foreach (var tile in XSInstance.Instance.GridMgr.GetAllTiles())
                 this.SetTileToNearTerrain(tile);
         }
 
@@ -172,7 +174,7 @@ namespace XSSLG
                 return;
 
             XSUE.RemoveChildren(this.GetTileRoot()?.gameObject);
-            XSEditorInstance.Instance.GridMgr.ClearAllTiles();
+            XSInstance.Instance.GridMgr.ClearAllTiles();
         }
 
         /// <summary>
@@ -223,7 +225,7 @@ namespace XSSLG
             {
                 var textRoot = new GameObject();
                 textRoot.name = rootName;
-                foreach (var tile in XSEditorInstance.Instance.GridMgr.GetAllTiles())
+                foreach (var tile in XSInstance.Instance.GridMgr.GetAllTiles())
                 {
                     if (tile.Node == null)
                         continue;
@@ -279,7 +281,7 @@ namespace XSSLG
             {
                 this.PrevTileSize = this.Grid.cellSize;
 
-                XSEditorInstance.Instance.GridMgr?.UpdateTileSize(this.PrevTileSize);
+                XSInstance.Instance.GridMgr?.UpdateTileSize(this.PrevTileSize);
 
                 StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
                 var main = currentStageHandle.FindComponentOfType<XSMain>();

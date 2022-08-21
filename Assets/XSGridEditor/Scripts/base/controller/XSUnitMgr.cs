@@ -101,7 +101,7 @@ namespace XSSLG
             if (!XSUnityUtils.IsEditor())
                 return;
 
-            var gridMgr = XSEditorInstance.Instance.GridMgr;
+            var gridMgr = XSInstance.Instance.GridMgr;
             foreach (var pair in this.UnitDict)
             {
                 var newWorldPos = gridMgr.TileToTileCenterWorld(pair.Key);

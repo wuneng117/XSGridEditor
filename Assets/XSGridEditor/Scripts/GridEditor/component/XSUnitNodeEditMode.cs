@@ -22,7 +22,7 @@ namespace XSSLG
             if (XSUE.IsEditor())
             {
                 // XSU.Log("XSUnitDataEditMode Update");
-                var gridMgr = XSEditorInstance.Instance.GridMgr;
+                var gridMgr = XSInstance.Instance.GridMgr;
                 var pos = gridMgr.WorldToTileCenterWorld(this.transform.position);
                 // zero 表示返回的为空，tile获取有问题
                 if (pos != Vector3.zero)
