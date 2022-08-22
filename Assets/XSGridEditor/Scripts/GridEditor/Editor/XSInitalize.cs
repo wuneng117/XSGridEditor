@@ -15,7 +15,7 @@ namespace XSSLG
         {
             if (scene.name == "Demo_1")
             {
-                Debug.Log("Demo_1 场景测试");
+                // Debug.Log("Demo_1 场景测试");
                 XSAssetPostprocessor.CheckLayer();
             }
         }

@@ -19,10 +19,8 @@ namespace XSSLG
     {
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            Debug.Log("test:" + XSInstance.Instance.GridHelperEditMode.gettest());
              StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
             var curHe = currentStageHandle.FindComponentsOfType<XSGridHelperEditMode>();
-            Debug.Log("test222:" + curHe[0].gettest());
             if (this.brushObj?.gameObject == null)
                 return;
 

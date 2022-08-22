@@ -54,7 +54,7 @@ namespace XSSLG
             var unitTilePos = gridMgr.WorldToTile(unitNode.WorldPos);
             if (this.UnitDict.ContainsKey(unitTilePos))
             {
-                Debug.LogError("XSUnitMgr.AddXSUnit: 同一tilePos上已经存在unitData：" + unitTilePos);
+                Debug.LogWarning("XSUnitMgr.AddXSUnit: 同一tilePos上已经存在unitData：" + unitTilePos);
                 return false;
             }
             else

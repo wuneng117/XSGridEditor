@@ -32,12 +32,15 @@ namespace XSSLG
             var unitObj = this.AddGameObject(brushTarget.transform, gridLayout, position, XSGridDefine.LAYER_UNIT);
             if (unitObj == null)
                 return;
+            
+            var unitEditMode = unitObj.GetComponent<XSUnitNodeEditMode>();
+            unitEditMode.enabled = true;
 
             //添加到UnitDict
             var ret = unitMgr.AddXSUnit(unitObj.GetComponent<XSIUnitNode>());
             if (!ret)
             {
-                Debug.LogError("AddXSUnit failed");
+                // Debug.LogError("AddXSUnit failed");
                 GameObject.DestroyImmediate(unitObj);
             }
         }

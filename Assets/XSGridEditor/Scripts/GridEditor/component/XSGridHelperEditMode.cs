@@ -16,8 +16,6 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
-        public int gettest() => 1;
-
         [SerializeField]
         protected GameObject UniytPrefab = null;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
