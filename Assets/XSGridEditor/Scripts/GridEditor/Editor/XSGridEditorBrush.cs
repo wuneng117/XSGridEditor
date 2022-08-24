@@ -19,7 +19,7 @@ namespace XSSLG
     {
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
             var curHe = currentStageHandle.FindComponentsOfType<XSGridHelperEditMode>();
             if (this.brushObj?.gameObject == null)
                 return;
@@ -45,7 +45,38 @@ namespace XSSLG
     [CustomEditor(typeof(XSGridEditorBrush))]
     public class XSGridEditorBrushEditor : GridBrushEditorBase
     {
+        public Vector2 scrollPosition = Vector2.zero;
         public override bool canChangeZPosition { get => false; }
+
+        /// <summary>
+        /// Callback for painting the inspector GUI for the GameObjectBrushEx in the tilemap palette.
+        /// The GameObjectBrushEx Editor overrides this to show the usage of this Brush.
+        /// </summary>
+        public override void OnPaintInspectorGUI()
+        {
+            var brush = (XSGridEditorBrush)target;
+
+            EditorGUI.BeginChangeCheck();
+            base.OnInspectorGUI();
+
+
+            EditorGUI.EndChangeCheck();
+
+            var startPosY = 100;
+            scrollPosition = GUI.BeginScrollView(new Rect(10, startPosY, 600, 200), scrollPosition, new Rect(0, 0, 300, 1000));
+            for (int i = 1; i < 50; i++)
+            {
+                var texture = AssetPreview.GetAssetPreview(brush.brushObj) as Texture;
+                var pos = new Rect(0, 30 * i, texture.width / 3, texture.height / 3);
+                GUI.DrawTextureWithTexCoords(pos, texture, new Rect(0, 0, 1, 1)); // new Rect(0, 0, 1, 1)意思是从0， 0开始画，横竖只绘制1次
+                GUI.color = new Color(0, 1f, 1f, 0.5f);
+            }
+
+            // if (GUI.Button(pos, ""))
+            // GUI.color = new Color(0, 1f, 1f, 1f);
+
+            GUI.EndScrollView();
+        }
 
         public override GameObject[] validTargets
         {
