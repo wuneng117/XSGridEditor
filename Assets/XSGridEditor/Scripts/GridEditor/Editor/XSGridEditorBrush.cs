@@ -59,16 +59,19 @@ namespace XSSLG
             EditorGUI.BeginChangeCheck();
             base.OnInspectorGUI();
 
+            var objList = new List<GameObject>();   // TODO获取某文件夹下的prefab
+            var size = Vector2.zero;// TODO获取window宽高
+            selGridInt = GUI.SelectionGrid(new Rect(25, 25, 100, 30), selGridInt, selStrings, 2);
 
             EditorGUI.EndChangeCheck();
-
+            // 从100开始画
             var startPosY = 100;
             scrollPosition = GUI.BeginScrollView(new Rect(10, startPosY, 600, 200), scrollPosition, new Rect(0, 0, 300, 1000));
             for (int i = 1; i < 50; i++)
             {
                 var texture = AssetPreview.GetAssetPreview(brush.brushObj) as Texture;
                 var pos = new Rect(0, 30 * i, texture.width / 3, texture.height / 3);
-                GUI.DrawTextureWithTexCoords(pos, texture, new Rect(0, 0, 1, 1)); // new Rect(0, 0, 1, 1)意思是从0， 0开始画，横竖只绘制1次
+                GUI.DrawTexture(pos, textures);
                 GUI.color = new Color(0, 1f, 1f, 0.5f);
             }
 
