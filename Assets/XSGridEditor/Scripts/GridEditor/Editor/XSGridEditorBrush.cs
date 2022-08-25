@@ -17,11 +17,16 @@ namespace XSSLG
     [CustomGridBrush(true, false, true, "XSGridEditor Brush")]
     public class XSGridEditorBrush : XSBrushBase
     {
+        public virtual void Awake()
+        {
+            this.UnitPath = "Assets/XSGridEditor/Resources/Prefabs/Tiles";
+        }
+
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
             var curHe = currentStageHandle.FindComponentsOfType<XSGridHelperEditMode>();
-            if (this.brushObj?.gameObject == null)
+            if (this.BrushObj?.gameObject == null)
                 return;
 
             if (this.IsExistTile(gridLayout, position))
@@ -43,10 +48,8 @@ namespace XSSLG
     }
 
     [CustomEditor(typeof(XSGridEditorBrush))]
-    public class XSGridEditorBrushEditor : GridBrushEditorBase
+    public class XSGridEditorBrushEditor : XSBrushBaseEditor<XSGridEditorBrush, XSITileNode>
     {
-        public override bool canChangeZPosition { get => false; }
-
         public override GameObject[] validTargets
         {
             get

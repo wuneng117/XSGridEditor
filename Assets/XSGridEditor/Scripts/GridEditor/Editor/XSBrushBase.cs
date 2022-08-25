@@ -6,6 +6,7 @@
 /// </summary>
 /// 
 #if ENABLE_TILEMAP
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -16,12 +17,13 @@ namespace XSSLG
 {
     public class XSBrushBase : GridBrushBase
     {
-        [SerializeField]
-        public GameObject brushObj;
+        public string UnitPath = "";
+
+        public GameObject BrushObj { get; set; }
 
         protected virtual GameObject AddGameObject(Transform parent, GridLayout gridLayout, Vector3Int position, string layerName)
         {
-            var obj = this.brushObj?.gameObject;
+            var obj = this.BrushObj?.gameObject;
             if (obj == null)
                 return null;
 
@@ -68,6 +70,53 @@ namespace XSSLG
         public override void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveStart failed");
 
         public override void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position) => Debug.LogWarning("MoveEnd failed");
+    }
+
+    public class XSBrushBaseEditor<T, TCOMP> : GridBrushEditorBase where T : XSBrushBase
+    {
+        /// <summary> 操作对象 </summary>
+        protected T Instance { set; get; }
+
+        /// <summary> 可以用的笔刷list </summary>
+        protected List<GameObject> BrushObjList { get; set; } = new List<GameObject>();
+
+        /// <summary> 当前选中的笔刷Index </summary>
+        protected int selGridInt = -1;
+
+        /// <summary> 笔刷预览大小 </summary>
+        protected static Vector2Int UNIT_SIZE = new Vector2Int(60, 60);
+
+        public override bool canChangeZPosition { get => false; }
+
+        public virtual void Awake()
+        {
+            this.Instance = (T)this.target;
+            if (this.Instance)
+                this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.UnitPath }, "t:Prefab");
+        }
+        
+        public override void OnPaintInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            int offY = 100;
+            int offX = 25;
+            selGridInt = this.DrawUnitGrid(offX, offY);
+            if (selGridInt != -1)
+                this.Instance.BrushObj = this.BrushObjList[selGridInt];
+        }
+
+        protected virtual int DrawUnitGrid(int offX, int offY)
+        {
+            if (this.BrushObjList.Count == 0)
+                return -1;
+
+            var textList = this.BrushObjList.Select(unit => AssetPreview.GetAssetPreview(unit) as Texture).ToList();
+            int width = (int)EditorGUIUtility.currentViewWidth - offX * 2;
+            int xCount = width / UNIT_SIZE.x;
+            int yCount = textList.Count / xCount + 1;
+            return GUI.SelectionGrid(new Rect(offX, offY, width, yCount * UNIT_SIZE.x), selGridInt, textList.ToArray(), xCount);
+        }
     }
 }
 
