@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using XSSLG;
 
@@ -23,5 +25,26 @@ public class XSUE : XSUnityUtils
         text.fontSizeMax = 100;
         text.alignment = TextAlignmentOptions.Center;
         return text;
+    }
+
+    /// <summary>
+    /// 加载文件夹下的内容
+    /// </summary>
+    /// <param name="pathArray">加载文件夹路径</param>
+    /// <param name="filter">过滤</param>
+    /// <typeparam name="T">含有T类型组件</typeparam>
+    /// <returns></returns>
+    public static List<GameObject> LoadGameObjAtPath<T>(string[] pathArray, string filter)
+    {
+        var unitObjList = new List<GameObject>();
+        var guids = AssetDatabase.FindAssets(filter, pathArray);
+        foreach (var guid in guids)
+        {
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            var unitObj = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if (unitObj.GetComponent<T>() != null)
+                unitObjList.Add(unitObj);
+        }
+        return unitObjList;
     }
 }

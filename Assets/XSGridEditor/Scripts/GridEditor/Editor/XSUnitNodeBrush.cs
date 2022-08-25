@@ -6,6 +6,7 @@
 /// </summary>
 /// 
 #if ENABLE_TILEMAP
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -17,6 +18,8 @@ namespace XSSLG
     [CustomGridBrush(true, false, false, "XSUnitNode Brush")]
     public class XSUnitNodeBrush : XSBrushBase
     {
+        public string UnitPath = "Assets/XSGridEditor/Resources/Prefabs/Units";
+
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
             if (this.brushObj?.gameObject == null)
@@ -32,7 +35,7 @@ namespace XSSLG
             var unitObj = this.AddGameObject(brushTarget.transform, gridLayout, position, XSGridDefine.LAYER_UNIT);
             if (unitObj == null)
                 return;
-            
+
             var unitEditMode = unitObj.GetComponent<XSUnitNodeEditMode>();
             unitEditMode.enabled = true;
 
@@ -67,7 +70,51 @@ namespace XSSLG
     [CustomEditor(typeof(XSUnitNodeBrush))]
     public class XSUnitNodeBrushEditor : GridBrushEditorBase
     {
+        protected XSUnitNodeBrush Instance { set; get; }
+        protected List<GameObject> BrushObjList { get; set; } = new List<GameObject>();
+
+        protected int selGridInt = -1;
+
+        protected static Vector2Int UNIT_SIZE = new Vector2Int(60, 60);
+
         public override bool canChangeZPosition { get => false; }
+
+        public virtual void Awake()
+        {
+            this.Instance = (XSUnitNodeBrush)this.target;
+            if (this.Instance)
+                this.BrushObjList = XSUE.LoadGameObjAtPath<XSIUnitNode>(new string[] { this.Instance.UnitPath }, "t:Prefab");
+        }
+
+        public override void OnPaintInspectorGUI()
+        {
+            var brush = (XSUnitNodeBrush)target;
+
+            EditorGUI.BeginChangeCheck();
+            base.OnInspectorGUI();
+            EditorGUI.EndChangeCheck();
+
+
+            int offY = 100;
+            int offX = 25;
+            selGridInt = this.DrawUnitGrid(brush, offX, offY);
+            if (selGridInt != -1)
+                this.Instance.brushObj = this.BrushObjList[selGridInt];
+
+            GUI.EndScrollView();
+        }
+
+        protected virtual int DrawUnitGrid(XSUnitNodeBrush brush, int offX, int offY)
+        {
+            if (this.BrushObjList.Count == 0)
+                return -1;
+
+            var textList = this.BrushObjList.Select(unit => AssetPreview.GetAssetPreview(unit) as Texture).ToList();
+            int width = (int)EditorGUIUtility.currentViewWidth - offX * 2;
+            int xCount = width / UNIT_SIZE.x;
+            int yCount = textList.Count / xCount + 1;
+            return GUI.SelectionGrid(new Rect(offX, offY, width, yCount * UNIT_SIZE.x), selGridInt, textList.ToArray(), xCount);
+        }
 
         public override GameObject[] validTargets
         {
