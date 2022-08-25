@@ -21,6 +21,10 @@ namespace XSSLG
         public virtual void Awake()
         {
             this.UnitPath = "Assets/XSGridEditor/Resources/Prefabs/Units";
+        
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            var unitRoot = currentStageHandle.FindComponentOfType<XSUnitRootCpt>();
+            this.BrushParent = unitRoot?.transform;
         }
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
@@ -35,7 +39,7 @@ namespace XSSLG
             if (unitMgr == null)
                 return;
 
-            var unitObj = this.AddGameObject(brushTarget.transform, gridLayout, position, XSGridDefine.LAYER_UNIT);
+            var unitObj = this.AddGameObject(gridLayout, position, XSGridDefine.LAYER_UNIT);
             if (unitObj == null)
                 return;
 
@@ -73,16 +77,6 @@ namespace XSSLG
     [CustomEditor(typeof(XSUnitNodeBrush))]
     public class XSUnitNodeBrushEditor : XSBrushBaseEditor<XSUnitNodeBrush, XSIUnitNode>
     {
-        public override GameObject[] validTargets
-        {
-            get
-            {
-                StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-                return currentStageHandle.FindComponentsOfType<GridLayout>().Select(grid => grid.gameObject)
-                                                                            .Where(gameObject => gameObject.scene.isLoaded && gameObject.activeInHierarchy && gameObject.name == "UnitRoot").ToArray();
-            }
-        }
-
     }
 }
 

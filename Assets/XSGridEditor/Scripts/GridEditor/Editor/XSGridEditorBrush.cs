@@ -6,10 +6,8 @@
 /// </summary>
 /// 
 #if ENABLE_TILEMAP
-using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 namespace XSSLG
@@ -20,12 +18,14 @@ namespace XSSLG
         public virtual void Awake()
         {
             this.UnitPath = "Assets/XSGridEditor/Resources/Prefabs/Tiles";
+
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            var tileRoot = currentStageHandle.FindComponentOfType<XSTileRootCpt>();
+            this.BrushParent = tileRoot?.transform;
         }
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-            var curHe = currentStageHandle.FindComponentsOfType<XSGridHelperEditMode>();
             if (this.BrushObj?.gameObject == null)
                 return;
 
@@ -33,7 +33,7 @@ namespace XSSLG
                 return;
 
 
-            var tileObj = this.AddGameObject(brushTarget.transform, gridLayout, position, XSGridDefine.LAYER_TILE);
+            var tileObj = this.AddGameObject(gridLayout, position, XSGridDefine.LAYER_TILE);
             if (tileObj == null)
                 return;
 
@@ -41,25 +41,23 @@ namespace XSSLG
             var tile = XSInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSITileNode>());
             if (tile == null)
             {
-                Debug.LogError("AddXSTileNode failed");
+                // Debug.LogError("AddXSTileNode failed");
                 GameObject.DestroyImmediate(tileObj);
             }
         }
+
+        /// <param name="position">The coordinates of the cell to erase data from.</param>
+        public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
+        {
+            var worldPos = gridLayout.CellToWorld(position);
+            XSInstance.Instance.GridHelperEditMode.RemoveXSTile(worldPos);
+        }
+
     }
 
     [CustomEditor(typeof(XSGridEditorBrush))]
     public class XSGridEditorBrushEditor : XSBrushBaseEditor<XSGridEditorBrush, XSITileNode>
     {
-        public override GameObject[] validTargets
-        {
-            get
-            {
-                StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-                return currentStageHandle.FindComponentsOfType<GridLayout>().Select(grid => grid.gameObject)
-                                                                            .Where(gameObject => gameObject.scene.isLoaded && gameObject.activeInHierarchy && gameObject.name == "TileRoot").ToArray();
-            }
-        }
-
     }
 }
 

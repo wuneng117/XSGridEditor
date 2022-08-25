@@ -19,21 +19,25 @@ namespace XSSLG
     {
         public string UnitPath = "";
 
+        protected Transform BrushParent { get; set; }
+
         public GameObject BrushObj { get; set; }
 
-        protected virtual GameObject AddGameObject(Transform parent, GridLayout gridLayout, Vector3Int position, string layerName)
+        protected virtual GameObject AddGameObject(GridLayout gridLayout, Vector3Int position, string layerName)
         {
             var obj = this.BrushObj?.gameObject;
             if (obj == null)
                 return null;
 
+            // if (this.BrushParent == null)
+            //     return null;
 
             GameObject tileObj;
             if (PrefabUtility.IsPartOfPrefabAsset(obj))
-                tileObj = (GameObject)PrefabUtility.InstantiatePrefab(obj, parent) as GameObject;
+                tileObj = (GameObject)PrefabUtility.InstantiatePrefab(obj, this.BrushParent) as GameObject;
             else
             {
-                tileObj = Instantiate(obj, parent);
+                tileObj = Instantiate(obj, this.BrushParent);
                 tileObj.name = obj.name;
             }
 
@@ -52,12 +56,9 @@ namespace XSSLG
             return existTile != null;
         }
 
-        /// <param name="position">The coordinates of the cell to erase data from.</param>
-        public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
-        {
-            var worldPos = gridLayout.CellToWorld(position);
-            XSInstance.Instance.GridHelperEditMode.RemoveXSTile(worldPos);
-        }
+        public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("Paint failed");
+
+        public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("Erase failed");
 
         public override void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("FloodFill failed");
 
@@ -81,7 +82,7 @@ namespace XSSLG
         protected List<GameObject> BrushObjList { get; set; } = new List<GameObject>();
 
         /// <summary> 当前选中的笔刷Index </summary>
-        protected int selGridInt = -1;
+        protected int selGridInt = 0;
 
         /// <summary> 笔刷预览大小 </summary>
         protected static Vector2Int UNIT_SIZE = new Vector2Int(60, 60);
@@ -94,7 +95,7 @@ namespace XSSLG
             if (this.Instance)
                 this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.UnitPath }, "t:Prefab");
         }
-        
+
         public override void OnPaintInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -116,6 +117,16 @@ namespace XSSLG
             int xCount = width / UNIT_SIZE.x;
             int yCount = textList.Count / xCount + 1;
             return GUI.SelectionGrid(new Rect(offX, offY, width, yCount * UNIT_SIZE.x), selGridInt, textList.ToArray(), xCount);
+        }
+
+        public override GameObject[] validTargets
+        {
+            get
+            {
+                StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+                return currentStageHandle.FindComponentsOfType<GridLayout>().Select(grid => grid.gameObject)
+                                                                            .Where(gameObject => gameObject.scene.isLoaded && gameObject.activeInHierarchy && gameObject.name == "TileRoot").ToArray();
+            }
         }
     }
 }
