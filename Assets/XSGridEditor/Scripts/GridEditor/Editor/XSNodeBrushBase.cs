@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    public abstract class XSNodeBrushBase<T> : XSBrushBase where T : XSIBrushItem
+    public abstract class XSNodeBrushBase<T> : XSBrushBase where T : class, XSIBrushItem
     {
         abstract protected XSBrushItemMgr<T> GetMgr();
 
