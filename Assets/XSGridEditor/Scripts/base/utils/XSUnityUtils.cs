@@ -55,9 +55,13 @@ namespace XSSLG
         public static void RemoveObj(GameObject obj)
         {
             if (XSUnityUtils.IsEditor())
+            {
                 Undo.DestroyObjectImmediate(obj);
+            }
             else
+            {
                 GameObject.Destroy(obj);
+            }
         }
     }
 }

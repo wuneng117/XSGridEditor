@@ -46,7 +46,9 @@ public class XSUE : XSUnityUtils
             var path = AssetDatabase.GUIDToAssetPath(guid);
             var unitObj = AssetDatabase.LoadAssetAtPath<GameObject>(path);
             if (unitObj.GetComponent<T>() != null)
+            {
                 unitObjList.Add(unitObj);
+            }
         }
         return unitObjList;
     }

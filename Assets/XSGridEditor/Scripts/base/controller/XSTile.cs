@@ -40,9 +40,9 @@ namespace XSSLG
         public XSITileNode Node { get; }
 
         /// <summary> 有单位会有阻挡（敌人会阻挡去路） </summary>
-        public TileFunc IsWalkableFunc { get; } = (Vector3Int) => true;
+        public TileFunc IsWalkableFunc { get; } = (tilePos) => true;
         /// <summary> 是否可以作为终点（单位不能重合站，终点有单位）</summary>
-        public TileFunc CanBeDustFunc { get; } = (Vector3Int) => true;
+        public TileFunc CanBeDustFunc { get; } = (tilePos) => true;
 
         /// <summary> 邻接的格子，在PathFinder初始化时计算 </summary>
         public List<XSTile> NearTileList { get; } = new List<XSTile>();

@@ -221,7 +221,9 @@ namespace XSSLG
         public virtual void SetTileCostShow(bool isShow)
         {
             if (!XSUE.IsEditor())
+            {
                 return;
+            }
 
             this.SetTextShow(isShow,
                             XSGridDefine.GAMEOBJECT_TILE_COST_ROOT,
