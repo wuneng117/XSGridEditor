@@ -3,12 +3,6 @@
 /// @Date: 2022-08-01 20:40:16
 /// @Description: xxsobjectdata对象管理
 /// </summary>
-using System.Collections.Generic;
-// using UnityEngine;
-using Vector3Int = UnityEngine.Vector3Int;
-using Vector3 = UnityEngine.Vector3;
-using Debug = UnityEngine.Debug;
-
 
 namespace XSSLG
 {
@@ -17,10 +11,10 @@ namespace XSSLG
     {
         public XSUnitMgr(XSGridHelper helper)
         {
-            if (helper == null)
-                return;
-
-            this.CreateDict(helper.GetUnitDataList());
+            if (helper)
+            {
+                this.CreateDict(helper.GetUnitDataList());
+            }
         }
 
         /// <summary>
@@ -42,7 +36,9 @@ namespace XSSLG
         public virtual void UpdateUnitPos()
         {
             if (!XSUnityUtils.IsEditor())
+            {
                 return;
+            }
 
             var gridMgr = XSInstance.Instance.GridMgr;
             foreach (var pair in this.Dict)

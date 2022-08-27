@@ -56,7 +56,9 @@ namespace XSSLG
                 {
                     var nearPos = pair.Key + pos;
                     if (this.TileDict.ContainsKey(nearPos))
+                    {
                         pair.Value.NearTileList.Add(this.TileDict[nearPos]);
+                    }
                 }
             }
         }
@@ -65,7 +67,9 @@ namespace XSSLG
         {
             var ret = Vector3Int.zero;
             if (this.TileRoot == null)
+            {
                 return ret;
+            }
 
             var localPos = this.TileRoot.InverseTransformPoint(worldPos);
             ret.x = Mathf.FloorToInt((localPos.x) / this.TileSize.x);
@@ -75,7 +79,6 @@ namespace XSSLG
 
         public virtual Vector3 WorldToTileCenterWorld(Vector3 worldPos)
         {
-            var ret = Vector3.zero;
             var tilePos = this.WorldToTile(worldPos);
             return this.TileToTileCenterWorld(tilePos);
         }
@@ -94,11 +97,15 @@ namespace XSSLG
         {
             this.TileDict = new TileDict();
             if (helper == null)
+            {
                 return;
+            }
 
             var tileDataList = helper.GetTileNodeList();
             if (tileDataList == null || tileDataList.Count == 0)
+            {
                 return;
+            }
 
             // 遍历Tile
             tileDataList.ForEach(tileData => this.AddXSTile(tileData));
@@ -121,7 +128,9 @@ namespace XSSLG
             else
             {
                 if (!XSUnityUtils.IsEditor())
+                {
                     tileNode.AddBoxCollider(this.TileSize);
+                }
 
                 var tile = new XSTile(tilePos, tileNode.WorldPos, tileNode.Cost, tileNode);
                 this.TileDict.Add(tilePos, tile);
@@ -160,9 +169,13 @@ namespace XSSLG
         protected virtual XSTile GetXSTile(Vector3Int tilePos)
         {
             if (this.TileDict.ContainsKey(tilePos))
+            {
                 return this.TileDict[tilePos];
+            }
             else
+            {
                 return null;
+            }
         }
 
         public virtual void UpdateTileSize(Vector3 tileSize)
@@ -171,7 +184,9 @@ namespace XSSLG
             foreach (var tile in this.TileDict.Values)
             {
                 if (tile.Node == null)
+                {
                     continue;
+                }
 
                 var newWorldPos = this.TileToTileCenterWorld(tile.TilePos);
                 tile.Node.WorldPos = newWorldPos;

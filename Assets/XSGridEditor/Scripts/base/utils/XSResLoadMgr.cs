@@ -5,6 +5,8 @@ namespace XSSLG
     /// <summary> 加载资源 </summary>
     public class XSResLoadMgr
     {
+        protected XSResLoadMgr() {}
+        
         /// <summary>
         /// 通过资源路径动态加载prefab并创建GameObject
         /// </summary>
@@ -14,7 +16,9 @@ namespace XSSLG
         {
             var prefab = Resources.Load<GameObject>(path);
             if (prefab == null)
+            {
                 return null;
+            }
 
             var obj = Object.Instantiate(prefab);
             return obj;

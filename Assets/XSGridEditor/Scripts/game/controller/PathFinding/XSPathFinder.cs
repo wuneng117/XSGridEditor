@@ -15,8 +15,10 @@ namespace XSSLG
     /// <summary> 寻路 </summary>
     public class XSPathFinder
     {
+        protected XSPathFinder() {}
+
         // /// <summary> 寻路插件，可以用来显示所有的路径 </summary>
-        protected static XSDijkstraPath _dijkstraPath = new XSDijkstraPath();
+        protected static readonly XSDijkstraPath _dijkstraPath = new XSDijkstraPath();
 
         /// <summary>
         /// 返回所有的路径
@@ -28,14 +30,18 @@ namespace XSSLG
         public static PathsDict FindAllPath(TileDict TileDict, XSTile srcTile, int moveRange)
         {
             if (srcTile == null)
+            {
                 return new PathsDict();
+            }
 
             var allPaths = _dijkstraPath.FindAllPaths(srcTile, moveRange);
             //移动到原地的路径长度为0，为了不和没有路径搞混，原地网格加进去
             if (allPaths[srcTile] == null)
+            {
                 allPaths[srcTile] = new List<XSTile>();
+            }
+
             allPaths[srcTile].Add(srcTile);
-            
             // 把PathFinderTile全部转为对应的TilePos，并且过滤掉不能作为终点的路径
             var allTilePosPaths = allPaths.Where(path => path.Key.CanBeDustFunc == null || path.Key.CanBeDustFunc(path.Key.TilePos))
                                           .ToDictionary(pair => pair.Key.WorldPos, pair => pair.Value.Select(pathTile => pathTile.WorldPos).ToList());

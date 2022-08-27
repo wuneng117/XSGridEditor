@@ -5,7 +5,6 @@
 /// </summary>
 using System;
 using System.Collections.Generic;
-// using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 using Vector3Int = UnityEngine.Vector3Int;
 
@@ -25,7 +24,9 @@ namespace XSSLG
             {
                 this.worldPos = value;
                 if (XSUnityUtils.IsEditor())
+                {
                     this.Node?.UpdateEditModePrevPos();
+                }
             }
         }
 
@@ -33,34 +34,45 @@ namespace XSSLG
         public Vector3Int TilePos { get; } = new Vector3Int();
 
         /// <summary> 网格消耗 </summary>
-        public int Cost { get; } = 0;
+        public int Cost { get; }
 
         /// <summary> 对应节点 </summary>
-        public XSITileNode Node { get; } = null;
+        public XSITileNode Node { get; }
 
         /// <summary> 有单位会有阻挡（敌人会阻挡去路） </summary>
-        public TileFunc IsWalkableFunc { get; } = (Vector3Int pos) => true;
+        public TileFunc IsWalkableFunc { get; } = (Vector3Int) => true;
         /// <summary> 是否可以作为终点（单位不能重合站，终点有单位）</summary>
-        public TileFunc CanBeDustFunc { get; } = (Vector3Int pos) => true;
+        public TileFunc CanBeDustFunc { get; } = (Vector3Int) => true;
 
         /// <summary> 邻接的格子，在PathFinder初始化时计算 </summary>
         public List<XSTile> NearTileList { get; } = new List<XSTile>();
 
         // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
-        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable = null, TileFunc canBeDustFunc = null)
+        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node)
         {
             this.TilePos = tilePos;
             this.WorldPos = worldPos;
             this.Cost = cost;
             this.Node = node;
-
-            if (isWalkable != null)
-                this.IsWalkableFunc = isWalkable;
-
-            if (canBeDustFunc != null)
-                this.CanBeDustFunc = canBeDustFunc;
         }
 
+        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable) : this(tilePos, worldPos, cost, node)
+        {
+            if (isWalkable != null)
+            {
+                this.IsWalkableFunc = isWalkable;
+            }
+        }
+
+        // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
+        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, TileFunc canBeDustFunc) : this(tilePos, worldPos, cost, node, isWalkable)
+        {
+            if (canBeDustFunc != null)
+            {
+                this.CanBeDustFunc = canBeDustFunc;
+            }
+        }
+        
         /// <summary> 返回1个默认值 </summary>
         static public XSTile Default() => new XSTile(new Vector3Int(), new Vector3(), 0, null);
     }

@@ -14,14 +14,15 @@ namespace XSSLG
         public virtual void Start()
         {
             if (!XSUE.IsEditor())
+            {
                 this.enabled = false;
+            }
         }
 
         public virtual void Update()
         {
             if (XSUE.IsEditor())
             {
-                // XSU.Log("XSUnitDataEditMode Update");
                 var gridMgr = XSInstance.Instance.GridMgr;
                 var pos = gridMgr.WorldToTileCenterWorld(this.transform.position);
                 // zero 表示返回的为空，tile获取有问题

@@ -29,7 +29,9 @@ namespace XSSLG
                     
                     // 必须小于总消耗
                     if (totalCost >= 0 && cost > totalCost)
+                    {
                         return;
+                    }
 
                     if (!aStarTileDict.ContainsKey(tile) || cost < aStarTileDict[tile].Cost)
                     {

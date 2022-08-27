@@ -12,6 +12,9 @@ namespace XSSLG
     /// <summary> 常用的 unity 方法 </summary>
     public class XSUnityUtils
     {
+        protected XSUnityUtils() {}
+
+
         /// <summary> 是否是 unity 编辑器模式下 </summary>
         public static bool IsEditor() => Application.isEditor && !Application.isPlaying;
 
@@ -22,11 +25,15 @@ namespace XSSLG
         public static void ActionChildren(GameObject obj, Action<GameObject> action)
         {
             if (obj == null)
+            {
                 return;
+            }
                 
             int childCount = obj.transform.childCount;
             for (int i = childCount - 1; i >= 0; i--)
+            {
                 action(obj.transform.GetChild(i).gameObject);
+            }
         }
 
         /// <summary>
@@ -36,9 +43,13 @@ namespace XSSLG
         public static void RemoveChildren(GameObject obj)
         {
             if (XSUnityUtils.IsEditor())
-                ActionChildren(obj, (GameObject child) => Undo.DestroyObjectImmediate(child));
+            {
+                ActionChildren(obj, child => Undo.DestroyObjectImmediate(child));
+            }
             else
-                ActionChildren(obj, (GameObject child) => GameObject.Destroy(child));
+            {
+                ActionChildren(obj, child => GameObject.Destroy(child));
+            }
         }
 
         public static void RemoveObj(GameObject obj)

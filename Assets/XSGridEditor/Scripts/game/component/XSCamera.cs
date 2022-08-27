@@ -73,12 +73,12 @@ namespace XSSLG
                 float x = this.InputProvider.GetAxisValue(0);
                 float y = this.InputProvider.GetAxisValue(1);
                 float z = this.InputProvider.GetAxisValue(2);
-                if (x != 0 || y != 0)
+                if (!Mathf.Approximately(x, 0) || !Mathf.Approximately(y, 0))
                 {
                     this.MoveScreen(x, y);
                 }
 
-                if (z != 0)
+                if (!Mathf.Approximately(z, 0))
                 {
                     this.ZoomScreen(z);
                 }

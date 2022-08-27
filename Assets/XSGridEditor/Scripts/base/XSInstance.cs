@@ -6,7 +6,7 @@ namespace XSSLG
     public class XSInstance
     {
         /************************* 变量 begin ***********************/
-        private static XSInstance instance = null;
+        private static XSInstance instance;
         public static XSInstance Instance
         {
             get
@@ -36,10 +36,10 @@ namespace XSSLG
         }
         public static void DestroyInstance() => instance = null;
 
-        public XSIGridMgr GridMgr { get; set; } = null;
-        public XSGridHelper GridHelper { get; set; } = null;
+        public XSIGridMgr GridMgr { get; set; }
+        public XSGridHelper GridHelper { get; set; }
 
-        protected XSGridHelperEditMode gridHelperEditMode = null;
+        protected XSGridHelperEditMode gridHelperEditMode;
         public XSGridHelperEditMode GridHelperEditMode 
         { 
             get

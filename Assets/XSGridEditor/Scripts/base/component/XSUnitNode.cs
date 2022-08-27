@@ -39,11 +39,16 @@ namespace XSSLG
         {
             var renderers = this.GetComponentsInChildren<Renderer>();
             if (renderers.Length == 0)
+            {
                 return new Bounds();
+            }
 
             var ret = renderers[0].bounds;
             foreach (Renderer r in renderers)
+            {
                 ret.Encapsulate(r.bounds);
+            }
+            
             return ret;
         }
 

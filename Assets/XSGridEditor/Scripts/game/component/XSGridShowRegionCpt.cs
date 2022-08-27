@@ -24,7 +24,9 @@ namespace XSSLG
         {
             var parent = XSInstance.Instance.GridHelper?.transform;
             if (parent == null)
+            {
                 return null;
+            }
 
             var node = new GameObject(rootPath).transform;
             node.SetParent(parent);
@@ -47,13 +49,17 @@ namespace XSSLG
         public virtual void ShowRegion(List<Vector3> worldPosList)
         {
             if (this.Prefab == null)
+            {
                 return;
+            }
 
             worldPosList.ForEach(pos =>
             {
                 var obj = GameObject.Instantiate(this.Prefab, this.transform);
                 if (obj == null)
+                {
                     return;
+                }
 
                 // 设置layer默认。不要遮挡射线到 tile 的检测
                 obj.layer = LayerMask.NameToLayer("Default");

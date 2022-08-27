@@ -9,6 +9,8 @@ using XSSLG;
 
 public class XSUEE
 {
+    protected XSUEE() {}
+
     /// <summary> 弹窗提醒 </summary>
     public static void ShowTip(string desc)
     {

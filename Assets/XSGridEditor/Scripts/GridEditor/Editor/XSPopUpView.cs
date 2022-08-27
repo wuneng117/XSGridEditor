@@ -15,6 +15,7 @@ namespace XSSLG
 
         public void Init(float width, float height, string desc)
         {
+            var instance = XSInstance.Instance;
             this.position = new Rect(Screen.width / 2, Screen.height / 2, width, height);
             this.Desc = desc;
         }
@@ -24,7 +25,9 @@ namespace XSSLG
             EditorGUILayout.LabelField(this.Desc, EditorStyles.wordWrappedLabel);
             GUILayout.Space(this.position.height / 2);
             if (GUILayout.Button("OK"))
+            {
                 this.Close();
+            }
         }
     }
 }

@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XSSLG;
 using UnityEngine.InputSystem;
 
 public class XSUG : XSUnityUtils
 {
+    protected XSUG() {}
+
+
     /// <summary>
     /// 返回场景中的第一个Camera，名字为SceneCamera是系统的（暂时不清楚什么用），不是场景中的一般camera
     /// </summary>
@@ -16,7 +17,9 @@ public class XSUG : XSUnityUtils
         foreach (var camera in cameras)
         {
             if (camera.name != "SceneCamera")
+            {
                 return camera;
+            }
         }
         return null;
     }
@@ -25,66 +28,68 @@ public class XSUG : XSUnityUtils
     /// 获取鼠标所指向的对象
     /// </summary>
     /// <param name="screenPos">屏幕坐标</param>
-    /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
     /// <param name="layerName">鼠标射线和哪个layer相交，一般和terrian的layer相交</param>
+    /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
     /// <returns></returns>
-    protected static RaycastHit GetMouseHit(Vector2 screenPos, Camera camera = null, string layerName = null)
+    protected static RaycastHit GetMouseHit(Vector2 screenPos, string layerName, Camera camera)
     {
-        camera = camera ?? XSUG.GetMainCamera();
         if (camera == null)
+        {
             return new RaycastHit();
+        }
 
         RaycastHit hit;
         Ray ray = camera.ScreenPointToRay(screenPos);
-        if (layerName != null)
+        if (layerName == "" || layerName == null)
+        {
+            Physics.Raycast(ray, out hit);
+        }
+        else
         {
             var index = LayerMask.NameToLayer(layerName);
             Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << index);
         }
-        else
-            Physics.Raycast(ray, out hit);
+
         return hit;
     }
+
+    protected static RaycastHit GetMouseHit(Vector2 screenPos, string layerName) => XSUG.GetMouseHit(screenPos, layerName, XSUG.GetMainCamera());
+
+    public static RaycastHit GetMouseHit(Vector2 screenPos) => XSUG.GetMouseHit(screenPos, "");
 
     /// <summary>
     /// 获取鼠标所指向的 tile
     /// </summary>
     /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
     /// <returns></returns>
-    public static XSTile GetMouseTargetTile(Camera camera = null)
+    public static XSTile GetMouseTargetTile(Camera camera)
     {
         var screenPos = Pointer.current.position.ReadValue();
-        var hit = XSUG.GetMouseHit(screenPos, camera, "Tile");
+        var hit = XSUG.GetMouseHit(screenPos, "Tile", camera);
         var tileData = hit.collider?.gameObject.GetComponent<XSITileNode>();
         if (tileData == null)
+        {
             return XSTile.Default();
+        }
 
         var tile = XSInstance.Instance.GridMgr.GetXSTile(tileData.WorldPos);
         return tile ?? XSTile.Default();
     }
+
+    public static XSTile GetMouseTargetTile() => XSUG.GetMouseTargetTile(XSUG.GetMainCamera());
 
     /// <summary>
     /// 获取鼠标所指向的 unit
     /// </summary>
     /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
     /// <returns></returns>
-    public static XSIUnitNode GetMouseTargetUnit(Camera camera = null)
+    public static XSIUnitNode GetMouseTargetUnit(Camera camera)
     {
         var screenPos = Pointer.current.position.ReadValue();
-        var hit = XSUG.GetMouseHit(screenPos, camera, "Unit");
+        var hit = XSUG.GetMouseHit(screenPos, "Unit", camera);
         var unitData = hit.collider?.gameObject.GetComponent<XSIUnitNode>();
         return unitData;
     }
 
-    // /// <summary> 
-    // /// 获取鼠标所在的世界坐标 
-    // /// </summary>
-    // /// <param name="screenPos">屏幕坐标</param>
-    // /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
-    // /// <returns></returns>
-    // public static Vector3 ScreenPosToTileWorldPos(Vector2 screenPos, Camera camera = null)
-    // {
-    //     var hit = XSUG.GetMouseHit(screenPos, camera, "Ground");
-    //     return hit.point;
-    // }
+    public static XSIUnitNode GetMouseTargetUnit() => XSUG.GetMouseTargetUnit(XSUG.GetMainCamera());
 }

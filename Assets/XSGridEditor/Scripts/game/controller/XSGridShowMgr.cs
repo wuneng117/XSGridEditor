@@ -3,10 +3,7 @@
 /// @Date: 2022-08-19 13:38:22
 /// @Description: 其它 tile 显示管理类
 /// </summary>
-using System;
 using System.Collections.Generic;
-using System.Linq;
-// using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 namespace XSSLG
@@ -33,7 +30,9 @@ namespace XSSLG
         public virtual List<Vector3> ShowMoveRegion(XSIUnitNode unit)
         {
             if (this.MoveShowRegion == null)
+            {
                 return new List<Vector3>();
+            }
 
             var moveRegion = unit.GetMoveRegion();
             this.MoveShowRegion.ShowRegion(moveRegion);

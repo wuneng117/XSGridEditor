@@ -23,13 +23,14 @@ public class XSAssetPostprocessor :AssetPostprocessor
     public static void CheckLayer()
     {
         if (!HasLayer(XSGridDefine.LAYER_TILE))
+        {
             AddLayer(XSGridDefine.LAYER_TILE);
+        }
 
         if (!HasLayer(XSGridDefine.LAYER_UNIT))
+        {
             AddLayer(XSGridDefine.LAYER_UNIT);
-
-        // if (!HasLayer(XSGridDefine.LAYER_GROUND))
-        //     AddLayer(XSGridDefine.LAYER_GROUND);
+        }
     }
 
     static bool HasLayer(string layer) => LayerMask.NameToLayer(layer) != -1;
@@ -45,7 +46,9 @@ public class XSAssetPostprocessor :AssetPostprocessor
         while (it.NextVisible(true))
         {
             if (it.name != "layers")
+            {
                 continue;
+            }
 
             for (int i = 0; i < it.arraySize; i++)
             {

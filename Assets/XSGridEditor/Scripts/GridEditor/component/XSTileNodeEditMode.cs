@@ -17,7 +17,9 @@ namespace XSSLG
                 this.PrevPos = this.transform.localPosition;
             }
             else
+            {
                 this.enabled = false;
+            }
                 
         }
 

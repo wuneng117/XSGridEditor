@@ -10,6 +10,8 @@ namespace XSSLG
     /// <summary> 静态只读常量定义 </summary>
     public class XSGridDefine
     {
+        protected XSGridDefine() {}
+
         public static readonly string GAMEOBJECT_TILE_POS_ROOT = "TilePosRoot"; // 节点名称，用于存放 tile pos 显示文字根节点
         public static readonly string GAMEOBJECT_TILE_COST_ROOT = "TileCostRoot"; // 节点名称，用于存放 tile cost 显示文字根节点
 
@@ -26,7 +28,6 @@ namespace XSSLG
         };
 
         public static readonly string LAYER_TILE = "Tile";
-        // public static readonly string LAYER_GROUND = "Ground";
         public static readonly string LAYER_UNIT = "Unit";
     }
 }

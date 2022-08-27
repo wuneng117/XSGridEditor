@@ -32,7 +32,9 @@ namespace XSSLG
         public virtual T Dequeue()
         {
             if (this.list.Count == 0)
+            {
                 return default(T);
+            }
 
             var ret = this.list[0];
             this.list.RemoveAt(0);

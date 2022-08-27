@@ -2,9 +2,13 @@ namespace XSSLG
 {
     public class XSAStarTile
     {
-        public XSAStarTile(int cost, XSTile prevTile) => (this.Cost, this.PrevTile) = (cost, prevTile);
+        public XSAStarTile(int cost, XSTile prevTile) => (this.cost, this.prevTile) = (cost, prevTile);
 
-        public int Cost = 0;
-        public XSTile PrevTile = null;
+        protected int cost;
+        public int Cost { get => cost; }
+
+        protected XSTile prevTile;
+        public XSTile PrevTile { get => prevTile; }
+
     }
 }

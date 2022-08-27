@@ -204,7 +204,9 @@ namespace XSSLG
         public virtual void SetTilePosShow(bool isShow)
         {
             if (!XSUE.IsEditor())
+            {
                 return;
+            }
 
             this.SetTextShow(isShow,
                             XSGridDefine.GAMEOBJECT_TILE_POS_ROOT,
@@ -291,7 +293,9 @@ namespace XSSLG
             // 从prefab创建引用的gameobject
             var ret = PrefabUtility.InstantiatePrefab(this.UniytPrefab, parent) as GameObject;
             if (ret == null)
+            {
                 return;
+            }
 
             // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
             var defaultGrid = this.GetTileRoot()?.transform.GetChild(0);
