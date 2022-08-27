@@ -17,7 +17,7 @@ namespace XSSLG
     public class XSGridHelperEditMode : MonoBehaviour
     {
         [SerializeField]
-        protected GameObject UniytPrefab = null;
+        protected GameObject UniytPrefab;
         /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
         protected float Precision = 0.01f;
 
@@ -25,19 +25,23 @@ namespace XSSLG
         protected float TopDistance = 100f;
 
         /// <summary> 监控CellSize变化 </summary>
-        private Grid Grid { get; set; } = null;
+        private Grid Grid { get; set; }
 
         protected Vector3 PrevTileSize { get; set; } = Vector3.zero;
 
         public virtual void Start()
         {
             if (!XSUE.IsEditor())
+            {
                 this.enabled = false;
+            }
             else
             {
                 this.Grid = this.GetTileRoot()?.GetComponent<Grid>();
                 if (this.Grid)
+                {
                     this.PrevTileSize = this.Grid.cellSize;
+                }
             }
         }
 
@@ -68,15 +72,21 @@ namespace XSSLG
         public virtual XSTile AddXSTile(XSITileNode tileData)
         {
             if (!XSUE.IsEditor())
+            {
                 return null;
+            }
 
             if (tileData == null)
+            {
                 return null;
+            }
 
             var mgr = XSInstance.Instance.GridMgr;
             var tile = mgr.AddXSTile(tileData);
             if (tile == null)
+            {
                 return null;
+            }
 
             this.SetTileToNearTerrain(tile);
             return tile;
@@ -90,7 +100,9 @@ namespace XSSLG
         public virtual bool RemoveXSTile(Vector3 worldPos)
         {
             if (!XSUE.IsEditor())
+            {
                 return false;
+            }
 
             var mgr = XSInstance.Instance.GridMgr;
             return mgr.RemoveXSTile(worldPos);
@@ -102,10 +114,14 @@ namespace XSSLG
         public virtual void SetTileToNearTerrain()
         {
             if (!XSUE.IsEditor())
+            {
                 return;
+            }
 
             foreach (var tile in XSInstance.Instance.GridMgr.GetAllTiles())
+            {
                 this.SetTileToNearTerrain(tile);
+            }
         }
 
         /// <summary>
@@ -116,12 +132,16 @@ namespace XSSLG
         {
             var ret = false;
             if (tile.Node == null)
+            {
                 return ret;
+            }
 
             var node = tile.Node;
             ret = this.SetTileToNearTerrain((XSTileNode)node);
             if (!ret)
+            {
                 return ret;
+            }
 
             // 调整了位置，需要更新XSTile和XSTileNodeEditMode的位置
             tile.WorldPos = node.WorldPos;
@@ -205,9 +225,13 @@ namespace XSSLG
                             {
                                 text.text = tile.Cost.ToString();
                                 if (tile.Cost <= XSGridDefine.TILE_COST_COLOR.Length - 1)
+                                {
                                     text.color = XSGridDefine.TILE_COST_COLOR[tile.Cost];
+                                }
                                 else
+                                {
                                     text.color = Color.red;
+                                }
                             });
         }
 
@@ -252,7 +276,9 @@ namespace XSSLG
 
             Transform parent = this.GetUnitRoot();
             if (parent == null)
+            {
                 return;
+            }
 
             // 从prefab创建引用的gameobject
             var ret = PrefabUtility.InstantiatePrefab(this.UniytPrefab, parent) as GameObject;
@@ -262,7 +288,9 @@ namespace XSSLG
             // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
             var defaultGrid = this.GetTileRoot()?.transform.GetChild(0);
             if (defaultGrid == null)
+            {
                 return;
+            }
 
             ret.transform.position = defaultGrid.position;
             ret.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_UNIT);
