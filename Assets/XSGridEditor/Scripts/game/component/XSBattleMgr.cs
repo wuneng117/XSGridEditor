@@ -16,7 +16,7 @@ namespace XSSLG
         /// <summary> 行走速度 </summary>
         protected int movementAnimationSpeed = 2;
 
-        protected XSCamera camera;
+        protected XSCamera xsCamera;
 
         /// <summary> tile 管理 </summary>
         public XSIGridMgr GridMgr { get; set; }
@@ -28,12 +28,12 @@ namespace XSSLG
         public XSGridShowMgr GridShowMgr { get; set; }
 
         /// <summary> 当前是否在移动中 </summary>
-        public bool IsMoving { get; private set; };
+        public bool IsMoving { get; private set; }
         
 
         public List<Vector3> MoveRegion { get; private set; }
 
-        protected XSUnitNode SelectedUnit { get; set; };
+        protected XSUnitNode SelectedUnit { get; set; }
 
 
         void Start()
@@ -48,7 +48,7 @@ namespace XSSLG
                 var gridHelper = XSInstance.Instance.GridHelper;
                 if (gridHelper)
                 {
-                    this.camera.SetConfinerBound(gridHelper.GetBounds());
+                    this.xsCamera.SetConfinerBound(gridHelper.GetBounds());
                 }
 
                 this.UnitMgr = new XSUnitMgr(gridHelper);
