@@ -33,7 +33,8 @@ namespace XSSLG
                 return;
 
             //添加到UnitDict
-            var ret = mgr.Add(unitObj.GetComponent<XSPrefabNode>());
+            var node = unitObj.AddComponent<XSPrefabNode>();
+            var ret = mgr.Add(node);
             if (!ret)
             {
                 // Debug.LogError("AddXSUnit failed");
@@ -45,7 +46,7 @@ namespace XSSLG
     }
 
     [CustomEditor(typeof(XSPrefabNodeBrush))]
-    public class XSPrefabNodeBrushEditor : XSBrushBaseEditor<XSPrefabNodeBrush, XSPrefabNode>
+    public class XSPrefabNodeBrushEditor : XSBrushBaseEditor<XSPrefabNodeBrush, Transform>
     {
     }
 }
