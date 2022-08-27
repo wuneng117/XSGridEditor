@@ -315,7 +315,9 @@ namespace XSSLG
         public virtual void Update()
         {
             if (!XSUE.IsEditor())
+            {
                 return;
+            }
 
             if (this.Grid && this.Grid.cellSize != this.PrevTileSize)
             {
