@@ -7,14 +7,12 @@
 /// 
 #if ENABLE_TILEMAP
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace XSSLG
 {
-    [CustomGridBrush(true, false, false, "XSPrefab Brush")]
-    public class XSPrefabBrush : XSBrushBase
+    [CustomGridBrush(true, false, false, "XSPrefabNode Brush")]
+    public class XSPrefabNodeBrush : XSNodeBrushBase<XSPrefabNode>
     {
         public virtual void Awake()
         {
@@ -43,26 +41,11 @@ namespace XSSLG
             }
         }
 
-        protected virtual XSBrushItemMgr<XSPrefabNode> GetMgr()
-        {
-            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-            var main = currentStageHandle.FindComponentOfType<XSMain>();
-            return main?.PrefabBrushPrefabMgr;
-        }
-
-        public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
-        {
-            var mgr = this.GetMgr();
-            if (mgr == null)
-                return;
-
-            var worldPos = gridLayout.CellToWorld(position);
-            mgr.Remove(worldPos);
-        }
+        protected override XSBrushItemMgr<XSPrefabNode> GetMgr() => XSUEE.GetMain()?.PrefabBrushPrefabMgr;
     }
 
-    [CustomEditor(typeof(XSPrefabBrush))]
-    public class XSPrefabBrushEditor : XSBrushBaseEditor<XSPrefabBrush, XSPrefabNode>
+    [CustomEditor(typeof(XSPrefabNodeBrush))]
+    public class XSPrefabNodeBrushEditor : XSBrushBaseEditor<XSPrefabNodeBrush, XSPrefabNode>
     {
     }
 }

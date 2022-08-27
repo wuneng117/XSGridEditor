@@ -1,22 +1,12 @@
-/// <summary>
-/// @Author: xiaoshi
-/// @Date: 2022/1/15
-/// @Description: 简单的画prefab的画笔，实现以下功能
-/// 1.画完之后，把每个 tile 的 y 设置到障碍物的顶端
-/// </summary>
-/// 
 #if ENABLE_TILEMAP
-using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 namespace XSSLG
 {
     [CustomGridBrush(true, false, false, "XSUnitNode Brush")]
-    public class XSUnitNodeBrush : XSBrushBase
+    public class XSUnitNodeBrush : XSNodeBrushBase<XSIUnitNode>
     {
         public virtual void Awake()
         {
@@ -55,23 +45,7 @@ namespace XSSLG
             }
         }
 
-        /// <param name="position">The coordinates of the cell to erase data from.</param>
-        public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
-        {
-            var mgr = this.GetMgr();
-            if (mgr == null)
-                return;
-
-            var worldPos = gridLayout.CellToWorld(position);
-            mgr.Remove(worldPos);
-        }
-
-        protected virtual XSUnitMgr GetMgr()
-        {
-            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-            var main = currentStageHandle.FindComponentOfType<XSMain>();
-            return main?.UnitMgr;
-        }
+        protected override XSBrushItemMgr<XSIUnitNode> GetMgr() => XSUEE.GetMain()?.UnitMgr;
     }
 
     [CustomEditor(typeof(XSUnitNodeBrush))]
