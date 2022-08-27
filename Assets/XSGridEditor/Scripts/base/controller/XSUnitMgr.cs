@@ -12,32 +12,15 @@ using Debug = UnityEngine.Debug;
 
 namespace XSSLG
 {
-    using UnitDict = Dictionary<Vector3Int, XSIUnitNode>;
-
     /// <summary>  </summary>
-    public class XSUnitMgr
+    public class XSUnitMgr : XSBrushItemMgr<XSIUnitNode>
     {
-        /************************* 变量 begin ***********************/
-        // private Transform UnitRoot { get; }
-        public UnitDict UnitDict { get; private set; } = new UnitDict();
-
-        /************************* 变量  end  ***********************/
         public XSUnitMgr(XSGridHelper helper)
-        {
-            this.CreateXSUnitDict(helper);
-        }
-
-        protected virtual void CreateXSUnitDict(XSGridHelper helper)
         {
             if (helper == null)
                 return;
 
-            var unitDataList = helper.GetUnitDataList();
-            if (unitDataList == null || unitDataList.Count == 0)
-                return;
-
-            // 遍历Tile
-            unitDataList.ForEach(unitData => this.AddXSUnit(unitData));
+            this.CreateDict(helper.GetUnitDataList());
         }
 
         /// <summary>
@@ -45,55 +28,15 @@ namespace XSSLG
         /// </summary>
         /// <param name="unitNode"></param>
         /// <returns></returns>
-        public virtual bool AddXSUnit(XSIUnitNode unitNode)
+        public override bool Add(XSIUnitNode node)
         {
-            if (unitNode == null)
-                return false;
-
-            var gridMgr = XSInstance.Instance.GridMgr;
-            var unitTilePos = gridMgr.WorldToTile(unitNode.WorldPos);
-            if (this.UnitDict.ContainsKey(unitTilePos))
-            {
-                Debug.LogWarning("XSUnitMgr.AddXSUnit: 同一tilePos上已经存在unitData：" + unitTilePos);
-                return false;
-            }
-            else
+            var ret = base.Add(node);
+            if (ret && !XSUnityUtils.IsEditor())
             {
                 // 根据子节点的collider获取总的collider，用于射线检测
-                if (!XSUnityUtils.IsEditor())
-                    unitNode.AddBoxCollider();
-
-                this.UnitDict.Add(unitTilePos, unitNode);
-                return true;
+                node.AddBoxCollider();
             }
-        }
-
-        public virtual bool RemoveXSUnit(Vector3 worldPos)
-        {
-            var gridMgr = XSInstance.Instance.GridMgr;
-            var unitTilePos = gridMgr.WorldToTile(worldPos);
-            if (this.UnitDict.ContainsKey(unitTilePos))
-            {
-                var unitNode = this.UnitDict[unitTilePos];
-                unitNode.RemoveNode();
-                this.UnitDict.Remove(unitTilePos);
-                return true;
-            }
-            else
-            {
-                Debug.Log("XSUnitMgr.RemoveXSUnit: 这个位置上不存在unit，tilePos：" + unitTilePos);
-                return false;
-            }
-        }
-
-        public virtual XSIUnitNode GetXSUnit(Vector3 worldPos)
-        {
-            var gridMgr = XSInstance.Instance.GridMgr;
-            var unitTilePos = gridMgr.WorldToTile(worldPos);
-            if (this.UnitDict.ContainsKey(unitTilePos))
-                return this.UnitDict[unitTilePos];
-            else
-                return null;
+            return ret;
         }
 
         public virtual void UpdateUnitPos()
@@ -102,7 +45,7 @@ namespace XSSLG
                 return;
 
             var gridMgr = XSInstance.Instance.GridMgr;
-            foreach (var pair in this.UnitDict)
+            foreach (var pair in this.Dict)
             {
                 var newWorldPos = gridMgr.TileToTileCenterWorld(pair.Key);
                 pair.Value.WorldPos = newWorldPos;

@@ -35,8 +35,8 @@ namespace XSSLG
             if (!this.IsExistTile(gridLayout, position))
                 return;
 
-            var unitMgr = this.GetUnitMgr();
-            if (unitMgr == null)
+            var mgr = this.GetMgr();
+            if (mgr == null)
                 return;
 
             var unitObj = this.AddGameObject(gridLayout, position, XSGridDefine.LAYER_UNIT);
@@ -47,7 +47,7 @@ namespace XSSLG
             unitEditMode.enabled = true;
 
             //添加到UnitDict
-            var ret = unitMgr.AddXSUnit(unitObj.GetComponent<XSIUnitNode>());
+            var ret = mgr.Add(unitObj.GetComponent<XSIUnitNode>());
             if (!ret)
             {
                 // Debug.LogError("AddXSUnit failed");
@@ -58,15 +58,15 @@ namespace XSSLG
         /// <param name="position">The coordinates of the cell to erase data from.</param>
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            var unitMgr = this.GetUnitMgr();
-            if (unitMgr == null)
+            var mgr = this.GetMgr();
+            if (mgr == null)
                 return;
 
             var worldPos = gridLayout.CellToWorld(position);
-            unitMgr.RemoveXSUnit(worldPos);
+            mgr.Remove(worldPos);
         }
 
-        protected virtual XSUnitMgr GetUnitMgr()
+        protected virtual XSUnitMgr GetMgr()
         {
             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
             var main = currentStageHandle.FindComponentOfType<XSMain>();

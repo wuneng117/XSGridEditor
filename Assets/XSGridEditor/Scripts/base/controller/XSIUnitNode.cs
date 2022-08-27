@@ -8,16 +8,10 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace XSSLG
 {
-    public interface XSIUnitNode
+    public interface XSIUnitNode : XSIBrushItem
     {
-        Vector3 WorldPos { get; set; }
-
         void AddBoxCollider();
 
         List<Vector3> GetMoveRegion();
-
-        void RemoveNode();
-
-
     }
 }

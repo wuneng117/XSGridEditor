@@ -23,18 +23,46 @@ namespace XSSLG
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
-            this.AddGameObject(gridLayout, position, "Default");
+            if (this.BrushObj?.gameObject == null)
+                return;
+
+            var mgr = this.GetMgr();
+            if (mgr == null)
+                return;
+
+            var unitObj = this.AddGameObject(gridLayout, position, XSGridDefine.LAYER_UNIT);
+            if (unitObj == null)
+                return;
+
+            //添加到UnitDict
+            var ret = mgr.Add(unitObj.GetComponent<XSPrefabNode>());
+            if (!ret)
+            {
+                // Debug.LogError("AddXSUnit failed");
+                GameObject.DestroyImmediate(unitObj);
+            }
         }
-        // TODO
+
+        protected virtual XSBrushItemMgr<XSPrefabNode> GetMgr()
+        {
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            var main = currentStageHandle.FindComponentOfType<XSMain>();
+            return main?.PrefabBrushPrefabMgr;
+        }
+
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
+            var mgr = this.GetMgr();
+            if (mgr == null)
+                return;
+
             var worldPos = gridLayout.CellToWorld(position);
-            XSInstance.Instance.GridHelperEditMode.RemoveXSTile(worldPos);
+            mgr.Remove(worldPos);
         }
     }
 
     [CustomEditor(typeof(XSPrefabBrush))]
-    public class XSPrefabBrushEditor : XSBrushBaseEditor<XSPrefabBrush, Transform>
+    public class XSPrefabBrushEditor : XSBrushBaseEditor<XSPrefabBrush, XSPrefabNode>
     {
     }
 }
