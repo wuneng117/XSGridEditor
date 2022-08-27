@@ -14,9 +14,9 @@ namespace XSSLG
     public class XSBattleMgr : MonoBehaviour
     {
         /// <summary> 行走速度 </summary>
-        public int movementAnimationSpeed = 2;
+        protected int movementAnimationSpeed = 2;
 
-        public XSCamera XSCamera;
+        protected XSCamera camera;
 
         /// <summary> tile 管理 </summary>
         public XSIGridMgr GridMgr { get; set; }
@@ -28,24 +28,28 @@ namespace XSSLG
         public XSGridShowMgr GridShowMgr { get; set; }
 
         /// <summary> 当前是否在移动中 </summary>
-        public bool IsMoving { get; private set; } = false;
+        public bool IsMoving { get; private set; };
         
 
         public List<Vector3> MoveRegion { get; private set; }
 
-        protected XSUnitNode SelectedUnit { get; set; } = null;
+        protected XSUnitNode SelectedUnit { get; set; };
 
 
         void Start()
         {
             if (XSUnityUtils.IsEditor())
+            {
                 this.enabled = false;
+            }
             else
             {
                 this.GridMgr = XSInstance.Instance.GridMgr;
                 var gridHelper = XSInstance.Instance.GridHelper;
                 if (gridHelper)
-                    this.XSCamera.SetConfinerBound(gridHelper.GetBounds());
+                {
+                    this.camera.SetConfinerBound(gridHelper.GetBounds());
+                }
 
                 this.UnitMgr = new XSUnitMgr(gridHelper);
 
@@ -75,9 +79,13 @@ namespace XSSLG
                             this.MoveRegion = null;
                             //缓存
                             if (this.SelectedUnit.CachedPaths != null && this.SelectedUnit.CachedPaths.ContainsKey(tile.WorldPos))
+                            {
                                 this.WalkTo(this.SelectedUnit.CachedPaths[tile.WorldPos]);
+                            }
                             else
+                            {
                                 this.SelectedUnit = null;
+                            }
                         }
                     }
                     else
@@ -111,7 +119,9 @@ namespace XSSLG
         public void WalkTo(List<Vector3> path)
         {
             if (this.movementAnimationSpeed > 0)
+            {
                 StartCoroutine(MovementAnimation(path));
+            }
         }
 
         /// <summary> 携程函数处理移动 </summary>
