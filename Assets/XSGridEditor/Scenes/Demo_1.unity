@@ -9721,9 +9721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59b85aa18618bc41ab08de12a848216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileRoot: {fileID: 732642749}
-  UnitRoot: {fileID: 313447320}
-  MoveTilePrefab: {fileID: 5482847116410207803, guid: af9bcb27486b4774791387f525475ebf, type: 3}
+  tileRoot: {fileID: 732642749}
+  unitRoot: {fileID: 313447320}
+  moveTilePrefab: {fileID: 5482847116410207803, guid: af9bcb27486b4774791387f525475ebf, type: 3}
 --- !u!4 &409403843
 Transform:
   m_ObjectHideFlags: 0
@@ -28064,8 +28064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb7549318c63564ab8c2d0afc1af5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementAnimationSpeed: 3
-  XSCamera: {fileID: 963957613}
 --- !u!1 &1316051997
 GameObject:
   m_ObjectHideFlags: 0

@@ -189,7 +189,9 @@ namespace XSSLG
         public virtual void ClearTiles()
         {
             if (!XSUE.IsEditor())
+            {
                 return;
+            }
 
             XSUE.RemoveChildren(this.GetTileRoot()?.gameObject);
             XSInstance.Instance.GridMgr.ClearAllTiles();
@@ -250,7 +252,9 @@ namespace XSSLG
                 foreach (var tile in XSInstance.Instance.GridMgr.GetAllTiles())
                 {
                     if (tile.Node == null)
+                    {
                         continue;
+                    }
 
                     var node = (XSTileNode)tile.Node;
                     var parTrans = node.transform;
@@ -262,7 +266,9 @@ namespace XSSLG
                 }
             }
             else
+            {
                 DestroyImmediate(GameObject.Find(rootName));
+            }
         }
 
         #endregion
@@ -272,7 +278,9 @@ namespace XSSLG
         public virtual void CreateObject()
         {
             if (!XSUE.IsEditor())
+            {
                 return;
+            }
 
             Transform parent = this.GetUnitRoot();
             if (parent == null)

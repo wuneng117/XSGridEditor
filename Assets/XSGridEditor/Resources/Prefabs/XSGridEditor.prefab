@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59b85aa18618bc41ab08de12a848216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileRoot: {fileID: 1069487499210864933}
-  UnitRoot: {fileID: 4814224501978280861}
-  MoveTilePrefab: {fileID: 5482847116410207803, guid: af9bcb27486b4774791387f525475ebf, type: 3}
+  tileRoot: {fileID: 1069487499210864933}
+  unitRoot: {fileID: 4814224501978280861}
+  moveTilePrefab: {fileID: 5482847116410207803, guid: af9bcb27486b4774791387f525475ebf, type: 3}
 --- !u!114 &4247569047616704283
 MonoBehaviour:
   m_ObjectHideFlags: 0

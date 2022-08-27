@@ -16,6 +16,7 @@ namespace XSSLG
         /// <summary> 行走速度 </summary>
         protected int movementAnimationSpeed = 2;
 
+        [SerializeField]
         protected XSCamera xsCamera;
 
         /// <summary> tile 管理 </summary>
@@ -34,7 +35,6 @@ namespace XSSLG
         public List<Vector3> MoveRegion { get; private set; }
 
         protected XSUnitNode SelectedUnit { get; set; }
-
 
         void Start()
         {
