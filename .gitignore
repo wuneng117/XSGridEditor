@@ -61,3 +61,4 @@ crashlytics-build.properties
 /.VSCodeCounter
 /.vscode
 /UserSettings
+/Packages/com.unity.asset-store-tools
