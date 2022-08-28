@@ -52,8 +52,8 @@ namespace XSSLG
         {
             var mgr = XSInstance.Instance.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
-            var existTile = mgr.GetXSTile(worldPos);
-            return existTile != null;
+            var ret = mgr.GetXSTile(worldPos);
+            return ret;
         }
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position) => Debug.LogWarning("Paint failed");

@@ -9,6 +9,8 @@ namespace XSSLG
     {
         Vector3 WorldPos { get; set; }
         void RemoveNode();
+        /// <summary> 不能直接用==取判断null，因为unity里的Object重载了==， 但是转成XSIBrushItem类取判断的时候是不会用重载了的==</summary>
+        bool IsNull();
     }
 
     /// <summary>  </summary>
@@ -37,13 +39,12 @@ namespace XSSLG
         /// <returns></returns>
         public virtual bool Add(T node)
         {
-            if (node == null)
+            if (node == null || node.IsNull())
             {
                 return false;
             }
 
-            Vector3Int tilePos;
-            if (this.GetTilePos(node.WorldPos, out tilePos))
+            if (this.GetTilePos(node.WorldPos, out var tilePos, out node))
             {
                 return false;
             }
@@ -56,10 +57,8 @@ namespace XSSLG
 
         public virtual bool Remove(Vector3 worldPos)
         {
-            Vector3Int tilePos;
-            if (this.GetTilePos(worldPos, out tilePos))
+            if (this.GetTilePos(worldPos, out var tilePos, out var node))
             {
-                var node = this.Dict[tilePos];
                 node.RemoveNode();
                 this.Dict.Remove(tilePos);
                 return true;
@@ -70,13 +69,21 @@ namespace XSSLG
             }
         }
 
-        internal virtual bool GetTilePos(Vector3 worldPos, out Vector3Int tilePos)
+        internal virtual bool GetTilePos(Vector3 worldPos, out Vector3Int tilePos, out T node)
         {
             var gridMgr = XSInstance.Instance.GridMgr;
             tilePos = gridMgr.WorldToTile(worldPos);
-            if (this.Dict.ContainsKey(tilePos))
+            if (this.Dict.TryGetValue(tilePos, out node))
             {
-                return true;
+                if (node == null || node.IsNull())
+                {
+                    this.Dict.Remove(tilePos);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
             else
             {
@@ -86,10 +93,9 @@ namespace XSSLG
 
         public virtual T GetItem(Vector3 worldPos)
         {
-            Vector3Int tilePos;
-            if (this.GetTilePos(worldPos, out tilePos))
+            if (this.GetTilePos(worldPos, out var tilePos, out var node))
             {
-                return this.Dict[tilePos];
+                return node;
             }
             else
             {

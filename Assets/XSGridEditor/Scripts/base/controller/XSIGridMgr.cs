@@ -41,8 +41,11 @@ namespace XSSLG
         /// 从 worldPos 获取tile
         /// </summary>
         /// <param name="worldPos">unity 的世界坐标</param>
-        XSTile GetXSTile(Vector3 worldPos);
+        bool GetXSTile(Vector3 worldPos);
 
+       bool GetXSTile(Vector3 worldPos, out XSTile tile);
+        
+        bool GetXSTile(Vector3 worldPos, out XSTile tile, out Vector3Int tilePos);
 
         void UpdateTileSize(Vector3 tileSize);
         

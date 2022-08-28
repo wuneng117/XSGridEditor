@@ -21414,6 +21414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
+  AutoEnableInputs: 1
   XYAxis: {fileID: -6712391661741355843, guid: 05437be80adbdcf439324ac0f299a8b4, type: 3}
   ZAxis: {fileID: -9159329229525671487, guid: 05437be80adbdcf439324ac0f299a8b4, type: 3}
 --- !u!114 &963957616

@@ -59,7 +59,7 @@ namespace XSSLG
         public virtual List<Vector3> GetMoveRegion()
         {
             var gridMgr = XSInstance.Instance.GridMgr;
-            var srcTile = gridMgr.GetXSTile(this.transform.position);
+            gridMgr.GetXSTile(this.transform.position, out var srcTile);
             // 缓存起来哈
             this.CachedPaths = gridMgr.FindAllPath(srcTile, this.Move);
             // 把this.CachedPaths累加起来
@@ -72,7 +72,8 @@ namespace XSSLG
             return ret;
         }
 
-
         public virtual void RemoveNode() => XSUnityUtils.RemoveObj(this.gameObject);
+
+        public virtual bool IsNull() => this == null;
     }
 }

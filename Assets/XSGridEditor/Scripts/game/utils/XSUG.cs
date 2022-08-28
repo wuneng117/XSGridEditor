@@ -67,12 +67,12 @@ public class XSUG : XSUnityUtils
         var screenPos = Pointer.current.position.ReadValue();
         var hit = XSUG.GetMouseHit(screenPos, "Tile", camera);
         var tileData = hit.collider?.gameObject.GetComponent<XSITileNode>();
-        if (tileData == null)
+        if (tileData == null || tileData.IsNull())
         {
             return XSTile.Default();
         }
 
-        var tile = XSInstance.Instance.GridMgr.GetXSTile(tileData.WorldPos);
+        XSInstance.Instance.GridMgr.GetXSTile(tileData.WorldPos, out var tile);
         return tile ?? XSTile.Default();
     }
 

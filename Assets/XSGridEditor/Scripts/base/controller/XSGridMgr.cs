@@ -55,9 +55,9 @@ namespace XSSLG
                 foreach (var pos in NearPosArray)
                 {
                     var nearPos = pair.Key + pos;
-                    if (this.TileDict.ContainsKey(nearPos))
+                    if (this.GetXSTile(nearPos, out var tile))
                     {
-                        pair.Value.NearTileList.Add(this.TileDict[nearPos]);
+                        pair.Value.NearTileList.Add(tile);
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace XSSLG
         public virtual Vector3Int WorldToTile(Vector3 worldPos)
         {
             var ret = Vector3Int.zero;
-            if (this.TileRoot == null)
+            if (this.TileRoot == null || this.TileRoot.IsNull())
             {
                 return ret;
             }
@@ -119,8 +119,7 @@ namespace XSSLG
         public virtual XSTile AddXSTile(XSITileNode tileNode)
         {
             var tilePos = this.WorldToTile(tileNode.WorldPos);
-            // 判断 tileDict[tilePos].Node 是因为实际节点可能是被其他情况下清除了
-            if (this.TileDict.ContainsKey(tilePos) && this.TileDict[tilePos].Node != null)
+            if (this.GetXSTile(tilePos))
             {
                 Debug.LogError("GridMgr.AddXSTile: 已经存在相同的tilePos：" + tilePos);
                 return null;
@@ -145,10 +144,8 @@ namespace XSSLG
         /// <returns></returns>
         public virtual bool RemoveXSTile(Vector3 worldPos)
         {
-            var tilePos = this.WorldToTile(worldPos);
-            if (this.TileDict.ContainsKey(tilePos))
+            if (this.GetXSTile(worldPos, out var tile, out var tilePos))
             {
-                var tile = this.TileDict[tilePos];
                 tile.Node.RemoveNode();
                 this.TileDict.Remove(tilePos);
                 return true;
@@ -160,21 +157,33 @@ namespace XSSLG
             }
         }
 
-        public virtual XSTile GetXSTile(Vector3 worldPos)
+        public virtual bool GetXSTile(Vector3 worldPos) => this.GetXSTile(worldPos, out var tile);
+
+        public virtual bool GetXSTile(Vector3 worldPos, out XSTile tile) => this.GetXSTile(worldPos, out tile, out var tilsPos);
+        
+        public virtual bool GetXSTile(Vector3 worldPos, out XSTile tile, out Vector3Int tilePos)
         {
-            var tilelPos = this.WorldToTile(worldPos);
-            return this.GetXSTile(tilelPos);
+            tilePos = this.WorldToTile(worldPos);
+            return this.GetXSTile(tilePos, out tile);
         }
 
-        protected virtual XSTile GetXSTile(Vector3Int tilePos)
+        protected virtual bool GetXSTile(Vector3Int tilePos, out XSTile tile)
         {
-            if (this.TileDict.ContainsKey(tilePos))
+            if (this.TileDict.TryGetValue(tilePos, out tile))
             {
-                return this.TileDict[tilePos];
+                if (tile.Node == null || tile.Node.IsNull())
+                {
+                    this.TileDict.Remove(tilePos);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
             else
             {
-                return null;
+                return false;
             }
         }
 
@@ -183,7 +192,7 @@ namespace XSSLG
             this.TileSize = new Vector3(tileSize.x, tileSize.z, tileSize.y);
             foreach (var tile in this.TileDict.Values)
             {
-                if (tile.Node == null)
+                if (tile.Node == null || tile.Node.IsNull())
                 {
                     continue;
                 }

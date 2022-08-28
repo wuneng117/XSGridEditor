@@ -72,5 +72,7 @@ namespace XSSLG
 
         /// <summary> 清除高亮显示 </summary>
         public virtual void ClearRegion() => XSUG.RemoveChildren(this.transform.gameObject);
+
+        public virtual bool IsNull() => this == null;
     }
 }

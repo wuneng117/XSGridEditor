@@ -14,6 +14,8 @@ namespace XSSLG
         public Vector3 WorldPos { get => this.transform.position; set => this.transform.position = value; }
         
         public virtual void RemoveNode() => XSUnityUtils.RemoveObj(this.gameObject);
+
+        public virtual bool IsNull() => this == null;
     }
 
 }

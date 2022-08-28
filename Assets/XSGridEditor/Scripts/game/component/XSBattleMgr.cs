@@ -91,7 +91,7 @@ namespace XSSLG
                     else
                     {
                         var unit = (XSUnitNode)XSUG.GetMouseTargetUnit();
-                        if (unit != null)
+                        if (unit != null && !unit.IsNull())
                         {
                             Debug.Log("SelectedUnit: " + unit.name);
                             this.MoveRegion = this.GridShowMgr.ShowMoveRegion(unit);

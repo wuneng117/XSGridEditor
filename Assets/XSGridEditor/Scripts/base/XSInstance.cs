@@ -21,7 +21,7 @@ namespace XSSLG
                     Debug.Assert(tileRoot);
 
                     var tileRootCpt = tileRoot.GetComponent<XSITileRoot>();
-                    Debug.Assert(tileRootCpt != null);
+                    Debug.Assert(tileRootCpt != null && !tileRootCpt.IsNull());
 
                     var grid = tileRoot.GetComponent<Grid>();
                     Debug.Assert(grid);

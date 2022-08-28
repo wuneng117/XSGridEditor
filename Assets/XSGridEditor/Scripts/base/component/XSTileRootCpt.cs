@@ -12,5 +12,6 @@ namespace XSSLG
         public virtual Vector3 InverseTransformPoint(Vector3 Pos) => this.transform.InverseTransformPoint(Pos);
         public virtual Vector3 TransformPoint(Vector3 pos) => this.transform.TransformPoint(pos);
         public virtual void ClearAllTiles()=> XSUE.RemoveChildren(this.gameObject);
+        public virtual bool IsNull() => this == null;
     }
 }

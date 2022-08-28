@@ -17,5 +17,8 @@ namespace XSSLG
         void AddBoxCollider(Vector3 tileSize);
 
         void RemoveNode();
+
+        /// <summary> 不能直接用==取判断null，因为unity里的Object重载了==， 但是转成XSIBrushItem类取判断的时候是不会用重载了的==</summary>
+        bool IsNull();
     }
 }

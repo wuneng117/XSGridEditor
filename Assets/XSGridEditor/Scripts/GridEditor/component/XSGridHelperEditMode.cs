@@ -76,7 +76,7 @@ namespace XSSLG
                 return null;
             }
 
-            if (tileData == null)
+            if (tileData == null || tileData.IsNull())
             {
                 return null;
             }
@@ -131,7 +131,7 @@ namespace XSSLG
         protected virtual bool SetTileToNearTerrain(XSTile tile)
         {
             var ret = false;
-            if (tile.Node == null)
+            if (tile.Node == null || tile.Node.IsNull())
             {
                 return ret;
             }
@@ -255,7 +255,7 @@ namespace XSSLG
                 textRoot.name = rootName;
                 foreach (var tile in XSInstance.Instance.GridMgr.GetAllTiles())
                 {
-                    if (tile.Node == null)
+                    if (tile.Node == null || tile.Node.IsNull())
                     {
                         continue;
                     }

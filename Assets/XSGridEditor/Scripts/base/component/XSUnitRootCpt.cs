@@ -9,5 +9,6 @@ namespace XSSLG
 {
     public class XSUnitRootCpt : MonoBehaviour
     {
+        public virtual bool IsNull() => this == null;
     }
 }

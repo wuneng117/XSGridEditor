@@ -29,7 +29,7 @@ namespace XSSLG
         /// <param name="unit">显示范围的单位</param>
         public virtual List<Vector3> ShowMoveRegion(XSIUnitNode unit)
         {
-            if (this.MoveShowRegion == null)
+            if (this.MoveShowRegion == null ||this.MoveShowRegion.IsNull())
             {
                 return new List<Vector3>();
             }

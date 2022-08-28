@@ -12,5 +12,7 @@ namespace XSSLG
         Vector3 InverseTransformPoint(Vector3 Pos);
         Vector3 TransformPoint(Vector3 pos);
         void ClearAllTiles();
+        /// <summary> 不能直接用==取判断null，因为unity里的Object重载了==， 但是转成XSIBrushItem类取判断的时候是不会用重载了的==</summary>
+         bool IsNull();
     }
 }
