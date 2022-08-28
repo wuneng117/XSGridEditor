@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    public abstract class XSNodeBrushBase<T> : XSBrushBase where T : class, XSIBrushItem
+    public abstract class XSNodeBrushBase<T> : XSBrushBase where T : class, XSINode
     {
-        abstract protected XSBrushItemMgr<T> GetMgr();
+        abstract protected XSINodeMgr<T> GetMgr();
 
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {

@@ -9,7 +9,7 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> tile 额外数据的数据结构 </summary>
-    public class XSPrefabNode : MonoBehaviour, XSIBrushItem
+    public class XSPrefabNode : MonoBehaviour, XSINode
     {
         public Vector3 WorldPos { get => this.transform.position; set => this.transform.position = value; }
         

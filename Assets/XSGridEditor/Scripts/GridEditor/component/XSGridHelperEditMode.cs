@@ -137,7 +137,7 @@ namespace XSSLG
             }
 
             var node = tile.Node;
-            ret = this.SetTileToNearTerrain((XSTileNode)node);
+            ret = this.SetTileToNearTerrain(((XSTileNode)node).transform);
             if (!ret)
             {
                 return ret;
@@ -152,13 +152,13 @@ namespace XSSLG
         /// 每个 tile 根据中心可能有高低不平的障碍物，调整 tile 的高度到障碍物的顶端
         /// 比如从 tile 中心点抬高100，再检测100以内有没有碰撞物，碰到的话就把 tile 的高度设置到碰撞点的位置
         /// </summary>
-        protected virtual bool SetTileToNearTerrain(XSTileNode tileData)
+        protected virtual bool SetTileToNearTerrain(Transform tileData)
         {
             // 隐藏tile ，防止射线碰到 tile
             tileData.gameObject.SetActive(false);
             // 隐藏所有unit，防止参与射线检测
             XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
-            var pos = tileData.transform.position;
+            var pos = tileData.position;
             // 射线发射点，抬高 tile 以后的中心点
             var top = new Vector3(pos.x, TopDistance, pos.z);
             var ray = new Ray(top, Vector3.down);
@@ -169,13 +169,13 @@ namespace XSSLG
             if (ret)
             {
                 var newPos = hitInfo.point + new Vector3(0, Precision, 0);
-                tileData.transform.position = newPos;
+                tileData.position = newPos;
             }
             // 如果贴不到任何东西，那就设置localpos的高度y为0
-            else if (tileData.transform.localPosition.y != 0)
+            else if (tileData.localPosition.y != 0)
             {
                 ret = true;
-                tileData.transform.localPosition = new Vector3(tileData.transform.localPosition.x, 0, tileData.transform.localPosition.z);
+                tileData.localPosition = new Vector3(tileData.localPosition.x, 0, tileData.localPosition.z);
             }
 
             //激活tile
@@ -183,6 +183,11 @@ namespace XSSLG
             // 显示所有unit，防止参与射线检测
             XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(true));
             return ret;
+        }
+
+        public virtual void SetPrefabToNearTerrain(Transform trans)
+        {
+            this.SetTileToNearTerrain(trans);
         }
 
         /// <summary> 删除所有的 tile </summary>

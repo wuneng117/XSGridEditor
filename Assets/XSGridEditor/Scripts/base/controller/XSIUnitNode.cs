@@ -8,7 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace XSSLG
 {
-    public interface XSIUnitNode : XSIBrushItem
+    public interface XSIUnitNode : XSINode
     {
         void AddBoxCollider();
 

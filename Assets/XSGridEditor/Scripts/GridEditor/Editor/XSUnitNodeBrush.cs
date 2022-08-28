@@ -46,7 +46,7 @@ namespace XSSLG
             }
         }
 
-        protected override XSBrushItemMgr<XSIUnitNode> GetMgr() => XSUEE.GetMain()?.UnitMgr;
+        protected override XSINodeMgr<XSIUnitNode> GetMgr() => XSUEE.GetMain()?.UnitMgr;
     }
 
     [CustomEditor(typeof(XSUnitNodeBrush))]

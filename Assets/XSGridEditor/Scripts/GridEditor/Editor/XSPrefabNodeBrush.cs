@@ -40,6 +40,7 @@ namespace XSSLG
 
             //添加到UnitDict
             var node = unitObj.AddComponent<XSPrefabNode>();
+            XSInstance.Instance.GridHelperEditMode?.SetPrefabToNearTerrain(unitObj.transform);
             var ret = mgr.Add(node);
             if (!ret)
             {
@@ -48,7 +49,7 @@ namespace XSSLG
             }
         }
 
-        protected override XSBrushItemMgr<XSPrefabNode> GetMgr() => XSUEE.GetMain()?.PrefabBrushPrefabMgr;
+        protected override XSINodeMgr<XSPrefabNode> GetMgr() => XSUEE.GetMain()?.PrefabNodeMgr;
     }
 
     [CustomEditor(typeof(XSPrefabNodeBrush))]

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -12,7 +10,7 @@ public class XSMain : MonoBehaviour
     /// <summary> unit 管理 </summary>
     public XSUnitMgr UnitMgr { get; protected set; }
     /// <summary> XSPrefabBrush 画的prefab管理 </summary>
-    public XSBrushItemMgr<XSPrefabNode> PrefabBrushPrefabMgr { get; protected set; }
+    public XSPrefabNodeMgr PrefabNodeMgr { get; protected set; }
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +20,7 @@ public class XSMain : MonoBehaviour
         {
             var instance = XSInstance.Instance;
             this.UnitMgr = new XSUnitMgr(instance.GridHelper);
-            this.PrefabBrushPrefabMgr = new XSBrushItemMgr<XSPrefabNode>();
-            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-            var prefabList = currentStageHandle.FindComponentsOfType<XSPrefabNode>().ToList();
-            this.PrefabBrushPrefabMgr.CreateDict(prefabList);
+            this.PrefabNodeMgr = new XSPrefabNodeMgr();
         }
         else
         {

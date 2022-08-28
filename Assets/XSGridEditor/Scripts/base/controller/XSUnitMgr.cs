@@ -7,7 +7,7 @@
 namespace XSSLG
 {
     /// <summary>  </summary>
-    public class XSUnitMgr : XSBrushItemMgr<XSIUnitNode>
+    public class XSUnitMgr : XSNodeMgr<XSIUnitNode>
     {
         public XSUnitMgr(XSGridHelper helper)
         {

@@ -4,8 +4,14 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace XSSLG
 {
+    public interface XSINodeMgr<T>
+    {
+        bool Add(T node);
+        bool Remove(Vector3 worldPos);
+    }
+
     /// <summary>  </summary>
-    public interface XSIBrushItem
+    public interface XSINode
     {
         Vector3 WorldPos { get; set; }
         void RemoveNode();
@@ -13,8 +19,10 @@ namespace XSSLG
         bool IsNull();
     }
 
+
+
     /// <summary>  </summary>
-    public class XSBrushItemMgr<T> where T : class, XSIBrushItem
+    public class XSNodeMgr<T> : XSINodeMgr<T> where T : class, XSINode
     {
         /************************* 变量 begin ***********************/
         public Dictionary<Vector3Int, T> Dict { get; private set; } = new Dictionary<Vector3Int, T>();
@@ -44,7 +52,7 @@ namespace XSSLG
                 return false;
             }
 
-            if (this.GetTilePos(node.WorldPos, out var tilePos))
+            if (this.GetTile(node.WorldPos, out var tilePos))
             {
                 return false;
             }
@@ -57,7 +65,7 @@ namespace XSSLG
 
         public virtual bool Remove(Vector3 worldPos)
         {
-            if (this.GetTilePos(worldPos, out var tilePos, out var node))
+            if (this.GetTile(worldPos, out var tilePos, out var node))
             {
                 node.RemoveNode();
                 this.Dict.Remove(tilePos);
@@ -69,9 +77,9 @@ namespace XSSLG
             }
         }
 
-        internal virtual bool GetTilePos(Vector3 worldPos, out Vector3Int tilePos) => this.GetTilePos(worldPos, out tilePos, out var node);
-        
-        internal virtual bool GetTilePos(Vector3 worldPos, out Vector3Int tilePos, out T node)
+        internal virtual bool GetTile(Vector3 worldPos, out Vector3Int tilePos) => this.GetTile(worldPos, out tilePos, out var node);
+
+        internal virtual bool GetTile(Vector3 worldPos, out Vector3Int tilePos, out T node)
         {
             var gridMgr = XSInstance.Instance.GridMgr;
             tilePos = gridMgr.WorldToTile(worldPos);
@@ -90,18 +98,6 @@ namespace XSSLG
             else
             {
                 return false;
-            }
-        }
-
-        public virtual T GetItem(Vector3 worldPos)
-        {
-            if (this.GetTilePos(worldPos, out var tilePos, out var node))
-            {
-                return node;
-            }
-            else
-            {
-                return null;
             }
         }
     }
