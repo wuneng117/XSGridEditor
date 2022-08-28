@@ -14,10 +14,15 @@ namespace XSSLG
     [CustomGridBrush(true, false, false, "XSPrefabNode Brush")]
     public class XSPrefabNodeBrush : XSNodeBrushBase<XSPrefabNode>
     {
+        [SerializeField]
+        protected Transform newBrushParent;
+        public Transform NewBrushParent { get => this.newBrushParent; }
+
         public override void Awake()
         {
             this.defaultObjPath = "Assets/XSGridEditor/Resources/Prefabs/PrefabBrushs";
             base.Awake();
+            this.BrushParent = this.NewBrushParent;
         }
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
@@ -49,6 +54,13 @@ namespace XSSLG
     [CustomEditor(typeof(XSPrefabNodeBrush))]
     public class XSPrefabNodeBrushEditor : XSBrushBaseEditor<XSPrefabNodeBrush, Transform>
     {
+        public override void OnPaintInspectorGUI()
+        {
+            EditorGUI.BeginChangeCheck();
+            base.OnPaintInspectorGUI();
+            this.Instance.BrushParent = this.Instance.NewBrushParent;
+            EditorGUI.EndChangeCheck();
+        }
     }
 }
 

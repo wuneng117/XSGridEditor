@@ -23,7 +23,7 @@ namespace XSSLG
 
         protected string defaultObjPath = "";
 
-        protected Transform BrushParent { get; set; }
+        public Transform BrushParent { get; set; }
 
         public GameObject BrushObj { get; set; }
 

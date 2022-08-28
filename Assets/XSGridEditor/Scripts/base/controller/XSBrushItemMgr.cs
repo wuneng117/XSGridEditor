@@ -44,7 +44,7 @@ namespace XSSLG
                 return false;
             }
 
-            if (this.GetTilePos(node.WorldPos, out var tilePos, out node))
+            if (this.GetTilePos(node.WorldPos, out var tilePos))
             {
                 return false;
             }
@@ -69,6 +69,8 @@ namespace XSSLG
             }
         }
 
+        internal virtual bool GetTilePos(Vector3 worldPos, out Vector3Int tilePos) => this.GetTilePos(worldPos, out tilePos, out var node);
+        
         internal virtual bool GetTilePos(Vector3 worldPos, out Vector3Int tilePos, out T node)
         {
             var gridMgr = XSInstance.Instance.GridMgr;
