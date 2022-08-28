@@ -14,9 +14,10 @@ namespace XSSLG
     [CustomGridBrush(true, false, false, "XSPrefabNode Brush")]
     public class XSPrefabNodeBrush : XSNodeBrushBase<XSPrefabNode>
     {
-        public virtual void Awake()
+        public override void Awake()
         {
-            this.UnitPath = "Assets/XSGridEditor/Resources/Prefabs/PrefabBrushs";
+            this.defaultObjPath = "Assets/XSGridEditor/Resources/Prefabs/PrefabBrushs";
+            base.Awake();
         }
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)

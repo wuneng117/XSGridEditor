@@ -17,11 +17,23 @@ namespace XSSLG
 {
     public class XSBrushBase : GridBrushBase
     {
-        public string UnitPath = "";
+        [SerializeField]
+        protected string objPath = "";
+        public string ObjPath { get => this.objPath; protected set => this.objPath = value; }
+
+        protected string defaultObjPath = "";
 
         protected Transform BrushParent { get; set; }
 
         public GameObject BrushObj { get; set; }
+
+        public virtual void Awake()
+        {
+            if (this.ObjPath == "")
+            {
+                this.ObjPath = this.defaultObjPath;
+            }
+        }
 
         protected virtual GameObject AddGameObject(GridLayout gridLayout, Vector3Int position, string layerName)
         {
@@ -84,6 +96,8 @@ namespace XSSLG
         /// <summary> 当前选中的笔刷Index </summary>
         protected int selGridInt = 0;
 
+        protected string tempObjPath = "";
+
         /// <summary> 笔刷预览大小 </summary>
         protected static Vector2Int UNIT_SIZE = new Vector2Int(60, 60);
 
@@ -93,18 +107,31 @@ namespace XSSLG
         {
             this.Instance = (T)this.target;
             if (this.Instance)
-                this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.UnitPath }, "t:Prefab");
+            {
+                this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.ObjPath }, "t:Prefab");
+                this.tempObjPath = this.Instance.ObjPath;
+            }
         }
 
         public override void OnPaintInspectorGUI()
         {
+            EditorGUI.BeginChangeCheck();
             base.OnInspectorGUI();
+            EditorGUI.EndChangeCheck();
+
+            if (this.tempObjPath != this.Instance.ObjPath)
+            {
+                this.tempObjPath = this.Instance.ObjPath;
+                this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.ObjPath }, "t:Prefab");
+            }
 
             int offY = 100;
             int offX = 25;
             selGridInt = this.DrawUnitGrid(offX, offY);
             if (selGridInt != -1)
+            {
                 this.Instance.BrushObj = this.BrushObjList[selGridInt];
+            }
         }
 
         protected virtual int DrawUnitGrid(int offX, int offY)

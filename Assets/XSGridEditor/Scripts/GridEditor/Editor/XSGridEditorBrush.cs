@@ -12,16 +12,17 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    [CustomGridBrush(true, false, true, "XSGridEditor Brush")]
+    [CustomGridBrush(true, false, false, "XSGridEditor Brush")]
     public class XSGridEditorBrush : XSBrushBase
     {
-        public virtual void Awake()
+        public override void Awake()
         {
-            this.UnitPath = "Assets/XSGridEditor/Resources/Prefabs/Tiles";
-
             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
             var tileRoot = currentStageHandle.FindComponentOfType<XSTileRootCpt>();
             this.BrushParent = tileRoot?.transform;
+            
+            this.defaultObjPath = "Assets/XSGridEditor/Resources/Prefabs/Tiles";
+            base.Awake();
         }
 
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
