@@ -25,7 +25,9 @@ namespace XSSLG
 
         public Transform BrushParent { get; set; }
 
-        public GameObject BrushObj { get; set; }
+        [SerializeField]
+        public GameObject brushObj;
+        public GameObject BrushObj { get => brushObj; set => brushObj = value; }
 
         public virtual void Awake()
         {
@@ -125,7 +127,7 @@ namespace XSSLG
                 this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.ObjPath }, "t:Prefab");
             }
 
-            int offY = 110;
+            int offY = 130;
             int offX = 25;
             selGridInt = this.DrawUnitGrid(offX, offY);
             if (selGridInt != -1)
