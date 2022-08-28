@@ -24,15 +24,21 @@ namespace XSSLG
                 return;
 
             if (!this.IsExistTile(gridLayout, position))
+            {
                 return;
+            }
 
             var mgr = this.GetMgr();
             if (mgr == null)
+            {
                 return;
+            }
 
             var unitObj = this.AddGameObject(gridLayout, position, XSGridDefine.LAYER_UNIT);
             if (unitObj == null)
+            {
                 return;
+            }
 
             var unitEditMode = unitObj.GetComponent<XSUnitNodeEditMode>();
             unitEditMode.enabled = true;

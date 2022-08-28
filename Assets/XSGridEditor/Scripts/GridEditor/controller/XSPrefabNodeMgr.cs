@@ -67,6 +67,12 @@ namespace XSSLG
             }
         }
 
+        public virtual bool HasItem(Vector3 worldPos)
+        {
+            var list = this.GetOrCreateList(worldPos);
+            return list.Count > 0;
+        }
+
         internal virtual List<XSPrefabNode> GetOrCreateList(Vector3 worldPos) => this.GetOrCreateList(worldPos, out var tilePos);
 
         internal virtual List<XSPrefabNode> GetOrCreateList(Vector3 worldPos, out Vector3Int tilePos)

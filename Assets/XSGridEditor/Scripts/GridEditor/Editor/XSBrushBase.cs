@@ -125,7 +125,7 @@ namespace XSSLG
                 this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.ObjPath }, "t:Prefab");
             }
 
-            int offY = 100;
+            int offY = 110;
             int offX = 25;
             selGridInt = this.DrawUnitGrid(offX, offY);
             if (selGridInt != -1)
@@ -142,7 +142,7 @@ namespace XSSLG
             var textList = this.BrushObjList.Select(unit => AssetPreview.GetAssetPreview(unit) as Texture).ToList();
             int width = (int)EditorGUIUtility.currentViewWidth - offX * 2;
             int xCount = width / UNIT_SIZE.x;
-            int yCount = textList.Count / xCount + 1;
+            int yCount = (textList.Count - 1) / xCount + 1;
             return GUI.SelectionGrid(new Rect(offX, offY, width, yCount * UNIT_SIZE.x), selGridInt, textList.ToArray(), xCount);
         }
 

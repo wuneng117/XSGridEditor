@@ -33,7 +33,6 @@ namespace XSSLG
             if (this.IsExistTile(gridLayout, position))
                 return;
 
-
             var tileObj = this.AddGameObject(gridLayout, position, XSGridDefine.LAYER_TILE);
             if (tileObj == null)
                 return;

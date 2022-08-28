@@ -42,7 +42,15 @@ namespace XSSLG
             var node = unitObj.AddComponent<XSPrefabNode>();
             XSInstance.Instance.GridHelperEditMode?.SetPrefabToNearTerrain(unitObj.transform);
             var ret = mgr.Add(node);
-            if (!ret)
+            if (ret)
+            {
+                if (this.IsExistTile(gridLayout, position))
+                {
+                    // 放东西了就把tile删除不能走的
+                    XSInstance.Instance.GridHelperEditMode?.RemoveXSTile(node.WorldPos);
+                }
+            }
+            else
             {
                 // Debug.LogError("AddXSUnit failed");
                 GameObject.DestroyImmediate(unitObj);
