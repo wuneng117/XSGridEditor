@@ -75,5 +75,7 @@ namespace XSSLG
         
         /// <summary> 返回1个默认值 </summary>
         static public XSTile Default() => new XSTile(new Vector3Int(), new Vector3(), 0, null);
+
+        public virtual bool PassNearRule(XSTile tile, int tileYMax) => Mathf.Abs(tile.WorldPos.y, this.WorldPos.y) > helper.TileOffYMax;
     }
 }

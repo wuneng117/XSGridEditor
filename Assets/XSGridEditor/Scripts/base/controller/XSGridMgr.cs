@@ -55,7 +55,9 @@ namespace XSSLG
                 foreach (var pos in NearPosArray)
                 {
                     var nearPos = pair.Key + pos;
-                    if (this.GetXSTile(nearPos, out var tile))
+                    if (this.GetXSTile(nearPos, out var tile) && 
+                        tile.PassNearRule(pair.Value, helper.TileOffYMax) &&
+                        pair.Value.PassNearRule(tile, helper.TileOffYMax))
                     {
                         pair.Value.NearTileList.Add(tile);
                     }

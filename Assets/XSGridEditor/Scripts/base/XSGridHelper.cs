@@ -28,11 +28,16 @@ namespace XSSLG
         private GameObject moveTilePrefab;
         public GameObject MoveTilePrefab { get => moveTilePrefab; }
 
+        /// <summary> tile的最高高度差，大于这个值表示tile不联通 </summary>
+        [SerializeField]
+        protected int tileOffYMax = 1;
+        public int TileOffYMax { get => this.tileOffYMax; }
+
         /// <summary> 获取所有 XSITileNode 节点 </summary>
-        public List<XSITileNode> GetTileNodeList()=> this.TileRoot.GetComponentsInChildren<XSITileNode>().ToList();
+        public List<XSITileNode> GetTileNodeList() => this.TileRoot.GetComponentsInChildren<XSITileNode>().ToList();
 
         /// <summary> 获取所有 XSObjectData 节点 </summary>
-        public List<XSIUnitNode> GetUnitDataList()=> this.UnitRoot.GetComponentsInChildren<XSIUnitNode>().ToList();
+        public List<XSIUnitNode> GetUnitDataList() => this.UnitRoot.GetComponentsInChildren<XSIUnitNode>().ToList();
 
         public virtual Bounds GetBounds()
         {
@@ -63,7 +68,7 @@ namespace XSSLG
                     bound.Encapsulate(col.bounds);
                 }
             });
-            
+
             return bound;
         }
     }
