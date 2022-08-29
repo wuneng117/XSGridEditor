@@ -5,20 +5,26 @@
 /// </summary>
 using System;
 using System.Collections.Generic;
-using Vector3 = UnityEngine.Vector3;
 using Vector3Int = UnityEngine.Vector3Int;
+using Vector3 = UnityEngine.Vector3;
 
 namespace XSSLG
 {
     using TileFunc = Func<Vector3Int, bool>;
-
     /// <summary> 用于计算的结构 </summary>
     public class XSStepTile : XSTile
     {
-        public virtual bool PassNearRule(XSTile tile, int tileYMax)
+        // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
+        public XSStepTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node) : base(tilePos, worldPos, cost, node) { }
+
+        public XSStepTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable) : base(tilePos, worldPos, cost, node, isWalkable) { }
+
+        public XSStepTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, TileFunc canBeDustFunc) : base(tilePos, worldPos, cost, node, isWalkable, canBeDustFunc) { }
+
+        public override bool PassNearRule(XSTile tile, int tileOffYMax)
         {
             //TODO
-            return Mathf.Abs(tile.WorldPos.y, this.WorldPos.y) > helper.TileOffYMax;
+            return base.PassNearRule(tile, tileOffYMax);
         }
     }
 }

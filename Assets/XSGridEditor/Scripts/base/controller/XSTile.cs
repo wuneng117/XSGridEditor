@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using Vector3 = UnityEngine.Vector3;
 using Vector3Int = UnityEngine.Vector3Int;
+using Mathf = UnityEngine.Mathf;
 
 namespace XSSLG
 {
@@ -64,7 +65,6 @@ namespace XSSLG
             }
         }
 
-        // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
         public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, TileFunc canBeDustFunc) : this(tilePos, worldPos, cost, node, isWalkable)
         {
             if (canBeDustFunc != null)
@@ -76,6 +76,6 @@ namespace XSSLG
         /// <summary> 返回1个默认值 </summary>
         static public XSTile Default() => new XSTile(new Vector3Int(), new Vector3(), 0, null);
 
-        public virtual bool PassNearRule(XSTile tile, int tileYMax) => Mathf.Abs(tile.WorldPos.y, this.WorldPos.y) > helper.TileOffYMax;
+        public virtual bool PassNearRule(XSTile tile, int tileOffYMax) => Mathf.Abs(tile.WorldPos.y -this.WorldPos.y) < tileOffYMax;
     }
 }
