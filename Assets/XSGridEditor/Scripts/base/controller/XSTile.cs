@@ -41,9 +41,9 @@ namespace XSSLG
         public XSITileNode Node { get; }
 
         /// <summary> 有单位会有阻挡（敌人会阻挡去路） </summary>
-        public TileFunc IsWalkableFunc { get; } = (tilePos) => true;
+        public TileFunc IsWalkableFunc { get; protected set; } = (tilePos) => true;
         /// <summary> 是否可以作为终点（单位不能重合站，终点有单位）</summary>
-        public TileFunc CanBeDustFunc { get; } = (tilePos) => true;
+        public TileFunc CanBeDustFunc { get; protected set; } = (tilePos) => true;
 
         /// <summary> 邻接的格子，在PathFinder初始化时计算 </summary>
         public List<XSTile> NearTileList { get; } = new List<XSTile>();
@@ -72,10 +72,10 @@ namespace XSSLG
                 this.CanBeDustFunc = canBeDustFunc;
             }
         }
-        
+
         /// <summary> 返回1个默认值 </summary>
         static public XSTile Default() => new XSTile(new Vector3Int(), new Vector3(), 0, null);
 
-        public virtual bool PassNearRule(XSTile tile, int tileOffYMax) => Mathf.Abs(tile.WorldPos.y -this.WorldPos.y) < tileOffYMax;
+        public virtual bool PassNearRule(XSTile tile, int tileOffYMax) => Mathf.Abs(tile.WorldPos.y - this.WorldPos.y) < tileOffYMax;
     }
 }

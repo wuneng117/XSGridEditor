@@ -13,11 +13,10 @@ namespace XSSLG
     {
         /// <summary> 移动消耗 </summary>
         [SerializeField]
-        protected XSLadderTileType ladderType = XSGridDefine.XSLadderTileType.UpDown;
+        protected XSGridDefine.XSLadderTileType ladderType = XSGridDefine.XSLadderTileType.UpDown;
 
-        public XSLadderTileType LadderType { get => this.ladderType; }
+        public XSGridDefine.XSLadderTileType LadderType { get => this.ladderType; }
 
         public override XSTile CreateXSTile(Vector3Int tilePos) => new XSLadderTile(tilePos, this.WorldPos, this.Cost, this, this.ladderType);
     }
-
 }

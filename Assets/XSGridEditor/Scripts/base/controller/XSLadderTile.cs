@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using Vector3Int = UnityEngine.Vector3Int;
 using Vector3 = UnityEngine.Vector3;
-using XSGridDefine;
 
 namespace XSSLG
 {
@@ -17,20 +16,55 @@ namespace XSSLG
     {
         protected XSGridDefine.XSLadderTileType Type { get; }
 
-        // TODO
-        // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
+
         public XSLadderTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, XSGridDefine.XSLadderTileType type) : base(tilePos, worldPos, cost, node)
         {
             this.Type = type;
         }
 
-        public XSLadderTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, XSGridDefine.XSLadderTileType type) : this(tilePos, worldPos, cost, node, isWalkable) { }
+        public XSLadderTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, XSGridDefine.XSLadderTileType type) : this(tilePos, worldPos, cost, node, type)
+        {
+            if (isWalkable != null)
+            {
+                this.IsWalkableFunc = isWalkable;
+            }
+        }
 
-        public XSLadderTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, TileFunc canBeDustFunc, XSGridDefine.XSLadderTileType type) : base(tilePos, worldPos, cost, node, isWalkable, canBeDustFunc) { }
+        public XSLadderTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, TileFunc canBeDustFunc, XSGridDefine.XSLadderTileType type) : this(tilePos, worldPos, cost, node, isWalkable, type)
+        {
+            if (canBeDustFunc != null)
+            {
+                this.CanBeDustFunc = canBeDustFunc;
+            }
+        }
 
         public override bool PassNearRule(XSTile tile, int tileOffYMax)
         {
-            //TODO
+            if (this.GetType() != tile.GetType())
+            {
+                switch (this.Type)
+                {
+                    case XSGridDefine.XSLadderTileType.UpDown:
+                        {
+                            if (tile.TilePos.x != this.TilePos.x)
+                            {
+                                return false;
+                            }
+                            break;
+                        }
+                    case XSGridDefine.XSLadderTileType.LeftRight:
+                        {
+                            if (tile.TilePos.z != this.TilePos.z)
+                            {
+                                return false;
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+
             return base.PassNearRule(tile, tileOffYMax);
         }
     }
