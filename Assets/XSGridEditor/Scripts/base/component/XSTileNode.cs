@@ -19,6 +19,8 @@ namespace XSSLG
 
         public Vector3 WorldPos { get => this.transform.position; set => this.transform.position = value; }
 
+        public virtual XSTile CreateXSTile(Vector3Int tilePos) => new XSTile(tilePos, this.WorldPos, this.Cost, this);
+
         public virtual void UpdateEditModePrevPos()
         {
             var dataEdit = this.GetComponent<XSTileNodeEditMode>();

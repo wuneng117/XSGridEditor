@@ -4,6 +4,8 @@
 /// @Description: 游戏架构和 unity 组件的接口
 /// </summary>
 using Vector3 = UnityEngine.Vector3;
+using Vector3Int = UnityEngine.Vector3Int;
+
 namespace XSSLG
 {
     public interface XSITileNode
@@ -11,6 +13,8 @@ namespace XSSLG
         int Cost { get; }
 
         Vector3 WorldPos { get; set; }
+
+        XSTile CreateXSTile(Vector3Int tilePos);
 
         void UpdateEditModePrevPos();
 

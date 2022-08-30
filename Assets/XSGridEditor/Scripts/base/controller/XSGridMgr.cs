@@ -133,7 +133,7 @@ namespace XSSLG
                     tileNode.AddBoxCollider(this.TileSize);
                 }
 
-                var tile = new XSTile(tilePos, tileNode.WorldPos, tileNode.Cost, tileNode);
+                var tile = tileNode.CreateXSTile(tilePos);
                 this.TileDict.Add(tilePos, tile);
                 return tile;
             }
