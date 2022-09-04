@@ -21,13 +21,19 @@ namespace XSSLG
         protected string objPath = "";
         public string ObjPath { get => this.objPath; protected set => this.objPath = value; }
 
+        [SerializeField]
+        protected GameObject brushObj;
+        public GameObject BrushObj { get => brushObj; set => brushObj = value; }
+
         protected string defaultObjPath = "";
 
-        public Transform BrushParent { get; set; }
-
+        /// <summary> 把当前选择序列化存起来 </summary>
+        [HideInInspector]
         [SerializeField]
-        public GameObject brushObj;
-        public GameObject BrushObj { get => brushObj; set => brushObj = value; }
+        protected int selGridInt;
+        public int SelGridInt { get => selGridInt; set => selGridInt = value; }
+
+        public Transform BrushParent { get; set; }
 
         public virtual void Awake()
         {
@@ -108,11 +114,15 @@ namespace XSSLG
         public virtual void Awake()
         {
             this.Instance = (T)this.target;
-            if (this.Instance)
-            {
-                this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.ObjPath }, "t:Prefab");
-                this.tempObjPath = this.Instance.ObjPath;
-            }
+            Debug.Assert(this.Instance != null);
+            this.LoadBrushObjList();
+            this.selGridInt = this.Instance.SelGridInt;
+        }
+
+        public virtual void LoadBrushObjList()
+        {
+            this.tempObjPath = this.Instance.ObjPath;
+            this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.tempObjPath }, "t:Prefab");
         }
 
         public override void OnPaintInspectorGUI()
@@ -123,16 +133,16 @@ namespace XSSLG
 
             if (this.tempObjPath != this.Instance.ObjPath)
             {
-                this.tempObjPath = this.Instance.ObjPath;
-                this.BrushObjList = XSUE.LoadGameObjAtPath<TCOMP>(new string[] { this.Instance.ObjPath }, "t:Prefab");
+                this.LoadBrushObjList();
             }
 
             int offY = 130;
             int offX = 25;
-            selGridInt = this.DrawUnitGrid(offX, offY);
-            if (selGridInt != -1)
+            this.selGridInt = this.DrawUnitGrid(offX, offY);
+            if (this.selGridInt != -1)
             {
                 this.Instance.BrushObj = this.BrushObjList[selGridInt];
+                this.Instance.SelGridInt = selGridInt;
             }
         }
 
@@ -145,7 +155,7 @@ namespace XSSLG
             int width = (int)EditorGUIUtility.currentViewWidth - offX * 2;
             int xCount = width / UNIT_SIZE.x;
             int yCount = (textList.Count - 1) / xCount + 1;
-            return GUI.SelectionGrid(new Rect(offX, offY, width, yCount * UNIT_SIZE.x), selGridInt, textList.ToArray(), xCount);
+            return GUI.SelectionGrid(new Rect(offX, offY, width, yCount * UNIT_SIZE.x), this.selGridInt, textList.ToArray(), xCount);
         }
 
         public override GameObject[] validTargets
