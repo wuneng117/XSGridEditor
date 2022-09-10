@@ -123,20 +123,17 @@ namespace XSSLG
             var tilePos = this.WorldToTile(tileNode.WorldPos);
             if (this.GetXSTile(tilePos))
             {
-                Debug.LogError("GridMgr.AddXSTile: 已经存在相同的tilePos：" + tilePos);
-                return null;
+                this.RemoveXSTile(tileNode.WorldPos);
             }
-            else
+            
+            if (!XSUnityUtils.IsEditor())
             {
-                if (!XSUnityUtils.IsEditor())
-                {
-                    tileNode.AddBoxCollider(this.TileSize);
-                }
-
-                var tile = tileNode.CreateXSTile(tilePos);
-                this.TileDict.Add(tilePos, tile);
-                return tile;
+                tileNode.AddBoxCollider(this.TileSize);
             }
+
+            var tile = tileNode.CreateXSTile(tilePos);
+            this.TileDict.Add(tilePos, tile);
+            return tile;
         }
 
         /// <summary>
