@@ -25,6 +25,10 @@ namespace XSSLG
         protected GameObject brushObj;
         public GameObject BrushObj { get => brushObj; set => brushObj = value; }
 
+        [SerializeField]
+        protected Vector3Int rotate;
+        public Vector3Int Rotation { get => rotate; set => rotate = value; }
+
         protected string defaultObjPath = "";
 
         /// <summary> 把当前选择序列化存起来 </summary>
@@ -64,6 +68,7 @@ namespace XSSLG
             var mgr = XSInstance.Instance.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
             tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
+            tileObj.transform.Rotate(this.rotate);
             tileObj.layer = LayerMask.NameToLayer(layerName);
             return tileObj;
         }
@@ -136,12 +141,16 @@ namespace XSSLG
                 this.LoadBrushObjList();
             }
 
-            int offY = 130;
+            int offY = 150;
             int offX = 25;
             this.selGridInt = this.DrawUnitGrid(offX, offY);
             if (this.selGridInt != -1)
             {
-                this.Instance.BrushObj = this.BrushObjList[selGridInt];
+                if (this.selGridInt >= this.BrushObjList.Count)
+                {
+                    this.selGridInt = 0;
+                }
+                this.Instance.BrushObj = this.BrushObjList[this.selGridInt];
                 this.Instance.SelGridInt = selGridInt;
             }
         }

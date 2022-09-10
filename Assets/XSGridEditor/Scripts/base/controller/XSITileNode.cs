@@ -12,7 +12,11 @@ namespace XSSLG
     {
         int Cost { get; }
 
+        Accessibility Access { get; }
+
         Vector3 WorldPos { get; set; }
+
+        int AngleY { get; }
 
         XSTile CreateXSTile(Vector3Int tilePos);
 

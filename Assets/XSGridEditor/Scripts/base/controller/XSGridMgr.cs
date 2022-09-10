@@ -19,7 +19,7 @@ namespace XSSLG
     public class XSGridMgr : XSIGridMgr
     {
         /// <summary> 四边形地图链接格子就是这4个位置偏移 </summary>
-        protected static readonly Vector3Int[] NearPosArray = { new Vector3Int(-1, 0, 0), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(0, 0, 1), };
+        protected static readonly Vector3Int[] NearPosArray = { Vector3Int.left, Vector3Int.back, Vector3Int.right, Vector3Int.forward, };
 
         /// <summary> 以tilepos为key存储所有tile。 </summary>
         protected TileDict TileDict { get; set; } = new TileDict();
@@ -56,8 +56,8 @@ namespace XSSLG
                 {
                     var nearPos = pair.Key + pos;
                     if (this.GetXSTile(nearPos, out var tile) && 
-                        tile.PassNearRule(pair.Value, helper.TileOffYMax) &&
-                        pair.Value.PassNearRule(tile, helper.TileOffYMax))
+                        tile.PassNearRule(pair.Value, pos, helper.TileOffYMax) &&
+                        pair.Value.PassNearRule(tile, -pos, helper.TileOffYMax))
                     {
                         pair.Value.NearTileList.Add(tile);
                     }
@@ -126,6 +126,7 @@ namespace XSSLG
                 this.RemoveXSTile(tileNode.WorldPos);
             }
             
+            // 用预算摄像机范围
             if (!XSUnityUtils.IsEditor())
             {
                 tileNode.AddBoxCollider(this.TileSize);

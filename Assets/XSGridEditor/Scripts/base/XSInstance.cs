@@ -44,11 +44,11 @@ namespace XSSLG
         { 
             get
             {
-                if (!XSUE.IsEditor())
-                {
-                    Debug.LogError("XSEditorInstance.Instance: 只能在编辑器中使用");
-                    return null;
-                }
+                // if (!XSUE.IsEditor())
+                // {
+                //     Debug.LogError("XSEditorInstance.Instance: 只能在编辑器中使用");
+                //     return null;
+                // }
 
                 return this.gridHelperEditMode;
             }

@@ -53,6 +53,8 @@ namespace XSSLG
                 return;
             }
 
+            XSUnityUtils.ActionChildren(XSInstance.Instance.GridHelper.UnitRoot?.gameObject, (child) => child.SetActive(false));
+
             worldPosList.ForEach(pos =>
             {
                 var obj = GameObject.Instantiate(this.Prefab, this.transform);
@@ -64,10 +66,12 @@ namespace XSSLG
                 // 设置layer默认。不要遮挡射线到 tile 的检测
                 obj.layer = LayerMask.NameToLayer("Default");
                 obj.transform.position = pos;
+                XSInstance.Instance.GridHelper.SetTransToTopTerrain(obj.transform, false);
 
                 var spr = obj.GetComponentInChildren<SpriteRenderer>();
                 spr.sortingOrder = this.SortOrder;
             });
+            XSUnityUtils.ActionChildren(XSInstance.Instance.GridHelper.UnitRoot?.gameObject, (child) => child.SetActive(true));
         }
 
         /// <summary> 清除高亮显示 </summary>

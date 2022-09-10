@@ -40,7 +40,7 @@ namespace XSSLG
 
             //添加到UnitDict
             var node = unitObj.AddComponent<XSPrefabNode>();
-            XSInstance.Instance.GridHelperEditMode?.SetPrefabToNearTerrain(unitObj.transform);
+            XSInstance.Instance.GridHelper?.SetTransToTopTerrain(unitObj.transform, true);
             var ret = mgr.Add(node);
             if (ret)
             {

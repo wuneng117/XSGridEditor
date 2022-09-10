@@ -29,11 +29,5 @@ namespace XSSLG
 
         public static readonly string LAYER_TILE = "Tile";
         public static readonly string LAYER_UNIT = "Unit";
-
-        public enum XSLadderTileType
-        {
-            UpDown = 0,
-            LeftRight = 1,
-        }
     }
 }

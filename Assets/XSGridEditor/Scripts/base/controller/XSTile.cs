@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Vector3 = UnityEngine.Vector3;
 using Vector3Int = UnityEngine.Vector3Int;
 using Mathf = UnityEngine.Mathf;
+using Quaternion = UnityEngine.Quaternion;
 
 namespace XSSLG
 {
@@ -37,6 +38,9 @@ namespace XSSLG
         /// <summary> 网格消耗 </summary>
         public int Cost { get; }
 
+        //<summary> 可通行性 </summary>  
+        public Accessibility Access { get; }
+
         /// <summary> 对应节点 </summary>
         public XSITileNode Node { get; }
 
@@ -49,15 +53,20 @@ namespace XSSLG
         public List<XSTile> NearTileList { get; } = new List<XSTile>();
 
         // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
-        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node)
+        public XSTile(Vector3Int tilePos, XSITileNode node)
         {
             this.TilePos = tilePos;
-            this.WorldPos = worldPos;
-            this.Cost = cost;
             this.Node = node;
+            if (node != null)
+            {
+                this.WorldPos = node.WorldPos;
+                this.Cost = node.Cost;
+                this.Access = node.Access;
+            }
+
         }
 
-        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable) : this(tilePos, worldPos, cost, node)
+        public XSTile(Vector3Int tilePos, XSITileNode node, TileFunc isWalkable) : this(tilePos, node)
         {
             if (isWalkable != null)
             {
@@ -65,7 +74,7 @@ namespace XSSLG
             }
         }
 
-        public XSTile(Vector3Int tilePos, Vector3 worldPos, int cost, XSITileNode node, TileFunc isWalkable, TileFunc canBeDustFunc) : this(tilePos, worldPos, cost, node, isWalkable)
+        public XSTile(Vector3Int tilePos, XSITileNode node, TileFunc isWalkable, TileFunc canBeDustFunc) : this(tilePos,  node, isWalkable)
         {
             if (canBeDustFunc != null)
             {
@@ -74,8 +83,22 @@ namespace XSSLG
         }
 
         /// <summary> 返回1个默认值 </summary>
-        static public XSTile Default() => new XSTile(new Vector3Int(), new Vector3(), 0, null);
+        static public XSTile Default() => new XSTile(new Vector3Int(), null);
 
-        public virtual bool PassNearRule(XSTile tile, int tileOffYMax) => Mathf.Abs(tile.WorldPos.y - this.WorldPos.y) < tileOffYMax;
+        public virtual bool PassNearRule(XSTile tile, Vector3Int direct, int tileOffYMax)
+        {
+
+            var tempDirect = Quaternion.Euler(0, -this.Node.AngleY, 0) * new Vector3(direct.x, direct.y, direct.z);
+            direct = new Vector3Int(Mathf.RoundToInt(tempDirect.x), Mathf.RoundToInt(tempDirect.y), Mathf.RoundToInt(tempDirect.z));
+            if ((direct == Vector3Int.left && !this.Node.Access.Left) ||
+                (direct == Vector3Int.right && !this.Node.Access.Right) ||
+                (direct == Vector3Int.back && !this.Node.Access.Down) ||
+                (direct == Vector3Int.forward && !this.Node.Access.Up))
+            {
+                return false;
+            }
+
+            return Mathf.Abs(tile.WorldPos.y - this.WorldPos.y) < tileOffYMax;
+        }
     }
 }

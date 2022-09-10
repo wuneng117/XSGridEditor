@@ -18,11 +18,6 @@ namespace XSSLG
     {
         [SerializeField]
         protected GameObject UniytPrefab;
-        /// <summary> tile 相对于其他物体的抬高高度，防止重叠导致显示问题 </summary>
-        protected float Precision = 0.01f;
-
-        /// <summary> 射线检测的高度 </summary>
-        protected float TopDistance = 100f;
 
         /// <summary> 监控CellSize变化 </summary>
         private Grid Grid { get; set; }
@@ -88,7 +83,7 @@ namespace XSSLG
                 return null;
             }
 
-            this.SetTileToNearTerrain(tile);
+            this.SetTileToNearTerrain(tile, true);
             return tile;
         }
 
@@ -118,17 +113,19 @@ namespace XSSLG
                 return;
             }
 
+            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
             foreach (var tile in XSInstance.Instance.GridMgr.GetAllTiles())
             {
-                this.SetTileToNearTerrain(tile);
+                this.SetTileToNearTerrain(tile, false);
             }
+            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
         }
 
         /// <summary>
         /// 每个 tile 根据中心可能有高低不平的障碍物，调整 tile 的高度到障碍物的顶端
         /// 比如从 tile 中心点抬高100，再检测100以内有没有碰撞物，碰到的话就把 tile 的高度设置到碰撞点的位置
         /// </summary>
-        protected virtual bool SetTileToNearTerrain(XSTile tile)
+        protected virtual bool SetTileToNearTerrain(XSTile tile, bool closeUnit)
         {
             var ret = false;
             if (tile.Node == null || tile.Node.IsNull())
@@ -137,7 +134,7 @@ namespace XSSLG
             }
 
             var node = tile.Node;
-            ret = this.SetTileToNearTerrain(((XSTileNode)node).transform);
+            ret = XSInstance.Instance.GridHelper.SetTransToTopTerrain(((XSTileNode)node).transform, closeUnit);
             if (!ret)
             {
                 return ret;
@@ -146,48 +143,6 @@ namespace XSSLG
             // 调整了位置，需要更新XSTile和XSTileNodeEditMode的位置
             tile.WorldPos = node.WorldPos;
             return ret;
-        }
-
-        /// <summary>
-        /// 每个 tile 根据中心可能有高低不平的障碍物，调整 tile 的高度到障碍物的顶端
-        /// 比如从 tile 中心点抬高100，再检测100以内有没有碰撞物，碰到的话就把 tile 的高度设置到碰撞点的位置
-        /// </summary>
-        protected virtual bool SetTileToNearTerrain(Transform tileData)
-        {
-            // 隐藏tile ，防止射线碰到 tile
-            tileData.gameObject.SetActive(false);
-            // 隐藏所有unit，防止参与射线检测
-            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
-            var pos = tileData.position;
-            // 射线发射点，抬高 tile 以后的中心点
-            var top = new Vector3(pos.x, TopDistance, pos.z);
-            var ray = new Ray(top, Vector3.down);
-            RaycastHit hitInfo;
-            // 这里检测 ray 和其他物体的碰撞
-            // ray 位置和射线方向，位置是 抬高TopDistance后的坐标，方向垂直向下
-            var ret = Physics.Raycast(ray, out hitInfo);
-            if (ret)
-            {
-                var newPos = hitInfo.point + new Vector3(0, Precision, 0);
-                tileData.position = newPos;
-            }
-            // 如果贴不到任何东西，那就设置localpos的高度y为0
-            else if (tileData.localPosition.y != 0)
-            {
-                ret = true;
-                tileData.localPosition = new Vector3(tileData.localPosition.x, 0, tileData.localPosition.z);
-            }
-
-            //激活tile
-            tileData.gameObject.SetActive(true);
-            // 显示所有unit，防止参与射线检测
-            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(true));
-            return ret;
-        }
-
-        public virtual void SetPrefabToNearTerrain(Transform trans)
-        {
-            this.SetTileToNearTerrain(trans);
         }
 
         /// <summary> 删除所有的 tile </summary>
