@@ -116,12 +116,16 @@ namespace XSSLG
 
         public override bool canChangeZPosition { get => false; }
 
+        /// <summary> 各自预览开始的位置Y </summary>
+        protected int gridOffY;
+
         public virtual void Awake()
         {
             this.Instance = (T)this.target;
             Debug.Assert(this.Instance != null);
             this.LoadBrushObjList();
             this.selGridInt = this.Instance.SelGridInt;
+            this.gridOffY = 150;
         }
 
         public virtual void LoadBrushObjList()
@@ -141,9 +145,8 @@ namespace XSSLG
                 this.LoadBrushObjList();
             }
 
-            int offY = 150;
             int offX = 25;
-            this.selGridInt = this.DrawUnitGrid(offX, offY);
+            this.selGridInt = this.DrawUnitGrid(offX, this.gridOffY);
             if (this.selGridInt != -1)
             {
                 if (this.selGridInt >= this.BrushObjList.Count)

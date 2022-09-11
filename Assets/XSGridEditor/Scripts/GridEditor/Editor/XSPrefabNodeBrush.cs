@@ -7,6 +7,7 @@
 /// 
 #if ENABLE_TILEMAP
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace XSSLG
@@ -16,12 +17,20 @@ namespace XSSLG
     {
         [SerializeField]
         protected Transform newBrushParent;
-        public Transform NewBrushParent { get => this.newBrushParent; }
+        public Transform NewBrushParent { get => this.newBrushParent; protected set => this.newBrushParent = value; }
 
         public override void Awake()
         {
             this.defaultObjPath = "Assets/XSGridEditor/Resources/Prefabs/PrefabBrushs";
             base.Awake();
+
+            if (this.NewBrushParent == null)
+            {
+                StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+                var decorateRoot = currentStageHandle.FindComponentOfType<XSPrefabRootCpt>();
+                this.NewBrushParent = decorateRoot?.transform;
+            }
+
             this.BrushParent = this.NewBrushParent;
         }
 
@@ -63,6 +72,12 @@ namespace XSSLG
     [CustomEditor(typeof(XSPrefabNodeBrush))]
     public class XSPrefabNodeBrushEditor : XSBrushBaseEditor<XSPrefabNodeBrush, Transform>
     {
+        public override void Awake()
+        {
+            base.Awake();
+            this.gridOffY = 170;
+        }
+
         public override void OnPaintInspectorGUI()
         {
             EditorGUI.BeginChangeCheck();

@@ -118,7 +118,7 @@ namespace XSSLG
             {
                 this.SetTileToNearTerrain(tile, false);
             }
-            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
+            XSUnityUtils.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(true));
         }
 
         /// <summary>
