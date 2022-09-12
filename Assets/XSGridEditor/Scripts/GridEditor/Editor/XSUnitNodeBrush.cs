@@ -21,7 +21,9 @@ namespace XSSLG
         public override void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
             if (this.BrushObj?.gameObject == null)
+            {
                 return;
+            }
 
             if (!this.IsExistTile(gridLayout, position))
             {
