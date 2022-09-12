@@ -25,10 +25,17 @@ namespace XSSLG
         public override bool Add(XSIUnitNode node)
         {
             var ret = base.Add(node);
-            if (ret && !XSUnityUtils.IsEditor())
+            if (ret)
             {
-                // 根据子节点的collider获取总的collider，用于射线检测
-                node.AddBoxCollider();
+                if (XSUnityUtils.IsEditor())
+                {
+                    node.UpdatePos();
+                }
+                else
+                {
+                    // 根据子节点的collider获取总的collider，用于射线检测
+                    node.AddBoxCollider();
+                }
             }
             return ret;
         }
@@ -45,6 +52,7 @@ namespace XSSLG
             {
                 var newWorldPos = gridMgr.TileToTileCenterWorld(pair.Key);
                 pair.Value.WorldPos = newWorldPos;
+                pair.Value.UpdatePos();
             }
         }
     }

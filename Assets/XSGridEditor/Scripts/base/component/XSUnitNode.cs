@@ -75,5 +75,11 @@ namespace XSSLG
         public virtual void RemoveNode() => XSUnityUtils.RemoveObj(this.gameObject);
 
         public virtual bool IsNull() => this == null;
+
+        
+        public virtual void UpdatePos()
+        {
+            XSInstance.Instance.GridHelper.SetTransToTopTerrain(this.transform, true);
+        }
     }
 }

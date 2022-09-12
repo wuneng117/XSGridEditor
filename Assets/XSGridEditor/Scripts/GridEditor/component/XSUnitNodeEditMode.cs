@@ -29,7 +29,8 @@ namespace XSSLG
                 if (pos != Vector3.zero)
                 {
                     this.transform.position = pos;
-                    this.PrevPos = pos;
+                    XSInstance.Instance.GridHelper.SetTransToTopTerrain(this.transform, true);
+                    this.PrevPos = this.transform.position;
                 }
                 else
                 {
