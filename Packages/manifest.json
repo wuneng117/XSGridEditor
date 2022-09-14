@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.unity.2d.tilemap": "1.0.0",
-    "com.unity.2d.tilemap.extras": "1.8.3-preview",
     "com.unity.cinemachine": "2.6.15",
     "com.unity.collab-proxy": "1.9.0",
     "com.unity.ide.rider": "2.0.7",
