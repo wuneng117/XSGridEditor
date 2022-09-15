@@ -224,7 +224,7 @@ namespace XSSLG
                     var parTrans = node.transform;
                     var size = new Vector2(parTrans.localScale.x * 0.8f, parTrans.localScale.z * 0.85f);
                     var text = XSUE.CreateTextMesh(size, textRoot.transform);
-                    text.transform.position = parTrans.position;
+                    text.transform.position = new Vector3(parTrans.position.x, parTrans.position.y + 0.01f, parTrans.position.z);
                     text.transform.Rotate(new Vector3(90, 0, 0));
                     afterCreateFn(tile, text);
                 }
