@@ -34,8 +34,6 @@ namespace XSSLG
             );
 
             this.DrawButton("Remove All Tiles", helper.ClearTiles);
-
-            this.DrawButton("Create A XSUnit", helper.CreateObject);
         }
 
         /// <summary>

@@ -16,9 +16,6 @@ namespace XSSLG
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
-        [SerializeField]
-        protected GameObject UniytPrefab;
-
         /// <summary> 监控CellSize变化 </summary>
         private Grid Grid { get; set; }
 
@@ -233,41 +230,6 @@ namespace XSSLG
             {
                 DestroyImmediate(GameObject.Find(rootName));
             }
-        }
-
-        #endregion
-
-        #region Unit 操作
-        /// <summary> 创建一个XSObject </summary>
-        public virtual void CreateObject()
-        {
-            if (!XSUE.IsEditor())
-            {
-                return;
-            }
-
-            Transform parent = this.GetUnitRoot();
-            if (parent == null)
-            {
-                return;
-            }
-
-            // 从prefab创建引用的gameobject
-            var ret = PrefabUtility.InstantiatePrefab(this.UniytPrefab, parent) as GameObject;
-            if (ret == null)
-            {
-                return;
-            }
-
-            // 就是查找显示中的网格中第一个，然后把生成的prefab放到哪个网格的位置
-            var defaultGrid = this.GetTileRoot()?.transform.GetChild(0);
-            if (defaultGrid == null)
-            {
-                return;
-            }
-
-            ret.transform.position = defaultGrid.position;
-            ret.layer = LayerMask.NameToLayer(XSGridDefine.LAYER_UNIT);
         }
 
         #endregion
