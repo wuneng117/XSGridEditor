@@ -10,7 +10,7 @@ public class XSUE : XSUnityUtils
 
 
     /// <summary>
-    /// 生成一个适配size大小的textmeshpro字体节点，暂时用的默认字体
+    /// Generate a textmeshpro font node that fits the size, the default font used temporarily
     /// </summary>
     /// <param name="size"></param>
     /// <returns></returns>
@@ -31,11 +31,11 @@ public class XSUE : XSUnityUtils
     }
 
     /// <summary>
-    /// 加载文件夹下的内容
+    /// load the contents of the folder
     /// </summary>
-    /// <param name="pathArray">加载文件夹路径</param>
-    /// <param name="filter">过滤</param>
-    /// <typeparam name="T">含有T类型组件</typeparam>
+    /// <param name="pathArray">load folder path</param>
+    /// <param name="filter"></param>
+    /// <typeparam name="T">Contains T type script</typeparam>
     /// <returns></returns>
     public static List<GameObject> LoadGameObjAtPath<T>(string[] pathArray, string filter)
     {

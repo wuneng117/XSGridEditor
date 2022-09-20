@@ -1,24 +1,24 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date:2021/5/26
-/// @Description: 配合GridMgr使用，常用显示范围
+/// @Description: used with GridMgr, show range
 /// </summary>
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 namespace XSSLG
 {
-    /// <summary> 常用显示范围 </summary>
+    /// <summary> used with GridMgr, show range </summary>
     public class XSGridShowRegionCpt : MonoBehaviour, XSIGridShowRegion
     {
-        /************************* 变量 begin ***********************/
-        /// <summary> 高亮图块使用的prefab </summary>
+        /************************* variable begin ***********************/
+        /// <summary> prefab to show range </summary>
         public GameObject Prefab { get; set; }
 
-        /// <summary> sprite 排序规则 </summary>
+        /// <summary> sprite sort order </summary>
         protected int SortOrder { get; set; }
 
-        /************************* 变量  end  ***********************/
+        /************************* variable  end  ***********************/
 
         public static XSGridShowRegionCpt Create(string rootPath, GameObject moveTilePrefab, int sortOrder)
         {
@@ -36,16 +36,16 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 初始化
+        /// initialize
         /// </summary>
         /// <param name="prefab"></param>
         /// <param name="sortOrder"></param>
         public virtual void Init(GameObject prefab, int sortOrder) => (this.Prefab, this.SortOrder) = (prefab, sortOrder);
 
         /// <summary>
-        /// 显示高亮范围
+        /// show range
         /// </summary>
-        /// <param name="worldPosList">图块所在的网格坐标</param>
+        /// <param name="worldPosList">a list of world position to show range </param>
         public virtual void ShowRegion(List<Vector3> worldPosList)
         {
             if (this.Prefab == null)
@@ -63,7 +63,7 @@ namespace XSSLG
                     return;
                 }
 
-                // 设置layer默认。不要遮挡射线到 tile 的检测
+                // Set layer to default. Do not block the raycast
                 obj.layer = LayerMask.NameToLayer("Default");
                 obj.transform.position = pos;
                 XSInstance.Instance.GridHelper.SetTransToTopTerrain(obj.transform, false);
@@ -74,7 +74,7 @@ namespace XSSLG
             XSUnityUtils.ActionChildren(XSInstance.Instance.GridHelper.UnitRoot?.gameObject, (child) => child.SetActive(true));
         }
 
-        /// <summary> 清除高亮显示 </summary>
+        /// <summary> clear range </summary>
         public virtual void ClearRegion() => XSUG.RemoveChildren(this.transform.gameObject);
 
         public virtual bool IsNull() => this == null;

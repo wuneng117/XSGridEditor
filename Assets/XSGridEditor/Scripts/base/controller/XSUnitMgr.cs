@@ -1,12 +1,11 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-08-01 20:40:16
-/// @Description: xxsobjectdata对象管理
+/// @Description: XSunitNode`s manager
 /// </summary>
 
 namespace XSSLG
 {
-    /// <summary>  </summary>
     public class XSUnitMgr : XSNodeMgr<XSIUnitNode>
     {
         public XSUnitMgr(XSGridHelper helper)
@@ -18,7 +17,7 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 添加XSIUnitNode到字典中
+        /// add XSIUnitNode to dict
         /// </summary>
         /// <param name="unitNode"></param>
         /// <returns></returns>
@@ -33,7 +32,7 @@ namespace XSSLG
                 }
                 else
                 {
-                    // 根据子节点的collider获取总的collider，用于射线检测
+                    // add the total collider where js caculated by all collider，used to raycast
                     node.AddBoxCollider();
                 }
             }

@@ -7,15 +7,14 @@ using XSSLG;
 [ExecuteInEditMode]
 public class XSMain : MonoBehaviour
 {
-    /// <summary> unit 管理 </summary>
     public XSUnitMgr UnitMgr { get; protected set; }
-    /// <summary> XSPrefabBrush 画的prefab管理 </summary>
+    /// <summary> Prefab management of XSPrefabBrush painting </summary>
     public XSPrefabNodeMgr PrefabNodeMgr { get; protected set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        // 最先初始化单例，保证使用时肯定是初始化好的
+        // Initialize the Instance first to ensure that it must be initialized when used
         if (XSUnityUtils.IsEditor())
         {
             var instance = XSInstance.Instance;

@@ -2,10 +2,9 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    /// <summary>  </summary>
     public class XSInstance
     {
-        /************************* 变量 begin ***********************/
+        /************************* variable begin ***********************/
         private static XSInstance instance;
         public static XSInstance Instance
         {
@@ -44,17 +43,11 @@ namespace XSSLG
         { 
             get
             {
-                // if (!XSUE.IsEditor())
-                // {
-                //     Debug.LogError("XSEditorInstance.Instance: 只能在编辑器中使用");
-                //     return null;
-                // }
-
                 return this.gridHelperEditMode;
             }
             set => this.gridHelperEditMode = value; 
         }
 
-        /************************* 变量  end  ***********************/
+        /************************* variable  end  ***********************/
     }
 }

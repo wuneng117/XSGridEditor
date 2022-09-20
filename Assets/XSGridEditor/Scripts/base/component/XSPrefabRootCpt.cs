@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-08-19 13:33:23
-/// @Description: unit 根节点组件
+/// @Description: script added to PrefabRoot gameobject
 /// </summary>
 using UnityEngine;
 

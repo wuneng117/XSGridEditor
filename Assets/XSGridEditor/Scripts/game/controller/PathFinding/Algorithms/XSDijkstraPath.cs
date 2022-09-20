@@ -6,10 +6,10 @@ namespace XSSLG
     public class XSDijkstraPath
     {
         /// <summary>
-        /// 查找返回所有可能的路径
+        /// get all paths
         /// </summary>
         /// <param name="src"></param>
-        /// <param name="totalCost">总消耗，相当于移动范围差不多，默认-1和小于0都表示不限制</param>
+        /// <param name="totalCost"> like move cost, -1 or less than 0 means no limit to move range </param>
         /// <returns></returns>
         public virtual Dictionary<XSTile, List<XSTile>> FindAllPaths(XSTile src, int totalCost)
         {
@@ -27,7 +27,7 @@ namespace XSSLG
                 {
                     var cost = aStarTileDict[current].Cost + tile.Cost;
                     
-                    // 必须小于总消耗
+                    // cost must less then total cost
                     if (totalCost >= 0 && cost > totalCost)
                     {
                         return;

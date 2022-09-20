@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/2/2
-/// @Description: Demo_1 场景测试
+/// @Description: Demo_1 manager
 /// </summary>
 using System.Collections;
 using System.Collections.Generic;
@@ -10,25 +10,21 @@ using UnityEngine.InputSystem;
 
 namespace XSSLG
 {
-    /// <summary> Demo_1 场景测试 </summary>
+    /// <summary> Demo_1 manager </summary>
     public class XSBattleMgr : MonoBehaviour
     {
-        /// <summary> 行走速度 </summary>
         protected int movementAnimationSpeed = 2;
 
         [SerializeField]
         protected XSCamera xsCamera;
 
-        /// <summary> tile 管理 </summary>
         public XSIGridMgr GridMgr { get; set; }
 
-        /// <summary> unit 管理 </summary>
         public XSUnitMgr UnitMgr { get; protected set; }
 
-        /// <summary> 格子显示管理 </summary>
         public XSGridShowMgr GridShowMgr { get; set; }
 
-        /// <summary> 当前是否在移动中 </summary>
+        /// <summary> unit is moving </summary>
         public bool IsMoving { get; private set; }
         
 
@@ -61,10 +57,10 @@ namespace XSSLG
         // Update is called once per frame
         void Update()
         {
-            /************************* 处理选择 unit ，然后移动 begin ***********************/
+            /************************* deal unit select, and move begin ***********************/
             if (!this.IsMoving)
             {
-                // 左键点击进行寻路
+                // click mouse left buton to move
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     if (this.SelectedUnit)
@@ -72,12 +68,12 @@ namespace XSSLG
                         var tile = XSUG.GetMouseTargetTile();
                         Debug.Log("tilePos: " + tile.TilePos);
 
-                        // 要在移动范围内的格子
+                        // tile must be in the move range
                         if (this.MoveRegion.Contains(tile.WorldPos))
                         {
                             this.GridShowMgr.ClearMoveRegion();
                             this.MoveRegion = null;
-                            //缓存
+                            // cache
                             if (this.SelectedUnit.CachedPaths != null && this.SelectedUnit.CachedPaths.ContainsKey(tile.WorldPos))
                             {
                                 this.WalkTo(this.SelectedUnit.CachedPaths[tile.WorldPos]);
@@ -99,7 +95,7 @@ namespace XSSLG
                         }
 
                     }
-                    /************************* 处理选择 unit ，然后移动  end  ***********************/
+                    /************************* deal unit select, and move  end  ***********************/
                 }
                 else if (Mouse.current.rightButton.wasPressedThisFrame)
                 {
@@ -113,9 +109,9 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 移动到指定位置
+        /// move to the destination
         /// </summary>
-        /// <param name="path">移动路径</param>
+        /// <param name="path">move path</param>
         public void WalkTo(List<Vector3> path)
         {
             if (this.movementAnimationSpeed > 0)
@@ -124,11 +120,11 @@ namespace XSSLG
             }
         }
 
-        /// <summary> 携程函数处理移动 </summary>
+        /// <summary> Coroutine to deal move </summary>
         public virtual IEnumerator MovementAnimation(List<Vector3> path)
         {
             this.IsMoving = true;
-            path.Reverse(); // 寻路要反一下顺序
+            path.Reverse(); // reverse the path
             foreach (var pos in path)
             {
                 while (this.SelectedUnit.transform.position != pos)

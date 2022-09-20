@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-07-19 16:33:13
-/// @Description: 弹窗警告框
+/// @Description: pop-up warning box
 /// </summary>
 using System;
 using UnityEditor;

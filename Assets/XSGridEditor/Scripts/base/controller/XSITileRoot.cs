@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-08-19 13:34:19
-/// @Description: 游戏架构和 unity 组件的接口
+/// @Description: interface to XSTileRoot
 /// </summary>
 using Vector3 = UnityEngine.Vector3;
 
@@ -12,7 +12,11 @@ namespace XSSLG
         Vector3 InverseTransformPoint(Vector3 Pos);
         Vector3 TransformPoint(Vector3 pos);
         void ClearAllTiles();
-        /// <summary> 不能直接用==取判断null，因为unity里的Object重载了==， 但是转成XSIBrushItem类取判断的时候是不会用重载了的==</summary>
+
+        /// <summary> 
+        /// You cannot  use "==" to check gameobject is null, because the gameobject in Unity is override "==", 
+        /// but when the gameobject is converted to the XSITileRoot, it will not use the override "==" 
+        /// </summary>
          bool IsNull();
     }
 }

@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/2/2
-/// @Description: 画格子的功能
+/// @Description: script added to GridEditor gameobject, to edit grid
 /// </summary>
 using System;
 using TMPro;
@@ -11,12 +11,12 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    /// <summary> 扩展 unity tilpmap 画格子的功能 </summary>
+    /// <summary> the function to draw tile </summary>
     [RequireComponent(typeof(XSGridHelper))]
     [ExecuteInEditMode]
     public class XSGridHelperEditMode : MonoBehaviour
     {
-        /// <summary> 监控CellSize变化 </summary>
+        /// <summary> Monitor CellSize changes </summary>
         private Grid Grid { get; set; }
 
         protected Vector3 PrevTileSize { get; set; } = Vector3.zero;
@@ -42,25 +42,18 @@ namespace XSSLG
         protected virtual Transform GetTileRoot() => XSInstance.Instance.GridHelper.TileRoot;
 
 
-        #region  Tile 操作
+        #region  Tile function
 
-        /// <summary> 是否显示 tilepos </summary>
         public bool IsShowTilePos
         {
             get => GameObject.Find(XSGridDefine.GAMEOBJECT_TILE_POS_ROOT);
         }
 
-        /// <summary> 是否显示 tilecost </summary>
         public bool IsShowTileCost
         {
             get => GameObject.Find(XSGridDefine.GAMEOBJECT_TILE_COST_ROOT);
         }
 
-        /// <summary>
-        /// 添加XSTile
-        /// </summary>
-        /// <param name="tileData"></param>
-        /// <returns></returns>
         public virtual XSTile AddXSTile(XSITileNode tileData)
         {
             if (!XSUE.IsEditor())
@@ -84,11 +77,6 @@ namespace XSSLG
             return tile;
         }
 
-        /// <summary>
-        /// 删除XSTile
-        /// </summary>
-        /// <param name="worldPos"></param>
-        /// <returns></returns>
         public virtual bool RemoveXSTile(Vector3 worldPos)
         {
             if (!XSUE.IsEditor())
@@ -101,7 +89,7 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 调整所有tile的高度
+        /// Adjust the height of all tiles
         /// </summary>
         public virtual void SetTileToNearTerrain()
         {
@@ -119,8 +107,9 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 每个 tile 根据中心可能有高低不平的障碍物，调整 tile 的高度到障碍物的顶端
-        /// 比如从 tile 中心点抬高100，再检测100以内有没有碰撞物，碰到的话就把 tile 的高度设置到碰撞点的位置
+        /// Each tile may have uneven obstacles in the center, adjust the height of the tile to the top of the obstacle
+        /// For example, raise 100 from the center point of the tile, and then check whether there is 
+        /// a collision within 100. If it hits, set the height of the tile to the position of the collision point.
         /// </summary>
         protected virtual bool SetTileToNearTerrain(XSTile tile, bool closeUnit)
         {
@@ -137,12 +126,11 @@ namespace XSSLG
                 return ret;
             }
 
-            // 调整了位置，需要更新XSTile和XSTileNodeEditMode的位置
+            // After adjusting the position, you need to update the position of XSTile and XSTileNodeEditMode
             tile.WorldPos = node.WorldPos;
             return ret;
         }
 
-        /// <summary> 删除所有的 tile </summary>
         public virtual void ClearTiles()
         {
             if (!XSUE.IsEditor())
@@ -155,9 +143,9 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 显示 tilepos
+        /// show tile position text
         /// </summary>
-        /// <param name="isShow">是否显示</param>
+        /// <param name="isShow"></param>
         public virtual void SetTilePosShow(bool isShow)
         {
             if (!XSUE.IsEditor())
@@ -172,9 +160,9 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 显示 tile cost
+        /// show tile cost text
         /// </summary>
-        /// <param name="isShow">是否显示</param>
+        /// <param name="isShow"></param>
         public virtual void SetTileCostShow(bool isShow)
         {
             if (!XSUE.IsEditor())
@@ -199,11 +187,11 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 为所有 tile 生成需要显示的文字
+        /// Generate text to display for all tiles
         /// </summary>
-        /// <param name="isShow">是否显示</param>
-        /// <param name="rootName">所有文字的根节点</param>
-        /// <param name="afterCreateFn">生成后的回调</param>
+        /// <param name="isShow"></param>
+        /// <param name="rootName"></param>
+        /// <param name="afterCreateFn"> Callback after generation </param>
         protected virtual void SetTextShow(bool isShow, string rootName, Action<XSTile, TextMeshPro> afterCreateFn)
         {
             if (isShow)

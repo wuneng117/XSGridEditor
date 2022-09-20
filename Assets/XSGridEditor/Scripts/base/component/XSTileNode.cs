@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// @Author: xiaoshi
 /// @Date: 2021/8/23
-/// @Description: tile 节点上的组件
+/// @Description: script added to tile gameobject
 /// </summary>
 
 using System;
@@ -10,7 +10,7 @@ using UnityEngine;
 namespace XSSLG
 {
     [Serializable]
-    // 可通行性，比如 Up 为 true，表示这个节点的上方是可以通行的
+    // for example, if Up is true, it means that we can move from this node to the top node
     public class Accessibility
     {
         [SerializeField]
@@ -30,19 +30,17 @@ namespace XSSLG
         public bool Right { get => this.right; }
     }
 
-    /// <summary> tile 额外数据的数据结构 </summary>
+    /// <summary> tile data </summary>
     public class XSTileNode : MonoBehaviour, XSITileNode
     {
-        /// <summary> 移动消耗 </summary>
+        /// <summary> move cost </summary>
         [SerializeField]
         protected int cost = 1;
-
         public int Cost { get => this.cost; }
 
-        /// <summary> 移动消耗 </summary>
+        /// <summary> walk passable </summary>
         [SerializeField]
         protected Accessibility access;
-
         public Accessibility Access { get => this.access; }
 
         public Vector3 WorldPos { get => this.transform.position; set => this.transform.position = value; }

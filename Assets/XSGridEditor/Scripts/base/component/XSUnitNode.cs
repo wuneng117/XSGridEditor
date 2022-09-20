@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/2/9
-/// @Description: tile 上放置的 object 的组件
+/// @Description: script added to unit gameobject
 /// </summary>
 using System.Collections;
 using System.Collections.Generic;
@@ -10,10 +10,10 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    /// <summary> tile 上放置的 object 数据结构 </summary>
+    /// <summary> unit data </summary>
     public class XSUnitNode : MonoBehaviour, XSIUnitNode
     {
-        /// <summary> 用字符串表示id比较通用 </summary>
+        /// <summary> it is more common to represent id as a string </summary>
         [SerializeField]
         protected string id = "-1";
         public string Id { get => id; set => id = value; }
@@ -53,22 +53,22 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 获取移动范围
+        /// get the unit move region
         /// </summary>
         /// <returns></returns>
         public virtual List<Vector3> GetMoveRegion()
         {
             var gridMgr = XSInstance.Instance.GridMgr;
             gridMgr.GetXSTile(this.transform.position, out var srcTile);
-            // 缓存起来哈
+            // first cache
             this.CachedPaths = gridMgr.FindAllPath(srcTile, this.Move);
-            // 把this.CachedPaths累加起来
+            // Accumulate this.CachedPaths
             var ret = this.CachedPaths.Aggregate(new List<Vector3>(), (ret, pair) =>
             {
-                // 去重
+                // deduplication
                 ret.AddRange(pair.Value.Distinct());
                 return ret;
-            }).Distinct().ToList(); // 去重
+            }).Distinct().ToList(); // deduplication
             return ret;
         }
 

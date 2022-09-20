@@ -9,10 +9,10 @@ namespace XSSLG
 {
     public class XSPrefabNodeMgr : XSINodeMgr<XSPrefabNode>
     {
-        /************************* 变量 begin ***********************/
+        /************************* variable begin ***********************/
         public Dictionary<Vector3Int, List<XSPrefabNode>> Dict { get; private set; } = new Dictionary<Vector3Int, List<XSPrefabNode>>();
 
-        /************************* 变量  end  ***********************/
+        /************************* variable  end  ***********************/
         public XSPrefabNodeMgr()
         {
             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
@@ -27,12 +27,12 @@ namespace XSSLG
                 return;
             }
 
-            // 遍历
+            // traverse
             nodeList.ForEach(node => this.Add(node));
         }
 
         /// <summary>
-        /// 添加到字典中
+        /// add to dict
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>

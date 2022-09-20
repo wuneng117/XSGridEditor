@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2021/5/4
-/// @Description: tile 管理类接口，负责tile 坐标转化，数据等功能
+/// @Description: interface to XSGridMgr
 /// </summary>
 using System.Collections.Generic;
 using Vector3 = UnityEngine.Vector3;
@@ -9,7 +9,7 @@ using Vector3Int = UnityEngine.Vector3Int;
 
 namespace XSSLG
 {
-    /// <summary> tile 管理类接口，负责tile 坐标转化，数据等功能 </summary>
+    /// <summary>interface to XSGridMgr </summary>
     public interface XSIGridMgr
     {
 
@@ -20,15 +20,15 @@ namespace XSSLG
         void Init(XSGridHelper helper);
 
         /// <summary>
-        /// 从 worldPos 转为 tilePos
+        /// change world position to tile position
         /// </summary>
-        /// <param name="worldPos">unity 的世界坐标</param>
+        /// <param name="worldPos">unity`s world position</param>
         Vector3Int WorldToTile(Vector3 worldPos);
 
         /// <summary>
-        /// 获取随意一点世界坐标对应 tile 的中心位置
+        /// get the center position of the tile from a world position
         /// </summary>
-        /// <param name="worldPos">unity 的世界坐标</param>
+        /// <param name="worldPos">unity`s world position</param>
         Vector3 WorldToTileCenterWorld(Vector3 worldPos);
 
         Vector3 TileToTileCenterWorld(Vector3Int tilePos);
@@ -38,9 +38,9 @@ namespace XSSLG
         bool RemoveXSTile(Vector3 worldPos);
         
         /// <summary>
-        /// 从 worldPos 获取tile
+        /// get tile from a world position
         /// </summary>
-        /// <param name="worldPos">unity 的世界坐标</param>
+        /// <param name="worldPos">unity`s world position</param>
         bool GetXSTile(Vector3 worldPos);
 
        bool GetXSTile(Vector3 worldPos, out XSTile tile);

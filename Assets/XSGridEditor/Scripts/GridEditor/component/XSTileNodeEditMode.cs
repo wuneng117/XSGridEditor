@@ -1,13 +1,18 @@
+/// <summary>
+/// @Author: xiaoshi
+/// @Date: 2022/2/2
+/// @Description: script added to tile gameobject, to edit grid
+/// </summary>
 using UnityEngine;
 
 namespace XSSLG
 {
-    /// <summary> XSObjectData 的编辑器操作 </summary>
+    /// <summary> Editor Actions for XSTileNode </summary>
     [RequireComponent(typeof(XSITileNode))]
     [ExecuteInEditMode]
     public class XSTileNodeEditMode : MonoBehaviour
     {
-        /// <summary> 编辑器模式下记录上一次的坐标 </summary>
+        /// <summary> Record the last coordinates in editor mode </summary>
         public Vector3 PrevPos { get; set; }
 
         public virtual void Start()

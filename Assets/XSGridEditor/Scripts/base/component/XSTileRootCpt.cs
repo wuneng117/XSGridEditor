@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-08-19 13:33:23
-/// @Description: tile 根节点组件
+/// @Description: script added to TileRoot gameobject
 /// </summary>
 using UnityEngine;
 

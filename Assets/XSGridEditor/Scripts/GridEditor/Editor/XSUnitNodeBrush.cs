@@ -45,11 +45,10 @@ namespace XSSLG
             var unitEditMode = unitObj.GetComponent<XSUnitNodeEditMode>();
             unitEditMode.enabled = true;
 
-            //添加到UnitDict
+            //add to unit dict
             var ret = mgr.Add(unitObj.GetComponent<XSIUnitNode>());
             if (!ret)
             {
-                // Debug.LogError("AddXSUnit failed");
                 GameObject.DestroyImmediate(unitObj);
             }
         }

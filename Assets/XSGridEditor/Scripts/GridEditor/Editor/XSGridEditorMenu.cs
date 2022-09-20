@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-07-19 16:33:13
-/// @Description: 菜单栏功能
+/// @Description: menu bar
 /// </summary>
 using UnityEditor;
 using UnityEngine;
@@ -16,15 +16,15 @@ namespace XSSLG
             var gridNode = Component.FindObjectOfType<XSGridHelperEditMode>();
             if (gridNode != null)
             {
-                XSUEE.ShowTip("已经存在XSGridHelperEditor节点，请先删除");
+                XSUEE.ShowTip("XSGridHelperEditor is please delete it first");
                 return;
             }
 
-            // 从prefab创建引用的gameobject
+            // create from prefab
             var ret = XSResLoadMgr.LoadGameObject("Prefabs/XSGridEditor");
             if (ret == null)
             {
-                XSUEE.ShowTip("未找到Prefabs/XSGridEditor");
+                XSUEE.ShowTip("cannot find Prefabs/XSGridEditor");
                 return;
             }
 

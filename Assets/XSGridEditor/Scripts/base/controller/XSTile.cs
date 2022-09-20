@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/1/23
-/// @Description: 这是一个正方形网格寻路模块，先将网格数据全部转成XSTile，再调用寻路
+/// @Description: this is a square tile, convert all XSTileNode into XSTile, and then we can use pathfinding
 /// </summary>
 using System;
 using System.Collections.Generic;
@@ -14,10 +14,9 @@ namespace XSSLG
 {
     using TileFunc = Func<Vector3Int, bool>;
 
-    /// <summary> 用于计算的结构 </summary>
+    /// <summary> tile struct to caculate path </summary>
     public class XSTile
     {
-        /// <summary> 世界坐标 </summary>
         protected Vector3 worldPos;
         public Vector3 WorldPos
         {
@@ -32,27 +31,23 @@ namespace XSSLG
             }
         }
 
-        /// <summary> 网格坐标 </summary>
         public Vector3Int TilePos { get; } = new Vector3Int();
 
-        /// <summary> 网格消耗 </summary>
+        /// <summary> tile move cost </summary>
         public int Cost { get; }
 
-        //<summary> 可通行性 </summary>  
         public Accessibility Access { get; }
 
-        /// <summary> 对应节点 </summary>
+        /// <summary> this node in scene </summary>
         public XSITileNode Node { get; }
 
-        /// <summary> 有单位会有阻挡（敌人会阻挡去路） </summary>
+        /// <summary> the tile can walkable (the enemy will block the way) </summary>
         public TileFunc IsWalkableFunc { get; protected set; } = (tilePos) => true;
-        /// <summary> 是否可以作为终点（单位不能重合站，终点有单位）</summary>
+        /// <summary> Whether this tile can be the end of path (two units cannot in the same tile)</summary>
         public TileFunc CanBeDustFunc { get; protected set; } = (tilePos) => true;
 
-        /// <summary> 邻接的格子，在PathFinder初始化时计算 </summary>
         public List<XSTile> NearTileList { get; } = new List<XSTile>();
 
-        // public PathFinderTile(Vector3 worldPos, Vector3Int tilePos, int cost)
         public XSTile(Vector3Int tilePos, XSITileNode node)
         {
             this.TilePos = tilePos;
@@ -82,7 +77,7 @@ namespace XSSLG
             }
         }
 
-        /// <summary> 返回1个默认值 </summary>
+        /// <summary> return default value </summary>
         static public XSTile Default() => new XSTile(new Vector3Int(), null);
 
         public virtual bool PassNearRule(XSTile tile, Vector3Int direct, int tileOffYMax)

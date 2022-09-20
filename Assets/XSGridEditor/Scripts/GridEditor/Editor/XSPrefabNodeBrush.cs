@@ -1,8 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/1/15
-/// @Description: 简单的画prefab的画笔，实现以下功能
-/// 1.画完之后，把每个 tile 的 y 设置到障碍物的顶端
+/// @Description: brush to paint prefab
 /// </summary>
 /// 
 #if ENABLE_TILEMAP
@@ -20,7 +19,7 @@ namespace XSSLG
         [SerializeField]
         protected Transform newBrushParent;
         public Transform NewBrushParent { get => this.newBrushParent; protected set => this.newBrushParent = value; }
-        /// <summary> 优化下，在同一个tilepos下paint会有间隔，防止叠加过多 </summary>
+        /// <summary> optimization, there will be intervals between paints under the same tilepos to prevent excessive stacking </summary>
         protected List<Vector3Int> lastPaintPosList = new List<Vector3Int>();
 
         public override void Awake()
@@ -63,7 +62,7 @@ namespace XSSLG
             if (unitObj == null)
                 return;
 
-            //添加到UnitDict
+            //add to unit dict
             var node = unitObj.AddComponent<XSPrefabNode>();
             XSInstance.Instance.GridHelper?.SetTransToTopTerrain(unitObj.transform, true);
             var ret = mgr.Add(node);
@@ -71,19 +70,17 @@ namespace XSSLG
             {
                 if (this.IsExistTile(gridLayout, position))
                 {
-                    // 放东西了就把tile删除不能走的
+                    // if ok then remove the tile
                     XSInstance.Instance.GridHelperEditMode?.RemoveXSTile(node.WorldPos);
                 }
                 this.AddAndDelayDel(tilePos);
             }
             else
             {
-                // Debug.LogError("AddXSUnit failed");
                 GameObject.DestroyImmediate(unitObj);
             }
         }
         
-        /// <summary> 携程函数处理移动 </summary>
         async public void AddAndDelayDel(Vector3Int tilePos)
         {
             this.lastPaintPosList.Add(tilePos);

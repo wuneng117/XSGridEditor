@@ -35,10 +35,6 @@ public class XSAssetPostprocessor :AssetPostprocessor
 
     static bool HasLayer(string layer) => LayerMask.NameToLayer(layer) != -1;
 
-    /// <summary>
-    /// 添加layer
-    /// </summary>
-    /// <param name="layer"></param>
     private static void AddLayer(string layer)
     {
         SerializedObject tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);

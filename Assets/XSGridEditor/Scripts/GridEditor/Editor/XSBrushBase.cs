@@ -1,8 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/1/15
-/// @Description: 简单的画prefab的画笔，实现以下功能
-/// 1.画完之后，把每个 tile 的 y 设置到障碍物的顶端
+/// @Description: brush base class
 /// </summary>
 /// 
 #if ENABLE_TILEMAP
@@ -53,9 +52,6 @@ namespace XSSLG
             if (obj == null)
                 return null;
 
-            // if (this.BrushParent == null)
-            //     return null;
-
             GameObject tileObj;
             if (PrefabUtility.IsPartOfPrefabAsset(obj))
                 tileObj = (GameObject)PrefabUtility.InstantiatePrefab(obj, this.BrushParent) as GameObject;
@@ -100,23 +96,23 @@ namespace XSSLG
 
     public class XSBrushBaseEditor<T, TCOMP> : GridBrushEditorBase where T : XSBrushBase
     {
-        /// <summary> 操作对象 </summary>
+        /// <summary> target cache </summary>
         protected T Instance { set; get; }
 
-        /// <summary> 可以用的笔刷list </summary>
+        /// <summary> List of available prefab </summary>
         protected List<GameObject> BrushObjList { get; set; } = new List<GameObject>();
 
-        /// <summary> 当前选中的笔刷Index </summary>
+        /// <summary> Currently selected prefab Index </summary>
         protected int selGridInt = 0;
 
         protected string tempObjPath = "";
 
-        /// <summary> 笔刷预览大小 </summary>
+        /// <summary> prefab preview size </summary>
         protected static Vector2Int UNIT_SIZE = new Vector2Int(60, 60);
 
         public override bool canChangeZPosition { get => false; }
 
-        /// <summary> 各自预览开始的位置Y </summary>
+        /// <summary> Y where the respective preview starts </summary>
         protected int gridOffY;
 
         public virtual void Awake()

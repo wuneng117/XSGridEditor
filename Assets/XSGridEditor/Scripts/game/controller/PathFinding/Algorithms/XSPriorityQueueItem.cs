@@ -6,17 +6,15 @@ namespace XSSLG
     {
         public T Item { get; private set; }
 
-        /// <summary> 优先级 </summary>
         public int Priority { get; private set; }
 
-        /// <summary> 构造函数 </summary>
+        /// <summary> Constructor </summary>
         public XSPriorityQueueItem(T item, int priority)
         {
             (this.Item, this.Priority) = (item, priority);
         }
     }
 
-    /// <summary> 优先级队列 </summary>
     class PriorityQueue<T>
     {
         protected List<XSPriorityQueueItem<T>> list = new List<XSPriorityQueueItem<T>>();

@@ -8,7 +8,7 @@ public class XSUG : XSUnityUtils
 
 
     /// <summary>
-    /// 返回场景中的第一个Camera，名字为SceneCamera是系统的（暂时不清楚什么用），不是场景中的一般camera
+    /// Returns the first Camera in the scene, the name is SceneCamera is the system (it is not clear what it is used for), not the general camera in the scene
     /// </summary>
     /// <returns></returns>
     public static Camera GetMainCamera()
@@ -25,11 +25,11 @@ public class XSUG : XSUnityUtils
     }
 
     /// <summary>
-    /// 获取鼠标所指向的对象
+    /// Get the object the mouse is pointing at
     /// </summary>
-    /// <param name="screenPos">屏幕坐标</param>
-    /// <param name="layerName">鼠标射线和哪个layer相交，一般和terrian的layer相交</param>
-    /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
+    /// <param name="screenPos"></param>
+    /// <param name="layerName">Which layer the mouse ray intersects with</param>
+    /// <param name="camera">The main view camera, if this parameter is not passed in, it will be set to the first found Camera component in the scene</param>
     /// <returns></returns>
     protected static RaycastHit GetMouseHit(Vector2 screenPos, string layerName, Camera camera)
     {
@@ -58,9 +58,9 @@ public class XSUG : XSUnityUtils
     public static RaycastHit GetMouseHit(Vector2 screenPos) => XSUG.GetMouseHit(screenPos, "");
 
     /// <summary>
-    /// 获取鼠标所指向的 tile
+    /// Get the tile the mouse is pointing at
     /// </summary>
-    /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
+    /// <param name="camera">The main view camera, if this parameter is not passed in, it will be set to the first found Camera component in the scene</param>
     /// <returns></returns>
     public static XSTile GetMouseTargetTile(Camera camera)
     {
@@ -79,9 +79,9 @@ public class XSUG : XSUnityUtils
     public static XSTile GetMouseTargetTile() => XSUG.GetMouseTargetTile(XSUG.GetMainCamera());
 
     /// <summary>
-    /// 获取鼠标所指向的 unit
+    /// Get the unit the mouse is pointing at
     /// </summary>
-    /// <param name="camera">主视角相机，如果不传入这个参数，则会设置为场景中第一个找到的Camera组件</param>
+    /// <param name="camera">The main view camera, if this parameter is not passed in, it will be set to the first found Camera component in the scene</param>
     /// <returns></returns>
     public static XSIUnitNode GetMouseTargetUnit(Camera camera)
     {

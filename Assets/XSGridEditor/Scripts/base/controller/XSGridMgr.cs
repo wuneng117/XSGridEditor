@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2021/5/4
-/// @Description: tile 管理类，负责tile 坐标转化，数据等功能
+/// @Description: tile management class, responsible for tile coordinate transformation, data and other functions
 /// </summary>
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +15,13 @@ namespace XSSLG
 {
     using TileDict = Dictionary<Vector3Int, XSTile>;
 
-    /// <summary> tile 管理类，负责tile 坐标转化，数据等功能 </summary>
+    /// <summary>tile management class, responsible for tile coordinate transformation, data and other functions </summary>
     public class XSGridMgr : XSIGridMgr
     {
-        /// <summary> 四边形地图链接格子就是这4个位置偏移 </summary>
+        /// <summary> 4 near tile to each tile for squre map </summary>
         protected static readonly Vector3Int[] NearPosArray = { Vector3Int.left, Vector3Int.back, Vector3Int.right, Vector3Int.forward, };
 
-        /// <summary> 以tilepos为key存储所有tile。 </summary>
+        /// <summary> key is tilepos, value is tile </summary>
         protected TileDict TileDict { get; set; } = new TileDict();
 
         public virtual List<XSTile> GetAllTiles() => this.TileDict.Values.ToList();
@@ -32,24 +32,24 @@ namespace XSSLG
            this.TileRoot.ClearAllTiles();
         }
 
-        /// <summary> 提供坐标系用于tilepos和worldpos的转换，如此一来我们就可以移动这个节点来调整tile整体的位置</summary>
+        /// <summary> tile`s parent，we can change this gameobject position to move all tile`s position </summary>
         protected XSITileRoot TileRoot { get; }
 
-        /// <summary> tile 大小，用来计算 tilePos </summary>
+        /// <summary> used to calculate tilePos </summary>
         protected Vector3 TileSize { set; get; } = Vector3.zero;
 
         public XSGridMgr(XSITileRoot tileRoot, Vector3 cellSize)
         {
             this.TileRoot = tileRoot;
 
-            // y和z换一下是因为Grid组件里y表示横坐标，z表示高度，而我们的tile为了和3d空间一直，里y表示高度，z表示横坐标
+            // reverse y and z, because the Grid component is different from the 3d space
             this.TileSize = new Vector3(cellSize.x, cellSize.z, cellSize.y);
         }
 
         public virtual void Init(XSGridHelper helper)
         {
             this.CreateXSTileDict(helper);
-            // 为每个PathFinderTile计算它的链接格子
+            // calculate near tile for each tile
             foreach (var pair in this.TileDict)
             {
                 foreach (var pos in NearPosArray)
@@ -109,12 +109,12 @@ namespace XSSLG
                 return;
             }
 
-            // 遍历Tile
+            // traverse tile
             tileDataList.ForEach(tileData => this.AddXSTile(tileData));
         }
 
         /// <summary>
-        /// 添加XSTile到字典中
+        /// add tile to dict
         /// </summary>
         /// <param name="tileNode"></param>
         /// <returns></returns>
@@ -126,7 +126,7 @@ namespace XSSLG
                 this.RemoveXSTile(tileNode.WorldPos);
             }
             
-            // 用预算摄像机范围
+            // setting the camera range
             if (!XSUnityUtils.IsEditor())
             {
                 tileNode.AddBoxCollider(this.TileSize);
@@ -138,9 +138,9 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 从字典中删除XSTile
+        /// remove tile from dict
         /// </summary>
-        /// <param name="worldPos">tila世界坐标</param>
+        /// <param name="worldPos">tila's world position</param>
         /// <returns></returns>
         public virtual bool RemoveXSTile(Vector3 worldPos)
         {
@@ -152,7 +152,7 @@ namespace XSSLG
             }
             else
             {
-                Debug.Log("GridMgr.RemoveXSTile: 这个位置上不存在tile，tilePos：" + tilePos);
+                Debug.Log("GridMgr.RemoveXSTile: the tile is not exist, tilePos：" + tilePos);
                 return false;
             }
         }
@@ -205,11 +205,11 @@ namespace XSSLG
 
 
         /// <summary>
-        /// 返回所有的路径
+        /// get all paths
         /// </summary>
-        /// <param name="srcTile">起点tile</param>
-        /// <param name="moveRange">移动范围，默认-1和小于0都表示不限制移动范围</param>
+        /// <param name="srcTile">beginning tile</param>
+        /// <param name="moveRange"> -1 or less than 0 means no limit to move range </param>
         /// <returns></returns>
-        public virtual Dictionary<Vector3, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange) => XSPathFinder.FindAllPath(this.TileDict, srcTile, moveRange);
+        public virtual Dictionary<Vector3, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange) => XSPathFinder.FindAllPath(srcTile, moveRange);
     }
 }

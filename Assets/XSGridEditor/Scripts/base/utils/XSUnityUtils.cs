@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/2/2
-/// @Description: 常用的 unity 方法 
+/// @Description: Common unity methods
 /// </summary>
 using System;
 using UnityEditor;
@@ -9,19 +9,19 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    /// <summary> 常用的 unity 方法 </summary>
+    /// <summary> Common unity methods </summary>
     public class XSUnityUtils
     {
         protected XSUnityUtils() {}
 
 
-        /// <summary> 是否是 unity 编辑器模式下 </summary>
+        /// <summary> is it in unity editor mode</summary>
         public static bool IsEditor() => Application.isEditor && !Application.isPlaying;
 
         /// <summary>
-        /// 操作所有子节点
+        /// action all chilren
         /// </summary>
-        /// <param name="obj">父节点</param>
+        /// <param name="obj">parent gameobject</param>
         public static void ActionChildren(GameObject obj, Action<GameObject> action)
         {
             if (obj == null)
@@ -37,9 +37,9 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 删除所有子节点
+        /// remove all children
         /// </summary>
-        /// <param name="obj">父节点</param>
+        /// <param name="obj">parent gameobject</param>
         public static void RemoveChildren(GameObject obj)
         {
             if (XSUnityUtils.IsEditor())

@@ -10,24 +10,24 @@ namespace XSSLG
         bool Remove(Vector3 worldPos);
     }
 
-    /// <summary>  </summary>
     public interface XSINode
     {
         Vector3 WorldPos { get; set; }
         void RemoveNode();
-        /// <summary> 不能直接用==取判断null，因为unity里的Object重载了==， 但是转成XSIBrushItem类取判断的时候是不会用重载了的==</summary>
+        /// <summary> 
+        /// You cannot  use "==" to check gameobject is null, because the gameobject in Unity is override "==", 
+        /// but when the gameobject is converted to the XSITileRoot, it will not use the override "==" 
+        /// </summary>
         bool IsNull();
     }
 
 
-
-    /// <summary>  </summary>
     public class XSNodeMgr<T> : XSINodeMgr<T> where T : class, XSINode
     {
-        /************************* 变量 begin ***********************/
+        /************************* variable begin ***********************/
         public Dictionary<Vector3Int, T> Dict { get; private set; } = new Dictionary<Vector3Int, T>();
 
-        /************************* 变量  end  ***********************/
+        /************************* variable  end  ***********************/
 
         public virtual void CreateDict(List<T> nodeList)
         {
@@ -36,12 +36,12 @@ namespace XSSLG
                 return;
             }
 
-            // 遍历
+            // traverse
             nodeList.ForEach(node => this.Add(node));
         }
 
         /// <summary>
-        /// 添加到字典中
+        /// added to dict
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>

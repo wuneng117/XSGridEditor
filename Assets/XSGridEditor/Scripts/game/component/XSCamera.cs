@@ -1,7 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2021/9/23
-/// @Description: 摄像机移动脚本
+/// @Description: camera movement script
 /// </summary>
 using UnityEngine;
 using Cinemachine;
@@ -10,52 +10,48 @@ using UnityEngine.InputSystem;
 namespace XSSLG
 {
     // <summary>
-    /// 摄像机移动脚本
-    /// 如果要限制移动范围，创建1个BoxCollider，并赋值给 CinemachineConfiner 的 Bounding Volume，设置下高度，并：
-    /// var panObj = Component.FindObjectOfType<PanAndZoom>();
-    /// Bounds bounds = XXXX;  // 自己计算的地图大小
-    /// panObj.SetConfinerBound(bounds);
+    /// camera movement script
     /// </summary>
     [RequireComponent(typeof(CinemachineInputProvider))]
     [RequireComponent(typeof(CinemachineVirtualCamera))]
     [RequireComponent(typeof(CinemachineConfiner))]
     public class XSCamera : MonoBehaviour
     {
-        /************************* 变量 begin ***********************/
+        /************************* variable begin ***********************/
 
         [SerializeField]
-        /// <summary> 边缘移动速度 </summary>
+        /// <summary> screen move speed when mouse in the edge of screen </summary>
         protected float moveSpeed = 30f;
 
         [SerializeField]
-        /// <summary> 放大缩小速度 </summary>
+        /// <summary> camera zoom speed </summary>
         protected float zoomSpeed = 20f;
 
         [SerializeField]
-        /// <summary> 摄像机上下移动范围 </summary>
+        /// <summary> Camera up and down movement range </summary>
         protected float cameraSizeY = 20;
 
         [SerializeField]
-        ///<summary> 按键每次旋转角度 </summary>
+        ///<summary> Rotation angle of arrow key </summary>
         protected float RotationStep = 22.5f;
 
-        /// <summary> cinema输入组件 </summary>
+        /// <summary> cinemachine input script </summary>
         protected CinemachineInputProvider InputProvider { set; get; }
-        /// <summary> cinema虚拟相机组件 </summary>
+        /// <summary> cinemachine virtual camera script </summary>
         protected CinemachineVirtualCamera VirtualCamera { set; get; }
-        /// <summary> cinema虚拟相机限制范围 </summary>
+        /// <summary> cinemachine virtual camera move range </summary>
         protected CinemachineConfiner Confier { set; get; }
 
-        /// <summary> 摄像机是否可以移动 </summary>
+        /// <summary> camera can move </summary>
         public bool CanFreeMove { set; get; } = true;
 
-        /// <summary> 是否正在移动到某个位置，这个时候不能通过鼠标控制 </summary>
+        /// <summary> camera is moving, if is moving we cannot use mouse to control camera </summary>
         protected bool IsMoving { set; get; }
 
-        /// <summary> 地图大小 </summary>
+        /// <summary> tile map size </summary>
         public Bounds Bound { get; set; } = new Bounds();
 
-        /************************* 变量  end  ***********************/
+        /************************* variable  end  ***********************/
 
         public virtual void Awake()
         {
@@ -86,11 +82,6 @@ namespace XSSLG
             }
         }
 
-        /// <summary>
-        /// 移动摄像机
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
         protected virtual void MoveScreen(float x, float y)
         {
             var direction = this.MoveDirection(x, y);
@@ -98,7 +89,7 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 计算摄像机移动方向
+        /// caculate camera direction
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -124,13 +115,13 @@ namespace XSSLG
                 direction.x -= 1;
             }
 
-            // 移动方向会根据摄像机的 y 轴旋转角度而变化
+            // The direction of movement changes based on the camera's y-axis rotation angle
             direction = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0) * direction;
             return direction;
         }
 
         /// <summary>
-        /// 更新摄像机位置
+        /// update camera position
         /// </summary>
         /// <param name="direction"></param>
         protected virtual void UpdatePos(Vector3 direction)
@@ -143,7 +134,7 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 鼠标滚轮控制地图放大缩小
+        /// The mouse wheel controrl to zoom in and out
         /// </summary>
         /// <param name="increment"></param>
         protected virtual void ZoomScreen(float increment)
@@ -157,7 +148,7 @@ namespace XSSLG
             this.SetCameraPosition(targetPosition);
         }
 
-        /// <summary> 按键控摄像机旋转角度 </summary>
+        /// <summary> arrow Key control camera rotation angle </summary>
         protected virtual void UpdateCameraRotation()
         {
             var eulerAngles = this.transform.rotation.eulerAngles;
@@ -186,8 +177,6 @@ namespace XSSLG
             this.SetConfinerBound(this.Bound);
         }
 
-
-        /// <summary> 设置摄像机位置 </summary>
         protected virtual void SetCameraPosition(Vector3 targetPosition)
         {
             if (this.Confier && this.Confier.m_BoundingVolume)
@@ -214,8 +203,8 @@ namespace XSSLG
             {
                 sizeY = cameraSizeY;
             }
-            // 当 halfFov < degreeA 时，cameraSizeY 就没有用了，因为 collider.transform.position 需要移动，否则会导致在边缘时无法看到全部地图
-            // 我们保证 collider.size 还是和地图大小保持一致，然后计算 cameraSizeY ，以及 collider.transform.position 的移动
+            // When halfFov < degreeA, cameraSizeY is useless, because collider.transform.position needs to move, otherwise it will not be able to see the full map at the edge
+            // We ensure that collider.size is still the same as the tile map size, and then calculate cameraSizeY and collider.transform.position`s Move
             else
             {
                 var eulerA = degreeA - halfFov;

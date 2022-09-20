@@ -1,8 +1,7 @@
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022/1/15
-/// @Description: 简单的画prefab的画笔，实现以下功能
-/// 1.画完之后，把每个 tile 的 y 设置到障碍物的顶端
+/// @Description: brush to paint tile
 /// </summary>
 /// 
 #if ENABLE_TILEMAP
@@ -30,9 +29,6 @@ namespace XSSLG
             if (this.BrushObj?.gameObject == null)
                 return;
 
-            // if (this.IsExistTile(gridLayout, position))
-            //     return;
-
             var tileObj = this.AddGameObject(gridLayout, position, XSGridDefine.LAYER_TILE);
             if (tileObj == null)
                 return;
@@ -41,7 +37,6 @@ namespace XSSLG
             var tile = XSInstance.Instance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSITileNode>());
             if (tile == null)
             {
-                // Debug.LogError("AddXSTileNode failed");
                 GameObject.DestroyImmediate(tileObj);
             }
         }

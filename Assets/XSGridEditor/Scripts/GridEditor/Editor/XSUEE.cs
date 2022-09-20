@@ -11,7 +11,7 @@ public class XSUEE
 {
     protected XSUEE() {}
 
-    /// <summary> 弹窗提醒 </summary>
+    /// <summary> pop-up reminder </summary>
     public static void ShowTip(string desc)
     {
         var tip = ScriptableObject.CreateInstance<XSPopUpView>();
@@ -19,7 +19,6 @@ public class XSUEE
         tip.ShowPopup();
     }
 
-    /// <summary> 获取XSMain </summary>
     public static XSMain GetMain()
     {
         StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
