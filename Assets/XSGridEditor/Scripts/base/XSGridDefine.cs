@@ -26,5 +26,11 @@ namespace XSSLG
 
         public static readonly string LAYER_TILE = "Tile";
         public static readonly string LAYER_UNIT = "Unit";
+
+        public enum EquipType {
+            Weapon,
+            Armor,
+            Accessory,
+        }
     }
 }

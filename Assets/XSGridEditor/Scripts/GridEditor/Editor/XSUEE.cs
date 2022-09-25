@@ -15,7 +15,7 @@ public class XSUEE
     public static void ShowTip(string desc)
     {
         var tip = ScriptableObject.CreateInstance<XSPopUpView>();
-        tip.Init(300, 100, desc);
+        tip.Init(desc);
         tip.ShowPopup();
     }
 
