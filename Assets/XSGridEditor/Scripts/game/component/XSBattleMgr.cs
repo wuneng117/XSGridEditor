@@ -34,6 +34,8 @@ namespace XSSLG
 
         void Start()
         {
+            // EnumGenerator.AddEnumValue(typeof(XSGridDefine.EquipType), "bag");
+
             if (XSUnityUtils.IsEditor())
             {
                 this.enabled = false;
