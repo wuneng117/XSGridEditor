@@ -8,43 +8,41 @@ namespace XSSLG
     /// <summary>  </summary>
     public class EnumGenerator
     {
-        static public List<FieldInfo> GetEnumList(Type type)
-        { 
-            var fieldList = new List<FieldInfo>(type.GetFields(BindingFlags.Static | BindingFlags.Public));
-            return fieldList;
-        }
-
         static public void AddEnumValue(Type type, string addEnum)
         { 
-            string str = "public enum ";
-            str = str + type.Name + " {";
-            var fieldList = GetEnumList(type);
-
-            var maxValue = fieldList.Max(x => (int)x.GetValue(null));
-            // fieldList.Add(new FieldInfo() { Name = addEnum, Value = maxValue + 1 });
-            
-            fieldList.ForEach(fi => 
-            {
-                var value = fi.GetValue(null);
-                str = str + fi.Name + " = " + value + ",\n";
-            });
-            str = str + "}";
+            // var action = (Dict<string, int> nameValueDict) =>
+            // {
+            //     var maxValue = nameValueDict.Max((key, value) => value);
+            //     nameValueDict.Add(addEnum, maxValue + 1);
+            // };
+            // var str = GetEnumString(type, action);
         }
 
         static public void ReduceEnumValue(Type type, string reduceEnum)
         { 
-            string str = "public enum ";
-            str = str + type.Name + " {";
-            var fieldList = GetEnumList(type);
-
-            // fieldList = fieldList.Where(x => x.Name != reduceEnum);
-
-            fieldList.ForEach(fi => 
-            {
-                var value = fi.GetValue(null);
-                str = str + fi.Name + " = " + value + ",\n";
-            });
-            str = str + "}";
+            // var fieldList = GetFieldList(type);
+            // var action = (Dict<string, int> nameValueDict) => nameValueDict.RemoveAt(reduceEnum);
+            // var str = GetEnumString(type, action);
         }
+
+        // static public Dict<string, int> GetNameValueDict(Type type)
+        // { 
+        //     var fieldList = new List<FieldInfo>(type.GetFields(BindingFlags.Static | BindingFlags.Public));
+        //     var ret = filedList.ToDict(x => x.Name, x => (int)x.GetValue(null));
+        //     return ret;
+        // }
+
+        // static private string GetEnumString(Type type, Action<Dict<string, int>> action)
+        // { 
+        //     string str = "public enum ";
+        //     str = str + type.Name + " {";
+
+        //     var fieldList = GetNameValueDict(type);
+        //     action(filedList);
+
+        //     fieldList.ForEach((key, value) => str = str + key + " = " + value + ",\n");
+        //     str = str + "}";
+        //     return str;
+        // }
     }
 }
