@@ -8,7 +8,7 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> read only var </summary>
-    public class XSGridDefine
+    public partial class XSGridDefine
     {
         protected XSGridDefine() {}
 
@@ -27,10 +27,6 @@ namespace XSSLG
         public static readonly string LAYER_TILE = "Tile";
         public static readonly string LAYER_UNIT = "Unit";
 
-        public enum EquipType {
-            Weapon,
-            Armor,
-            Accessory,
-        }
+        public static readonly string XSENUM_FILE_PATH = "Assets/XSGridEditor/Scripts/base/type/XSEnum.cs";
     }
 }

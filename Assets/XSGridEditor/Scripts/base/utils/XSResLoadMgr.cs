@@ -1,3 +1,5 @@
+using System.IO;
+using System.Text;
 using UnityEngine;
 
 namespace XSSLG
@@ -23,5 +25,20 @@ namespace XSSLG
             var obj = Object.Instantiate(prefab);
             return obj;
         }
+
+        /************************* 编辑器用 根目录是项目文件夹 begin ***********************/
+        public static void SaveFileToPath(string str, string savePath)
+        {
+            var dir = Path.GetDirectoryName(savePath);
+            if (dir != "")
+            {
+                Directory.CreateDirectory(dir);
+            }
+            FileStream fs = File.Create(savePath);
+            byte[] info = new UTF8Encoding(true).GetBytes(str);
+            fs.Write(info, 0, info.Length);
+            fs.Close();
+        }
+    /************************* 编辑器用 根目录是项目文件夹  end  ***********************/
     }
 }
