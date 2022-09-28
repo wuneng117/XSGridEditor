@@ -11,18 +11,7 @@ public class XSUG : XSUnityUtils
     /// Returns the first Camera in the scene, the name is SceneCamera is the system (it is not clear what it is used for), not the general camera in the scene
     /// </summary>
     /// <returns></returns>
-    public static Camera GetMainCamera()
-    {
-        var cameras = Resources.FindObjectsOfTypeAll<Camera>();
-        foreach (var camera in cameras)
-        {
-            if (camera.name != "SceneCamera")
-            {
-                return camera;
-            }
-        }
-        return null;
-    }
+    public static Camera GetMainCamera() => Camera.main;
 
     /// <summary>
     /// Get the object the mouse is pointing at
