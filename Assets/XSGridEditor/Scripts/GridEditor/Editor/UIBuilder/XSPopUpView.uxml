@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="align-items: center; flex-grow: 1; justify-content: flex-start; overflow: visible; display: flex; visibility: visible; opacity: 1;">
+        <ui:Label text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" display-tooltip-when-elided="true" name="desc" style="flex-grow: 1; max-width: none; width: initial; align-items: flex-start; -unity-text-align: middle-left; white-space: normal;" />
+    </ui:VisualElement>
+    <ui:VisualElement style="align-items: center; margin-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+        <ui:Button text="OK" display-tooltip-when-elided="true" name="btn" style="width: 100px; align-items: center; justify-content: flex-start; flex-wrap: nowrap; position: relative; white-space: nowrap; -unity-text-align: middle-center; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+    </ui:VisualElement>
+</ui:UXML>
