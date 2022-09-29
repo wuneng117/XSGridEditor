@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['gameobject_5ftile_5fcost_5froot_49',['GAMEOBJECT_TILE_COST_ROOT',['../classXSSLG_1_1XSGridDefine.html#addfd4ce2a73a4237a993d65aa085522d',1,'XSSLG::XSGridDefine']]],
+  ['gameobject_5ftile_5fpos_5froot_50',['GAMEOBJECT_TILE_POS_ROOT',['../classXSSLG_1_1XSGridDefine.html#a619d0ba9fb9466780a258c2c3cade54b',1,'XSSLG::XSGridDefine']]],
+  ['getalltiles_51',['GetAllTiles',['../classXSSLG_1_1XSGridMgr.html#a1719d6637cef4fcd9208e86434036ceb',1,'XSSLG.XSGridMgr.GetAllTiles()'],['../interfaceXSSLG_1_1XSIGridMgr.html#ae02657a0cfffe7c2a58b7f027a9e9325',1,'XSSLG.XSIGridMgr.GetAllTiles()']]],
+  ['getbounds_52',['GetBounds',['../classXSSLG_1_1XSGridHelper.html#a482878ca9fd0423c3be24557c0d32d76',1,'XSSLG::XSGridHelper']]],
+  ['getenumstring_53',['GetEnumString',['../classXSSLG_1_1EnumGenerator.html#a17fdebdcaf3eb4f1a1f4968019ce8d44',1,'XSSLG::EnumGenerator']]],
+  ['getmain_54',['GetMain',['../classXSUEE.html#a0a9fcc27b21971c0acea18d5eca195ae',1,'XSUEE']]],
+  ['getmaincamera_55',['GetMainCamera',['../classXSUG.html#a6af8d44f13df19cfb6552fd22bfa248a',1,'XSUG']]],
+  ['getmaxbounds_56',['GetMaxBounds',['../classXSSLG_1_1XSUnitNode.html#a303bb299fa7cf78460368fde39e4e579',1,'XSSLG::XSUnitNode']]],
+  ['getmousehit_57',['GetMouseHit',['../classXSUG.html#ab6552da7b98d77fce8b817ee61de98dc',1,'XSUG.GetMouseHit(Vector2 screenPos, string layerName, Camera camera)'],['../classXSUG.html#a1b57c1867502350fa8e7e889aef8ed6f',1,'XSUG.GetMouseHit(Vector2 screenPos, string layerName)'],['../classXSUG.html#acbce6bc20cf85271d158f24199e56492',1,'XSUG.GetMouseHit(Vector2 screenPos)']]],
+  ['getmousetargettile_58',['GetMouseTargetTile',['../classXSUG.html#a3ffc9f5873ec4f3d7aed66618be06828',1,'XSUG.GetMouseTargetTile(Camera camera)'],['../classXSUG.html#ad8bf9f1623995d6cb5890b5e3299d204',1,'XSUG.GetMouseTargetTile()']]],
+  ['getmousetargetunit_59',['GetMouseTargetUnit',['../classXSUG.html#aa9f027a93e2171a7059ad238fb8ce2b5',1,'XSUG.GetMouseTargetUnit(Camera camera)'],['../classXSUG.html#a5f943d5b794f5d301dde0942a40e4d9c',1,'XSUG.GetMouseTargetUnit()']]],
+  ['getmoveregion_60',['GetMoveRegion',['../classXSSLG_1_1XSUnitNode.html#a426a79f4e8d391e8d7eb75555bd1c2fc',1,'XSSLG.XSUnitNode.GetMoveRegion()'],['../interfaceXSSLG_1_1XSIUnitNode.html#a4dca717733311cf5213b98b4b0111366',1,'XSSLG.XSIUnitNode.GetMoveRegion()']]],
+  ['getnamevaluedict_61',['GetNameValueDict',['../classXSSLG_1_1EnumGenerator.html#aebf3b58dc5ed603ccc80fd62f44a2b33',1,'XSSLG::EnumGenerator']]],
+  ['getorcreatelist_62',['GetOrCreateList',['../classXSSLG_1_1XSPrefabNodeMgr.html#ac22b6d59ce92017b50f224ef4a10e2d8',1,'XSSLG.XSPrefabNodeMgr.GetOrCreateList(Vector3 worldPos)'],['../classXSSLG_1_1XSPrefabNodeMgr.html#a60dc6138f9a5216406d6506c8c1bcb39',1,'XSSLG.XSPrefabNodeMgr.GetOrCreateList(Vector3 worldPos, out Vector3Int tilePos)']]],
+  ['gettile_63',['GetTile',['../classXSSLG_1_1XSNodeMgr.html#a1b4051f60a8a0c5e7df2c89d9a638338',1,'XSSLG.XSNodeMgr.GetTile(Vector3 worldPos, out Vector3Int tilePos)'],['../classXSSLG_1_1XSNodeMgr.html#ad731cf3199ed681625a1fe19dad95b11',1,'XSSLG.XSNodeMgr.GetTile(Vector3 worldPos, out Vector3Int tilePos, out T node)']]],
+  ['gettilenodelist_64',['GetTileNodeList',['../classXSSLG_1_1XSGridHelper.html#a3762263f5233bbe10d9ad762c4dea9cb',1,'XSSLG::XSGridHelper']]],
+  ['gettileroot_65',['GetTileRoot',['../classXSSLG_1_1XSGridHelperEditMode.html#a1c1ee96923430d8fb19c432ed9ad03df',1,'XSSLG::XSGridHelperEditMode']]],
+  ['getunitdatalist_66',['GetUnitDataList',['../classXSSLG_1_1XSGridHelper.html#ac6745291dfcd0027f10b754ed00ec847',1,'XSSLG::XSGridHelper']]],
+  ['getunitroot_67',['GetUnitRoot',['../classXSSLG_1_1XSGridHelperEditMode.html#a8c40d361fe66ae6f463ee1f3f48bc2cb',1,'XSSLG::XSGridHelperEditMode']]],
+  ['getxstile_68',['GetXSTile',['../classXSSLG_1_1XSGridMgr.html#acd0d6be56630a8ea7bbbc034b875eb55',1,'XSSLG.XSGridMgr.GetXSTile(Vector3 worldPos)'],['../classXSSLG_1_1XSGridMgr.html#a7e832aa556faec89e6779454bb6bc7a9',1,'XSSLG.XSGridMgr.GetXSTile(Vector3 worldPos, out XSTile tile)'],['../classXSSLG_1_1XSGridMgr.html#a29c95ae45e26bc7c5fe058e0aff330e9',1,'XSSLG.XSGridMgr.GetXSTile(Vector3 worldPos, out XSTile tile, out Vector3Int tilePos)'],['../classXSSLG_1_1XSGridMgr.html#a5146b0b422449c1c900d551932780045',1,'XSSLG.XSGridMgr.GetXSTile(Vector3Int tilePos, out XSTile tile)'],['../interfaceXSSLG_1_1XSIGridMgr.html#a506279aa0b1c25c9b4d02aedc436a608',1,'XSSLG.XSIGridMgr.GetXSTile(Vector3 worldPos)'],['../interfaceXSSLG_1_1XSIGridMgr.html#af57b10819056c383fe3189cee697c881',1,'XSSLG.XSIGridMgr.GetXSTile(Vector3 worldPos, out XSTile tile)'],['../interfaceXSSLG_1_1XSIGridMgr.html#ad30bc186b08e4ea5b115bcf9b1900de0',1,'XSSLG.XSIGridMgr.GetXSTile(Vector3 worldPos, out XSTile tile, out Vector3Int tilePos)']]],
+  ['grid_69',['Grid',['../classXSSLG_1_1XSGridHelperEditMode.html#ab86e705782432d9c9ef6eaa541255b36',1,'XSSLG::XSGridHelperEditMode']]],
+  ['gridhelper_70',['GridHelper',['../classXSSLG_1_1XSInstance.html#ad40b27f4cc5222f865be53ab8d0c796a',1,'XSSLG::XSInstance']]],
+  ['gridhelpereditmode_71',['gridHelperEditMode',['../classXSSLG_1_1XSInstance.html#a76d947de75a031698be76d314dc00890',1,'XSSLG.XSInstance.gridHelperEditMode()'],['../classXSSLG_1_1XSInstance.html#a8c0ae55dea52a8fc2b511281a7e69982',1,'XSSLG.XSInstance.GridHelperEditMode()']]],
+  ['gridmgr_72',['GridMgr',['../classXSSLG_1_1XSInstance.html#adaaf4e869350566fa4e17133a82ea232',1,'XSSLG.XSInstance.GridMgr()'],['../classXSSLG_1_1XSBattleMgr.html#a832de73a4d6e260982e33f5348cbc3e7',1,'XSSLG.XSBattleMgr.GridMgr()']]],
+  ['gridshowmgr_73',['GridShowMgr',['../classXSSLG_1_1XSBattleMgr.html#ab37a96e029847075013025aa19b306ad',1,'XSSLG::XSBattleMgr']]]
+];
