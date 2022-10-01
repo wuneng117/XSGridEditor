@@ -84,7 +84,7 @@ namespace XSSLG
         async public void AddAndDelayDel(Vector3Int tilePos)
         {
             this.lastPaintPosList.Add(tilePos);
-            await Task.Delay(1000);
+            await Task.Delay(250);
             this.lastPaintPosList.Remove(tilePos);
         }
 
