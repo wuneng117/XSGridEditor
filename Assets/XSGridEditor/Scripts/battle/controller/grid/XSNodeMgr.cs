@@ -81,7 +81,7 @@ namespace XSSLG
 
         internal virtual bool GetTile(Vector3 worldPos, out Vector3Int tilePos, out T node)
         {
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             tilePos = gridMgr.WorldToTile(worldPos);
             if (this.Dict.TryGetValue(tilePos, out node))
             {

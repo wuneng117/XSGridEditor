@@ -11,6 +11,12 @@ public class XSUEE
 {
     protected XSUEE() {}
 
+    public static XSPrefabNodeMgr PrefabNodeMgr { get => XSUEE.GetGridMainEditMode().PrefabNodeMgr; }
+
+    public static XSUnitMgrEditMode UnitMgrEditMode { get => XSUEE.GetGridMainEditMode().UnitMgrEditMode; }
+
+    public static XSGridHelperEditMode GridHelperEditMode { get => XSUEE.GetGridMainEditMode().GridHelperEditMode; }
+
     /// <summary> pop-up reminder </summary>
     public static void ShowTip(string desc)
     {
@@ -19,9 +25,9 @@ public class XSUEE
         tip.ShowPopup();
     }
 
-    public static XSMainEditMode GetMainEditMode()
+    protected static XSGridMainEditMode GetGridMainEditMode()
     {
         StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-        return currentStageHandle.FindComponentOfType<XSMainEditMode>();
+        return currentStageHandle.FindComponentOfType<XSGridMainEditMode>();
     }
 }

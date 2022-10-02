@@ -97,8 +97,8 @@ namespace XSSLG
         /// <summary> 获取所有单位 {unit的tile坐标，unit} 字典 </summary>
         public Dictionary<XSTile, Unit> GetTileUnitDict()
         {
-            var ret = this.UnitList.Where(unit => XSInstance.GridMgr.HasXSTileByWorldPos(unit.GetPosition()))
-                                   .ToDictionary(unit => XSInstance.GridMgr.GetXSTileByWorldPos(unit.GetPosition()));
+            var ret = this.UnitList.Where(unit => XSU.GridMgr.HasXSTileByWorldPos(unit.GetPosition()))
+                                   .ToDictionary(unit => XSU.GridMgr.GetXSTileByWorldPos(unit.GetPosition()));
             return ret;
         }
 
@@ -117,7 +117,7 @@ namespace XSSLG
         /// <param name="worldPos">世界坐标</param>
         public Unit GetUnitByWorldPosition(Vector3 worldPos)
         {
-            var tile = XSInstance.GridMgr.GetXSTileByWorldPos(worldPos);
+            var tile = XSU.GridMgr.GetXSTileByWorldPos(worldPos);
             return this.GetUnitByTile(tile);
         }
 
@@ -127,7 +127,7 @@ namespace XSSLG
         /// <param name="cellPos">网格坐标</param>
         public Unit GetUnitByCellPosition(Vector3Int cellPos)
         {
-            if (XSInstance.GridMgr.TryGetXSTile(cellPos, out var tile))
+            if (XSU.GridMgr.TryGetXSTile(cellPos, out var tile))
             {
                 return this.GetUnitByTile(tile);
             }

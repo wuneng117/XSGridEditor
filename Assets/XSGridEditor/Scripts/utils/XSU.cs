@@ -17,6 +17,12 @@ namespace XSSLG
         /// <summary> is it in unity editor mode</summary>
         public static bool IsEditor() => Application.isEditor && !Application.isPlaying;
 
+        public static XSIGridMgr GridMgr { get => XSU.GetGridMain().GridMgr; }
+
+        public static XSGridHelper GridHelper { get => XSU.GetGridMain().GridHelper; }
+        
+        protected static XSGridMain GetGridMain() => Component.FindObjectOfType<XSGridMain>();
+
         /// <summary>
         /// 清除标记
         /// </summary>
@@ -41,7 +47,7 @@ namespace XSSLG
         /// <param name="x">存所有标记的值</param>
         /// <param name="flag">要判断的标记</param>
         public static bool GetFlag(ref int x, int flag) => (x & flag) != 0;
-        
+
         /// <summary>
         /// 从 src 到 dest 坐标的旋转
         /// </summary>
@@ -70,7 +76,7 @@ namespace XSSLG
             var screenPos = camera.WorldToScreenPoint(worldPos);
             return screenPos;
         }
-        
+
         /// <summary>
         /// Returns the first Camera in the scene, the name is SceneCamera is the system (it is not clear what it is used for), not the general camera in the scene
         /// </summary>

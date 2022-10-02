@@ -21,7 +21,7 @@ namespace XSSLG
         // Start is called before the first frame update
         void Start()
         {
-            this.GridMgr = XSInstance.GridMgr;
+            this.GridMgr = XSU.GridMgr;
         }
 
         // Update is called once per frame

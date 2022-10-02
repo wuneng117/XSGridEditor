@@ -33,7 +33,7 @@ namespace XSSLG
                 return false;
 
             // 如果是原地就直接返回true
-            if (path.Count == 1 && path[0] == XSInstance.GridMgr.WorldToTile(this.GetPosition()))
+            if (path.Count == 1 && path[0] == XSU.GridMgr.WorldToTile(this.GetPosition()))
                 return true;
 
             this.Node.WalkTo(path);

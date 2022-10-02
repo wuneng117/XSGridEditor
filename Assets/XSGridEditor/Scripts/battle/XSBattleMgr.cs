@@ -33,7 +33,7 @@
 //             }
 //             else
 //             {
-//                 var gridHelper = XSInstance.GridHelper;
+//                 var gridHelper = XSU.GridHelper;
 //                 if (gridHelper)
 //                 {
 //                     this.xsCamera.SetConfinerBound(gridHelper.GetBounds());

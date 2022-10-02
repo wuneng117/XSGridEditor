@@ -48,7 +48,7 @@ namespace XSSLG
             if (mgr == null)
                 return;
 
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
             worldPos = gridMgr.WorldToTileCenterWorld(worldPos);
             var tilePos = gridMgr.WorldToTile(worldPos);
@@ -64,14 +64,14 @@ namespace XSSLG
 
             //add to unit dict
             var node = unitObj.AddComponent<XSPrefabNode>();
-            XSInstance.GridHelper?.SetTransToTopTerrain(unitObj.transform, true);
+            XSU.GridHelper?.SetTransToTopTerrain(unitObj.transform, true);
             var ret = mgr.Add(node);
             if (ret)
             {
                 if (this.IsExistTile(gridLayout, position))
                 {
                     // if ok then remove the tile
-                    XSInstance.GridHelperEditMode?.RemoveXSTileByWorldPos(node.WorldPos);
+                    XSUEE.GridHelperEditMode?.RemoveXSTileByWorldPos(node.WorldPos);
                 }
                 this.AddAndDelayDel(tilePos);
             }
@@ -88,7 +88,7 @@ namespace XSSLG
             this.lastPaintPosList.Remove(tilePos);
         }
 
-        protected override XSINodeMgr<XSPrefabNode> GetMgr() => XSUEE.GetMainEditMode()?.PrefabNodeMgr;
+        protected override XSINodeMgr<XSPrefabNode> GetMgr() => XSUEE.PrefabNodeMgr;
     }
 
     [CustomEditor(typeof(XSPrefabNodeBrush))]

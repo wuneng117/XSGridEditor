@@ -77,7 +77,7 @@ namespace XSSLG
 
         internal virtual List<XSPrefabNode> GetOrCreateList(Vector3 worldPos, out Vector3Int tilePos)
         {
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             tilePos = gridMgr.WorldToTile(worldPos);
             if(!this.Dict.TryGetValue(tilePos, out var list))
             {

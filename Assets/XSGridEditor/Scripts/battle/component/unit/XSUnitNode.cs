@@ -94,7 +94,7 @@ namespace XSSLG
         /// <returns></returns>
         public virtual List<Vector3> GetMoveRegion()
         {
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             var srcTile = gridMgr.GetXSTileByWorldPos(this.transform.position);
             // first cache
             this.CachedPaths = gridMgr.FindAllPath(srcTile, this.Move);
@@ -114,7 +114,7 @@ namespace XSSLG
 
         public virtual void UpdatePos()
         {
-            XSInstance.GridHelper.SetTransToTopTerrain(this.transform, true);
+            XSU.GridHelper.SetTransToTopTerrain(this.transform, true);
         }
 
         public void RotateTo(XSTile tile) => this.transform.localRotation = XSU.RotationTo(this.transform.position, tile.WorldPos);

@@ -49,7 +49,7 @@ namespace XSSLG
         public override void OnMouseUpRight<T>(T logic, XSTile mouseTile)
         {
             base.OnMouseUpRight(logic, mouseTile);
-            // var ui = XSInstance.UIMgr.CloseUI();
+            // var ui = XSUG.GridHelper.CloseUI();
             // if (ui == null || ui == XSUG.GetBattleNode().unitMenu.gameObject)
             //     logic.Change(new )
         }

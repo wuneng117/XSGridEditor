@@ -65,7 +65,7 @@ namespace XSSLG
                     {
                         var cell = cellPos + new Vector3Int(x, y, 0);
                         // 确实有这个格子再加
-                        if (XSInstance.GridMgr.TryGetXSTile(cell, out var tile))
+                        if (XSU.GridMgr.TryGetXSTile(cell, out var tile))
                             ret.Add(tile);
                     }
             return ret;

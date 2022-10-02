@@ -53,7 +53,7 @@ namespace XSSLG
             }
         }
 
-        protected override XSINodeMgr<XSIUnitNode> GetMgr() => XSUEE.GetMainEditMode()?.UnitMgrEditMode;
+        protected override XSINodeMgr<XSIUnitNode> GetMgr() => XSUEE.UnitMgrEditMode;
     }
 
     [CustomEditor(typeof(XSUnitNodeBrush))]

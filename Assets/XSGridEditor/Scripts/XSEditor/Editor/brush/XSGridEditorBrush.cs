@@ -34,7 +34,7 @@ namespace XSSLG
                 return;
 
             //添加到TileDict
-            var tile = XSInstance.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSITileNode>());
+            var tile = XSUEE.GridHelperEditMode?.AddXSTile(tileObj.GetComponent<XSITileNode>());
             if (tile == null)
             {
                 GameObject.DestroyImmediate(tileObj);
@@ -45,7 +45,7 @@ namespace XSSLG
         public override void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
         {
             var worldPos = gridLayout.CellToWorld(position);
-            XSInstance.GridHelperEditMode.RemoveXSTileByWorldPos(worldPos);
+            XSUEE.GridHelperEditMode.RemoveXSTileByWorldPos(worldPos);
         }
 
     }

@@ -61,7 +61,7 @@ namespace XSSLG
                 tileObj.name = obj.name;
             }
 
-            var mgr = XSInstance.GridMgr;
+            var mgr = XSU.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
             tileObj.transform.position = mgr.WorldToTileCenterWorld(worldPos);
             tileObj.transform.Rotate(this.rotate);
@@ -71,7 +71,7 @@ namespace XSSLG
 
         protected virtual bool IsExistTile(GridLayout gridLayout, Vector3Int position)
         {
-            var mgr = XSInstance.GridMgr;
+            var mgr = XSU.GridMgr;
             var worldPos = gridLayout.CellToWorld(position);
             var ret = mgr.HasXSTileByWorldPos(worldPos);
             return ret;

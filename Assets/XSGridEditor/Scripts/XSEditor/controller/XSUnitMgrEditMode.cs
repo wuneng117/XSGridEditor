@@ -60,7 +60,7 @@ namespace XSSLG
                 return;
             }
 
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             foreach (var pair in this.Dict)
             {
                 var newWorldPos = gridMgr.TileToTileCenterWorld(pair.Key);

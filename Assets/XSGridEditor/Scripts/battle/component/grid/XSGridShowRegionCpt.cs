@@ -22,7 +22,7 @@ namespace XSSLG
 
         public static XSGridShowRegionCpt Create(string rootPath, GameObject moveTilePrefab, int sortOrder)
         {
-            var parent = XSInstance.GridHelper?.transform;
+            var parent = XSU.GridHelper?.transform;
             if (parent == null)
             {
                 return null;
@@ -53,7 +53,7 @@ namespace XSSLG
                 return;
             }
 
-            XSU.ActionChildren(XSInstance.GridHelper.UnitRoot?.gameObject, (child) => child.SetActive(false));
+            XSU.ActionChildren(XSU.GridHelper.UnitRoot?.gameObject, (child) => child.SetActive(false));
 
             worldPosList.ForEach(pos =>
             {
@@ -66,12 +66,12 @@ namespace XSSLG
                 // Set layer to default. Do not block the raycast
                 obj.layer = LayerMask.NameToLayer("Default");
                 obj.transform.position = pos;
-                XSInstance.GridHelper.SetTransToTopTerrain(obj.transform, false);
+                XSU.GridHelper.SetTransToTopTerrain(obj.transform, false);
 
                 var spr = obj.GetComponentInChildren<SpriteRenderer>();
                 spr.sortingOrder = this.SortOrder;
             });
-            XSU.ActionChildren(XSInstance.GridHelper.UnitRoot?.gameObject, (child) => child.SetActive(true));
+            XSU.ActionChildren(XSU.GridHelper.UnitRoot?.gameObject, (child) => child.SetActive(true));
         }
 
         /// <summary> clear range </summary>

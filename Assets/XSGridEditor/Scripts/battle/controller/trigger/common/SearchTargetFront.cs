@@ -44,7 +44,7 @@ namespace XSSLG
             {
                 // 确实有这个格子再加
                 var pos = cellPos + i * (cellPos - srcPos);
-                if (XSInstance.GridMgr.TryGetXSTile(pos, out var tile))
+                if (XSU.GridMgr.TryGetXSTile(pos, out var tile))
                     ret.Add(tile);
             }
             return ret;

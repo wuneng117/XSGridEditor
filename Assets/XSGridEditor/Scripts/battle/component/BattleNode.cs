@@ -19,6 +19,7 @@ namespace XSSLG
     public class BattleNode : MonoBehaviour
     {
         /************************* UI begin ***********************/
+        public UIMgr UIMgr { get; protected set; } = new UIMgr();
         
         /// <summary> 所有ui的根节点 </summary>
         public GameObject UI;    
@@ -72,7 +73,7 @@ namespace XSSLG
 
         private void Awake()
         {
-            var gridHelper = XSInstance.GridHelper;
+            var gridHelper = XSU.GridHelper;
             this.Logic = new BattleLogic();
             var bounds = gridHelper.GetBounds();
             XSUG.CameraGoto(bounds.center);
@@ -113,27 +114,27 @@ namespace XSSLG
         /// <summary> 打开关闭unit行动菜单 </summary>
         public void OpenRoleMenu(Vector3 screenPos)
         {
-            // XSInstance.UIMgr.ShowUI(this.unitMenu.gameObject);
+            // XSUG.GridHelper.ShowUI(this.unitMenu.gameObject);
             // this.unitMenu.gameObject.transform.position = screenPos;
         }
 
         public void OpenRolePanel(UnitBase unit)
         {
-            // XSInstance.UIMgr.ShowUI(this.rolePanel.gameObject);
+            // XSUG.GridHelper.ShowUI(this.rolePanel.gameObject);
             // this.rolePanel.init(unit);
         }
 
         public void CloseRolePanel() {}
-        // public void CloseRolePanel() => XSInstance.UIMgr.CloseUITo(this.rolePanel.gameObject);
+        // public void CloseRolePanel() => XSUG.GridHelper.CloseUITo(this.rolePanel.gameObject);
 
         public void CloseRoleMenu() {}
-        // public void CloseRoleMenu() => XSInstance.UIMgr.CloseUITo(this.unitMenu.gameObject);
+        // public void CloseRoleMenu() => XSUG.GridHelper.CloseUITo(this.unitMenu.gameObject);
 
         /// <summary> 打开关闭主菜单 </summary>
         public void OpenMainMenu() {}
-        // public void OpenMainMenu() => XSInstance.UIMgr.ShowUI(this.mainMenu.gameObject);
+        // public void OpenMainMenu() => XSUG.GridHelper.ShowUI(this.mainMenu.gameObject);
         public void CloseMainMenu(){}
-        // public void CloseMainMenu() => XSInstance.UIMgr.CloseUITo(this.mainMenu.gameObject);
+        // public void CloseMainMenu() => XSUG.GridHelper.CloseUITo(this.mainMenu.gameObject);
 
         /// <summary> 打开关闭回合显示 </summary>
         public void OpenTurnChange(GroupType type) => this.SetTurnChange(type, true);

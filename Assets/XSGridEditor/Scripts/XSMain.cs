@@ -19,7 +19,6 @@ public class XSMain : MonoBehaviour
         Config.InitUnitGroupMartex();
 
         // Initialize the Instance first to ensure that it must be initialized when used
-        XSInstance.Init();
         DontDestroyOnLoad(this.gameObject);
         // 设置为已经初始化，并且切换场景不释放
         IsInit = true;

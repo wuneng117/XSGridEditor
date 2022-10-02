@@ -79,7 +79,7 @@ namespace XSSLG
 
             var skill = unit.Table.SkillTable.AttackSkill;
 
-            XSInstance.UIMgr.ShowUI(this.meanOfAttackPanel.gameObject);
+            XSUG.UIMgr.ShowUI(this.meanOfAttackPanel.gameObject);
             this.meanOfAttackPanel.transform.position = XSU.WorldPosToScreenPos(unit.GetPosition());
             this.meanOfAttackPanel.Init(skill);
         }

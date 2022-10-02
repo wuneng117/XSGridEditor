@@ -28,13 +28,13 @@ namespace XSSLG
         {
             if (XSUE.IsEditor())
             {
-                var gridMgr = XSInstance.GridMgr;
+                var gridMgr = XSU.GridMgr;
                 var pos = gridMgr.WorldToTileCenterWorld(this.transform.position);
                 // zero means that the returned value is empty, and there is a problem with tile acquisition
                 if (pos != Vector3.zero)
                 {
                     this.transform.position = pos;
-                    XSInstance.GridHelper.SetTransToTopTerrain(this.transform, true);
+                    XSU.GridHelper.SetTransToTopTerrain(this.transform, true);
                     this.PrevPos = this.transform.position;
                 }
                 else

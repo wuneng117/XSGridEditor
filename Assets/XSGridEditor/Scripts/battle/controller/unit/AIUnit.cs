@@ -24,7 +24,7 @@ namespace XSSLG
         //     base.SetCellPosition(tile);
         //     var transform = this.Node.transform;
         //     var logic = XSUG.GetBattleLogic();
-        //     transform.position = XSInstance.GridMgr.TileToWorld(tile.CellPos);
+        //     transform.position = XSU.GridMgr.TileToWorld(tile.CellPos);
         // }
 
         // /// <summary>

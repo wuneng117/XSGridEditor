@@ -46,7 +46,7 @@ namespace XSSLG
             var AttackRegion = XSUG.GetBattleNode().GridShowMgr.ShowAttackRegion(logic.ActionUnit, skill);
             foreach (var tilePos in AttackRegion)
             {
-                var tile = XSInstance.GridMgr.GetXSTile(tilePos);
+                var tile = XSU.GridMgr.GetXSTile(tilePos);
                 if (tile == null)
                     continue;
 

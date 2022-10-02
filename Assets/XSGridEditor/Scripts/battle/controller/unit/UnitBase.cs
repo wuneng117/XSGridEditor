@@ -103,8 +103,8 @@ namespace XSSLG
             else
             {
                 var srcWorldPos = this.GetPosition();
-                var srcTile = XSInstance.GridMgr.GetXSTileByWorldPos(srcWorldPos);
-                var path = XSInstance.GridMgr.FindPath(srcTile, tile);
+                var srcTile = XSU.GridMgr.GetXSTileByWorldPos(srcWorldPos);
+                var path = XSU.GridMgr.FindPath(srcTile, tile);
                 return path;
             }
         }
@@ -118,9 +118,9 @@ namespace XSSLG
             var logic = XSUG.GetBattleLogic();
 
             var srcWorldPos = this.GetPosition();
-            var srcTile = XSInstance.GridMgr.GetXSTileByWorldPos(srcWorldPos);
+            var srcTile = XSU.GridMgr.GetXSTileByWorldPos(srcWorldPos);
             // 缓存起来哈
-            this.CachedPaths = XSInstance.GridMgr.FindAllPath(srcTile, this.GetStat().GetMov().GetFinal());
+            this.CachedPaths = XSU.GridMgr.FindAllPath(srcTile, this.GetStat().GetMov().GetFinal());
             // 把this.CachedPaths累加起来
             var ret = this.CachedPaths.Aggregate(new List<Vector3>(), (ret, pair) =>
             {

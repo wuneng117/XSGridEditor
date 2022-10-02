@@ -36,9 +36,9 @@ namespace XSSLG
             }
         }
 
-        protected virtual Transform GetUnitRoot() => XSInstance.GridHelper.UnitRoot;
+        protected virtual Transform GetUnitRoot() => XSU.GridHelper.UnitRoot;
 
-        protected virtual Transform GetTileRoot() => XSInstance.GridHelper.TileRoot;
+        protected virtual Transform GetTileRoot() => XSU.GridHelper.TileRoot;
 
 
         #region  Tile function
@@ -65,7 +65,7 @@ namespace XSSLG
                 return null;
             }
 
-            var mgr = XSInstance.GridMgr;
+            var mgr = XSU.GridMgr;
             var tile = mgr.AddXSTile(tileData);
             if (tile == null)
             {
@@ -83,7 +83,7 @@ namespace XSSLG
                 return false;
             }
 
-            var mgr = XSInstance.GridMgr;
+            var mgr = XSU.GridMgr;
             return mgr.RemoveXSTileByWorldPos(worldPos);
         }
 
@@ -98,7 +98,7 @@ namespace XSSLG
             }
 
             XSU.ActionChildren(this.GetUnitRoot()?.gameObject, (child) => child.SetActive(false));
-            foreach (var tile in XSInstance.GridMgr.GetAllTiles())
+            foreach (var tile in XSU.GridMgr.GetAllTiles())
             {
                 this.SetTileToNearTerrain(tile, false);
             }
@@ -119,7 +119,7 @@ namespace XSSLG
             }
 
             var node = tile.Node;
-            ret = XSInstance.GridHelper.SetTransToTopTerrain(((XSTileNode)node).transform, closeUnit);
+            ret = XSU.GridHelper.SetTransToTopTerrain(((XSTileNode)node).transform, closeUnit);
             if (!ret)
             {
                 return ret;
@@ -138,7 +138,7 @@ namespace XSSLG
             }
 
             XSUE.RemoveChildren(this.GetTileRoot()?.gameObject);
-            XSInstance.GridMgr.ClearAllTiles();
+            XSU.GridMgr.ClearAllTiles();
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace XSSLG
             {
                 var textRoot = new GameObject();
                 textRoot.name = rootName;
-                foreach (var tile in XSInstance.GridMgr.GetAllTiles())
+                foreach (var tile in XSU.GridMgr.GetAllTiles())
                 {
                     if (tile.Node == null || tile.Node.IsNull())
                     {
@@ -232,10 +232,10 @@ namespace XSSLG
             {
                 this.PrevTileSize = this.Grid.cellSize;
 
-                XSInstance.GridMgr?.UpdateTileSize(this.PrevTileSize);
+                XSU.GridMgr?.UpdateTileSize(this.PrevTileSize);
 
                 StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-                var main = currentStageHandle.FindComponentOfType<XSMainEditMode>();
+                var main = currentStageHandle.FindComponentOfType<XSGridMainEditMode>();
                 main.UnitMgrEditMode?.UpdateUnitPos();
             }
         }

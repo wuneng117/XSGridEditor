@@ -7096,6 +7096,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1aa1d812a4d1c4885527c4bd937b92, type: 3}
+--- !u!1 &168012014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168012015}
+  - component: {fileID: 168012016}
+  m_Layer: 0
+  m_Name: XSGridMain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &168012015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168012014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 409403843}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &168012016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168012014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185c4bd5b1e30dd43b3661bd3d36b0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &168235277 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2087652316686316506, guid: 5f1aa1d812a4d1c4885527c4bd937b92, type: 3}
@@ -12513,7 +12556,7 @@ GameObject:
   - component: {fileID: 333108893}
   - component: {fileID: 333108894}
   m_Layer: 0
-  m_Name: XSMainEditMode
+  m_Name: XSGridMainEditMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12540,7 +12583,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333108892}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b817f2a1bc47a04a811318213e65228, type: 3}
   m_Name: 
@@ -16108,6 +16151,7 @@ Transform:
   - {fileID: 313447320}
   - {fileID: 1306486592}
   - {fileID: 333108893}
+  - {fileID: 168012015}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -60,7 +60,7 @@ namespace XSSLG
                 return new List<Vector3Int>();
             }
 
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             var srcTile = gridMgr.GetXSTileByWorldPos(unit.Node.WorldPos);
             if (srcTile == null)
             {
@@ -86,7 +86,7 @@ namespace XSSLG
             if (unit == null || tile == null)
                 return;
 
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             var srcTile = gridMgr.GetXSTileByWorldPos(unit.Node.WorldPos);
             if (srcTile == null)
             {

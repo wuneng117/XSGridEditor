@@ -39,7 +39,7 @@ namespace XSSLG
             posList.ForEach(tilePos =>
             {
                 // 确实有这个格子再加
-                if (XSInstance.GridMgr.TryGetXSTile(tilePos, out var tile))
+                if (XSU.GridMgr.TryGetXSTile(tilePos, out var tile))
                     ret.Add(tile);
             });
 

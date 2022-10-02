@@ -22,7 +22,7 @@ namespace XSSLG
         {
             base.OnMouseUpLeft(logic, mouseTile);
             // 没有界面显示了才能点击 unit
-            if (!XSInstance.UIMgr.IsEmpty || mouseTile == null)
+            if (!XSUG.UIMgr.IsEmpty || mouseTile == null)
             {
                 return;
             }
@@ -38,7 +38,7 @@ namespace XSSLG
         {
             base.OnMouseUpRight(logic, mouseTile);
             // 没有界面显示了才能点击 unit
-            if (!XSInstance.UIMgr.IsEmpty)
+            if (!XSUG.UIMgr.IsEmpty)
             {
                 return;
             }
@@ -58,7 +58,7 @@ namespace XSSLG
         {
             base.OnMouseMove(logic, mouseTile);
             // 没有界面显示了才能点击 unit
-            if (!XSInstance.UIMgr.IsEmpty || mouseTile == null)
+            if (!XSUG.UIMgr.IsEmpty || mouseTile == null)
             {
                 return;
             }

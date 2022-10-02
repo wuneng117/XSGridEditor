@@ -21,7 +21,7 @@ public class XSUG : XSU
             return null;
         }
 
-        var tile = XSInstance.GridMgr.GetXSTileByWorldPos(tileData.WorldPos);
+        var tile = XSU.GridMgr.GetXSTileByWorldPos(tileData.WorldPos);
         return tile;
     }
 
@@ -65,24 +65,18 @@ public class XSUG : XSU
     }
 
     #region 获取全局对象
-    /// <summary> UI管理 </summary>
-    public static UIMgr GetUIMgr() => XSInstance.UIMgr;
 
-    #endregion
-
-
-    #region GameScene 获取全局对象
     /// <summary> 获取GameScene对象 </summary>
     public static GameScene GetGameScene() => GameObject.Find(GameConst.COMPONENT_NAME_GAMESCENE)?.GetComponent<GameScene>();
-    #endregion
 
-
-    #region BattleScene 获取全局对象
     /// <summary> 获取BattleLogic对象 </summary>
     public static BattleLogic GetBattleLogic() => XSUG.GetBattleNode()?.Logic;
 
     /// <summary> 挂场景节点的组件 </summary>
     public static BattleNode GetBattleNode() => GameObject.Find(GameConst.COMPONENT_NAME_BATTLE_INIT)?.GetComponent<BattleNode>();
-
+    
+    /// <summary> UI管理 </summary>
+    public static UIMgr UIMgr { get => XSUG.GetBattleNode().UIMgr; }
+    
     #endregion
 }

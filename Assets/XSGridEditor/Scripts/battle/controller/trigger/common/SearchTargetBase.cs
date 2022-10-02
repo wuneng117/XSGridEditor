@@ -30,7 +30,7 @@ namespace XSSLG
         public virtual List<UnitBase> Search(OnTriggerDataBase data)
         {
             var logic = XSUG.GetBattleLogic();
-            var gridMgr = XSInstance.GridMgr;
+            var gridMgr = XSU.GridMgr;
             var srcTile = gridMgr.GetXSTileByWorldPos(((Unit)data.Src).Node.WorldPos);
             if (srcTile == null)
             {

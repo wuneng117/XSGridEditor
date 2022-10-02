@@ -19,14 +19,14 @@ namespace XSSLG
             var actionUnit = logic.ActionUnit;
             // 返回所有ActionUnit走到我方unit的路径（如果有路径）
             var srcWorldPos = actionUnit.GetPosition();
-            var srcTile = XSInstance.GridMgr.GetXSTileByWorldPos(srcWorldPos);
+            var srcTile = XSU.GridMgr.GetXSTileByWorldPos(srcWorldPos);
 
             var pathList = logic.GetSelfUnitList()
                 .Select(unit =>
                 {
                     var destWorldPos = unit.GetPosition();
-                    var destTile = XSInstance.GridMgr.GetXSTileByWorldPos(destWorldPos);
-                    return XSInstance.GridMgr.FindPath(srcTile, destTile);
+                    var destTile = XSU.GridMgr.GetXSTileByWorldPos(destWorldPos);
+                    return XSU.GridMgr.FindPath(srcTile, destTile);
                 })
                 .Where(list => list.Count > 0).ToList();
 
