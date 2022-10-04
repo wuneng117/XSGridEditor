@@ -16133,8 +16133,8 @@ MonoBehaviour:
   tileRoot: {fileID: 732642749}
   unitRoot: {fileID: 313447320}
   moveTilePrefab: {fileID: 5482847116410207803, guid: af9bcb27486b4774791387f525475ebf, type: 3}
-  attackTilePrefab: {fileID: 0}
-  attackEffectTilePrefab: {fileID: 0}
+  attackTilePrefab: {fileID: 5482847116410207803, guid: f433cae2a2bb5bb4b8603e55985c0da2, type: 3}
+  attackEffectTilePrefab: {fileID: 5482847116410207803, guid: 245ebd0ef32be134cbee76a5b56bd95f, type: 3}
   tileOffYMax: 1
 --- !u!4 &409403843
 Transform:
