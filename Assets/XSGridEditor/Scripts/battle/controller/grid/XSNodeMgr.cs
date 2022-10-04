@@ -7,7 +7,7 @@ namespace XSSLG
     public interface XSINodeMgr<T>
     {
         bool Add(T node);
-        bool Remove(Vector3 worldPos);
+        bool RemoveByWorldPos(Vector3 worldPos);
     }
 
     public interface XSINode
@@ -52,20 +52,21 @@ namespace XSSLG
                 return false;
             }
 
-            if (this.GetTile(node.WorldPos, out var tilePos))
+            if (this.HasByWorldPos(node.WorldPos))
             {
                 return false;
             }
             else
             {
+                var tilePos = XSU.GridMgr.WorldToTile(node.WorldPos);
                 this.Dict.Add(tilePos, node);
                 return true;
             }
         }
 
-        public virtual bool Remove(Vector3 worldPos)
+        public virtual bool Remove(Vector3Int tilePos)
         {
-            if (this.GetTile(worldPos, out var tilePos, out var node))
+            if (this.TryGet(tilePos, out var node))
             {
                 node.RemoveNode();
                 this.Dict.Remove(tilePos);
@@ -77,28 +78,45 @@ namespace XSSLG
             }
         }
 
-        internal virtual bool GetTile(Vector3 worldPos, out Vector3Int tilePos) => this.GetTile(worldPos, out tilePos, out var node);
-
-        internal virtual bool GetTile(Vector3 worldPos, out Vector3Int tilePos, out T node)
+        public virtual bool RemoveByWorldPos(Vector3 worldPos)
         {
-            var gridMgr = XSU.GridMgr;
-            tilePos = gridMgr.WorldToTile(worldPos);
-            if (this.Dict.TryGetValue(tilePos, out node))
+            var tilePos = XSU.GridMgr.WorldToTile(worldPos);
+            return this.Remove(tilePos);
+        }
+
+        public virtual bool Has(Vector3Int tilePos) => this.Dict.ContainsKey(tilePos);
+
+        public virtual bool HasByWorldPos(Vector3 worldPos) => this.TryGetByWorldPos(worldPos, out var node);
+
+        internal virtual T Get(Vector3Int tilePos)
+        {
+            this.TryGet(tilePos, out var node);
+            return node;
+        }
+
+        internal virtual T GetByWorldPos(Vector3 worldPos)
+        {
+            this.TryGetByWorldPos(worldPos, out var node);
+            return node;
+        }
+
+        public virtual bool TryGet(Vector3Int tilePos, out T node)
+        {
+            if (this.Dict.TryGetValue(tilePos, out node) && node != null && !node.IsNull())
             {
-                if (node == null || node.IsNull())
-                {
-                    this.Dict.Remove(tilePos);
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return true;
             }
             else
             {
                 return false;
             }
         }
+
+        public virtual bool TryGetByWorldPos(Vector3 worldPos, out T node)
+        {
+            var tilePos = XSU.GridMgr.WorldToTile(worldPos);
+            return this.TryGet(tilePos, out node);
+        }
+
     }
 }

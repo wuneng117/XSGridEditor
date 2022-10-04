@@ -50,7 +50,7 @@ namespace XSSLG
             return true;
         }
 
-        public virtual bool Remove(Vector3 worldPos)
+        public virtual bool RemoveByWorldPos(Vector3 worldPos)
         {
             var list = this.GetOrCreateList(worldPos);
             if (list.Count > 0)

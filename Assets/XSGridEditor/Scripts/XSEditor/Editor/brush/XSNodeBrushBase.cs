@@ -14,7 +14,7 @@ namespace XSSLG
                 return;
 
             var worldPos = gridLayout.CellToWorld(position);
-            mgr.Remove(worldPos);
+            mgr.RemoveByWorldPos(worldPos);
         }
     }
 }
