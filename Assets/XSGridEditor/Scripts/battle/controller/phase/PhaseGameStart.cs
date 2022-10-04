@@ -26,7 +26,7 @@ namespace XSSLG
         /// <summary> 镜头移到中心 </summary>
         private void CameraToCenter<T>(T logic) where T : BattleLogic
         {
-            var bounds = logic.GridHelper.GetBounds();
+            var bounds = XSU.GridHelper.GetBounds();
             XSUG.CameraGoto(bounds.center);
         }
     }
