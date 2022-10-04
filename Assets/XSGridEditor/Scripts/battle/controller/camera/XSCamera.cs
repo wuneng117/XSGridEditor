@@ -173,7 +173,7 @@ namespace XSSLG
             {
                 return;
             }
-            
+
             this.transform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y, eulerAngles.z);
             this.SetConfinerBound(this.Bound);
         }
@@ -221,7 +221,6 @@ namespace XSSLG
             collider.transform.position = new Vector3(bound.center.x + offset.x, collider.transform.position.y, bound.center.z + offset.z);
         }
 
-        // TODO
         /// <summary>
         /// 摄像机保持角度看向指定世界坐标
         /// 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离
@@ -232,21 +231,22 @@ namespace XSSLG
         /// <summary> 携程函数处理移动 </summary>
         public virtual IEnumerator MovementAnimation(Vector3 worldPos)
         {
-            // this.IsMoving = true;
-            // var pos = XSU.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
-            // var targetPos = this.transform.position + worldPos - pos;
-            // var dir = -(worldPos - pos).normalized;
-            // while (true)
-            // {
-            //     var prevPos = XSU.ScreenPosToWorldPos(new Vector2(Screen.width, Screen.height) / 2);
-            //     var direction = worldPos - prevPos;
-            //     if (Vector3.Dot(direction, dir) < 0)
-            //         break;
-            //     this.UpdatePos(dir);
+            this.IsMoving = true;
+
+            float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
+            var targetPos = d * this.transform.forward + worldPos;
+            var dir = (targetPos - this.transform.position).normalized;
+
+            while (true)
+            {
+                var direction = targetPos -  this.transform.position;
+                if (Vector3.Dot(direction, dir) < 0)
+                    break;
+                this.UpdatePos(dir);
                 yield return 0;
-            // }
-            // this.SetCameraPosition(targetPos);
-            // this.IsMoving = false;
+            }
+            this.SetCameraPosition(targetPos);
+            this.IsMoving = false;
         }
     }
 }
