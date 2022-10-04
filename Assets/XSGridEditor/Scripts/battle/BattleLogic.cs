@@ -34,11 +34,8 @@ namespace XSSLG
 
         public BattleLogic()
         {
-            this.GridHelper = Component.FindObjectOfType<XSGridHelper>();
-            Debug.Assert(this.GridHelper, "找不到XSGridHelper");
-
             // this.UnitMgr = new XSUnitMgr(this.GridHelper);
-            this.CreateUnitList(this.GridHelper.GetUnitDataList());
+            this.CreateUnitList(XSU.GridHelper.GetUnitDataList());
         }
 
         public void CreateUnitList(List<XSIUnitNode> nodeList)
