@@ -18,23 +18,6 @@ namespace XSSLG
             }
         }
 
-        /// 生成Unitdui
-        public List<Unit> CreateUnitList()
-        {
-            var ret = new List<Unit>();
-            this.Dict.Values.ToList().ForEach(unitNode =>
-            {
-                var unit = unitNode.GetUnit();
-                if (unit != null)
-                {
-                    ret.Add(unit);
-                }
-            });
-
-            return ret;
-        }
-
-
         /// <summary>
         /// add XSIUnitNode to dict
         /// </summary>
