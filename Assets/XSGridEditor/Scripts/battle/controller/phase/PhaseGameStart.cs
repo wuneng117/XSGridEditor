@@ -15,7 +15,7 @@ namespace XSSLG
         public override void OnEnter<T>(T logic)
         {
             // 通知所有单位onTurnStart
-            logic.UnitList.ForEach(unit => unit.OnGameStart());
+            logic.UnitMgr.ForEach(unit => unit.OnGameStart());
             this.CameraToCenter(logic);
 
 

@@ -15,7 +15,7 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             // 要选择行动的unit，把之前的清除下
-            XSUG.GetBattleLogic().ClearActionUnit();
+            XSUG.GetBattleLogic().UnitMgr.ClearActionUnit();
         }
 
         public override void OnMouseUpLeft<T>(T logic , XSTile mouseTile)
@@ -28,7 +28,7 @@ namespace XSSLG
             }
 
             // PhaseChooseUnit下点到了可以行动的单位，
-            if (logic.SetActionUnit(mouseTile, GroupType.Self))
+            if (logic.UnitMgr.SetActionUnit(mouseTile, GroupType.Self))
             {
                 logic.Change(new PhaseChooseMove());
             }
@@ -46,7 +46,7 @@ namespace XSSLG
             if (mouseTile != null)
             {
                 BattleNode battleNode = XSUG.GetBattleNode();
-                var unit = logic.GetUnitByCellPosition(mouseTile.TilePos);
+                var unit = logic.UnitMgr.GetUnitByCellPosition(mouseTile.TilePos);
                 if (unit != null)
                     battleNode.OpenRolePanel(unit);
                 else

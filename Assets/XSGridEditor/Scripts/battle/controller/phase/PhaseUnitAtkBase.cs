@@ -26,15 +26,15 @@ namespace XSSLG
         public override void OnEnter<T>(T logic)
         {
             base.OnEnter(logic);
-            Debug.Assert(logic.ActionUnit != null);
+            Debug.Assert(logic.UnitMgr.ActionUnit != null);
             XSUG.CameraCanFreeMove(false);
 
             BattleEmitter.Instance.On(TriggerDataTriggerType.AfterAttack, this.OnAfterAttack);
 
             // 朝向攻击点
-            logic.ActionUnit.Node.RotateTo(this.Tile);
+            logic.UnitMgr.ActionUnit.Node.RotateTo(this.Tile);
 
-            var onTriggerData = new OnTriggerDataCommon(logic.ActionUnit, this.Tile);
+            var onTriggerData = new OnTriggerDataCommon(logic.UnitMgr.ActionUnit, this.Tile);
             this.Skill.Trigger.Release(onTriggerData);
         }
 
@@ -42,7 +42,7 @@ namespace XSSLG
         {
             base.OnExit(logic);
             XSUG.CameraCanFreeMove(true);
-            logic.ActionUnit.SetAttacked();
+            logic.UnitMgr.ActionUnit.SetAttacked();
             // 攻击后刷新下tips。有可能数值改变了
             XSUG.GetBattleNode().unitInfoTip.Refresh();
         }
@@ -50,7 +50,7 @@ namespace XSSLG
         public override void Update<T>(T logic)
         {
             base.Update(logic);
-            if (!logic.ActionUnit.Node.IsAttacking)
+            if (!logic.UnitMgr.ActionUnit.Node.IsAttacking)
                 logic.Change(this.GetNextPhase());
         }
 

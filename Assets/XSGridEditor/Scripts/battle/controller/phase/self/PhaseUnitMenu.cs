@@ -15,10 +15,10 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             //PHASETODO UI显示
-            Debug.Assert(logic.ActionUnit != null);
+            Debug.Assert(logic.UnitMgr.ActionUnit != null);
             this.MenuActive(true, logic);
 
-            // XSUG.CameraGoto(logic.ActionUnit.GetPosition());
+            // XSUG.CameraGoto(logic.UnitMgr.ActionUnit.WorldPos());
             XSUG.CameraCanFreeMove(false);
 
             //ˢ�½�ɫ����
@@ -37,7 +37,7 @@ namespace XSSLG
             BattleNode battleNode = XSUG.GetBattleNode();
             if (val) 
             {
-                var screenPos = XSU.WorldPosToScreenPos(logic.ActionUnit.GetPosition());
+                var screenPos = XSU.WorldPosToScreenPos(logic.UnitMgr.ActionUnit.WorldPos);
                 battleNode.OpenRoleMenu(screenPos);
             }
             else

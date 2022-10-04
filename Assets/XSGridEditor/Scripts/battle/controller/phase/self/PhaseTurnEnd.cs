@@ -16,7 +16,7 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             // 通知自己单位OnTurnEnd
-            logic.GetSelfUnitList().ForEach(unit => unit.OnTurnEnd());
+            logic.UnitMgr.GetSelfUnitList().ForEach(unit => unit.OnTurnEnd());
 
             logic.Change(new AITurnBegin());
         }

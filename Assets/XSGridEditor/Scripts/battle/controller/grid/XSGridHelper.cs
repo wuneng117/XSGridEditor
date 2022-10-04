@@ -51,7 +51,7 @@ namespace XSSLG
         public List<XSITileNode> GetTileNodeList() => this.TileRoot.GetComponentsInChildren<XSITileNode>().ToList();
 
         /// <summary> get all XSUnitNode </summary>
-        public List<XSIUnitNode> GetUnitDataList() => this.UnitRoot.GetComponentsInChildren<XSIUnitNode>().ToList();
+        public List<XSIUnitNode> GetUnitNodeList() => this.UnitRoot.GetComponentsInChildren<XSIUnitNode>().ToList();
 
         public virtual Bounds GetBounds()
         {

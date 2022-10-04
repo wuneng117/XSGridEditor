@@ -17,7 +17,7 @@ namespace XSSLG
         public override void OnEnter<T>(T logic)
         {
             // 通知敌人单位onTurnStart
-            logic.GetEnemyUnitList().ForEach(unit => unit.OnTurnStart());
+            logic.UnitMgr.GetEnemyUnitList().ForEach(unit => unit.OnTurnStart());
             XSUG.CameraCanFreeMove(false);
 
             var battleNode = XSUG.GetBattleNode();

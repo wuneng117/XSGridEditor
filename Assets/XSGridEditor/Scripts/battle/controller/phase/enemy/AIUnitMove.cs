@@ -16,15 +16,15 @@ namespace XSSLG
         public override void OnEnter<T>(T logic)
         {
             base.OnEnter(logic);
-            var actionUnit = logic.ActionUnit;
+            var actionUnit = logic.UnitMgr.ActionUnit;
             // 返回所有ActionUnit走到我方unit的路径（如果有路径）
-            var srcWorldPos = actionUnit.GetPosition();
+            var srcWorldPos = actionUnit.WorldPos;
             var srcTile = XSU.GridMgr.GetXSTileByWorldPos(srcWorldPos);
 
-            var pathList = logic.GetSelfUnitList()
+            var pathList = logic.UnitMgr.GetSelfUnitList()
                 .Select(unit =>
                 {
-                    var destWorldPos = unit.GetPosition();
+                    var destWorldPos = unit.WorldPos;
                     var destTile = XSU.GridMgr.GetXSTileByWorldPos(destWorldPos);
                     return XSU.GridMgr.FindPath(srcTile, destTile);
                 })
@@ -44,7 +44,7 @@ namespace XSSLG
             var count = Mathf.Max(0, path.Count - actionUnit.GetStat().GetMov().GetFinal());
             for (; count < path.Count; count++)
             {
-                if (logic.GetUnitByWorldPosition(path[count]) == null)
+                if (logic.UnitMgr.GetUnitByWorldPosition(path[count]) == null)
                     break;
             }
 
@@ -52,7 +52,7 @@ namespace XSSLG
                 return false;
 
             path.RemoveRange(0, count);
-            logic.ActionUnit.Node.WalkTo(path);
+            logic.UnitMgr.ActionUnit.Node.WalkTo(path);
             return true;
         }
 

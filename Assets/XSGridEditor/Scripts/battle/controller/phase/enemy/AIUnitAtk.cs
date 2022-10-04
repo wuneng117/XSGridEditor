@@ -18,7 +18,7 @@ namespace XSSLG
         {
             base.OnExit(logic);
             XSUG.CameraCanFreeMove(false);    // ai下摄像机就是不能移动
-            logic.ActionUnit.SetActived();
+            logic.UnitMgr.ActionUnit.SetActived();
         }
     }
 }

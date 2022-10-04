@@ -5,9 +5,9 @@ namespace XSSLG
     {
         public static void CheckIsMoving<T>(PhaseBase phase, T logic, PhaseBase nextPhase) where T : BattleLogic
         {
-            if (!logic.ActionUnit.Node.IsMoving)
+            if (!logic.UnitMgr.ActionUnit.Node.IsMoving)
             {
-                logic.ActionUnit.SetMoved();
+                logic.UnitMgr.ActionUnit.SetMoved();
                 XSUG.GetBattleLogic().Change(nextPhase);
             }
         }

@@ -24,7 +24,7 @@ namespace XSSLG
             if (!this.MoveRegion.Contains(mouseTile.TilePos))
                 return;
 
-            if (logic.ActionUnit.WalkTo(mouseTile))
+            if (logic.UnitMgr.ActionUnit.WalkTo(mouseTile))
                 logic.Change(new PhaseUnitMove());
         }
 

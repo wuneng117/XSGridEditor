@@ -19,8 +19,8 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             // 显示移动范围
-            Debug.Assert(logic.ActionUnit != null);
-            this.MoveRegion = XSUG.GetBattleNode().GridShowMgr.ShowMoveRegion(logic.ActionUnit.Node);
+            Debug.Assert(logic.UnitMgr.ActionUnit != null);
+            this.MoveRegion = XSUG.GetBattleNode().GridShowMgr.ShowMoveRegion(logic.UnitMgr.ActionUnit.Node);
         }
 
         public override void OnExit<T>(T logic)

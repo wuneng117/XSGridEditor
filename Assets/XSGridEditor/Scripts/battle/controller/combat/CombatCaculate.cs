@@ -24,8 +24,7 @@ namespace XSSLG
         private static void Die(Unit unit)
         {
             var logic = XSUG.GetBattleLogic();
-            logic.UnitList.Remove(unit);
-            logic.DeadUnitList.Add(unit);
+
             unit.Die();
         }
     }

@@ -47,7 +47,7 @@ namespace XSSLG
 
         private void OnEnable()
         {
-            var unit = XSUG.GetBattleLogic().ActionUnit;
+            var unit = XSUG.GetBattleLogic().UnitMgr.ActionUnit;
             if (unit == null)
                 return;
 
@@ -73,21 +73,21 @@ namespace XSSLG
         /// <summary> 点击攻击 </summary>
         public void OnClickAttack()
         {
-            var unit = XSUG.GetBattleLogic().ActionUnit;
+            var unit = XSUG.GetBattleLogic().UnitMgr.ActionUnit;
             if (unit == null)
                 return;
 
             var skill = unit.Table.SkillTable.AttackSkill;
 
             XSUG.UIMgr.ShowUI(this.meanOfAttackPanel.gameObject);
-            this.meanOfAttackPanel.transform.position = XSU.WorldPosToScreenPos(unit.GetPosition());
+            this.meanOfAttackPanel.transform.position = XSU.WorldPosToScreenPos(unit.WorldPos);
             this.meanOfAttackPanel.Init(skill);
         }
 
         /// <summary> 点击战技 </summary>
         public void OnClickCombatArt()
         {
-            var unit = XSUG.GetBattleLogic().ActionUnit;
+            var unit = XSUG.GetBattleLogic().UnitMgr.ActionUnit;
             if (unit == null)
                 return;
 
@@ -103,7 +103,7 @@ namespace XSSLG
         public void OnClickIdle()
         {
             var logic = XSUG.GetBattleLogic();
-            var unit = logic.ActionUnit;
+            var unit = logic.UnitMgr.ActionUnit;
             if (unit == null)
                 return;
 

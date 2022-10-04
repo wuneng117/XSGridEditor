@@ -14,20 +14,20 @@ namespace XSSLG
         public override void OnEnter<T>(T logic)
         {
             base.OnEnter(logic);
-            Debug.Assert(logic.ActionUnit != null);
+            Debug.Assert(logic.UnitMgr.ActionUnit != null);
 
-            XSUG.CameraGoto(logic.ActionUnit.GetPosition());
+            XSUG.CameraGoto(logic.UnitMgr.ActionUnit.WorldPos);
             // 能打到人就不要移动了
             if(this.CanAttack(logic))
             {
             }
-            else if (!logic.ActionUnit.IsMoved())
+            else if (!logic.UnitMgr.ActionUnit.IsMoved())
                 logic.Change(new AIUnitMove());
             else
             {
                 //TODO 道具之类的
                 
-                logic.ActionUnit.SetActived();
+                logic.UnitMgr.ActionUnit.SetActived();
                 logic.Change(new AIChooseUnit());
             }
         }
@@ -42,15 +42,15 @@ namespace XSSLG
         
         private bool CanAttack<T>(T logic) where T : BattleLogic
         {
-            var skill = logic.ActionUnit.Table.SkillTable.AttackSkill;
-            var AttackRegion = XSUG.GetBattleNode().GridShowMgr.ShowAttackRegion(logic.ActionUnit, skill);
+            var skill = logic.UnitMgr.ActionUnit.Table.SkillTable.AttackSkill;
+            var AttackRegion = XSUG.GetBattleNode().GridShowMgr.ShowAttackRegion(logic.UnitMgr.ActionUnit, skill);
             foreach (var tilePos in AttackRegion)
             {
                 var tile = XSU.GridMgr.GetXSTile(tilePos);
                 if (tile == null)
                     continue;
 
-                var onTriggerData = new OnTriggerDataCommon(logic.ActionUnit, tile);
+                var onTriggerData = new OnTriggerDataCommon(logic.UnitMgr.ActionUnit, tile);
                 if (!skill.Trigger.CanRelease(onTriggerData))
                     continue;
 

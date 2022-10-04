@@ -28,7 +28,7 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             // 显示攻击范围
-            this.AttackRegion = XSUG.GetBattleNode().GridShowMgr.ShowAttackRegion(logic.ActionUnit, this.Skill);
+            this.AttackRegion = XSUG.GetBattleNode().GridShowMgr.ShowAttackRegion(logic.UnitMgr.ActionUnit, this.Skill);
         }
 
         public override void OnExit<T>(T logic)
@@ -52,7 +52,7 @@ namespace XSSLG
             if (!this.AttackRegion.Contains(mouseTile.TilePos))
                 return;
 
-            var onTriggerData = new OnTriggerDataCommon(logic.ActionUnit, mouseTile);
+            var onTriggerData = new OnTriggerDataCommon(logic.UnitMgr.ActionUnit, mouseTile);
             if (!this.Skill.Trigger.CanRelease(onTriggerData))
                 return;
 
@@ -83,7 +83,7 @@ namespace XSSLG
                 // 要在攻击范围内的格子
                 if (this.AttackRegion.Contains(mouseTile.TilePos))
                 {
-                    battleNode.GridShowMgr.ShowAttackEffectRegion(logic.ActionUnit, this.Skill, mouseTile);
+                    battleNode.GridShowMgr.ShowAttackEffectRegion(logic.UnitMgr.ActionUnit, this.Skill, mouseTile);
                 }
             }
         }

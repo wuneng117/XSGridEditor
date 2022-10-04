@@ -14,7 +14,7 @@ namespace XSSLG
         {
             if (helper)
             {
-                this.CreateDict(helper.GetUnitDataList());
+                this.CreateDict(helper.GetUnitNodeList());
             }
         }
 

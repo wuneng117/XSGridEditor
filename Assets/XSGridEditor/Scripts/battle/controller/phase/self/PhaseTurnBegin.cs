@@ -17,10 +17,10 @@ namespace XSSLG
         public override void OnEnter<T>(T logic)
         {
             // 通知自己单位onTurnStart
-            var unitList = logic.GetSelfUnitList();
+            var unitList = logic.UnitMgr.GetSelfUnitList();
             unitList.ForEach(unit => unit.OnTurnStart());
             if (unitList.Count > 0)
-                XSUG.CameraGoto(unitList[0].GetPosition());
+                XSUG.CameraGoto(unitList[0].WorldPos);
 
             XSUG.CameraCanFreeMove(false);
             // 可以行动的单位高亮 PHASETODO

@@ -99,7 +99,7 @@ namespace XSSLG
         // Start is called before the first frame update
         private void Start()
         {
-            var bounds = this.Logic.GridHelper.GetBounds();
+            var bounds = XSU.GridHelper.GetBounds();
             this.xsCamera.SetConfinerBound(bounds);
             this.Logic.Change(new PhaseGameStart());
         }
@@ -157,7 +157,7 @@ namespace XSSLG
                 return;
             }
 
-            var unit = this.Logic.GetUnitByCellPosition(mouseTile.TilePos);
+            var unit = this.Logic.UnitMgr.GetUnitByCellPosition(mouseTile.TilePos);
             if (unit == null)
             {
                 XSUG.GetBattleNode().unitInfoTip.Close();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Vector3Int = UnityEngine.Vector3Int;
 using Vector3 = UnityEngine.Vector3;
@@ -40,6 +41,14 @@ namespace XSSLG
             nodeList.ForEach(node => this.Add(node));
         }
 
+        public virtual void ForEach(Action<T> action)
+        {
+            foreach (var item in this.Dict)
+            {
+                action(item.Value);
+            }
+        }
+
         /// <summary>
         /// added to dict
         /// </summary>
@@ -62,6 +71,12 @@ namespace XSSLG
                 this.Dict.Add(tilePos, node);
                 return true;
             }
+        }
+
+        public virtual bool Remove(T node)
+        {
+            var tilePos = XSU.GridMgr.WorldToTile(node.WorldPos);
+            return this.Remove(tilePos);
         }
 
         public virtual bool Remove(Vector3Int tilePos)

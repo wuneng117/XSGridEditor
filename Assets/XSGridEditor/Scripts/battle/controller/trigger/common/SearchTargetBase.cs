@@ -65,7 +65,7 @@ namespace XSSLG
             var tileList = this.GetAttackEffectRegion(tile.TilePos, srcTile.TilePos);
 
             // 判断cellpos的合法性
-            var tileUnitDict = logic.GetTileUnitDict();
+            var tileUnitDict = logic.UnitMgr.GetTileUnitDict();
             tileList.ForEach(destTile =>
             {
                 // 上面没有unit

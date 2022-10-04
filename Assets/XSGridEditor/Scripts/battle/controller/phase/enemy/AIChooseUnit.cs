@@ -14,8 +14,8 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             // 要选择行动的unit，把之前的清除下
-            XSUG.GetBattleLogic().ClearActionUnit();
-            var nextUnit = logic.GetEnemyUnitList().Find(enemy => logic.SetActionUnit(enemy, GroupType.Enemy));
+            XSUG.GetBattleLogic().UnitMgr.ClearActionUnit();
+            var nextUnit = logic.UnitMgr.GetEnemyUnitList().Find(enemy => logic.UnitMgr.SetActionUnit(enemy, GroupType.Enemy));
             // 没有unit可以行动了
             if (nextUnit == null)
                 logic.Change(new AITurnEnd());

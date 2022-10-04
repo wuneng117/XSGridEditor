@@ -8,11 +8,11 @@ namespace XSSLG
     /// <summary> 战斗单位基类 </summary>
     public abstract class UnitBase
     {
+        
+        public abstract Vector3 WorldPos {get; set; }
+
         /// <summary> 各种状态标记 </summary>
         protected int _flag = 0;
-
-        /// <summary> 实际坐标 </summary>
-        public abstract Vector3 GetPosition();
 
         /// <summary> 绑定的角色数据 </summary>
         public Role Role { get; }
@@ -102,8 +102,7 @@ namespace XSSLG
                 return this.CachedPaths[tile.TilePos];
             else
             {
-                var srcWorldPos = this.GetPosition();
-                var srcTile = XSU.GridMgr.GetXSTileByWorldPos(srcWorldPos);
+                var srcTile = XSU.GridMgr.GetXSTileByWorldPos(this.WorldPos);
                 var path = XSU.GridMgr.FindPath(srcTile, tile);
                 return path;
             }
@@ -117,8 +116,7 @@ namespace XSSLG
         {
             var logic = XSUG.GetBattleLogic();
 
-            var srcWorldPos = this.GetPosition();
-            var srcTile = XSU.GridMgr.GetXSTileByWorldPos(srcWorldPos);
+            var srcTile = XSU.GridMgr.GetXSTileByWorldPos(this.WorldPos);
             // 缓存起来哈
             this.CachedPaths = XSU.GridMgr.FindAllPath(srcTile, this.GetStat().GetMov().GetFinal());
             // 把this.CachedPaths累加起来

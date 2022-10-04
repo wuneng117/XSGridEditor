@@ -3,14 +3,33 @@ using UnityEngine;
 namespace XSSLG
 {
     /// <summary> 战斗单位 </summary>
-    public class Unit : UnitBase
+    public class Unit : UnitBase, XSINode
     {
-        /// <summary> 实际坐标 </summary>
-        public override Vector3 GetPosition() => this.Node.WorldPos;
-
         /// <summary> unity的unit脚本 </summary>
         public XSIUnitNode Node { get; }
-    
+
+        public override Vector3 WorldPos
+        {
+            get
+            {
+                if (this.Node == null)
+                {
+                    return Vector3.zero;
+                }
+                else
+                {
+                    return this.Node.WorldPos;
+                }
+            }
+            set
+            {
+                if (this.Node != null)
+                {
+                    this.Node.WorldPos = value;
+                }
+            }
+        }
+
         public Unit(Role role, GroupType group, XSIUnitNode node) : base(role, group)
         {
             this.Node = node ?? throw new System.ArgumentNullException(nameof(node));
@@ -33,11 +52,25 @@ namespace XSSLG
                 return false;
 
             // 如果是原地就直接返回true
-            if (path.Count == 1 && path[0] == XSU.GridMgr.WorldToTile(this.GetPosition()))
+            if (path.Count == 1 && path[0] == XSU.GridMgr.WorldToTile(this.WorldPos))
                 return true;
 
             this.Node.WalkTo(path);
             return true;
+        }
+
+        public void RemoveNode() => this.Node?.RemoveNode();
+
+        public bool IsNull()
+        {
+            if (this.Node == null)
+            {
+                return true;
+            }
+            else
+            {
+                return this.Node.IsNull();
+            }
         }
     }
 }
