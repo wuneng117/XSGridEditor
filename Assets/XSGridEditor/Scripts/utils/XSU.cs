@@ -5,11 +5,13 @@
 /// </summary>
 using System;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace XSSLG
 {
     /// <summary> Common unity methods </summary>
+    [ExecuteInEditMode]
     public class XSU
     {
         protected XSU() { }
@@ -21,7 +23,23 @@ namespace XSSLG
 
         public static XSGridHelper GridHelper { get => XSU.GetGridMain().GridHelper; }
         
-        protected static XSGridMain GetGridMain() => Component.FindObjectOfType<XSGridMain>();
+        protected static XSGridMain gridMain;
+
+        protected static XSGridMain GetGridMain()
+        {
+            if (XSU.gridMain == null)
+            {
+                if (XSU.IsEditor())
+                {
+                    StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+                    XSU.gridMain = currentStageHandle.FindComponentOfType<XSGridMain>();
+                }
+                {
+                    XSU.gridMain = Component.FindObjectOfType<XSGridMain>();
+                }
+            }
+            return XSU.gridMain;
+        }
 
         /// <summary>
         /// 清除标记
