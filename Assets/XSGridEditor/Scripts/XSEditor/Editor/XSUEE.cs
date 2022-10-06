@@ -9,13 +9,14 @@ using XSSLG;
 
 public class XSUEE
 {
-    protected XSUEE() {}
+    protected XSUEE() { }
 
-    public static XSPrefabNodeMgr PrefabNodeMgr { get => XSUEE.GetGridMainEditMode().PrefabNodeMgr; }
+    protected static XSGridMainEditMode gridMainEditMode;
+    public static XSPrefabNodeMgr PrefabNodeMgr { get => XSUEE.GetGridMainEditMode()?.PrefabNodeMgr; }
 
-    public static XSUnitMgrEditMode UnitMgrEditMode { get => XSUEE.GetGridMainEditMode().UnitMgrEditMode; }
+    public static XSUnitMgrEditMode UnitMgrEditMode { get => XSUEE.GetGridMainEditMode()?.UnitMgrEditMode; }
 
-    public static XSGridHelperEditMode GridHelperEditMode { get => XSUEE.GetGridMainEditMode().GridHelperEditMode; }
+    public static XSGridHelperEditMode GridHelperEditMode { get => XSUEE.GetGridMainEditMode()?.GridHelperEditMode; }
 
     /// <summary> pop-up reminder </summary>
     public static void ShowTip(string desc)
@@ -25,9 +26,14 @@ public class XSUEE
         tip.ShowPopup();
     }
 
-    protected static XSGridMainEditMode GetGridMainEditMode()
+    public static XSGridMainEditMode GetGridMainEditMode()
     {
-        StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
-        return currentStageHandle.FindComponentOfType<XSGridMainEditMode>();
+        if (XSUEE.gridMainEditMode == null)
+        {
+
+            StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
+            XSUEE.gridMainEditMode = currentStageHandle.FindComponentOfType<XSGridMainEditMode>();
+        }
+        return XSUEE.gridMainEditMode;
     }
 }

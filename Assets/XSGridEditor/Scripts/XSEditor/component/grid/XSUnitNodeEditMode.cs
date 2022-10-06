@@ -3,7 +3,6 @@
 /// @Date: 2022/2/2
 /// @Description: script added to unit gameobject, to edit grid
 /// </summary>
-using UnityEditor;
 using UnityEngine;
 
 namespace XSSLG

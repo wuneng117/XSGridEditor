@@ -25,8 +25,9 @@ namespace XSSLG
         
         protected static XSGridMain gridMain;
 
-        protected static XSGridMain GetGridMain()
+        public static XSGridMain GetGridMain()
         {
+
             if (XSU.gridMain == null)
             {
                 if (XSU.IsEditor())
@@ -34,6 +35,7 @@ namespace XSSLG
                     StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
                     XSU.gridMain = currentStageHandle.FindComponentOfType<XSGridMain>();
                 }
+                else
                 {
                     XSU.gridMain = Component.FindObjectOfType<XSGridMain>();
                 }

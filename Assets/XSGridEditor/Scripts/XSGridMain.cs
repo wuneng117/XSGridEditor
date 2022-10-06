@@ -9,7 +9,7 @@ namespace XSSLG
 
         public XSGridHelper GridHelper { get; protected set; }
 
-        void Awake()
+        public void Awake()
         {
             this.GridHelper = Component.FindObjectOfType<XSGridHelper>();
 

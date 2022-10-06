@@ -17,7 +17,7 @@ namespace XSSLG
             set => gridHelperEditMode = value;
         }
 
-        void Awake()
+        public void Awake()
         {
             // Initialize the Instance first to ensure that it must be initialized when used
             if (XSU.IsEditor())

@@ -1,59 +1,70 @@
- 
-using System;
-using System.Collections;
-using System.Reflection;
+
 using UnityEditor;
 using UnityEngine;
 using XSSLG;
-
-public class XSAssetPostprocessor :AssetPostprocessor
+namespace XSSLG
 {
-	static void OnPostprocessAllAssets (string[] importedAssets, string[] deletedAssets,string[] movedAssets, string[] movedFromAssetPaths) 
-	{
-		foreach(string s in importedAssets)
-		{
-			if (s.Equals("Assets/XSGridEditor/Scripts/base/3d/IGridMgr.cs"))
-			{
-                CheckLayer();
-                return;
-			}
-		}   
-	}
-
-    public static void CheckLayer()
+    public class XSAssetPostprocessor : AssetPostprocessor
     {
-        if (!HasLayer(XSGridDefine.LAYER_TILE))
+        [UnityEditor.Callbacks.DidReloadScripts]
+        private static void CreateAssetWhenReady()
         {
-            AddLayer(XSGridDefine.LAYER_TILE);
+            // main`s variable will be null, we need to recreate
+            var main = XSU.GetGridMain();
+            main.Awake();
+
+            // mainEditMode`s variable will be null, we need to recreate
+            var mainEditMode = XSUEE.GetGridMainEditMode();
+            mainEditMode.Awake();
         }
 
-        if (!HasLayer(XSGridDefine.LAYER_UNIT))
+        static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
-            AddLayer(XSGridDefine.LAYER_UNIT);
-        }
-    }
-
-    static bool HasLayer(string layer) => LayerMask.NameToLayer(layer) != -1;
-
-    private static void AddLayer(string layer)
-    {
-        SerializedObject tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
-        SerializedProperty it = tagManager.GetIterator();
-        while (it.NextVisible(true))
-        {
-            if (it.name != "layers")
+            foreach (string s in importedAssets)
             {
-                continue;
+                if (s.Equals("Assets/XSGridEditor/Scripts/base/3d/IGridMgr.cs"))
+                {
+                    CheckLayer();
+                    return;
+                }
+            }
+        }
+
+        public static void CheckLayer()
+        {
+            if (!HasLayer(XSGridDefine.LAYER_TILE))
+            {
+                AddLayer(XSGridDefine.LAYER_TILE);
             }
 
-            for (int i = 0; i < it.arraySize; i++)
+            if (!HasLayer(XSGridDefine.LAYER_UNIT))
             {
-                SerializedProperty dataPoint = it.GetArrayElementAtIndex(i);
-                if (string.IsNullOrEmpty(dataPoint.stringValue)) 
+                AddLayer(XSGridDefine.LAYER_UNIT);
+            }
+        }
+
+        static bool HasLayer(string layer) => LayerMask.NameToLayer(layer) != -1;
+
+        private static void AddLayer(string layer)
+        {
+            SerializedObject tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
+            SerializedProperty it = tagManager.GetIterator();
+            while (it.NextVisible(true))
+            {
+                if (it.name != "layers")
                 {
-                    dataPoint.stringValue = layer;
-                    tagManager.ApplyModifiedProperties();
-                    return;
+                    continue;
+                }
+
+                for (int i = 0; i < it.arraySize; i++)
+                {
+                    SerializedProperty dataPoint = it.GetArrayElementAtIndex(i);
+                    if (string.IsNullOrEmpty(dataPoint.stringValue))
+                    {
+                        dataPoint.stringValue = layer;
+                        tagManager.ApplyModifiedProperties();
+                        return;
+                    }
                 }
             }
         }
