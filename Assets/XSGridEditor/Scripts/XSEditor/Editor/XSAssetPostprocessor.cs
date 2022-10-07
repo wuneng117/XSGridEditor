@@ -11,11 +11,11 @@ namespace XSSLG
         {
             // main`s variable will be null, we need to recreate
             var main = XSU.GetGridMain();
-            main.Awake();
+            main?.Awake();
 
             // mainEditMode`s variable will be null, we need to recreate
             var mainEditMode = XSUEE.GetGridMainEditMode();
-            mainEditMode.Awake();
+            mainEditMode?.Awake();
         }
 
         static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)

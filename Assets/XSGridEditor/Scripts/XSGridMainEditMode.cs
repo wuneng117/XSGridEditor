@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace XSSLG
 {
-    [DefaultExecutionOrder(Config.ExecutionOrder.MAIN)]
+    [DefaultExecutionOrder(Config.ExecutionOrder.MAINEDITMODE)]
     [ExecuteInEditMode]
     public class XSGridMainEditMode : MonoBehaviour
     {
@@ -17,15 +17,18 @@ namespace XSSLG
             set => gridHelperEditMode = value;
         }
 
-        public void Awake()
+        public virtual void Awake()
         {
+            Debug.Log("XSGridMainEditMode Awake");
             // Initialize the Instance first to ensure that it must be initialized when used
-            if (XSU.IsEditor())
+            if (!XSU.IsEditor())
             {
-                this.PrefabNodeMgr = new XSPrefabNodeMgr();
-                this.UnitMgrEditMode = new XSUnitMgrEditMode(XSU.GridHelper);
-                this.GridHelperEditMode = Component.FindObjectOfType<XSGridHelperEditMode>();
+                return;
             }
+
+            this.PrefabNodeMgr = new XSPrefabNodeMgr();
+            this.UnitMgrEditMode = new XSUnitMgrEditMode(XSU.GridHelper);
+            this.GridHelperEditMode = Component.FindObjectOfType<XSGridHelperEditMode>();
         }
     }
 }
