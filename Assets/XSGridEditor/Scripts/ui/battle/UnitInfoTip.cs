@@ -36,7 +36,7 @@ namespace XSSLG
             
             this.nameText.text = unit.Role.Data.Name;
             this.levelText.text = unit.Role.Level.Lv.ToString();
-            var hp = unit.GetStat().GetHP();
+            var hp = unit.GetStat().HP;
             this.hpText.text = hp.GetFinal() + "/" + hp.GetMax();
         }
 

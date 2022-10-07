@@ -44,7 +44,8 @@ namespace XSSLG
         public BuffBase(BuffData data, SkillBase skill) : base(data)
         {
             this.Skill = skill;
-            this.Stat = new Stat(data.StatData);
+            // data TODO
+            // this.Stat = new Stat(data.StatData);
         }
         // virtual
         public void Destroy()
@@ -96,7 +97,7 @@ namespace XSSLG
                 // }
             }
             else
-                this.TimeLeft = BattleDefine.MAX_BUFF_DURATION;
+                this.TimeLeft = XSDefine.MAX_BUFF_DURATION;
         }
 
         /// <summary> 是否需要持续时间计算 </summary>

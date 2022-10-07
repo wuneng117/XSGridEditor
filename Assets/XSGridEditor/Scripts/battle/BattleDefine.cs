@@ -1,7 +1,7 @@
 namespace XSSLG
 {
     /// <summary> 战斗的常量定义 </summary>
-    public class BattleDefine
+    public partial class XSDefine
     {
         /************************* BattleScene节点路径 begin ***********************/
         public static readonly string SCENE_BATTLE_BOX_MANAGER_PATH = "GridMgrEditor";    // 3d地图编辑器脚本节点

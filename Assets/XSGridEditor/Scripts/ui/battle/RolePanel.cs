@@ -55,16 +55,16 @@ namespace XSSLG
             this.LvText.text = role.Level.Lv.ToString();
             this.ExpText.text = role.Level.Exp.ToString();
             var stat = unit.GetStat();
-            this.hpText.text = (stat.GetHP().GetFinal().ToString());
-            this.movText.text = (stat.GetMov().GetFinal().ToString());
-            this.strText.SetValue(stat.GetStr().GetFinal(), BattleDefine.MAX_ATTR);
-            this.defText.SetValue(stat.GetDef().GetFinal(), BattleDefine.MAX_ATTR);
-            this.magText.SetValue(stat.GetMag().GetFinal(), BattleDefine.MAX_ATTR);
-            this.dexText.SetValue(stat.GetDex().GetFinal(), BattleDefine.MAX_ATTR);
-            this.spdText.SetValue(stat.GetSpd().GetFinal(), BattleDefine.MAX_ATTR);
-            this.resText.SetValue(stat.GetRes().GetFinal(), BattleDefine.MAX_ATTR);
-            this.lckText.SetValue(stat.GetLck().GetFinal(), BattleDefine.MAX_ATTR);
-            this.chaText.SetValue(stat.GetCha().GetFinal(), BattleDefine.MAX_ATTR);
+            this.hpText.text = (stat.HP.GetFinal().ToString());
+            this.movText.text = (stat.Mov.GetFinal().ToString());
+            this.strText.SetValue(stat.Str.GetFinal(), XSDefine.MAX_ATTR);
+            this.defText.SetValue(stat.Def.GetFinal(), XSDefine.MAX_ATTR);
+            this.magText.SetValue(stat.Mag.GetFinal(), XSDefine.MAX_ATTR);
+            this.dexText.SetValue(stat.Dex.GetFinal(), XSDefine.MAX_ATTR);
+            this.spdText.SetValue(stat.Spd.GetFinal(), XSDefine.MAX_ATTR);
+            this.resText.SetValue(stat.Res.GetFinal(), XSDefine.MAX_ATTR);
+            this.lckText.SetValue(stat.Lck.GetFinal(), XSDefine.MAX_ATTR);
+            this.chaText.SetValue(stat.Cha.GetFinal(), XSDefine.MAX_ATTR);
         }
         
         /************************* 按钮回调 begin ***********************/

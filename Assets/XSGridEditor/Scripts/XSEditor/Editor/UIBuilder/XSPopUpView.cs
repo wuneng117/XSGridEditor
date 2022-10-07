@@ -3,34 +3,37 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
-
-public class XSPopUpView : EditorWindow
+namespace XSSLG
 {
-    private string Desc { get; set; }
 
-    public void CreateGUI()
+    public class XSPopUpView : EditorWindow
     {
-        // Each editor window contains a root VisualElement object
-        VisualElement root = rootVisualElement;
+        private string Desc { get; set; }
 
-        // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/GridEditor/Editor/UIBuilder/XSPopUpView.uxml");
-        visualTree.CloneTree(root);
+        public void CreateGUI()
+        {
+            // Each editor window contains a root VisualElement object
+            VisualElement root = rootVisualElement;
 
-        var btn = root.Q<Button>("btn");
-        btn.clicked += ClickEvent;
+            // Import UXML
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/XSEditor/Editor/UIBuilder/XSPopUpView.uxml");
+            visualTree.CloneTree(root);
 
-        var descLabel = root.Q<Label>("desc");
-        descLabel.text = Desc;
-    }
+            var btn = root.Q<Button>("btn");
+            btn.clicked += ClickEvent;
 
-    public void Init(string desc)
-    {
-        this.Desc = desc;
-    }
+            var descLabel = root.Q<Label>("desc");
+            descLabel.text = Desc;
+        }
 
-    private void ClickEvent()
-    {
-        this.Close();
+        public void Init(string desc)
+        {
+            this.Desc = desc;
+        }
+
+        private void ClickEvent()
+        {
+            this.Close();
+        }
     }
 }

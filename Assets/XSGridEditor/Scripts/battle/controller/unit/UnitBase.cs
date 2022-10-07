@@ -109,7 +109,7 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 获取移动范围
+        /// get the unit move region
         /// </summary>
         /// <returns></returns>
         public List<Vector3> GetMoveRegion()
@@ -118,7 +118,7 @@ namespace XSSLG
 
             var srcTile = XSU.GridMgr.GetXSTileByWorldPos(this.WorldPos);
             // 缓存起来哈
-            this.CachedPaths = XSU.GridMgr.FindAllPath(srcTile, this.GetStat().GetMov().GetFinal());
+            this.CachedPaths = XSU.GridMgr.FindAllPath(srcTile, this.GetStat().Mov.GetFinal());
             // 把this.CachedPaths累加起来
             var ret = this.CachedPaths.Aggregate(new List<Vector3>(), (ret, pair) =>
             {

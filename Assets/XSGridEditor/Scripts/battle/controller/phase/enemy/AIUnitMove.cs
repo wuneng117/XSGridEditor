@@ -41,7 +41,7 @@ namespace XSSLG
             var path = pathList[Random.Range(0, pathList.Count)];
             // 如果超过移动范围，只走一半就行
             // 注意0是终点，path[count-1]是第一格
-            var count = Mathf.Max(0, path.Count - actionUnit.GetStat().GetMov().GetFinal());
+            var count = Mathf.Max(0, path.Count - actionUnit.GetStat().Mov.GetFinal());
             for (; count < path.Count; count++)
             {
                 if (logic.UnitMgr.GetUnitByWorldPosition(path[count]) == null)

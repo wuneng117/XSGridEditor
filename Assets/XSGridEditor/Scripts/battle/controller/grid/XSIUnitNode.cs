@@ -27,8 +27,6 @@ namespace XSSLG
 
         void AddBoxCollider();
 
-        List<Vector3> GetMoveRegion();
-
         void UpdatePos();
 
         void AttackAnimation();

@@ -29,5 +29,8 @@ namespace XSSLG
         /************************* 图层 begin ***********************/
         public static readonly string LAYER_GROUND = "Ground";  // 地面层，战斗地图生成用
         /************************* 图层  end  ***********************/
+
+        public static readonly string DATA_FILE_PATH_EDITOR = "Assets/XSGridEditor/Resources/data/";   // 编辑器中的数据文件路径
+        public static readonly string DATA_FILE_PATH_RUNTIME = "data/";   // 运行时的数据文件路径
     }
 }

@@ -38,7 +38,8 @@ namespace XSSLG
         {
             this.Unit = unit;
             this.Trigger = TriggerFactory.CreateTrigger(data.TriggerData, this);
-            this.Stat = new Stat(data.StatData);
+            // data TODO
+            // this.Stat = new Stat(data.StatData);
         }
 
         public override void StartWork()

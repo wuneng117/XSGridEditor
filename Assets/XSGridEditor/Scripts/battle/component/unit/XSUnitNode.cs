@@ -18,18 +18,13 @@ namespace XSSLG
 
         // /// <summary> 动画控制 </summary>
         // private UnitAnimation Animation { get; set; }
-
-        /// <summary> it is more common to represent id as a string </summary>
+        
         [SerializeField]
-        protected string id = "-1";
-        public string Id { get => id; set => id = value; }
+        protected RoleData data = new RoleData();
+        public RoleData Data { get => data; set => data = value; }
 
         /// <summary> 单位势力 </summary>
         public GroupType Group = GroupType.Self;
-
-        [SerializeField]
-        protected int move = 6;
-        public int Move { get => move; set => move = value; }
 
         public Dictionary<Vector3, List<Vector3>> CachedPaths { get; protected set; }
 
@@ -55,7 +50,7 @@ namespace XSSLG
 
         public virtual Unit GetUnit()
         {
-            var unit = UnitFactory.CreateUnit(new RoleData(), this.Group, this);
+            var unit = UnitFactory.CreateUnit(this.data, this.Group, this);
             if (unit == null)
                 return null;
 
@@ -88,25 +83,7 @@ namespace XSSLG
             return ret;
         }
 
-        /// <summary>
-        /// get the unit move region
-        /// </summary>
-        /// <returns></returns>
-        public virtual List<Vector3> GetMoveRegion()
-        {
-            var gridMgr = XSU.GridMgr;
-            var srcTile = gridMgr.GetXSTileByWorldPos(this.transform.position);
-            // first cache
-            this.CachedPaths = gridMgr.FindAllPath(srcTile, this.Move);
-            // Accumulate this.CachedPaths
-            var ret = this.CachedPaths.Aggregate(new List<Vector3>(), (ret, pair) =>
-            {
-                // deduplication
-                ret.AddRange(pair.Value.Distinct());
-                return ret;
-            }).Distinct().ToList(); // deduplication
-            return ret;
-        }
+
 
         public virtual void RemoveNode() => XSU.RemoveObj(this.gameObject);
 

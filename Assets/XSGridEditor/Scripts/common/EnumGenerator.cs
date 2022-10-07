@@ -15,7 +15,7 @@ namespace XSSLG
 /// </summary>
 namespace XSSLG
 {{
-    public partial class XSGridDefine
+    public partial class XSDefine
     {{
         /// <summary> weapon type </summary>
         {0}

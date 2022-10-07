@@ -141,8 +141,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f0f81e3103de945ada428e6b82073b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: -1
-  move: 6
+  data:
+    name: "\u6D4B\u8BD5\u654C\u4EBA1"
+    desc: "\u6D4B\u8BD5\u7529\u554A"
+    lv: 5
+    stat:
+      str:
+        val: 5
+        factor: 0
+      def:
+        val: 3
+        factor: 0
+      mag:
+        val: 2
+        factor: 0
+      dex:
+        val: 2
+        factor: 0
+      mov:
+        val: 6
+        factor: 0
+      spd:
+        val: 5
+        factor: 0
+      res:
+        val: 3
+        factor: 0
+      lck:
+        val: 1
+        factor: 0
+      cha:
+        val: 1
+        factor: 0
+      hp:
+        val: 60
+        max:
+          val: 60
+          factor: 0
+  Group: 0
 --- !u!114 &4505049116064722054
 MonoBehaviour:
   m_ObjectHideFlags: 0

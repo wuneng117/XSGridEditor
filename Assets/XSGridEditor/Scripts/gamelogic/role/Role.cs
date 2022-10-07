@@ -20,9 +20,6 @@ namespace XSSLG
         /// <summary> 玩家所有职业等级 </summary>
         public List<RoleClass> ClassArray { get; private set; }
 
-        /// <summary> 移动类型 </summary>
-        public RoleDataMovType MoveType { get; private set; } = RoleDataMovType.Ground;
-
         /// <summary> 拥有战技 </summary>
         public List<SkillData> CombatArtArray { get; } = new List<SkillData>();
 
@@ -50,17 +47,16 @@ namespace XSSLG
                 
             this.Level = new RoleLevel(data.Lv);
 
-            this.Class = new RoleClass(data.ClassData);
-            this.ClassArray = data.ClassDataArray.Select(classData => new RoleClass(classData)).ToList<RoleClass>();
+            // this.Class = new RoleClass(data.ClassData);
+            // this.ClassArray = data.ClassDataArray.Select(classData => new RoleClass(classData)).ToList<RoleClass>();
 
-            this.MoveType = data.MoveType;
 
-            this.CombatArtArray.AddRange(data.CombatArtArray);
-            this.AbilityArray.AddRange(data.AbilityArray);
-            this.LearnMagicArray.AddRange(data.LearnMagicArray);
-            this.CrestArray.AddRange(data.CrestArray);
+            // this.CombatArtArray.AddRange(data.CombatArtArray);
+            // this.AbilityArray.AddRange(data.AbilityArray);
+            // this.LearnMagicArray.AddRange(data.LearnMagicArray);
+            // this.CrestArray.AddRange(data.CrestArray);
 
-            this.Technique = new TechniqueLevelEx(data.TechniqueLvArray ?? new List<TechniqueLevel>());
+            // this.Technique = new TechniqueLevelEx(data.TechniqueLvArray ?? new List<TechniqueLevel>());
 
             this.Stat = new Stat(data.Stat);
             return true;

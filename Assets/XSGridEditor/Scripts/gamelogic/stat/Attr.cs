@@ -1,3 +1,5 @@
+using UnityEngine;
+using System;
 /// <summary>
 /// @Author: zhoutao
 /// @Date: 2021/5/4
@@ -6,38 +8,73 @@
 /// </summary>
 namespace XSSLG
 {
-    public class Attr : IAttr
+    [Serializable]
+    public class Attr
     {
-        private int _val = 0;
-        private float _factor = 0;
+        [SerializeField]
+        protected int val;
+        public int Val { get => val; set => val = value; }
 
-        public Attr(int val = 0, float factor = 0)
+        [SerializeField]
+        protected float factor;
+        public float Factor { get => factor; set => factor = value; }
+
+        public Attr()
         {
-            this._val = val;
-            this._factor = factor;
+            this.val = 0;
+            this.factor = 0;
         }
 
-        /// <summary> 基础属性 </summary>
-        public int GetBase() => this._val;
+        public Attr(int val) : this()
+        {
+            this.val = val;
+        }
 
-        /// <summary> 加成百分比 </summary>
-        public float GetFactor() => this._factor;
+        public Attr(int val, float factor) : this(val)
+        {
+            this.factor = factor;
+        }
 
         /// <summary> 基础乘以百分比计算最终属性 </summary>
-        public int GetFinal() => (int)(this._val * (1 + this._factor));
+        public int GetFinal() => (int)(this.val * (1 + this.factor));
 
         /// <summary> 加其它属性 </summary>
-        public void Add(IAttr attr)
+        public void Add(Attr attr)
         {
-            this._val += attr.GetBase();
-            this._factor += attr.GetFactor();
+            this.val += attr.val;
+            this.factor += attr.factor;
+        }
+
+        /// <summary> 减其它属性 </summary>
+        public void Reduce(Attr attr)
+        {
+            this.val -= attr.val;
+            this.factor -= attr.factor;
+        }
+
+        // 重载 + 运算符
+        public static Attr operator +(Attr a, Attr b)
+        {
+            var attr = new Attr();
+            attr.Add(a);
+            attr.Add(b);
+            return attr;
+        }
+
+        // 重载 + 运算符
+        public static Attr operator -(Attr a, Attr b)
+        {
+            var attr = new Attr();
+            attr.Add(a);
+            attr.Reduce(b);
+            return attr;
         }
 
         /// <summary> 重置 </summary>
         public void Reset()
         {
-            this._val = 0;
-            this._factor = 0;
+            this.val = 0;
+            this.factor = 0;
         }
     }
 }

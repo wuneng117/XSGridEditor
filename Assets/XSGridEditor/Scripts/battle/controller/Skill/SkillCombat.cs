@@ -64,7 +64,7 @@ namespace XSSLG
         public int CaculateDamage(UnitBase src, UnitBase dest)
         {
             //攻击＝力量＋武器威力＋技能＋骑士团物攻,全部通过Stat加
-            float damage = src.GetStat().GetStr().GetFinal() - dest.GetStat().GetDef().GetFinal();
+            float damage = src.GetStat().Str.GetFinal() - dest.GetStat().Def.GetFinal();
             damage = damage * src.Table.PhyDamageFactor() *  dest.Table.PhyImmunityFactor();
             return (int)damage;
         }

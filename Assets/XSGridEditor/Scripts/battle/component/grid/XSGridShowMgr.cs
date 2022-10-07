@@ -33,7 +33,7 @@ namespace XSSLG
         /// show unit move range
         /// </summary>
         /// <param name="unit"> which unit </param>
-        public virtual List<Vector3> ShowMoveRegion(XSIUnitNode unit)
+        public virtual List<Vector3> ShowMoveRegion(Unit unit)
         {
             if (this.MoveShowRegion == null || this.MoveShowRegion.IsNull() || unit == null)
             {

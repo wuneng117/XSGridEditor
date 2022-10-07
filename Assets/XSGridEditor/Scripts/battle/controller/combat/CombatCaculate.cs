@@ -12,7 +12,7 @@ namespace XSSLG
         {
             // 如果有护甲先减少护甲
 
-            var hp = dest.GetStat().GetHP();
+            var hp = dest.GetStat().HP;
             hp.Reduce(damage);
             // todo 计算死亡
             if (hp.GetFinal() <= 0)
