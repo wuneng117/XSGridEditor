@@ -19,7 +19,6 @@ namespace XSSLG
 
         public virtual void Awake()
         {
-            Debug.Log("XSGridMainEditMode Awake");
             // Initialize the Instance first to ensure that it must be initialized when used
             if (!XSU.IsEditor())
             {
