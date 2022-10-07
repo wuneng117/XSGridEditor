@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['id_487',['id',['../classXSSLG_1_1XSUnitNode.html#ae5b41b6a68e2b34adc9f7f4ca81222a9',1,'XSSLG::XSUnitNode']]],
-  ['instance_488',['instance',['../classXSSLG_1_1XSInstance.html#a4ef8c8a971365198dfad2a3333912b62',1,'XSSLG::XSInstance']]]
+  ['enemyturn_1798',['enemyTurn',['../classXSSLG_1_1BattleNode.html#a3ef3d231964904a46193d595fe59b1e9',1,'XSSLG::BattleNode']]],
+  ['exptext_1799',['ExpText',['../classXSSLG_1_1RolePanel.html#af48153cad6144803b06c1ed096bf65ba',1,'XSSLG::RolePanel']]]
 ];

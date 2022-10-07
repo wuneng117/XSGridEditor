@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['equiptype_522',['EquipType',['../classXSSLG_1_1XSGridDefine.html#a6d8c920b8ca5f5cf4308ba81ea9db236',1,'XSSLG::XSGridDefine']]]
+  ['animationsatetype_1926',['AnimationSateType',['../classXSSLG_1_1UnitDefine.html#ac7e41cbc95595bb7ce3f53e5b53d0bd0',1,'XSSLG::UnitDefine']]]
 ];

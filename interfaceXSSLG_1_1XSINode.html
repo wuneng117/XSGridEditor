@@ -81,9 +81,11 @@ Inheritance diagram for XSSLG.XSINode:</div>
  <div class="center">
   <img src="interfaceXSSLG_1_1XSINode.png" usemap="#XSSLG.XSINode_map" alt=""/>
   <map id="XSSLG.XSINode_map" name="XSSLG.XSINode_map">
-<area href="interfaceXSSLG_1_1XSIUnitNode.html" alt="XSSLG.XSIUnitNode" shape="rect" coords="0,56,142,80"/>
-<area href="classXSSLG_1_1XSPrefabNode.html" alt="XSSLG.XSPrefabNode" shape="rect" coords="152,56,294,80"/>
-<area href="classXSSLG_1_1XSUnitNode.html" title="unit data" alt="XSSLG.XSUnitNode" shape="rect" coords="0,112,142,136"/>
+<area href="classXSSLG_1_1Unit.html" title="战斗单位" alt="XSSLG.Unit" shape="rect" coords="0,56,142,80"/>
+<area href="interfaceXSSLG_1_1XSIUnitNode.html" alt="XSSLG.XSIUnitNode" shape="rect" coords="152,56,294,80"/>
+<area href="classXSSLG_1_1XSPrefabNode.html" alt="XSSLG.XSPrefabNode" shape="rect" coords="304,56,446,80"/>
+<area href="classXSSLG_1_1AIUnit.html" title="电脑控制的战斗单位" alt="XSSLG.AIUnit" shape="rect" coords="0,112,142,136"/>
+<area href="classXSSLG_1_1XSUnitNode.html" title="unit data" alt="XSSLG.XSUnitNode" shape="rect" coords="152,112,294,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -97,7 +99,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a9b55a31878637f26ae5adb99572cdf44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSINode.html#a9b55a31878637f26ae5adb99572cdf44">WorldPos</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a9b55a31878637f26ae5adb99572cdf44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSINode.html#a9b55a31878637f26ae5adb99572cdf44">WorldPos</a><code> [get, set]</code></td></tr>
 <tr class="separator:a9b55a31878637f26ae5adb99572cdf44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -118,7 +120,7 @@ Properties</h2></td></tr>
 
 <p>You cannot use "==" to check gameobject is null, because the gameobject in Unity is override "==", but when the gameobject is converted to the <a class="el" href="interfaceXSSLG_1_1XSITileRoot.html">XSITileRoot</a>, it will not use the override "==" </p>
 
-<p>Implemented in <a class="el" href="classXSSLG_1_1XSUnitNode.html#a3cd9cf23bb7fa873c0e9143d6be64984">XSSLG.XSUnitNode</a>, and <a class="el" href="classXSSLG_1_1XSPrefabNode.html#a4adf4e0804fbbe88cc719432444a414e">XSSLG.XSPrefabNode</a>.</p>
+<p>Implemented in <a class="el" href="classXSSLG_1_1XSUnitNode.html#a3cd9cf23bb7fa873c0e9143d6be64984">XSSLG.XSUnitNode</a>, <a class="el" href="classXSSLG_1_1Unit.html#a929ee5f81681698ce0ea7c1ee79daf43">XSSLG.Unit</a>, and <a class="el" href="classXSSLG_1_1XSPrefabNode.html#a4adf4e0804fbbe88cc719432444a414e">XSSLG.XSPrefabNode</a>.</p>
 
 </div>
 </div>
@@ -137,7 +139,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classXSSLG_1_1XSUnitNode.html#a3f5de41c9a3344d53ebad39f2152afdd">XSSLG.XSUnitNode</a>, and <a class="el" href="classXSSLG_1_1XSPrefabNode.html#ab649dde52304646f061c3283d5bfee44">XSSLG.XSPrefabNode</a>.</p>
+<p>Implemented in <a class="el" href="classXSSLG_1_1XSUnitNode.html#a3f5de41c9a3344d53ebad39f2152afdd">XSSLG.XSUnitNode</a>, <a class="el" href="classXSSLG_1_1Unit.html#aff0febae41a7d1fff984552078b8b4a2">XSSLG.Unit</a>, and <a class="el" href="classXSSLG_1_1XSPrefabNode.html#ab649dde52304646f061c3283d5bfee44">XSSLG.XSPrefabNode</a>.</p>
 
 </div>
 </div>
@@ -152,7 +154,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> XSSLG.XSINode.WorldPos</td>
+          <td class="memname"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> XSSLG.XSINode.WorldPos</td>
         </tr>
       </table>
   </td>
@@ -165,7 +167,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
-<li>Assets/XSGridEditor/Scripts/base/controller/<a class="el" href="XSNodeMgr_8cs.html">XSNodeMgr.cs</a></li>
+<li>Assets/XSGridEditor/Scripts/battle/controller/grid/<a class="el" href="XSNodeMgr_8cs.html">XSNodeMgr.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

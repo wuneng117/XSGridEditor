@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['savefiletopath_439',['SaveFileToPath',['../classXSSLG_1_1XSResLoadMgr.html#a9cd92544173e0bfb4e889b665a95c40d',1,'XSSLG::XSResLoadMgr']]],
-  ['setcameraposition_440',['SetCameraPosition',['../classXSSLG_1_1XSCamera.html#aa89ea87bd2d939ef2471b72fbc349da3',1,'XSSLG::XSCamera']]],
-  ['setconfinerbound_441',['SetConfinerBound',['../classXSSLG_1_1XSCamera.html#ab5366d72efcf217c58263d8b1eb5dab6',1,'XSSLG::XSCamera']]],
-  ['settextshow_442',['SetTextShow',['../classXSSLG_1_1XSGridHelperEditMode.html#aa292e146554d7770ace8ceb22f6759e6',1,'XSSLG::XSGridHelperEditMode']]],
-  ['settilecostshow_443',['SetTileCostShow',['../classXSSLG_1_1XSGridHelperEditMode.html#a0c6e6eecb4c269cd9877e19d62979105',1,'XSSLG::XSGridHelperEditMode']]],
-  ['settileposshow_444',['SetTilePosShow',['../classXSSLG_1_1XSGridHelperEditMode.html#a228871cf09f9e19ce5d268ac34ad99c6',1,'XSSLG::XSGridHelperEditMode']]],
-  ['settiletonearterrain_445',['SetTileToNearTerrain',['../classXSSLG_1_1XSGridHelperEditMode.html#a6c03576bb8c5c69715e6fb1aa70f114d',1,'XSSLG.XSGridHelperEditMode.SetTileToNearTerrain()'],['../classXSSLG_1_1XSGridHelperEditMode.html#a556e09e2f2c0540460c0bbb68206490a',1,'XSSLG.XSGridHelperEditMode.SetTileToNearTerrain(XSTile tile, bool closeUnit)']]],
-  ['settranstotopterrain_446',['SetTransToTopTerrain',['../classXSSLG_1_1XSGridHelper.html#a8abff3ac6e0fa2a6bad05d9403215eb3',1,'XSSLG::XSGridHelper']]],
-  ['showmoveregion_447',['ShowMoveRegion',['../classXSSLG_1_1XSGridShowMgr.html#ab4d9a81bd44b50fb5f55bc7f36308c6c',1,'XSSLG::XSGridShowMgr']]],
-  ['showregion_448',['ShowRegion',['../classXSSLG_1_1XSGridShowRegionCpt.html#a069f76d5233d0262ae25528b9913dad0',1,'XSSLG.XSGridShowRegionCpt.ShowRegion()'],['../interfaceXSSLG_1_1XSIGridShowRegion.html#aef16cb2e10634550fd31e5c15f45e85e',1,'XSSLG.XSIGridShowRegion.ShowRegion()']]],
-  ['showtip_449',['ShowTip',['../classXSUEE.html#a799767f448c217048b6d740fc1218311',1,'XSUEE']]],
-  ['start_450',['Start',['../classXSSLG_1_1XSBattleMgr.html#a38c9db21209fb4d149641bb4528b17bc',1,'XSSLG.XSBattleMgr.Start()'],['../classXSSLG_1_1XSGridHelperEditMode.html#aa980af95be4524e8dff2bdb4b3a98300',1,'XSSLG.XSGridHelperEditMode.Start()'],['../classXSSLG_1_1XSTileNodeEditMode.html#ac10762f7058d69f62c33159bda97cda9',1,'XSSLG.XSTileNodeEditMode.Start()'],['../classXSSLG_1_1XSUnitNodeEditMode.html#a35de2346564d3e20774fe7ab010a0cdb',1,'XSSLG.XSUnitNodeEditMode.Start()'],['../classXSMain.html#a65f4c53657a5200125e163b49c75740c',1,'XSMain.Start()']]]
+  ['passnearrule_1621',['PassNearRule',['../classXSSLG_1_1XSTile.html#a52173d1e0f1ddcfbe70321c6c831f31e',1,'XSSLG::XSTile']]],
+  ['phasechooseatk_1622',['PhaseChooseAtk',['../classXSSLG_1_1PhaseChooseAtk.html#a436b7d8737c072b633e1e3204b54c7fa',1,'XSSLG::PhaseChooseAtk']]],
+  ['phaseunitatk_1623',['PhaseUnitAtk',['../classXSSLG_1_1PhaseUnitAtk.html#a77a5026d791383ff76d6d11be1cb07c7',1,'XSSLG::PhaseUnitAtk']]],
+  ['phaseunitatkbase_1624',['PhaseUnitAtkBase',['../classXSSLG_1_1PhaseUnitAtkBase.html#ab6834a98524acaff0ed1c00fddd6178f',1,'XSSLG::PhaseUnitAtkBase']]],
+  ['phydamagefactor_1625',['PhyDamageFactor',['../interfaceXSSLG_1_1ICommonTable.html#af733f8e1cfc48b64d7b8588e57331e5e',1,'XSSLG.ICommonTable.PhyDamageFactor()'],['../classXSSLG_1_1CommonTableItem.html#ae6e9e3fa942e9df7d3e09130c0c5278f',1,'XSSLG.CommonTableItem.PhyDamageFactor()'],['../classXSSLG_1_1CommonTable.html#ae56e839bf66f5f7a6396c8dd23fe2a54',1,'XSSLG.CommonTable.PhyDamageFactor()']]],
+  ['phyimmunityfactor_1626',['PhyImmunityFactor',['../interfaceXSSLG_1_1ICommonTable.html#aa3de78218f93a43d739c01c00dcef02e',1,'XSSLG.ICommonTable.PhyImmunityFactor()'],['../classXSSLG_1_1CommonTableItem.html#a71f47b685aa4a55ec8ddef12bb29d817',1,'XSSLG.CommonTableItem.PhyImmunityFactor()'],['../classXSSLG_1_1CommonTable.html#a6aceb1cd67b5336ab0f6cf11a1ce5d42',1,'XSSLG.CommonTable.PhyImmunityFactor()']]],
+  ['playapplydamage_1627',['PlayApplyDamage',['../classXSSLG_1_1UnitAnimation.html#ac374142e7a94a8f2a67b0fdef106e580',1,'XSSLG::UnitAnimation']]],
+  ['playattack_1628',['PlayAttack',['../classXSSLG_1_1UnitAnimation.html#a687cca54ee2701f12bea435c88528fbd',1,'XSSLG::UnitAnimation']]],
+  ['playdie_1629',['PlayDie',['../classXSSLG_1_1UnitAnimation.html#a0a9d0b43b1483336903f3643041f612f',1,'XSSLG::UnitAnimation']]]
 ];

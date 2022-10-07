@@ -69,9 +69,11 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classXSSLG_1_1XSUnitNode-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">XSSLG.XSUnitNode Class Reference</div>  </div>
@@ -93,11 +95,10 @@ Inheritance diagram for XSSLG.XSUnitNode:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a44d3b324f87e84f644204ff7bf46e8b5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classXSSLG_1_1Unit.html">Unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a44d3b324f87e84f644204ff7bf46e8b5">GetUnit</a> ()</td></tr>
+<tr class="separator:a44d3b324f87e84f644204ff7bf46e8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8615cd7cb9af4daf9da95046b3ab8e6f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a8615cd7cb9af4daf9da95046b3ab8e6f">AddBoxCollider</a> ()</td></tr>
 <tr class="separator:a8615cd7cb9af4daf9da95046b3ab8e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a426a79f4e8d391e8d7eb75555bd1c2fc"><td class="memItemLeft" align="right" valign="top">virtual List&lt; <a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a426a79f4e8d391e8d7eb75555bd1c2fc">GetMoveRegion</a> ()</td></tr>
-<tr class="memdesc:a426a79f4e8d391e8d7eb75555bd1c2fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the unit move region  <a href="classXSSLG_1_1XSUnitNode.html#a426a79f4e8d391e8d7eb75555bd1c2fc">More...</a><br /></td></tr>
-<tr class="separator:a426a79f4e8d391e8d7eb75555bd1c2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f5de41c9a3344d53ebad39f2152afdd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a3f5de41c9a3344d53ebad39f2152afdd">RemoveNode</a> ()</td></tr>
 <tr class="separator:a3f5de41c9a3344d53ebad39f2152afdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cd9cf23bb7fa873c0e9143d6be64984"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a3cd9cf23bb7fa873c0e9143d6be64984">IsNull</a> ()</td></tr>
@@ -105,6 +106,29 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3cd9cf23bb7fa873c0e9143d6be64984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3783a6be2060889d454f45f10af83957"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a3783a6be2060889d454f45f10af83957">UpdatePos</a> ()</td></tr>
 <tr class="separator:a3783a6be2060889d454f45f10af83957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e5e3d4fdde378d4b8acdf96a37488b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a25e5e3d4fdde378d4b8acdf96a37488b">RotateTo</a> (<a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> tile)</td></tr>
+<tr class="separator:a25e5e3d4fdde378d4b8acdf96a37488b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96fb976662241ac62cfba0354d0a403e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a96fb976662241ac62cfba0354d0a403e">WalkTo</a> (List&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt; path)</td></tr>
+<tr class="memdesc:a96fb976662241ac62cfba0354d0a403e"><td class="mdescLeft">&#160;</td><td class="mdescRight">move to the destination  <a href="classXSSLG_1_1XSUnitNode.html#a96fb976662241ac62cfba0354d0a403e">More...</a><br /></td></tr>
+<tr class="separator:a96fb976662241ac62cfba0354d0a403e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a059caf36a3560dff63f1c12b5ef13"><td class="memItemLeft" align="right" valign="top">virtual IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a31a059caf36a3560dff63f1c12b5ef13">MovementAnimation</a> (List&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt; path)</td></tr>
+<tr class="memdesc:a31a059caf36a3560dff63f1c12b5ef13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine to deal move  <a href="classXSSLG_1_1XSUnitNode.html#a31a059caf36a3560dff63f1c12b5ef13">More...</a><br /></td></tr>
+<tr class="separator:a31a059caf36a3560dff63f1c12b5ef13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12c548678372a8c29e27054d81aa9c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ad12c548678372a8c29e27054d81aa9c7">AttackAnimation</a> ()</td></tr>
+<tr class="memdesc:ad12c548678372a8c29e27054d81aa9c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">攻击动画  <a href="classXSSLG_1_1XSUnitNode.html#ad12c548678372a8c29e27054d81aa9c7">More...</a><br /></td></tr>
+<tr class="separator:ad12c548678372a8c29e27054d81aa9c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a098674110b162aaebf52543d5de5fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a1a098674110b162aaebf52543d5de5fc">ApplyDamageAnimation</a> (int damage)</td></tr>
+<tr class="memdesc:a1a098674110b162aaebf52543d5de5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">受击动画  <a href="classXSSLG_1_1XSUnitNode.html#a1a098674110b162aaebf52543d5de5fc">More...</a><br /></td></tr>
+<tr class="separator:a1a098674110b162aaebf52543d5de5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a071a4f8176117d6dd2954c301ca7c568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a071a4f8176117d6dd2954c301ca7c568">DieAnimation</a> ()</td></tr>
+<tr class="memdesc:a071a4f8176117d6dd2954c301ca7c568"><td class="mdescLeft">&#160;</td><td class="mdescRight">死亡动画  <a href="classXSSLG_1_1XSUnitNode.html#a071a4f8176117d6dd2954c301ca7c568">More...</a><br /></td></tr>
+<tr class="separator:a071a4f8176117d6dd2954c301ca7c568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a64af578acac05775e41c4dec5f837618"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affa">GroupType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a64af578acac05775e41c4dec5f837618">Group</a> = <a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaaad6e7652b1bdfb38783486c2c3d5e806">GroupType.Self</a></td></tr>
+<tr class="memdesc:a64af578acac05775e41c4dec5f837618"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位势力  <a href="classXSSLG_1_1XSUnitNode.html#a64af578acac05775e41c4dec5f837618">More...</a><br /></td></tr>
+<tr class="separator:a64af578acac05775e41c4dec5f837618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -113,25 +137,45 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ae5b41b6a68e2b34adc9f7f4ca81222a9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ae5b41b6a68e2b34adc9f7f4ca81222a9">id</a> = &quot;-1&quot;</td></tr>
-<tr class="memdesc:ae5b41b6a68e2b34adc9f7f4ca81222a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is more common to represent id as a string  <a href="classXSSLG_1_1XSUnitNode.html#ae5b41b6a68e2b34adc9f7f4ca81222a9">More...</a><br /></td></tr>
-<tr class="separator:ae5b41b6a68e2b34adc9f7f4ca81222a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2783731a558093829efe913e480df5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ac2783731a558093829efe913e480df5e">move</a> = 6</td></tr>
-<tr class="separator:ac2783731a558093829efe913e480df5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fcc7d3b86109005928f250101bcecd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classXSSLG_1_1RoleData.html">RoleData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a1fcc7d3b86109005928f250101bcecd7">data</a> = new <a class="el" href="classXSSLG_1_1RoleData.html">RoleData</a>()</td></tr>
+<tr class="separator:a1fcc7d3b86109005928f250101bcecd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a926b4d3a021eb123cdbe700330f7134d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a926b4d3a021eb123cdbe700330f7134d">movementAnimationSpeed</a> = 2</td></tr>
+<tr class="separator:a926b4d3a021eb123cdbe700330f7134d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:ac6a090b01c05ce32903fb0c781ccded5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ac6a090b01c05ce32903fb0c781ccded5">Id</a><code> [get, set]</code></td></tr>
-<tr class="separator:ac6a090b01c05ce32903fb0c781ccded5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4fdbade6e6f328c9b67de06ecffffa7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ac4fdbade6e6f328c9b67de06ecffffa7">Move</a><code> [get, set]</code></td></tr>
-<tr class="separator:ac4fdbade6e6f328c9b67de06ecffffa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a701c35539178e839a9e4236b8782a6c5"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt; <a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a701c35539178e839a9e4236b8782a6c5">CachedPaths</a><code> [get, protected set]</code></td></tr>
+<tr class="memitem:ab62f075970e75c20880c2e06916991ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classXSSLG_1_1RoleData.html">RoleData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ab62f075970e75c20880c2e06916991ee">Data</a><code> [get, set]</code></td></tr>
+<tr class="separator:ab62f075970e75c20880c2e06916991ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701c35539178e839a9e4236b8782a6c5"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a701c35539178e839a9e4236b8782a6c5">CachedPaths</a><code> [get, protected set]</code></td></tr>
 <tr class="separator:a701c35539178e839a9e4236b8782a6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4021d65a2c491e6cd757a5a498c1521"><td class="memItemLeft" align="right" valign="top"><a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ad4021d65a2c491e6cd757a5a498c1521">WorldPos</a><code> [get, set]</code></td></tr>
+<tr class="memitem:ad4021d65a2c491e6cd757a5a498c1521"><td class="memItemLeft" align="right" valign="top"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ad4021d65a2c491e6cd757a5a498c1521">WorldPos</a><code> [get, set]</code></td></tr>
 <tr class="separator:ad4021d65a2c491e6cd757a5a498c1521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8eafc7252b1d358e6fd723e0a5c95b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ae8eafc7252b1d358e6fd723e0a5c95b3">IsMoving</a><code> [get, private set]</code></td></tr>
+<tr class="memdesc:ae8eafc7252b1d358e6fd723e0a5c95b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否正在移动  <a href="classXSSLG_1_1XSUnitNode.html#ae8eafc7252b1d358e6fd723e0a5c95b3">More...</a><br /></td></tr>
+<tr class="separator:ae8eafc7252b1d358e6fd723e0a5c95b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa52c8d87fdfafbbdc4ff6dcd1025034"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#afa52c8d87fdfafbbdc4ff6dcd1025034">IsAttacking</a><code> [get, private set]</code></td></tr>
+<tr class="memdesc:afa52c8d87fdfafbbdc4ff6dcd1025034"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否正在播放攻击动画  <a href="classXSSLG_1_1XSUnitNode.html#afa52c8d87fdfafbbdc4ff6dcd1025034">More...</a><br /></td></tr>
+<tr class="separator:afa52c8d87fdfafbbdc4ff6dcd1025034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ce835bd354e55c03c4bc3d6f97a5246"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a3ce835bd354e55c03c4bc3d6f97a5246">IsNeedDeadAnimation</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a3ce835bd354e55c03c4bc3d6f97a5246"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否需要受击后播放死亡动画  <a href="classXSSLG_1_1XSUnitNode.html#a3ce835bd354e55c03c4bc3d6f97a5246">More...</a><br /></td></tr>
+<tr class="separator:a3ce835bd354e55c03c4bc3d6f97a5246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_interfaceXSSLG_1_1XSIUnitNode"><td colspan="2" onclick="javascript:toggleInherit('properties_interfaceXSSLG_1_1XSIUnitNode')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html">XSSLG.XSIUnitNode</a></td></tr>
+<tr class="memitem:a5b71a6720fc4d8430e395c258b0f9fbf inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a5b71a6720fc4d8430e395c258b0f9fbf">IsMoving</a><code> [get]</code></td></tr>
+<tr class="separator:a5b71a6720fc4d8430e395c258b0f9fbf inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff0145cb752fad8520edaa29436e89a inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#aeff0145cb752fad8520edaa29436e89a">IsAttacking</a><code> [get]</code></td></tr>
+<tr class="memdesc:aeff0145cb752fad8520edaa29436e89a inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否正在播放攻击动画  <a href="interfaceXSSLG_1_1XSIUnitNode.html#aeff0145cb752fad8520edaa29436e89a">More...</a><br /></td></tr>
+<tr class="separator:aeff0145cb752fad8520edaa29436e89a inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb92a8777c0b1d8411d4bcffb16d9693 inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#acb92a8777c0b1d8411d4bcffb16d9693">IsNeedDeadAnimation</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:acb92a8777c0b1d8411d4bcffb16d9693 inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否需要受击后播放死亡动画  <a href="interfaceXSSLG_1_1XSIUnitNode.html#acb92a8777c0b1d8411d4bcffb16d9693">More...</a><br /></td></tr>
+<tr class="separator:acb92a8777c0b1d8411d4bcffb16d9693 inherit properties_interfaceXSSLG_1_1XSIUnitNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_interfaceXSSLG_1_1XSINode"><td colspan="2" onclick="javascript:toggleInherit('properties_interfaceXSSLG_1_1XSINode')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interfaceXSSLG_1_1XSINode.html">XSSLG.XSINode</a></td></tr>
-<tr class="memitem:a9b55a31878637f26ae5adb99572cdf44 inherit properties_interfaceXSSLG_1_1XSINode"><td class="memItemLeft" align="right" valign="top"><a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSINode.html#a9b55a31878637f26ae5adb99572cdf44">WorldPos</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a9b55a31878637f26ae5adb99572cdf44 inherit properties_interfaceXSSLG_1_1XSINode"><td class="memItemLeft" align="right" valign="top"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSINode.html#a9b55a31878637f26ae5adb99572cdf44">WorldPos</a><code> [get, set]</code></td></tr>
 <tr class="separator:a9b55a31878637f26ae5adb99572cdf44 inherit properties_interfaceXSSLG_1_1XSINode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a563488f14f871fd3a907d3756a6fd0e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a563488f14f871fd3a907d3756a6fd0e4">Awake</a> ()</td></tr>
+<tr class="separator:a563488f14f871fd3a907d3756a6fd0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>unit data </p>
@@ -163,6 +207,119 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a1a098674110b162aaebf52543d5de5fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a098674110b162aaebf52543d5de5fc">&#9670;&nbsp;</a></span>ApplyDamageAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XSSLG.XSUnitNode.ApplyDamageAnimation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>damage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>受击动画 </p>
+
+<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a3ce5b47bc21b9dc057fae896ecf3433b">XSSLG.XSIUnitNode</a>.</p>
+
+</div>
+</div>
+<a id="ad12c548678372a8c29e27054d81aa9c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12c548678372a8c29e27054d81aa9c7">&#9670;&nbsp;</a></span>AttackAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XSSLG.XSUnitNode.AttackAnimation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>攻击动画 </p>
+
+<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a33f05bc0dc15de525dc3c1e7f9494ea1">XSSLG.XSIUnitNode</a>.</p>
+
+</div>
+</div>
+<a id="a563488f14f871fd3a907d3756a6fd0e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563488f14f871fd3a907d3756a6fd0e4">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XSSLG.XSUnitNode.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a071a4f8176117d6dd2954c301ca7c568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a071a4f8176117d6dd2954c301ca7c568">&#9670;&nbsp;</a></span>DieAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XSSLG.XSUnitNode.DieAnimation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>死亡动画 </p>
+
+<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a947a3774b09f584f5b1d812798e91210">XSSLG.XSIUnitNode</a>.</p>
+
+</div>
+</div>
 <a id="a303bb299fa7cf78460368fde39e4e579"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a303bb299fa7cf78460368fde39e4e579">&#9670;&nbsp;</a></span>GetMaxBounds()</h2>
 
@@ -188,8 +345,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a426a79f4e8d391e8d7eb75555bd1c2fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a426a79f4e8d391e8d7eb75555bd1c2fc">&#9670;&nbsp;</a></span>GetMoveRegion()</h2>
+<a id="a44d3b324f87e84f644204ff7bf46e8b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44d3b324f87e84f644204ff7bf46e8b5">&#9670;&nbsp;</a></span>GetUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +355,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual List&lt;<a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt; XSSLG.XSUnitNode.GetMoveRegion </td>
+          <td class="memname">virtual <a class="el" href="classXSSLG_1_1Unit.html">Unit</a> XSSLG.XSUnitNode.GetUnit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -211,10 +368,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>get the unit move region </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a4dca717733311cf5213b98b4b0111366">XSSLG.XSIUnitNode</a>.</p>
+<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#ad180de88459ac66ab934ad744ee62bea">XSSLG.XSIUnitNode</a>.</p>
 
 </div>
 </div>
@@ -247,6 +401,34 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a31a059caf36a3560dff63f1c12b5ef13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31a059caf36a3560dff63f1c12b5ef13">&#9670;&nbsp;</a></span>MovementAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IEnumerator XSSLG.XSUnitNode.MovementAnimation </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Coroutine to deal move </p>
+
+</div>
+</div>
 <a id="a3f5de41c9a3344d53ebad39f2152afdd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f5de41c9a3344d53ebad39f2152afdd">&#9670;&nbsp;</a></span>RemoveNode()</h2>
 
@@ -271,6 +453,26 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="interfaceXSSLG_1_1XSINode.html#aeed48a8bc6c81f8d5625fe0f40639415">XSSLG.XSINode</a>.</p>
+
+</div>
+</div>
+<a id="a25e5e3d4fdde378d4b8acdf96a37488b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e5e3d4fdde378d4b8acdf96a37488b">&#9670;&nbsp;</a></span>RotateTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XSSLG.XSUnitNode.RotateTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a>&#160;</td>
+          <td class="paramname"><em>tile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a6980160c6ea9972e1d4c3de11025cf62">XSSLG.XSIUnitNode</a>.</p>
 
 </div>
 </div>
@@ -301,9 +503,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae5b41b6a68e2b34adc9f7f4ca81222a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5b41b6a68e2b34adc9f7f4ca81222a9">&#9670;&nbsp;</a></span>id</h2>
+<a id="a96fb976662241ac62cfba0354d0a403e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96fb976662241ac62cfba0354d0a403e">&#9670;&nbsp;</a></span>WalkTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,7 +513,44 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string XSSLG.XSUnitNode.id = &quot;-1&quot;</td>
+          <td class="memname">void XSSLG.XSUnitNode.WalkTo </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>move to the destination </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>move path</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#aae6dd760c25fa8791a7769ad5a843e0f">XSSLG.XSIUnitNode</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1fcc7d3b86109005928f250101bcecd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fcc7d3b86109005928f250101bcecd7">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classXSSLG_1_1RoleData.html">RoleData</a> XSSLG.XSUnitNode.data = new <a class="el" href="classXSSLG_1_1RoleData.html">RoleData</a>()</td>
         </tr>
       </table>
   </td>
@@ -322,12 +560,26 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>it is more common to represent id as a string </p>
+</div>
+</div>
+<a id="a64af578acac05775e41c4dec5f837618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64af578acac05775e41c4dec5f837618">&#9670;&nbsp;</a></span>Group</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affa">GroupType</a> XSSLG.XSUnitNode.Group = <a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaaad6e7652b1bdfb38783486c2c3d5e806">GroupType.Self</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>单位势力 </p>
 
 </div>
 </div>
-<a id="ac2783731a558093829efe913e480df5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2783731a558093829efe913e480df5e">&#9670;&nbsp;</a></span>move</h2>
+<a id="a926b4d3a021eb123cdbe700330f7134d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a926b4d3a021eb123cdbe700330f7134d">&#9670;&nbsp;</a></span>movementAnimationSpeed</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,7 +588,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int XSSLG.XSUnitNode.move = 6</td>
+          <td class="memname">int XSSLG.XSUnitNode.movementAnimationSpeed = 2</td>
         </tr>
       </table>
   </td>
@@ -359,7 +611,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Dictionary&lt;<a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt;<a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt; &gt; XSSLG.XSUnitNode.CachedPaths</td>
+          <td class="memname">Dictionary&lt;<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt;<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt; &gt; XSSLG.XSUnitNode.CachedPaths</td>
         </tr>
       </table>
   </td>
@@ -371,8 +623,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="ac6a090b01c05ce32903fb0c781ccded5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6a090b01c05ce32903fb0c781ccded5">&#9670;&nbsp;</a></span>Id</h2>
+<a id="ab62f075970e75c20880c2e06916991ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62f075970e75c20880c2e06916991ee">&#9670;&nbsp;</a></span>Data</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,7 +633,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string XSSLG.XSUnitNode.Id</td>
+          <td class="memname"><a class="el" href="classXSSLG_1_1RoleData.html">RoleData</a> XSSLG.XSUnitNode.Data</td>
         </tr>
       </table>
   </td>
@@ -393,8 +645,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="ac4fdbade6e6f328c9b67de06ecffffa7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4fdbade6e6f328c9b67de06ecffffa7">&#9670;&nbsp;</a></span>Move</h2>
+<a id="afa52c8d87fdfafbbdc4ff6dcd1025034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa52c8d87fdfafbbdc4ff6dcd1025034">&#9670;&nbsp;</a></span>IsAttacking</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,7 +655,55 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int XSSLG.XSUnitNode.Move</td>
+          <td class="memname">bool XSSLG.XSUnitNode.IsAttacking</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>是否正在播放攻击动画 </p>
+
+</div>
+</div>
+<a id="ae8eafc7252b1d358e6fd723e0a5c95b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8eafc7252b1d358e6fd723e0a5c95b3">&#9670;&nbsp;</a></span>IsMoving</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool XSSLG.XSUnitNode.IsMoving</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>是否正在移动 </p>
+
+</div>
+</div>
+<a id="a3ce835bd354e55c03c4bc3d6f97a5246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce835bd354e55c03c4bc3d6f97a5246">&#9670;&nbsp;</a></span>IsNeedDeadAnimation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool XSSLG.XSUnitNode.IsNeedDeadAnimation</td>
         </tr>
       </table>
   </td>
@@ -412,6 +712,8 @@ Properties</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>是否需要受击后播放死亡动画 </p>
 
 </div>
 </div>
@@ -425,7 +727,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> XSSLG.XSUnitNode.WorldPos</td>
+          <td class="memname"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> XSSLG.XSUnitNode.WorldPos</td>
         </tr>
       </table>
   </td>
@@ -438,7 +740,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Assets/XSGridEditor/Scripts/base/component/<a class="el" href="XSUnitNode_8cs.html">XSUnitNode.cs</a></li>
+<li>Assets/XSGridEditor/Scripts/battle/component/unit/<a class="el" href="XSUnitNode_8cs.html">XSUnitNode.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

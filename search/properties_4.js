@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['grid_538',['Grid',['../classXSSLG_1_1XSGridHelperEditMode.html#ab86e705782432d9c9ef6eaa541255b36',1,'XSSLG::XSGridHelperEditMode']]],
-  ['gridhelper_539',['GridHelper',['../classXSSLG_1_1XSInstance.html#ad40b27f4cc5222f865be53ab8d0c796a',1,'XSSLG::XSInstance']]],
-  ['gridhelpereditmode_540',['GridHelperEditMode',['../classXSSLG_1_1XSInstance.html#a8c0ae55dea52a8fc2b511281a7e69982',1,'XSSLG::XSInstance']]],
-  ['gridmgr_541',['GridMgr',['../classXSSLG_1_1XSInstance.html#adaaf4e869350566fa4e17133a82ea232',1,'XSSLG.XSInstance.GridMgr()'],['../classXSSLG_1_1XSBattleMgr.html#a832de73a4d6e260982e33f5348cbc3e7',1,'XSSLG.XSBattleMgr.GridMgr()']]],
-  ['gridshowmgr_542',['GridShowMgr',['../classXSSLG_1_1XSBattleMgr.html#ab37a96e029847075013025aa19b306ad',1,'XSSLG::XSBattleMgr']]]
+  ['effectarray_2074',['EffectArray',['../classXSSLG_1_1BuffData.html#a9e8bb762abc8fb4f5177432c4cee0893',1,'XSSLG.BuffData.EffectArray()'],['../classXSSLG_1_1SkillData.html#a8010e96eeefd878175f2a60f60db9bb7',1,'XSSLG.SkillData.EffectArray()']]],
+  ['endturn_2075',['EndTurn',['../classXSSLG_1_1CountDown.html#a640f7d4771cd1bb19bb361f99e121236',1,'XSSLG::CountDown']]],
+  ['exp_2076',['Exp',['../classXSSLG_1_1RoleClass.html#a9013e3f0817e48afeeec63b4cb23dab2',1,'XSSLG.RoleClass.Exp()'],['../classXSSLG_1_1LevelBase.html#a3180a099153d5e1a6d5190483deb3811',1,'XSSLG.LevelBase.Exp()']]],
+  ['exparray_2077',['ExpArray',['../classXSSLG_1_1LevelBase.html#a9be5a6f1f42286fa3ba89546f3b3d68b',1,'XSSLG::LevelBase']]]
 ];

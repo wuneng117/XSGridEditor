@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['ondestroy_428',['OnDestroy',['../classXSMain.html#afaa8e35ba63c137862ea626142b61abb',1,'XSMain']]],
-  ['oneditorscenemanagersceneopened_429',['OnEditorSceneManagerSceneOpened',['../classXSSLG_1_1XSInitalize.html#aa1dfec6770c9352608324c5e5cbb76dd',1,'XSSLG::XSInitalize']]],
-  ['oninspectorgui_430',['OnInspectorGUI',['../classXSSLG_1_1XSGridHelperEditor.html#a8222f94663835ebd85e723f83c90ab42',1,'XSSLG::XSGridHelperEditor']]],
-  ['onpostprocessallassets_431',['OnPostprocessAllAssets',['../classXSAssetPostprocessor.html#a2c7778b207f9517f417110a9be642904',1,'XSAssetPostprocessor']]]
+  ['menuactive_1574',['MenuActive',['../classXSSLG_1_1PhaseMainMenu.html#aa0561a1504a6fbab346a71caa19a6213',1,'XSSLG::PhaseMainMenu']]],
+  ['menuactive_3c_20t_20_3e_1575',['MenuActive&lt; T &gt;',['../classXSSLG_1_1PhaseUnitMenu.html#a334538c2b25cd4e2600393c15ca4c84e',1,'XSSLG::PhaseUnitMenu']]],
+  ['movedirection_1576',['MoveDirection',['../classXSSLG_1_1XSCamera.html#aae02783e4f2931cfc0706a748602280e',1,'XSSLG::XSCamera']]],
+  ['movementanimation_1577',['MovementAnimation',['../classXSSLG_1_1XSUnitNode.html#a31a059caf36a3560dff63f1c12b5ef13',1,'XSSLG.XSUnitNode.MovementAnimation()'],['../classXSSLG_1_1XSCamera.html#a2f77f1ef4bcef67c2bf4a2d3c52b936a',1,'XSSLG.XSCamera.MovementAnimation()']]],
+  ['movescreen_1578',['MoveScreen',['../classXSSLG_1_1XSCamera.html#a9edcfbf5bb26e8b83841fd2b7d7e8637',1,'XSSLG::XSCamera']]],
+  ['moveto_1579',['MoveTo',['../classXSSLG_1_1XSCamera.html#ab890b868d396deb902d4ec2daae74842',1,'XSSLG::XSCamera']]]
 ];

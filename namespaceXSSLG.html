@@ -65,30 +65,380 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">XSSLG Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>@Author: xiaoshi @Date: 2022-08-01 20:40:16 @Description: XSunitNode`s manager  
+<p>@Author: zhoutao @Date: 2021/5/9 @Description: 常用的战斗方法  
 <a href="namespaceXSSLG.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Accessibility.html">Accessibility</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AfterAttackCondition.html">AfterAttackCondition</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">在攻击后条件判断  <a href="classXSSLG_1_1AfterAttackCondition.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AIChooseAction.html">AIChooseAction</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位打开菜单中  <a href="classXSSLG_1_1AIChooseAction.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AIChooseUnit.html">AIChooseUnit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算哪个敌人开始行动  <a href="classXSSLG_1_1AIChooseUnit.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AITurnBegin.html">AITurnBegin</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">AI的回合开始，通知AI回合开始，AI做一些回合开始的操作  <a href="classXSSLG_1_1AITurnBegin.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AITurnEnd.html">AITurnEnd</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">AI的回合结束，通知AI回合结束，AI做一些回合结束的操作 然后切换到玩家，并切换到回合开始  <a href="classXSSLG_1_1AITurnEnd.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AIUnit.html">AIUnit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">电脑控制的战斗单位  <a href="classXSSLG_1_1AIUnit.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AIUnitAtk.html">AIUnitAtk</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">AI单位攻击中  <a href="classXSSLG_1_1AIUnitAtk.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AIUnitMove.html">AIUnitMove</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择移动的位置  <a href="classXSSLG_1_1AIUnitMove.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AnimatorState.html">AnimatorState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">animator参数规范定义  <a href="classXSSLG_1_1AnimatorState.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Attr.html">Attr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1AutoTriggerBase.html">AutoTriggerBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">被动技能触发器，触发技能释放，或者buff和技能的结束触发 通过BattleEmitter注册触发事件，触发后自动调用Release施放技能 和主动技能的区别就是是否注册BattleEmitter，但是还有其他要注意的： 1.  <a href="classXSSLG_1_1AutoTriggerBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BaseData.html">BaseData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BattleEmitter.html">BattleEmitter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">各种效果触发条件的管理  <a href="classXSSLG_1_1BattleEmitter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BattleFSMBase.html">BattleFSMBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">状态机，管理游戏中各个阶段的转换，从而分解每个阶段的操作 目前基础的流程  <a href="classXSSLG_1_1BattleFSMBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BattleLogic.html">BattleLogic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">战斗管理 继承BattleFSMBase，修改回合状态  <a href="classXSSLG_1_1BattleLogic.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BattleMouseCuror.html">BattleMouseCuror</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BattleNode.html">BattleNode</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BattleRes.html">BattleRes</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">战斗中加载的动态资源  <a href="classXSSLG_1_1BattleRes.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BattleUtils.html">BattleUtils</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">常用的战斗方法  <a href="classXSSLG_1_1BattleUtils.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BuffBase.html">BuffBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">buff基类  <a href="classXSSLG_1_1BuffBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BuffData.html">BuffData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BuffDataArray.html">BuffDataArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BuffFactory.html">BuffFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对象  <a href="classXSSLG_1_1BuffFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BuffTable.html">BuffTable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">buff列表  <a href="classXSSLG_1_1BuffTable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1ClassData.html">ClassData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CombatCaculate.html">CombatCaculate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">战斗计算  <a href="classXSSLG_1_1CombatCaculate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CommonTable.html">CommonTable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">skilltable和bufftable的基类  <a href="classXSSLG_1_1CommonTable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CommonTableItem.html">CommonTableItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">带常用功能的skillbase和buffbase基类  <a href="classXSSLG_1_1CommonTableItem.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CommonTypeHolder.html">CommonTypeHolder</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Config.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">角色升级所需经验值  <a href="classXSSLG_1_1Config.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CountDown.html">CountDown</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">倒计时，就是技能里常用的cd啦  <a href="classXSSLG_1_1CountDown.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CustomScheduler.html">CustomScheduler</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">不注释了，就是和ccscheduler一样的  <a href="classXSSLG_1_1CustomScheduler.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CustomSchedulerItem.html">CustomSchedulerItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CustomScheduler的元素  <a href="classXSSLG_1_1CustomSchedulerItem.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1DataDecorate.html">DataDecorate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">数据包装  <a href="classXSSLG_1_1DataDecorate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1DataManager.html">DataManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Emitter.html">Emitter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">事件分发，给对象之间解耦用的 在一个Emitter里可以为多个事件注册事件回调，每一个事件还可以对应多个回调函数 建议1个Emitter对应同一类的事件类型，防止过于臃肿导致查询耗时 具体用例：  <a href="classXSSLG_1_1Emitter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1EmitterItem.html">EmitterItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">1个回调函数的类型结构  <a href="classXSSLG_1_1EmitterItem.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1EmitterItems.html">EmitterItems</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">1个事件对应的多个回调函数结构  <a href="classXSSLG_1_1EmitterItems.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1EnumGenerator.html">EnumGenerator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1GameConst.html">GameConst</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">游戏中的常量定义  <a href="classXSSLG_1_1GameConst.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1GameScene.html">GameScene</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1HP.html">HP</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1IBottomTip.html">IBottomTip</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1ICommonTable.html">ICommonTable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">套娃接口  <a href="interfaceXSSLG_1_1ICommonTable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1IPhaseBase.html">IPhaseBase</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1IReleaseEntity.html">IReleaseEntity</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">TriggerBase对Skillbase对象的引用，因为解耦，所以只定义需要的接口  <a href="interfaceXSSLG_1_1IReleaseEntity.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Item.html">Item</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">物品  <a href="classXSSLG_1_1Item.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1ItemTable.html">ItemTable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">角色物品管理  <a href="classXSSLG_1_1ItemTable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1LearnSkillData.html">LearnSkillData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1LearnSkillDataArray.html">LearnSkillDataArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1LevelBase.html">LevelBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">等级基类  <a href="classXSSLG_1_1LevelBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1MainMenu.html">MainMenu</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1MeanOfAttackPanel.html">MeanOfAttackPanel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1NormalTable.html">NormalTable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1OnTriggerData.html">OnTriggerData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">触发器触发数据最常用的结构  <a href="classXSSLG_1_1OnTriggerData.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1OnTriggerDataAttack.html">OnTriggerDataAttack</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1OnTriggerDataBase.html">OnTriggerDataBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">触发器触发数据基础类，主动技能判断是否可以使用时用到，因为只要传递src  <a href="classXSSLG_1_1OnTriggerDataBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1OnTriggerDataCommon.html">OnTriggerDataCommon</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">带坐标的触发数据，主动技能使用时用到，传递src和点击的坐标，来判断是否CanRelease  <a href="classXSSLG_1_1OnTriggerDataCommon.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseBase.html">PhaseBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">每个阶段是一个类专门处理，通过调用状态机BattleFSM的Change函数来做阶段切换 目前有OnEnter和OnExit2个接口，分2个是因为卡牌游戏经常有“在XX回合开始时”，“在xx回合结束时”这一类效果的触发  <a href="classXSSLG_1_1PhaseBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseChooseAtk.html">PhaseChooseAtk</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择攻击的对象  <a href="classXSSLG_1_1PhaseChooseAtk.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseChooseMove.html">PhaseChooseMove</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择移动的位置  <a href="classXSSLG_1_1PhaseChooseMove.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseChooseMoveBase.html">PhaseChooseMoveBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择移动的位置，基类，ai和玩家通用  <a href="classXSSLG_1_1PhaseChooseMoveBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseChooseUnit.html">PhaseChooseUnit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">选择行动的单位  <a href="classXSSLG_1_1PhaseChooseUnit.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseGameEnd.html">PhaseGameEnd</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">这一局游戏结束了，可以做一些显示结算，胜负，记录数据等等操作  <a href="classXSSLG_1_1PhaseGameEnd.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseGameStart.html">PhaseGameStart</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">开始一局新的游戏，通知玩家游戏开始，玩家做一些初始化操作  <a href="classXSSLG_1_1PhaseGameStart.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseMainMenu.html">PhaseMainMenu</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位打开菜单中  <a href="classXSSLG_1_1PhaseMainMenu.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseMouseEvent.html">PhaseMouseEvent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标事件监听，并分发给PhaseBase去处理  <a href="classXSSLG_1_1PhaseMouseEvent.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseTurnBegin.html">PhaseTurnBegin</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">玩家的回合开始，通知当前玩家回合开始，当前玩家做一些回合开始的操作  <a href="classXSSLG_1_1PhaseTurnBegin.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseTurnEnd.html">PhaseTurnEnd</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前玩家的回合结束，通知当前玩家回合结束，当前玩家做一些回合结束的操作 然后切换到AI，并切换到AI回合开始  <a href="classXSSLG_1_1PhaseTurnEnd.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseUnitAtk.html">PhaseUnitAtk</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">玩家单位攻击中  <a href="classXSSLG_1_1PhaseUnitAtk.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseUnitAtkBase.html">PhaseUnitAtkBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位攻击中  <a href="classXSSLG_1_1PhaseUnitAtkBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseUnitMenu.html">PhaseUnitMenu</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位打开菜单中  <a href="classXSSLG_1_1PhaseUnitMenu.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseUnitMove.html">PhaseUnitMove</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位移动中  <a href="classXSSLG_1_1PhaseUnitMove.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PhaseUtils.html">PhaseUtils</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">phase常用方法  <a href="classXSSLG_1_1PhaseUtils.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Player.html">Player</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">玩家，好像没什么好存的  <a href="classXSSLG_1_1Player.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PriorityQueue.html">PriorityQueue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1PropStruct.html">PropStruct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1ReadyPanel.html">ReadyPanel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1ReleaseData.html">ReleaseData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">trigger传递给skill的数据  <a href="classXSSLG_1_1ReleaseData.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Role.html">Role</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">角色信息  <a href="classXSSLG_1_1Role.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1RoleClass.html">RoleClass</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">角色职业  <a href="classXSSLG_1_1RoleClass.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1RoleData.html">RoleData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1RoleFactory.html">RoleFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对角色对象  <a href="classXSSLG_1_1RoleFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1RoleLevel.html">RoleLevel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">角色等级  <a href="classXSSLG_1_1RoleLevel.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1RolePanel.html">RolePanel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1RolePanelaAttr.html">RolePanelaAttr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SearchTargetBase.html">SearchTargetBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">索敌  <a href="classXSSLG_1_1SearchTargetBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SearchTargetFactory.html">SearchTargetFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对象  <a href="classXSSLG_1_1SearchTargetFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SearchTargetFront.html">SearchTargetFront</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">搜索前方敌人  <a href="classXSSLG_1_1SearchTargetFront.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SearchTargetFrontWide.html">SearchTargetFrontWide</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">搜索前方敌人，宽的范围  <a href="classXSSLG_1_1SearchTargetFrontWide.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SearchTargetNull.html">SearchTargetNull</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">空的，不进行搜索，返回空的对象列表  <a href="classXSSLG_1_1SearchTargetNull.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SearchTargetScope.html">SearchTargetScope</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">搜索周围敌人  <a href="classXSSLG_1_1SearchTargetScope.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillBase.html">SkillBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">技能基类  <a href="classXSSLG_1_1SkillBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillCombat.html">SkillCombat</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">主动技能，攻击/战技  <a href="classXSSLG_1_1SkillCombat.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillData.html">SkillData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillDataArray.html">SkillDataArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillEffectStruct.html">SkillEffectStruct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillFactory.html">SkillFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对象  <a href="classXSSLG_1_1SkillFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillMagic.html">SkillMagic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">主动技能，魔法  <a href="classXSSLG_1_1SkillMagic.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillNull.html">SkillNull</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认的技能，给CardBase.MainSkill使用，这样就不用去判断是否为null了  <a href="classXSSLG_1_1SkillNull.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillTable.html">SkillTable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">技能列表  <a href="classXSSLG_1_1SkillTable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillUpdateData.html">SkillUpdateData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">刷新技能buff时传递的参数集合  <a href="classXSSLG_1_1SkillUpdateData.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Stat.html">Stat</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">攻击啊防御属性集合  <a href="classXSSLG_1_1Stat.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1StatData.html">StatData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1StatDataArray.html">StatDataArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TableManager.html">TableManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TechniqueLevel.html">TechniqueLevel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TechniqueLevelEx.html">TechniqueLevelEx</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">技能等级类  <a href="classXSSLG_1_1TechniqueLevelEx.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerBase.html">TriggerBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">主动技能触发器，触发技能释放 先通过CanRelease判断技能能否施放，然后调用Release施放技能 和被动技的区别就是是否注册BattleEmitter，但是还有其他要注意的： 1.  <a href="classXSSLG_1_1TriggerBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerConditionBase.html">TriggerConditionBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">触发器触发条件基类  <a href="classXSSLG_1_1TriggerConditionBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerConditionFactory.html">TriggerConditionFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对象  <a href="classXSSLG_1_1TriggerConditionFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerConditionNull.html">TriggerConditionNull</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">无条件通过检查  <a href="classXSSLG_1_1TriggerConditionNull.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerData.html">TriggerData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerDataArray.html">TriggerDataArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerDataConditionStruct.html">TriggerDataConditionStruct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerDataSearchStruct.html">TriggerDataSearchStruct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerFactory.html">TriggerFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对象  <a href="classXSSLG_1_1TriggerFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerNull.html">TriggerNull</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认的触发器，不注册任何事件，手动调用触发时肯定可以触发，当技能data没有填触发器id时，技能默认用的这个  <a href="classXSSLG_1_1TriggerNull.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UIEmitter.html">UIEmitter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ui刷新事件  <a href="classXSSLG_1_1UIEmitter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UIEmitterData.html">UIEmitterData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ui刷新事件的参数类型  <a href="classXSSLG_1_1UIEmitterData.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UIEmitterFactory.html">UIEmitterFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对象  <a href="classXSSLG_1_1UIEmitterFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UIMgr.html">UIMgr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1Unit.html">Unit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">战斗单位  <a href="classXSSLG_1_1Unit.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UnitAnimation.html">UnitAnimation</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">单位动画管理  <a href="classXSSLG_1_1UnitAnimation.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UnitBase.html">UnitBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">战斗单位基类  <a href="classXSSLG_1_1UnitBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UnitDefine.html">UnitDefine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">unit的常量定义  <a href="classXSSLG_1_1UnitDefine.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UnitFactory.html">UnitFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用单例实现的抽象工厂模式去创建对角色对象  <a href="classXSSLG_1_1UnitFactory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UnitInfoTip.html">UnitInfoTip</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1UnitMenu.html">UnitMenu</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1WorkItem.html">WorkItem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSAssetPostprocessor.html">XSAssetPostprocessor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSAStarTile.html">XSAStarTile</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSBattleMgr.html">XSBattleMgr</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demo_1 manager  <a href="classXSSLG_1_1XSBattleMgr.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSBattleUnitEditorView.html">XSBattleUnitEditorView</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html">XSCamera</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">camera movement script  <a href="classXSSLG_1_1XSCamera.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSDefine.html">XSDefine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">战斗的常量定义  <a href="classXSSLG_1_1XSDefine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSDijkstraPath.html">XSDijkstraPath</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,6 +455,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSGridHelperEditor.html">XSGridHelperEditor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classXSSLG_1_1XSGridHelperEditMode.html" title="the function to draw tile">XSGridHelperEditMode</a> editor  <a href="classXSSLG_1_1XSGridHelperEditor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSGridMain.html">XSGridMain</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSGridMainEditMode.html">XSGridMainEditMode</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSGridMgr.html">XSGridMgr</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">tile management class, responsible for tile coordinate transformation, data and other functions  <a href="classXSSLG_1_1XSGridMgr.html#details">More...</a><br /></td></tr>
@@ -125,8 +479,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSINodeMgr.html">XSINodeMgr</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSInstance.html">XSInstance</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSITileNode.html">XSITileNode</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceXSSLG_1_1XSITileRoot.html">XSITileRoot</a></td></tr>
@@ -136,6 +488,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSNodeMgr.html">XSNodeMgr</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSPathFinder.html">XSPathFinder</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSPopUpView.html">XSPopUpView</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSPrefabNode.html">XSPrefabNode</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +513,16 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTileRootCpt.html">XSTileRootCpt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSU.html">XSU</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common unity methods  <a href="classXSSLG_1_1XSU.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUEE.html">XSUEE</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUEEExtension.html">XSUEEExtension</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitMgr.html">XSUnitMgr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitMgrEditMode.html">XSUnitMgrEditMode</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html">XSUnitNode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">unit data  <a href="classXSSLG_1_1XSUnitNode.html#details">More...</a><br /></td></tr>
@@ -169,22 +532,161 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitRootCpt.html">XSUnitRootCpt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnityUtils.html">XSUnityUtils</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common unity methods  <a href="classXSSLG_1_1XSUnityUtils.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a479a398ecb4b335fb9f2c9405cd44b93"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a479a398ecb4b335fb9f2c9405cd44b93">TileDict</a> = Dictionary&lt; <a class="el" href="XSGridMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, <a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> &gt;</td></tr>
+<tr class="memitem:a479a398ecb4b335fb9f2c9405cd44b93"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a479a398ecb4b335fb9f2c9405cd44b93">TileDict</a> = Dictionary&lt; <a class="el" href="XSGridShowMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, <a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> &gt;</td></tr>
 <tr class="separator:a479a398ecb4b335fb9f2c9405cd44b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc5f0f4decc18f807e3106f8946d1241"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a> = Func&lt; <a class="el" href="XSGridMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, bool &gt;</td></tr>
-<tr class="separator:adc5f0f4decc18f807e3106f8946d1241"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae099dfe2500385c8d9b551369676094e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#ae099dfe2500385c8d9b551369676094e">PathsDict</a> = Dictionary&lt; <a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt; <a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt; &gt;</td></tr>
+<tr class="memitem:ae099dfe2500385c8d9b551369676094e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#ae099dfe2500385c8d9b551369676094e">PathsDict</a> = Dictionary&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt; &gt;</td></tr>
 <tr class="separator:ae099dfe2500385c8d9b551369676094e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc5f0f4decc18f807e3106f8946d1241"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a> = Func&lt; <a class="el" href="XSGridShowMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, bool &gt;</td></tr>
+<tr class="separator:adc5f0f4decc18f807e3106f8946d1241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aa481ae2504eb4e20eb7547761d559848"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848">DirectionType</a> { <a class="el" href="namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848afdd5ada0562fbda7863d73fc8403f786">DirectionType.LeftTop</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848a54bfdf6fd73d218f5a173337c99f1910">DirectionType.LeftBottom</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848a6ece94d6604e312b0072f00b3c9955a8">DirectionType.RightTop</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848ab36555b207c9de10ba434697559659ba">DirectionType.RightBottom</a> = 3
+ }</td></tr>
+<tr class="memdesc:aa481ae2504eb4e20eb7547761d559848"><td class="mdescLeft">&#160;</td><td class="mdescRight">地图上单位的朝向  <a href="namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848">More...</a><br /></td></tr>
+<tr class="separator:aa481ae2504eb4e20eb7547761d559848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4330c01aefae67d81e4147c6331affa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affa">GroupType</a> { <a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaaad6e7652b1bdfb38783486c2c3d5e806">GroupType.Self</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaa8c6d21187fb58b7a079d70030686b33e">GroupType.Enemy</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaa0854751259505e66487be386f245dc57">GroupType.NpcFriend</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaaaa1c4bfa703b52579a551e9d7d35dced">GroupType.Npc</a> = 3
+ }</td></tr>
+<tr class="memdesc:af4330c01aefae67d81e4147c6331affa"><td class="mdescLeft">&#160;</td><td class="mdescRight">势力  <a href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affa">More...</a><br /></td></tr>
+<tr class="separator:af4330c01aefae67d81e4147c6331affa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a194abb81bb669d3c7db39ad78e57fe79"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a194abb81bb669d3c7db39ad78e57fe79">UnitStatusType</a> { <a class="el" href="namespaceXSSLG.html#a194abb81bb669d3c7db39ad78e57fe79aaddeb3b16cd9ee10bd748be723744135">UnitStatusType.Actived</a> = 1 &lt;&lt; 0, 
+<a class="el" href="namespaceXSSLG.html#a194abb81bb669d3c7db39ad78e57fe79a183b62c7f067711f9c5a54913c054617">UnitStatusType.Dead</a> = 1 &lt;&lt; 1, 
+<a class="el" href="namespaceXSSLG.html#a194abb81bb669d3c7db39ad78e57fe79af17105ebbabedfc63353a1904fc386df">UnitStatusType.Attacked</a> = 1 &lt;&lt; 2, 
+<a class="el" href="namespaceXSSLG.html#a194abb81bb669d3c7db39ad78e57fe79a95bfdefaaf01553cbf21ccd942855c69">UnitStatusType.Moved</a> = 1 &lt;&lt; 3
+ }</td></tr>
+<tr class="separator:a194abb81bb669d3c7db39ad78e57fe79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a100fb960f1bb0932df7a1d02aaf25a09"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09">SchedulerStateType</a> { <a class="el" href="namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09a6adf97f83acf6453d4a6a4b1070f3754">SchedulerStateType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09a8f497c1a3d15af9e0c215019f26b887d">SchedulerStateType.Delay</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09ad16dd01adf735ed9b87eebff5fc39ce5">SchedulerStateType.Interval</a> = 2
+ }</td></tr>
+<tr class="separator:a100fb960f1bb0932df7a1d02aaf25a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f08bc4d295b2c04e0b8ebd0d98e54d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#ac9f08bc4d295b2c04e0b8ebd0d98e54d">CompareType</a> { <a class="el" href="namespaceXSSLG.html#ac9f08bc4d295b2c04e0b8ebd0d98e54da6adf97f83acf6453d4a6a4b1070f3754">CompareType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#ac9f08bc4d295b2c04e0b8ebd0d98e54daf5f286e73bda105e538310b3190f75c5">CompareType.Equal</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#ac9f08bc4d295b2c04e0b8ebd0d98e54dac6d9d7bb9939f62f01c80f8b1251501c">CompareType.LessThan</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#ac9f08bc4d295b2c04e0b8ebd0d98e54da5f773e869559842a5d9132a913a4a976">CompareType.MoreThan</a> = 3
+ }</td></tr>
+<tr class="separator:ac9f08bc4d295b2c04e0b8ebd0d98e54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84dad98f29c6bd705347e56255d9b18"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#ac84dad98f29c6bd705347e56255d9b18">SkillEffectType</a> { <a class="el" href="namespaceXSSLG.html#ac84dad98f29c6bd705347e56255d9b18a6adf97f83acf6453d4a6a4b1070f3754">SkillEffectType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#ac84dad98f29c6bd705347e56255d9b18afba4cb838a1fda2e0322651c39ef6289">SkillEffectType.PhyImmunityFactor</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#ac84dad98f29c6bd705347e56255d9b18a40233ad75a608add00d2d65c94c054b1">SkillEffectType.PhyDamageFactor</a> = 2
+ }</td></tr>
+<tr class="separator:ac84dad98f29c6bd705347e56255d9b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272c7440fc2a4c3978638e2cbb7b663a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663a">TargetType</a> { <a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663aaad6e7652b1bdfb38783486c2c3d5e806">TargetType.Self</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663aa8c6d21187fb58b7a079d70030686b33e">TargetType.Enemy</a> = 0
+ }</td></tr>
+<tr class="separator:a272c7440fc2a4c3978638e2cbb7b663a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2a619fbd7c7ec4a86ce0ebd394999af"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999af">WeaponType</a> { <br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afa6adf97f83acf6453d4a6a4b1070f3754">WeaponType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afa6c198603789a4928477eccd5d550b6b2">WeaponType.Sword</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afac668c28c93c0329c208c37de8b2a88c6">WeaponType.Lance</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afaed4dd6cc118ab2500715cbd23b054573">WeaponType.Axe</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afa48fce5d02f6935e50f256d5dedac4437">WeaponType.Bow</a> = 4, 
+<a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afaf4b79351a643c016aad8a1626702af3c">WeaponType.Brawl</a> = 5
+<br />
+ }</td></tr>
+<tr class="separator:ae2a619fbd7c7ec4a86ce0ebd394999af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a402a845238a3c7aa6217471248776110"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a402a845238a3c7aa6217471248776110">SkillDataSkillGroupType</a> { <a class="el" href="namespaceXSSLG.html#a402a845238a3c7aa6217471248776110a960b44c579bc2f6818d2daaf9e4c16f0">SkillDataSkillGroupType.Normal</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#a402a845238a3c7aa6217471248776110af80bc338b6146b566004a046f8137c85">SkillDataSkillGroupType.Passive</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#a402a845238a3c7aa6217471248776110afab5ad8b0b394703426f40fa0a3b4548">SkillDataSkillGroupType.Crest</a> = 2
+ }</td></tr>
+<tr class="separator:a402a845238a3c7aa6217471248776110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d02cda2eafbcff18630f3d2a4f1663b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a7d02cda2eafbcff18630f3d2a4f1663b">SkillDataSkillType</a> { <a class="el" href="namespaceXSSLG.html#a7d02cda2eafbcff18630f3d2a4f1663bad13bc5b68b2bd9e18f29777db17cc563">SkillDataSkillType.Common</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#a7d02cda2eafbcff18630f3d2a4f1663ba30ad1054cf7ad7636a26844a6f782e1f">SkillDataSkillType.Combat</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#a7d02cda2eafbcff18630f3d2a4f1663ba02700e454d679f31f27c6f0768986dd1">SkillDataSkillType.Magic</a> = 2
+ }</td></tr>
+<tr class="separator:a7d02cda2eafbcff18630f3d2a4f1663b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d1d285a8070bdb1a382f4b17830fa6e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a2d1d285a8070bdb1a382f4b17830fa6e">TriggerDataConditionTargetType</a> { <a class="el" href="namespaceXSSLG.html#a2d1d285a8070bdb1a382f4b17830fa6ea6adf97f83acf6453d4a6a4b1070f3754">TriggerDataConditionTargetType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#a2d1d285a8070bdb1a382f4b17830fa6ea276e79316561733d64abdf00f8e8ae48">TriggerDataConditionTargetType.Src</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#a2d1d285a8070bdb1a382f4b17830fa6ea1448a68418666ed85e07646744af82ef">TriggerDataConditionTargetType.Dst</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#a2d1d285a8070bdb1a382f4b17830fa6ea13348442cc6a27032d2b4aa28b75a5d3">TriggerDataConditionTargetType.Search</a> = 3
+ }</td></tr>
+<tr class="separator:a2d1d285a8070bdb1a382f4b17830fa6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d46fa2556e9ca572a3150dd265730e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#af0d46fa2556e9ca572a3150dd265730e">TriggerDataConditionType</a> { <a class="el" href="namespaceXSSLG.html#af0d46fa2556e9ca572a3150dd265730ea6adf97f83acf6453d4a6a4b1070f3754">TriggerDataConditionType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#af0d46fa2556e9ca572a3150dd265730eaf38be66d6fc605c675b25dc084a44dd1">TriggerDataConditionType.SelfCauseDamage</a> = 1
+ }</td></tr>
+<tr class="separator:af0d46fa2556e9ca572a3150dd265730e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bce09698ef42d3df03d200a069ecfc6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a5bce09698ef42d3df03d200a069ecfc6">TriggerDataSearchTargetType</a> { <a class="el" href="namespaceXSSLG.html#a5bce09698ef42d3df03d200a069ecfc6a6adf97f83acf6453d4a6a4b1070f3754">TriggerDataSearchTargetType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#a5bce09698ef42d3df03d200a069ecfc6aad6e7652b1bdfb38783486c2c3d5e806">TriggerDataSearchTargetType.Self</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#a5bce09698ef42d3df03d200a069ecfc6a930a91848917f92cf7e2f8d744fa4177">TriggerDataSearchTargetType.Friend</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#a5bce09698ef42d3df03d200a069ecfc6a8c6d21187fb58b7a079d70030686b33e">TriggerDataSearchTargetType.Enemy</a> = 3
+ }</td></tr>
+<tr class="separator:a5bce09698ef42d3df03d200a069ecfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07ba5222222b9cb59a58399b1fbc6de"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6de">TriggerDataSearchType</a> { <br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6dea6adf97f83acf6453d4a6a4b1070f3754">TriggerDataSearchType.None</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6dea401cdf927a1c7045b0d50c86c89611ab">TriggerDataSearchType.Front1</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6dea4bb5e3302807fc7f379651d8a8d12a4b">TriggerDataSearchType.Front1x2</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6dea410986add85848793bde836c5304e2cc">TriggerDataSearchType.Front1x3</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6dea070eba55fcd9f99781a55863b3e3504a">TriggerDataSearchType.Front3x1</a> = 4, 
+<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6deab2d0870b0bf136ed4ec2f1465a5dea28">TriggerDataSearchType.Scope1</a> = 5, 
+<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6deacbfeac87af5e0e4966135e0dc707160c">TriggerDataSearchType.ScopeCross1</a> = 6, 
+<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6deae95cb0e3c8ce091c1cc439300f44751b">TriggerDataSearchType.ScopeCross2</a> = 7, 
+<br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6dea7595e01af15bc888c885b4eb6d0c3d11">TriggerDataSearchType.ScopeCross3</a> = 8
+<br />
+ }</td></tr>
+<tr class="separator:af07ba5222222b9cb59a58399b1fbc6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaef651f483f9f443efc1738fb3ba5a6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#adaef651f483f9f443efc1738fb3ba5a6">TriggerDataTriggerSpecialType</a> { <a class="el" href="namespaceXSSLG.html#adaef651f483f9f443efc1738fb3ba5a6a6adf97f83acf6453d4a6a4b1070f3754">TriggerDataTriggerSpecialType.None</a> = 0
+ }</td></tr>
+<tr class="separator:adaef651f483f9f443efc1738fb3ba5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd628832dfda9d881a40df347b5ae611"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#acd628832dfda9d881a40df347b5ae611">TriggerDataTriggerType</a> { <br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#acd628832dfda9d881a40df347b5ae611ad13bc5b68b2bd9e18f29777db17cc563">TriggerDataTriggerType.Common</a> = 0, 
+<a class="el" href="namespaceXSSLG.html#acd628832dfda9d881a40df347b5ae611adaf718659527e949aad66f1c860bbb5f">TriggerDataTriggerType.OnTurnStart</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#acd628832dfda9d881a40df347b5ae611aacbbb48fd8399b020ea761d084df24d9">TriggerDataTriggerType.AfterAttack</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#acd628832dfda9d881a40df347b5ae611afa7c3f1a29bd3d0b3ecb16bc5b79dfc4">TriggerDataTriggerType.ClickCombat</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#acd628832dfda9d881a40df347b5ae611a8b01d6f867f9c9fadd89f35f8ffe9c5b">TriggerDataTriggerType.ClickMagic</a> = 4
+<br />
+ }</td></tr>
+<tr class="separator:acd628832dfda9d881a40df347b5ae611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>@Author: xiaoshi @Date: 2022-08-01 20:40:16 @Description: XSunitNode`s manager </p>
+<div class="textblock"><p>@Author: zhoutao @Date: 2021/5/9 @Description: 常用的战斗方法 </p>
+<p>@Author: xiaoshi @Date: 2022-08-01 20:40:16 @Description: XSunitNode`s manager</p>
+<p>@Author: zhoutaoz'z @Date: 2021/6/6 @Description: 管理界面类</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 角色属性</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 属性基类，有值和百分比是因为方便属性做计算，可以直接相加</p>
+<p>@Author: zhoutao @Date: 2021/6/5 @Description: 一个矩阵表格，表示某个GroupTyped的谁可以攻击谁</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 脚本自定义执行顺序，主要管理Awake函数的顺序</p>
 <p>this file is created by code generator, do not modify it</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 游戏中的常量定义</p>
+<p>@Author: zhoutao @Date: 2021/5/19 @Description: 数据包装</p>
+<p>技能和buff统一管理的地方</p>
+<p>@Author: zhoutao @Date: 2021/5/30 @Description: 触发器触发条件基类</p>
+<p>@Author: zhoutao @Date: 2021/5/30 @Description: 在攻击后条件判断</p>
+<p>@Author: zhoutao @Date: 2021/6/8 @Description: 工厂模式</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态回合结束</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态回合开始</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 打开主菜单，比如要回合结束</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态单位移动中</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态游戏开始</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态游戏结束</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态选择行动的单位</p>
+<p>@Author: zhoutao @Date: 2021/10/4 @Description: 战斗状态选择移动的位置</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态选择攻击的对象</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态选择移动的位置</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态单位攻击中</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: ai战斗状态回合结束</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: AI战斗状态回合开始</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 计算哪个敌人开始行动</p>
+<p>@Author: zhoutao @Date: 2021/5/4 @Description: 战斗状态单位打开菜单中</p>
+<p>@Author: zhoutao @Date: 2021/5/19 @Description: 刷新技能buff时传递的参数集合</p>
+<p>@Author: zhoutao @Date: 2021/6/9 @Description: 鼠标事件监听，并分发给PhaseBase去处理</p>
+<p>带管理的</p>
+<p>@Author: zhoutao @Date: 2021/5/30 @Description: 各种效果触发条件的管理</p>
+<p>@Author: zhoutao @Date: 2021/5/20 @Description: 战斗伤害计算哦哦哦</p>
+<p>@Author: zhoutao @Date: 2021/5/19 @Description: buff列表</p>
+<p>@Author: zhoutao @Date: 2021/5/19 @Description: buff基类</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="ae099dfe2500385c8d9b551369676094e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae099dfe2500385c8d9b551369676094e">&#9670;&nbsp;</a></span>PathsDict</h2>
@@ -193,7 +695,7 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceXSSLG.html#ae099dfe2500385c8d9b551369676094e">XSSLG.PathsDict</a> = typedef Dictionary&lt;<a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt;<a class="el" href="XSGridMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceXSSLG.html#ae099dfe2500385c8d9b551369676094e">XSSLG.PathsDict</a> = typedef Dictionary&lt;<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>, List&lt;<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -207,7 +709,7 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Dictionary&lt; <a class="el" href="XSGridMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, <a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> &gt; <a class="el" href="namespaceXSSLG.html#a479a398ecb4b335fb9f2c9405cd44b93">XSSLG.TileDict</a></td>
+          <td class="memname">typedef Dictionary&lt; <a class="el" href="XSGridShowMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, <a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> &gt; <a class="el" href="namespaceXSSLG.html#a479a398ecb4b335fb9f2c9405cd44b93">XSSLG.TileDict</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -221,10 +723,492 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">XSSLG.TileFunc</a> = typedef Func&lt;<a class="el" href="XSGridMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, bool&gt;</td>
+          <td class="memname">using <a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">XSSLG.TileFunc</a> = typedef Func&lt;<a class="el" href="XSGridShowMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a>, bool&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ac9f08bc4d295b2c04e0b8ebd0d98e54d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f08bc4d295b2c04e0b8ebd0d98e54d">&#9670;&nbsp;</a></span>CompareType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#ac9f08bc4d295b2c04e0b8ebd0d98e54d">XSSLG.CompareType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac9f08bc4d295b2c04e0b8ebd0d98e54da6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac9f08bc4d295b2c04e0b8ebd0d98e54daf5f286e73bda105e538310b3190f75c5"></a>Equal&#160;</td><td class="fielddoc"><p>相等 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac9f08bc4d295b2c04e0b8ebd0d98e54dac6d9d7bb9939f62f01c80f8b1251501c"></a>LessThan&#160;</td><td class="fielddoc"><p>小于 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac9f08bc4d295b2c04e0b8ebd0d98e54da5f773e869559842a5d9132a913a4a976"></a>MoreThan&#160;</td><td class="fielddoc"><p>大于 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aa481ae2504eb4e20eb7547761d559848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa481ae2504eb4e20eb7547761d559848">&#9670;&nbsp;</a></span>DirectionType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848">XSSLG.DirectionType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>地图上单位的朝向 </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa481ae2504eb4e20eb7547761d559848afdd5ada0562fbda7863d73fc8403f786"></a>LeftTop&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa481ae2504eb4e20eb7547761d559848a54bfdf6fd73d218f5a173337c99f1910"></a>LeftBottom&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa481ae2504eb4e20eb7547761d559848a6ece94d6604e312b0072f00b3c9955a8"></a>RightTop&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa481ae2504eb4e20eb7547761d559848ab36555b207c9de10ba434697559659ba"></a>RightBottom&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="af4330c01aefae67d81e4147c6331affa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4330c01aefae67d81e4147c6331affa">&#9670;&nbsp;</a></span>GroupType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affa">XSSLG.GroupType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>势力 </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af4330c01aefae67d81e4147c6331affaaad6e7652b1bdfb38783486c2c3d5e806"></a>Self&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af4330c01aefae67d81e4147c6331affaa8c6d21187fb58b7a079d70030686b33e"></a>Enemy&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af4330c01aefae67d81e4147c6331affaa0854751259505e66487be386f245dc57"></a>NpcFriend&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af4330c01aefae67d81e4147c6331affaaaa1c4bfa703b52579a551e9d7d35dced"></a>Npc&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a100fb960f1bb0932df7a1d02aaf25a09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a100fb960f1bb0932df7a1d02aaf25a09">&#9670;&nbsp;</a></span>SchedulerStateType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09">XSSLG.SchedulerStateType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a100fb960f1bb0932df7a1d02aaf25a09a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a100fb960f1bb0932df7a1d02aaf25a09a8f497c1a3d15af9e0c215019f26b887d"></a>Delay&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a100fb960f1bb0932df7a1d02aaf25a09ad16dd01adf735ed9b87eebff5fc39ce5"></a>Interval&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a402a845238a3c7aa6217471248776110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a402a845238a3c7aa6217471248776110">&#9670;&nbsp;</a></span>SkillDataSkillGroupType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a402a845238a3c7aa6217471248776110">XSSLG.SkillDataSkillGroupType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a402a845238a3c7aa6217471248776110a960b44c579bc2f6818d2daaf9e4c16f0"></a>Normal&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a402a845238a3c7aa6217471248776110af80bc338b6146b566004a046f8137c85"></a>Passive&#160;</td><td class="fielddoc"><p>被动技能 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a402a845238a3c7aa6217471248776110afab5ad8b0b394703426f40fa0a3b4548"></a>Crest&#160;</td><td class="fielddoc"><p>纹章技能 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a7d02cda2eafbcff18630f3d2a4f1663b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d02cda2eafbcff18630f3d2a4f1663b">&#9670;&nbsp;</a></span>SkillDataSkillType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a7d02cda2eafbcff18630f3d2a4f1663b">XSSLG.SkillDataSkillType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7d02cda2eafbcff18630f3d2a4f1663bad13bc5b68b2bd9e18f29777db17cc563"></a>Common&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7d02cda2eafbcff18630f3d2a4f1663ba30ad1054cf7ad7636a26844a6f782e1f"></a>Combat&#160;</td><td class="fielddoc"><p>战斗技能 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7d02cda2eafbcff18630f3d2a4f1663ba02700e454d679f31f27c6f0768986dd1"></a>Magic&#160;</td><td class="fielddoc"><p>魔法主动技能 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ac84dad98f29c6bd705347e56255d9b18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84dad98f29c6bd705347e56255d9b18">&#9670;&nbsp;</a></span>SkillEffectType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#ac84dad98f29c6bd705347e56255d9b18">XSSLG.SkillEffectType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac84dad98f29c6bd705347e56255d9b18a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac84dad98f29c6bd705347e56255d9b18afba4cb838a1fda2e0322651c39ef6289"></a>PhyImmunityFactor&#160;</td><td class="fielddoc"><p>物理免伤百分比 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac84dad98f29c6bd705347e56255d9b18a40233ad75a608add00d2d65c94c054b1"></a>PhyDamageFactor&#160;</td><td class="fielddoc"><p>物理伤害百分比 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a272c7440fc2a4c3978638e2cbb7b663a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272c7440fc2a4c3978638e2cbb7b663a">&#9670;&nbsp;</a></span>TargetType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663a">XSSLG.TargetType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a272c7440fc2a4c3978638e2cbb7b663aaad6e7652b1bdfb38783486c2c3d5e806"></a>Self&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a272c7440fc2a4c3978638e2cbb7b663aa8c6d21187fb58b7a079d70030686b33e"></a>Enemy&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a2d1d285a8070bdb1a382f4b17830fa6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d1d285a8070bdb1a382f4b17830fa6e">&#9670;&nbsp;</a></span>TriggerDataConditionTargetType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a2d1d285a8070bdb1a382f4b17830fa6e">XSSLG.TriggerDataConditionTargetType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2d1d285a8070bdb1a382f4b17830fa6ea6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2d1d285a8070bdb1a382f4b17830fa6ea276e79316561733d64abdf00f8e8ae48"></a>Src&#160;</td><td class="fielddoc"><p>对应releasedata的src </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2d1d285a8070bdb1a382f4b17830fa6ea1448a68418666ed85e07646744af82ef"></a>Dst&#160;</td><td class="fielddoc"><p>对应releasedata的dst </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2d1d285a8070bdb1a382f4b17830fa6ea13348442cc6a27032d2b4aa28b75a5d3"></a>Search&#160;</td><td class="fielddoc"><p>索敌出来的target </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="af0d46fa2556e9ca572a3150dd265730e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0d46fa2556e9ca572a3150dd265730e">&#9670;&nbsp;</a></span>TriggerDataConditionType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#af0d46fa2556e9ca572a3150dd265730e">XSSLG.TriggerDataConditionType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af0d46fa2556e9ca572a3150dd265730ea6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af0d46fa2556e9ca572a3150dd265730eaf38be66d6fc605c675b25dc084a44dd1"></a>SelfCauseDamage&#160;</td><td class="fielddoc"><p>自己造成的伤害 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a5bce09698ef42d3df03d200a069ecfc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bce09698ef42d3df03d200a069ecfc6">&#9670;&nbsp;</a></span>TriggerDataSearchTargetType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a5bce09698ef42d3df03d200a069ecfc6">XSSLG.TriggerDataSearchTargetType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5bce09698ef42d3df03d200a069ecfc6a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5bce09698ef42d3df03d200a069ecfc6aad6e7652b1bdfb38783486c2c3d5e806"></a>Self&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5bce09698ef42d3df03d200a069ecfc6a930a91848917f92cf7e2f8d744fa4177"></a>Friend&#160;</td><td class="fielddoc"><p>友方不包括自己 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5bce09698ef42d3df03d200a069ecfc6a8c6d21187fb58b7a079d70030686b33e"></a>Enemy&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="af07ba5222222b9cb59a58399b1fbc6de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af07ba5222222b9cb59a58399b1fbc6de">&#9670;&nbsp;</a></span>TriggerDataSearchType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#af07ba5222222b9cb59a58399b1fbc6de">XSSLG.TriggerDataSearchType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6dea6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6dea401cdf927a1c7045b0d50c86c89611ab"></a>Front1&#160;</td><td class="fielddoc"><p>前方1格 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6dea4bb5e3302807fc7f379651d8a8d12a4b"></a>Front1x2&#160;</td><td class="fielddoc"><p>前方1X2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6dea410986add85848793bde836c5304e2cc"></a>Front1x3&#160;</td><td class="fielddoc"><p>前方1X3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6dea070eba55fcd9f99781a55863b3e3504a"></a>Front3x1&#160;</td><td class="fielddoc"><p>前方3X1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6deab2d0870b0bf136ed4ec2f1465a5dea28"></a>Scope1&#160;</td><td class="fielddoc"><p>范围内1格 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6deacbfeac87af5e0e4966135e0dc707160c"></a>ScopeCross1&#160;</td><td class="fielddoc"><p>小十字 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6deae95cb0e3c8ce091c1cc439300f44751b"></a>ScopeCross2&#160;</td><td class="fielddoc"><p>十字 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af07ba5222222b9cb59a58399b1fbc6dea7595e01af15bc888c885b4eb6d0c3d11"></a>ScopeCross3&#160;</td><td class="fielddoc"><p>大十字 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="adaef651f483f9f443efc1738fb3ba5a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaef651f483f9f443efc1738fb3ba5a6">&#9670;&nbsp;</a></span>TriggerDataTriggerSpecialType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#adaef651f483f9f443efc1738fb3ba5a6">XSSLG.TriggerDataTriggerSpecialType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adaef651f483f9f443efc1738fb3ba5a6a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="acd628832dfda9d881a40df347b5ae611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd628832dfda9d881a40df347b5ae611">&#9670;&nbsp;</a></span>TriggerDataTriggerType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#acd628832dfda9d881a40df347b5ae611">XSSLG.TriggerDataTriggerType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acd628832dfda9d881a40df347b5ae611ad13bc5b68b2bd9e18f29777db17cc563"></a>Common&#160;</td><td class="fielddoc"><p>没用 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acd628832dfda9d881a40df347b5ae611adaf718659527e949aad66f1c860bbb5f"></a>OnTurnStart&#160;</td><td class="fielddoc"><p>回合开始时 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acd628832dfda9d881a40df347b5ae611aacbbb48fd8399b020ea761d084df24d9"></a>AfterAttack&#160;</td><td class="fielddoc"><p>战斗后 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acd628832dfda9d881a40df347b5ae611afa7c3f1a29bd3d0b3ecb16bc5b79dfc4"></a>ClickCombat&#160;</td><td class="fielddoc"><p>点击释放战技/普通攻击 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acd628832dfda9d881a40df347b5ae611a8b01d6f867f9c9fadd89f35f8ffe9c5b"></a>ClickMagic&#160;</td><td class="fielddoc"><p>点击释放魔法 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a194abb81bb669d3c7db39ad78e57fe79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a194abb81bb669d3c7db39ad78e57fe79">&#9670;&nbsp;</a></span>UnitStatusType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a194abb81bb669d3c7db39ad78e57fe79">XSSLG.UnitStatusType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a194abb81bb669d3c7db39ad78e57fe79aaddeb3b16cd9ee10bd748be723744135"></a>Actived&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a194abb81bb669d3c7db39ad78e57fe79a183b62c7f067711f9c5a54913c054617"></a>Dead&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a194abb81bb669d3c7db39ad78e57fe79af17105ebbabedfc63353a1904fc386df"></a>Attacked&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a194abb81bb669d3c7db39ad78e57fe79a95bfdefaaf01553cbf21ccd942855c69"></a>Moved&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae2a619fbd7c7ec4a86ce0ebd394999af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2a619fbd7c7ec4a86ce0ebd394999af">&#9670;&nbsp;</a></span>WeaponType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999af">XSSLG.WeaponType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae2a619fbd7c7ec4a86ce0ebd394999afa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae2a619fbd7c7ec4a86ce0ebd394999afa6c198603789a4928477eccd5d550b6b2"></a>Sword&#160;</td><td class="fielddoc"><p>剑 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae2a619fbd7c7ec4a86ce0ebd394999afac668c28c93c0329c208c37de8b2a88c6"></a>Lance&#160;</td><td class="fielddoc"><p>枪 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae2a619fbd7c7ec4a86ce0ebd394999afaed4dd6cc118ab2500715cbd23b054573"></a>Axe&#160;</td><td class="fielddoc"><p>斧 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae2a619fbd7c7ec4a86ce0ebd394999afa48fce5d02f6935e50f256d5dedac4437"></a>Bow&#160;</td><td class="fielddoc"><p>弓 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae2a619fbd7c7ec4a86ce0ebd394999afaf4b79351a643c016aad8a1626702af3c"></a>Brawl&#160;</td><td class="fielddoc"><p>拳套 </p>
+</td></tr>
+</table>
 
 </div>
 </div>

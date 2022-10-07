@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['findallpath_395',['FindAllPath',['../classXSSLG_1_1XSGridMgr.html#aca25f03b07f811f89c32bddce60b2f79',1,'XSSLG.XSGridMgr.FindAllPath()'],['../interfaceXSSLG_1_1XSIGridMgr.html#ae9572b2b0fcd5935844f4bd41c0d38c0',1,'XSSLG.XSIGridMgr.FindAllPath()'],['../classXSSLG_1_1XSPathFinder.html#a6a5eb9adf1ca098d213561a212ad2573',1,'XSSLG.XSPathFinder.FindAllPath()']]],
-  ['findallpaths_396',['FindAllPaths',['../classXSSLG_1_1XSDijkstraPath.html#a679f2b898bc65b2964b46bab26346ca0',1,'XSSLG::XSDijkstraPath']]]
+  ['emit_1490',['Emit',['../classXSSLG_1_1Emitter.html#aeb8aa488c60042ec9cb9b8d835a2f25e',1,'XSSLG.Emitter.Emit()'],['../classXSSLG_1_1EmitterItems.html#a9e6389d12f891a851af25f72182b18ff',1,'XSSLG.EmitterItems.Emit()']]],
+  ['emitter_1491',['Emitter',['../classXSSLG_1_1Emitter.html#a356f0d87e86d054cc2c115bc76819777',1,'XSSLG::Emitter']]],
+  ['emitteritems_1492',['EmitterItems',['../classXSSLG_1_1EmitterItems.html#a8bf8b02590ac63b35b292d4eaccc12f0',1,'XSSLG::EmitterItems']]],
+  ['enqueue_1493',['Enqueue',['../classXSSLG_1_1PriorityQueue.html#aef1ce888df507c1c4f7a2528a029aee9',1,'XSSLG::PriorityQueue']]]
 ];

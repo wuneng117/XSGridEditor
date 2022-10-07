@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['worldpos_576',['WorldPos',['../classXSSLG_1_1XSTileNode.html#a3dcff0f72a3fdbb7efbe17b2baceb8f8',1,'XSSLG.XSTileNode.WorldPos()'],['../classXSSLG_1_1XSUnitNode.html#ad4021d65a2c491e6cd757a5a498c1521',1,'XSSLG.XSUnitNode.WorldPos()'],['../interfaceXSSLG_1_1XSITileNode.html#a8e3462d573173d8361b8334afcedf1c9',1,'XSSLG.XSITileNode.WorldPos()'],['../interfaceXSSLG_1_1XSINode.html#a9b55a31878637f26ae5adb99572cdf44',1,'XSSLG.XSINode.WorldPos()'],['../classXSSLG_1_1XSTile.html#a3f5cf477f752881909213924b4fc722c',1,'XSSLG.XSTile.WorldPos()'],['../classXSSLG_1_1XSPrefabNode.html#ad8c2454fd6d86cd040a735d614e739ff',1,'XSSLG.XSPrefabNode.WorldPos()']]]
+  ['releaseentity_2160',['ReleaseEntity',['../classXSSLG_1_1TriggerBase.html#aa5efe23dd869ee111771833c68005b8d',1,'XSSLG::TriggerBase']]],
+  ['repeat_2161',['Repeat',['../classXSSLG_1_1CustomSchedulerItem.html#a3fa1a743961c9f5f00ae3e78002a6195',1,'XSSLG::CustomSchedulerItem']]],
+  ['res_2162',['Res',['../classXSSLG_1_1StatData.html#a7a5536ee0d031652c07bcbcd5e4abf5a',1,'XSSLG.StatData.Res()'],['../classXSSLG_1_1Stat.html#a8e260a62319e08973356ceb8ee580022',1,'XSSLG.Stat.Res()']]],
+  ['resfactor_2163',['ResFactor',['../classXSSLG_1_1StatData.html#a0b2f04701421fe672019cae5c667f40f',1,'XSSLG::StatData']]],
+  ['right_2164',['Right',['../classXSSLG_1_1Accessibility.html#a6a4c26c1085d0cd1f863103de9f94a0a',1,'XSSLG::Accessibility']]],
+  ['role_2165',['Role',['../classXSSLG_1_1UnitBase.html#a71584cb84dca72dc1efdf818730843b6',1,'XSSLG::UnitBase']]]
 ];

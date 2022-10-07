@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['camerasizey_481',['cameraSizeY',['../classXSSLG_1_1XSCamera.html#a2eb78736f4d27b825075e6c44493acab',1,'XSSLG::XSCamera']]],
-  ['cost_482',['cost',['../classXSSLG_1_1XSTileNode.html#afa09faf4ff0e8237c578ffdc93877ed2',1,'XSSLG.XSTileNode.cost()'],['../classXSSLG_1_1XSAStarTile.html#a2fa786f241f604474275d27aa7d643cd',1,'XSSLG.XSAStarTile.cost()']]]
+  ['battle_5finit_1770',['BATTLE_INIT',['../classXSSLG_1_1Config_1_1ExecutionOrder.html#a015bfd9aadaca51e24b957fa59ddd448',1,'XSSLG::Config::ExecutionOrder']]],
+  ['battlebox_5fdataset_5fpath_1771',['BATTLEBOX_DATASET_PATH',['../classXSSLG_1_1GameConst.html#af7eb6a0aad42106082d78bb59adf4b92',1,'XSSLG::GameConst']]],
+  ['battlebox_5floader_1772',['BATTLEBOX_LOADER',['../classXSSLG_1_1Config_1_1ExecutionOrder.html#aab4751d258d0a48364083076b1700a4f',1,'XSSLG::Config::ExecutionOrder']]]
 ];
