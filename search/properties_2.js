@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cachedpaths_2037',['CachedPaths',['../classXSSLG_1_1XSUnitNode.html#a701c35539178e839a9e4236b8782a6c5',1,'XSSLG.XSUnitNode.CachedPaths()'],['../classXSSLG_1_1UnitBase.html#a797f00ca5081cea31e6f8ab6d2073209',1,'XSSLG.UnitBase.CachedPaths()']]],
+  ['cachedpaths_2037',['CachedPaths',['../classXSSLG_1_1XSUnitNode.html#a701c35539178e839a9e4236b8782a6c5',1,'XSSLG.XSUnitNode.CachedPaths()'],['../classXSSLG_1_1UnitBase.html#abc1fc3f9426e07f701e21a5a6269b3a2',1,'XSSLG.UnitBase.CachedPaths()']]],
   ['cacheunit_2038',['CacheUnit',['../classXSSLG_1_1UnitInfoTip.html#a72422b5cd14b964ab575985b8f766679',1,'XSSLG::UnitInfoTip']]],
   ['canbedustfunc_2039',['CanBeDustFunc',['../classXSSLG_1_1XSTile.html#aa2e7f1daf16881e73906b50cc6dd0930',1,'XSSLG::XSTile']]],
   ['canfloor_2040',['CanFloor',['../classXSSLG_1_1BuffData.html#a00f835f9873578987925999f3105ba96',1,'XSSLG::BuffData']]],
