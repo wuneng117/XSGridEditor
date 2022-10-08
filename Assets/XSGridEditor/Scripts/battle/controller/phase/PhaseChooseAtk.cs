@@ -35,9 +35,8 @@ namespace XSSLG
         {
             base.OnExit(logic);
             var gridShowMgr = XSUG.GetBattleNode().GridShowMgr;
-            // TODO 
-            // gridShowMgr.ClearAttackEffectRegion();
-            // gridShowMgr.ClearAttackRegion();
+            gridShowMgr.ClearAttackEffectRegion();
+            gridShowMgr.ClearAttackRegion();
         }
 
         public override void OnMouseUpLeft<T>(T logic, XSTile mouseTile)

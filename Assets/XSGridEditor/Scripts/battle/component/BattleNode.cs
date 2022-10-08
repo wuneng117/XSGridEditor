@@ -114,27 +114,23 @@ namespace XSSLG
         /// <summary> 打开关闭unit行动菜单 </summary>
         public void OpenRoleMenu(Vector3 screenPos)
         {
-            // XSUG.GridHelper.ShowUI(this.unitMenu.gameObject);
-            // this.unitMenu.gameObject.transform.position = screenPos;
+            XSUG.UIMgr.ShowUI(this.unitMenu?.gameObject);
+            this.unitMenu?.gameObject.transform.position = screenPos;
         }
 
         public void OpenRolePanel(UnitBase unit)
         {
-            // XSUG.GridHelper.ShowUI(this.rolePanel.gameObject);
-            // this.rolePanel.init(unit);
+            XSUG.UIMgr.ShowUI(this.rolePanel?.gameObject);
+            this.rolePanel?.init(unit);
         }
 
-        public void CloseRolePanel() {}
-        // public void CloseRolePanel() => XSUG.GridHelper.CloseUITo(this.rolePanel.gameObject);
+        public void CloseRolePanel() => XSUG.GridHelper.CloseUITo(this.rolePanel?.gameObject);
 
-        public void CloseRoleMenu() {}
-        // public void CloseRoleMenu() => XSUG.GridHelper.CloseUITo(this.unitMenu.gameObject);
+        public void CloseRoleMenu() => XSUG.GridHelper.CloseUITo(this.unitMenu?.gameObject);
 
         /// <summary> 打开关闭主菜单 </summary>
-        public void OpenMainMenu() {}
-        // public void OpenMainMenu() => XSUG.GridHelper.ShowUI(this.mainMenu.gameObject);
-        public void CloseMainMenu(){}
-        // public void CloseMainMenu() => XSUG.GridHelper.CloseUITo(this.mainMenu.gameObject);
+        public void OpenMainMenu() => XSUG.GridHelper.ShowUI(this.mainMenu?.gameObject);
+        public void CloseMainMenu() => XSUG.GridHelper.CloseUITo(this.mainMenu?.gameObject);
 
         /// <summary> 打开关闭回合显示 </summary>
         public void OpenTurnChange(GroupType type) => this.SetTurnChange(type, true);
@@ -144,9 +140,9 @@ namespace XSSLG
         private void SetTurnChange(GroupType type, bool val)
         {
             if (type == GroupType.Self)
-                this.playerTurn.SetActive(val);
+                this.playerTurn?.SetActive(val);
             else if (type == GroupType.Enemy)
-                this.enemyTurn.SetActive(val);
+                this.enemyTurn?.SetActive(val);
         }
 
         public void UpdateUnitInfoTip(XSTile mouseTile)

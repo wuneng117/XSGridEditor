@@ -18,11 +18,7 @@ namespace XSSLG
             Debug.Assert(logic.UnitMgr.ActionUnit != null);
             this.MenuActive(true, logic);
 
-            // XSUG.CameraGoto(logic.UnitMgr.ActionUnit.WorldPos());
             XSUG.CameraCanFreeMove(false);
-
-            //ˢ�½�ɫ����
-            // m_MainScene->setRoleInfoVisible(true, m_MainScene->getActionPlayer());
         }
         public override void OnExit<T>(T logic)
         {
@@ -41,17 +37,15 @@ namespace XSSLG
                 battleNode.OpenRoleMenu(screenPos);
             }
             else
+            {
                 battleNode.CloseRoleMenu();
-            // battleNode.mouseCuror.Active = !val;
-            // battleNode.camC.Active = !val;
+            }
+            battleNode.mouseCuror?.Active = !val;
         }
 
         public override void OnMouseUpRight<T>(T logic, XSTile mouseTile)
         {
             base.OnMouseUpRight(logic, mouseTile);
-            // var ui = XSUG.GridHelper.CloseUI();
-            // if (ui == null || ui == XSUG.GetBattleNode().unitMenu.gameObject)
-            //     logic.Change(new )
         }
     }
 }
