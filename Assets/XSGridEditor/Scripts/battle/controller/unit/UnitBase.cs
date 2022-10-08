@@ -37,7 +37,7 @@ namespace XSSLG
         // public Stat FinalStat { get; }
 
         /// <summary> 缓存的所有路径 </summary>
-        private Dictionary<Vector3, List<Vector3>> CachedPaths { get; set; }
+        private Dictionary<Vector3Int, List<Vector3>> CachedPaths { get; set; }
 
         public UnitBase(Role role, GroupType group)
         {

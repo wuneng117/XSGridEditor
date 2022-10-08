@@ -33,7 +33,7 @@ namespace XSSLG
                 battleNode.OpenMainMenu();
             else
                 battleNode.CloseMainMenu();
-            battleNode.mouseCuror?.Active = !val;
+            // battleNode.mouseCuror?.Active = !val;
         }
     }
 }

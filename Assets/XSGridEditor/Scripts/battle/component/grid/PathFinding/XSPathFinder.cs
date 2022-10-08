@@ -10,7 +10,7 @@ using UnityEngine;
 namespace XSSLG
 {
     using TileDict = Dictionary<Vector3Int, XSTile>;
-    using PathsDict = Dictionary<Vector3, List<Vector3>>;
+    using PathsDict = Dictionary<Vector3Int, List<Vector3>>;
     
     public class XSPathFinder
     {
@@ -42,7 +42,7 @@ namespace XSSLG
             allPaths[srcTile].Add(srcTile);
             // Convert all XSTileNode to corresponding tile position, and filter out paths that cannot be used as end points
             var allTilePosPaths = allPaths.Where(path => path.Key.CanBeDustFunc == null || path.Key.CanBeDustFunc(path.Key.TilePos))
-                                          .ToDictionary(pair => pair.Key.WorldPos, pair => pair.Value.Select(pathTile => pathTile.WorldPos).ToList());
+                                          .ToDictionary(pair => pair.Key.TilePos, pair => pair.Value.Select(pathTile => pathTile.WorldPos).ToList());
             return allTilePosPaths;
         }
 

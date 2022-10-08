@@ -55,7 +55,7 @@ namespace XSSLG
 
         void UpdateTileSize(Vector3 tileSize);
 
-        public Dictionary<Vector3, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange);
+        public Dictionary<Vector3Int, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange);
 
         public List<Vector3> FindPath(XSTile srcTile, XSTile destTile);
 

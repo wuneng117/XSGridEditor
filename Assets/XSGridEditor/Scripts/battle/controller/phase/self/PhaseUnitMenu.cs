@@ -40,7 +40,7 @@ namespace XSSLG
             {
                 battleNode.CloseRoleMenu();
             }
-            battleNode.mouseCuror?.Active = !val;
+            // battleNode.mouseCuror?.Active = !val;
         }
 
         public override void OnMouseUpRight<T>(T logic, XSTile mouseTile)

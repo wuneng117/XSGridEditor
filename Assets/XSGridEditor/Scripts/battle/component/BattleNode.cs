@@ -89,7 +89,7 @@ namespace XSSLG
         /// <summary> 初始化ui </summary>
         private void InitUI()
         {
-            this.UI.SetActive(true);
+            this.UI?.SetActive(true);
             foreach (Transform child in this.CloseRoot.transform)
                 child.gameObject.SetActive(false);
             this.playerTurn.SetActive(false);
@@ -115,7 +115,10 @@ namespace XSSLG
         public void OpenRoleMenu(Vector3 screenPos)
         {
             XSUG.UIMgr.ShowUI(this.unitMenu?.gameObject);
-            this.unitMenu?.gameObject.transform.position = screenPos;
+            if (this.unitMenu != null)
+            {
+                this.unitMenu.transform.position = screenPos;
+            }
         }
 
         public void OpenRolePanel(UnitBase unit)
@@ -124,13 +127,13 @@ namespace XSSLG
             this.rolePanel?.init(unit);
         }
 
-        public void CloseRolePanel() => XSUG.GridHelper.CloseUITo(this.rolePanel?.gameObject);
+        public void CloseRolePanel() => XSUG.UIMgr.CloseUITo(this.rolePanel?.gameObject);
 
-        public void CloseRoleMenu() => XSUG.GridHelper.CloseUITo(this.unitMenu?.gameObject);
+        public void CloseRoleMenu() => XSUG.UIMgr.CloseUITo(this.unitMenu?.gameObject);
 
         /// <summary> 打开关闭主菜单 </summary>
-        public void OpenMainMenu() => XSUG.GridHelper.ShowUI(this.mainMenu?.gameObject);
-        public void CloseMainMenu() => XSUG.GridHelper.CloseUITo(this.mainMenu?.gameObject);
+        public void OpenMainMenu() => XSUG.UIMgr.ShowUI(this.mainMenu?.gameObject);
+        public void CloseMainMenu() => XSUG.UIMgr.CloseUITo(this.mainMenu?.gameObject);
 
         /// <summary> 打开关闭回合显示 </summary>
         public void OpenTurnChange(GroupType type) => this.SetTurnChange(type, true);

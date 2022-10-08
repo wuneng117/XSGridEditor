@@ -20,8 +20,8 @@ namespace XSSLG
                 return;
             }
 
-            // 要在攻击范围内的格子
-            if (!this.MoveRegion.Contains(mouseTile.TilePos))
+            // 要在移动范围内的格子
+            if (!this.MoveRegion.Contains(mouseTile.WorldPos))
                 return;
 
             if (logic.UnitMgr.ActionUnit.WalkTo(mouseTile))

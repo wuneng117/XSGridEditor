@@ -74,6 +74,10 @@ namespace XSSLG
         /// <summary> 加其它属性 </summary>
         public bool Add(Stat stat)
         {
+            if (stat == null)
+            {
+                return false;
+            }
             this.str.Add(stat.str);
             this.def.Add(stat.def);
             this.mag.Add(stat.mag);

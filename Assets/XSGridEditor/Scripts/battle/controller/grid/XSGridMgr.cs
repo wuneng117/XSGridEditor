@@ -223,7 +223,7 @@ namespace XSSLG
         /// <param name="srcTile">beginning tile</param>
         /// <param name="moveRange"> -1 or less than 0 means no limit to move range </param>
         /// <returns></returns>
-        public virtual Dictionary<Vector3, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange) => XSPathFinder.FindAllPath(srcTile, moveRange);
+        public virtual Dictionary<Vector3Int, List<Vector3>> FindAllPath(XSTile srcTile, int moveRange) => XSPathFinder.FindAllPath(srcTile, moveRange);
 
         public virtual List<Vector3> FindPath(XSTile srcTile, XSTile destTile) => XSPathFinder.FindPath(srcTile, destTile);
     }

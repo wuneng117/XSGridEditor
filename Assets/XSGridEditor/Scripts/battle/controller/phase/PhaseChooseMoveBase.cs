@@ -12,7 +12,7 @@ namespace XSSLG
     /// </summary>
     public class PhaseChooseMoveBase : PhaseBase
     {
-        /// <summary> 技能的攻击范围 </summary>
+        /// <summary> 角色的移动范围 </summary>
         protected List<Vector3> MoveRegion { get; set; }
 
         public override void OnEnter<T>(T logic)
