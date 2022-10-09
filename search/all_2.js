@@ -30,11 +30,10 @@ var searchData=
   ['buffbase_2ecs_105',['BuffBase.cs',['../BuffBase_8cs.html',1,'']]],
   ['buffdata_106',['BuffData',['../classXSSLG_1_1BuffData.html',1,'XSSLG']]],
   ['buffdata_2ecs_107',['BuffData.cs',['../BuffData_8cs.html',1,'']]],
-  ['buffdataarray_108',['BuffDataArray',['../classXSSLG_1_1BuffDataArray.html',1,'XSSLG']]],
-  ['bufffactory_109',['BuffFactory',['../classXSSLG_1_1BuffFactory.html',1,'XSSLG']]],
-  ['bufffactory_2ecs_110',['BuffFactory.cs',['../BuffFactory_8cs.html',1,'']]],
-  ['buffidarray_111',['BuffIdArray',['../classXSSLG_1_1SkillData.html#af60bd9a73c6fdb649d67ae5b63437bd6',1,'XSSLG::SkillData']]],
-  ['bufflist_112',['BuffList',['../classXSSLG_1_1SkillData.html#a27ac85ccc5600bdc506f6090d9ec1a94',1,'XSSLG::SkillData']]],
-  ['bufftable_113',['BuffTable',['../classXSSLG_1_1BuffTable.html',1,'XSSLG.BuffTable'],['../classXSSLG_1_1NormalTable.html#afb3097d82b7e8fbeaa3eb763d54b89ef',1,'XSSLG.NormalTable.BuffTable()']]],
-  ['bufftable_2ecs_114',['BuffTable.cs',['../BuffTable_8cs.html',1,'']]]
+  ['bufffactory_108',['BuffFactory',['../classXSSLG_1_1BuffFactory.html',1,'XSSLG']]],
+  ['bufffactory_2ecs_109',['BuffFactory.cs',['../BuffFactory_8cs.html',1,'']]],
+  ['buffidarray_110',['BuffIdArray',['../classXSSLG_1_1SkillData.html#af60bd9a73c6fdb649d67ae5b63437bd6',1,'XSSLG::SkillData']]],
+  ['bufflist_111',['BuffList',['../classXSSLG_1_1SkillData.html#a27ac85ccc5600bdc506f6090d9ec1a94',1,'XSSLG::SkillData']]],
+  ['bufftable_112',['BuffTable',['../classXSSLG_1_1BuffTable.html',1,'XSSLG.BuffTable'],['../classXSSLG_1_1NormalTable.html#afb3097d82b7e8fbeaa3eb763d54b89ef',1,'XSSLG.NormalTable.BuffTable()']]],
+  ['bufftable_2ecs_113',['BuffTable.cs',['../BuffTable_8cs.html',1,'']]]
 ];
