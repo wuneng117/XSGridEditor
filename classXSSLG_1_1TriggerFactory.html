@@ -80,9 +80,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae33063f27697632a9e9572cdec9de0d1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classXSSLG_1_1TriggerBase.html">TriggerBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerFactory.html#ae33063f27697632a9e9572cdec9de0d1">CreateTrigger</a> (<a class="el" href="classXSSLG_1_1TriggerData.html">TriggerData</a> data, <a class="el" href="interfaceXSSLG_1_1IReleaseEntity.html">IReleaseEntity</a> releaseEntity)</td></tr>
-<tr class="memdesc:ae33063f27697632a9e9572cdec9de0d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">工厂模式创建TriggerBase  <a href="classXSSLG_1_1TriggerFactory.html#ae33063f27697632a9e9572cdec9de0d1">More...</a><br /></td></tr>
-<tr class="separator:ae33063f27697632a9e9572cdec9de0d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab22b687a48b1ae23e81f567580df8069"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classXSSLG_1_1TriggerBase.html">TriggerBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerFactory.html#ab22b687a48b1ae23e81f567580df8069">CreateTrigger</a> (string name, <a class="el" href="interfaceXSSLG_1_1IReleaseEntity.html">IReleaseEntity</a> releaseEntity)</td></tr>
+<tr class="memdesc:ab22b687a48b1ae23e81f567580df8069"><td class="mdescLeft">&#160;</td><td class="mdescRight">工厂模式创建TriggerBase  <a href="classXSSLG_1_1TriggerFactory.html#ab22b687a48b1ae23e81f567580df8069">More...</a><br /></td></tr>
+<tr class="separator:ab22b687a48b1ae23e81f567580df8069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f95f2a9b05fd5e2ea8e4ea130bfdd54"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classXSSLG_1_1TriggerNull.html">TriggerNull</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1TriggerFactory.html#a2f95f2a9b05fd5e2ea8e4ea130bfdd54">CreateTriggerNull</a> (<a class="el" href="interfaceXSSLG_1_1IReleaseEntity.html">IReleaseEntity</a> releaseEntity)</td></tr>
 <tr class="memdesc:a2f95f2a9b05fd5e2ea8e4ea130bfdd54"><td class="mdescLeft">&#160;</td><td class="mdescRight">工厂模式创建TriggerNull  <a href="classXSSLG_1_1TriggerFactory.html#a2f95f2a9b05fd5e2ea8e4ea130bfdd54">More...</a><br /></td></tr>
 <tr class="separator:a2f95f2a9b05fd5e2ea8e4ea130bfdd54"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -90,8 +90,8 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>用单例实现的抽象工厂模式去创建对象 </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae33063f27697632a9e9572cdec9de0d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae33063f27697632a9e9572cdec9de0d1">&#9670;&nbsp;</a></span>CreateTrigger()</h2>
+<a id="ab22b687a48b1ae23e81f567580df8069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab22b687a48b1ae23e81f567580df8069">&#9670;&nbsp;</a></span>CreateTrigger()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -102,8 +102,8 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static <a class="el" href="classXSSLG_1_1TriggerBase.html">TriggerBase</a> XSSLG.TriggerFactory.CreateTrigger </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classXSSLG_1_1TriggerData.html">TriggerData</a>&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -127,7 +127,7 @@ Static Public Member Functions</h2></td></tr>
 <p>工厂模式创建TriggerBase </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>触发器data</td></tr>
+    <tr><td class="paramname">name</td><td>触发器name</td></tr>
     <tr><td class="paramname">releaseEntity</td><td>触发器触发的对象</td></tr>
   </table>
   </dd>

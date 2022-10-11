@@ -80,6 +80,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7b5354ba610c1a83de9a23fe5a909482"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classXSSLG_1_1BuffBase.html">BuffBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BuffFactory.html#a7b5354ba610c1a83de9a23fe5a909482">CreateBuff</a> (string name, <a class="el" href="classXSSLG_1_1SkillBase.html">SkillBase</a> skill)</td></tr>
+<tr class="memdesc:a7b5354ba610c1a83de9a23fe5a909482"><td class="mdescLeft">&#160;</td><td class="mdescRight">工厂模式创建BuffBase  <a href="classXSSLG_1_1BuffFactory.html#a7b5354ba610c1a83de9a23fe5a909482">More...</a><br /></td></tr>
+<tr class="separator:a7b5354ba610c1a83de9a23fe5a909482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa05084ea58496180e8a0be0b22027fc9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classXSSLG_1_1BuffBase.html">BuffBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1BuffFactory.html#aa05084ea58496180e8a0be0b22027fc9">CreateBuff</a> (<a class="el" href="classXSSLG_1_1BuffData.html">BuffData</a> data, <a class="el" href="classXSSLG_1_1SkillBase.html">SkillBase</a> skill)</td></tr>
 <tr class="memdesc:aa05084ea58496180e8a0be0b22027fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">工厂模式创建BuffBase  <a href="classXSSLG_1_1BuffFactory.html#aa05084ea58496180e8a0be0b22027fc9">More...</a><br /></td></tr>
 <tr class="separator:aa05084ea58496180e8a0be0b22027fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -88,7 +91,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>用单例实现的抽象工厂模式去创建对象 </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa05084ea58496180e8a0be0b22027fc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa05084ea58496180e8a0be0b22027fc9">&#9670;&nbsp;</a></span>CreateBuff()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa05084ea58496180e8a0be0b22027fc9">&#9670;&nbsp;</a></span>CreateBuff() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,6 +128,52 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>技能data</td></tr>
+    <tr><td class="paramname">unit</td><td>玩家</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a7b5354ba610c1a83de9a23fe5a909482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b5354ba610c1a83de9a23fe5a909482">&#9670;&nbsp;</a></span>CreateBuff() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classXSSLG_1_1BuffBase.html">BuffBase</a> XSSLG.BuffFactory.CreateBuff </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classXSSLG_1_1SkillBase.html">SkillBase</a>&#160;</td>
+          <td class="paramname"><em>skill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>工厂模式创建BuffBase </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>buff name</td></tr>
     <tr><td class="paramname">unit</td><td>玩家</td></tr>
   </table>
   </dd>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effectarray_265',['EffectArray',['../classXSSLG_1_1BuffData.html#a3bbd7744a420d6b4e60d92f8cfd2aff2',1,'XSSLG.BuffData.EffectArray()'],['../classXSSLG_1_1SkillData.html#a8010e96eeefd878175f2a60f60db9bb7',1,'XSSLG.SkillData.EffectArray()']]],
+  ['effectarray_265',['EffectArray',['../classXSSLG_1_1BuffData.html#a3bbd7744a420d6b4e60d92f8cfd2aff2',1,'XSSLG.BuffData.EffectArray()'],['../classXSSLG_1_1SkillData.html#a94421d3fd433fbc028560011d9bf5474',1,'XSSLG.SkillData.EffectArray()']]],
   ['emit_266',['Emit',['../classXSSLG_1_1Emitter.html#aeb8aa488c60042ec9cb9b8d835a2f25e',1,'XSSLG.Emitter.Emit()'],['../classXSSLG_1_1EmitterItems.html#a9e6389d12f891a851af25f72182b18ff',1,'XSSLG.EmitterItems.Emit()']]],
   ['emitter_267',['Emitter',['../classXSSLG_1_1Emitter.html',1,'XSSLG.Emitter&lt; TYPE, T &gt;'],['../classXSSLG_1_1Emitter.html#a356f0d87e86d054cc2c115bc76819777',1,'XSSLG.Emitter.Emitter()']]],
   ['emitter_2ecs_268',['Emitter.cs',['../Emitter_8cs.html',1,'']]],

@@ -80,6 +80,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a807a6a0e5537b5d42a17dcf42c5a3b37"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classXSSLG_1_1SkillBase.html">SkillBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillFactory.html#a807a6a0e5537b5d42a17dcf42c5a3b37">CreateSkill</a> (string name, <a class="el" href="classXSSLG_1_1UnitBase.html">UnitBase</a> unit)</td></tr>
+<tr class="memdesc:a807a6a0e5537b5d42a17dcf42c5a3b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">工厂模式创建SkillBase  <a href="classXSSLG_1_1SkillFactory.html#a807a6a0e5537b5d42a17dcf42c5a3b37">More...</a><br /></td></tr>
+<tr class="separator:a807a6a0e5537b5d42a17dcf42c5a3b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16aaa655910d8d67af9381b626fcb463"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classXSSLG_1_1SkillBase.html">SkillBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillFactory.html#a16aaa655910d8d67af9381b626fcb463">CreateSkill</a> (<a class="el" href="classXSSLG_1_1SkillData.html">SkillData</a> data, <a class="el" href="classXSSLG_1_1UnitBase.html">UnitBase</a> unit)</td></tr>
 <tr class="memdesc:a16aaa655910d8d67af9381b626fcb463"><td class="mdescLeft">&#160;</td><td class="mdescRight">工厂模式创建SkillBase  <a href="classXSSLG_1_1SkillFactory.html#a16aaa655910d8d67af9381b626fcb463">More...</a><br /></td></tr>
 <tr class="separator:a16aaa655910d8d67af9381b626fcb463"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,7 +94,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>用单例实现的抽象工厂模式去创建对象 </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a16aaa655910d8d67af9381b626fcb463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16aaa655910d8d67af9381b626fcb463">&#9670;&nbsp;</a></span>CreateSkill()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a16aaa655910d8d67af9381b626fcb463">&#9670;&nbsp;</a></span>CreateSkill() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,7 +130,53 @@ Static Public Member Functions</h2></td></tr>
 <p>工厂模式创建SkillBase </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>技能data</td></tr>
+    <tr><td class="paramname">name</td><td>技能name</td></tr>
+    <tr><td class="paramname">unit</td><td>玩家</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a807a6a0e5537b5d42a17dcf42c5a3b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a807a6a0e5537b5d42a17dcf42c5a3b37">&#9670;&nbsp;</a></span>CreateSkill() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classXSSLG_1_1SkillBase.html">SkillBase</a> XSSLG.SkillFactory.CreateSkill </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classXSSLG_1_1UnitBase.html">UnitBase</a>&#160;</td>
+          <td class="paramname"><em>unit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>工厂模式创建SkillBase </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>技能name</td></tr>
     <tr><td class="paramname">unit</td><td>玩家</td></tr>
   </table>
   </dd>
