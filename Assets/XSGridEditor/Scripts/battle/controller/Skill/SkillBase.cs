@@ -25,9 +25,6 @@ namespace XSSLG
         /// <summary> 保留的玩家对象 </summary>
         public UnitBase Unit { get; protected set; }
 
-        /// <summary> 被动技能加的属性 </summary>
-        public Stat Stat { get; }
-
         /************************* 变量  end  ***********************/
 
         /// 构造函数
@@ -37,9 +34,7 @@ namespace XSSLG
         public SkillBase(SkillData data, UnitBase unit) : base(data)
         {
             this.Unit = unit;
-            this.Trigger = TriggerFactory.CreateTrigger(data.TriggerData, this);
-            // data TODO
-            // this.Stat = new Stat(data.StatData);
+            this.Trigger = TriggerFactory.CreateTrigger(data.TriggerName, this);
         }
 
         public override void StartWork()
@@ -90,30 +85,21 @@ namespace XSSLG
             this.InvalidByOthers = false;
             data.OnTriggerData.Chain.Add(this);   // 很牛逼的一个链条
             // 加buff
-            this.Data.BuffList?.ForEach(buffData => data.Target.ForEach(unit => this.AddBuff(buffData, unit)));
+            this.Data.BuffNameArray?.ForEach(name => data.Target.ForEach(unit => this.AddBuff(name, unit)));
             return true;
         }
 
-        /// <summary> 读取自定义属性 </summary>
-        protected float GetProp(int index)
+        /************************* buff相关 begin ***********************/
+        public BuffBase AddBuff(string name, UnitBase targetUnit)
         {
-            var propStruct = this.Data.PropArray?[index];
-            if (propStruct == null)
-                return 0;
-            
-            var ret = 0f;
-            if (propStruct.Type.Length != 0)
-            {
-                var statProp = (float)(Stat.GetType().GetProperty(propStruct.Type)?.GetValue(this.Unit.GetStat()));
-                ret = propStruct.Prop + propStruct.Percent * statProp;
-            }
-            else
-                ret = propStruct.Prop;
-                
-            return 0;
+            var buff = BuffFactory.CreateBuff(name, this);
+            if (buff == null)
+                return null;
+
+            targetUnit.Table.BuffTable.Add(buff);
+            return buff;
         }
 
-        /************************* buff相关 begin ***********************/
         public BuffBase AddBuff(BuffData data, UnitBase targetUnit)
         {
             var buff = BuffFactory.CreateBuff(data, this);

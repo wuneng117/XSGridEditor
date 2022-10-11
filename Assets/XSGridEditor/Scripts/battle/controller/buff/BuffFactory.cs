@@ -9,6 +9,19 @@ namespace XSSLG
         /// <summary>
         /// 工厂模式创建BuffBase
         /// </summary>
+        /// <param name="name">buff name</param>
+        /// <param name="unit">玩家</param>
+        /// <returns></returns>
+        public static BuffBase CreateBuff(string name, SkillBase skill)
+        {
+            var data = TableManager.Instance.BuffDataManager.GetItem(name);
+            var ret = new BuffBase(data, skill);
+            return ret;
+        }
+
+        /// <summary>
+        /// 工厂模式创建BuffBase
+        /// </summary>
         /// <param name="data">技能data</param>
         /// <param name="unit">玩家</param>
         /// <returns></returns>

@@ -8,20 +8,18 @@ namespace XSSLG
         public DataManager<ClassData> ClassDataManager { get; }
         // public LearnSkillDataManager LearnSkillDataManager { get; }
         // public RoleDataManagerEx RoleDataManager { get; }
-        // public SkillDataManagerEx SkillDataManager { get; }
-        // public StatDataManager StatDataManager { get; }
-        // public TriggerDataManager TriggerDataManager { get; }
-        // public BuffDataManager BuffDataManager { get; }
+        public DataManager<SkillData> SkillDataManager { get; }
+        public DataManager<TriggerData> TriggerDataManager { get; }
+        public DataManager<BuffData> BuffDataManager { get; }
 
         public TableManager()
         {
             this.ClassDataManager = DataManager<ClassData>.Instance;
         //     this.LearnSkillDataManager = LearnSkillDataManager.Instance;
         //     this.RoleDataManager = new RoleDataManagerEx();
-        //     this.SkillDataManager = new SkillDataManagerEx();
-        //     this.StatDataManager = StatDataManager.Instance;
-        //     this.TriggerDataManager = TriggerDataManager.Instance;
-        //     this.BuffDataManager = new BuffDataManagerEx();
+            this.SkillDataManager = DataManager<SkillData>.Instance;
+            this.TriggerDataManager = DataManager<TriggerData>.Instance;
+            this.BuffDataManager = DataManager<BuffData>.Instance;
         }
     }
 }

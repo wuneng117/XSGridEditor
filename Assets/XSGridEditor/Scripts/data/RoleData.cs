@@ -17,25 +17,16 @@ namespace XSSLG
         [SerializeField]
         public string ClassDataName { get; set; }
 
-        // /// <summary>特技</summary>
         // public List<long> AbilityIDArray { get; private set; }
 
-        // /// <summary>战技</summary>
         // public List<long> CombatArtIDArray { get; private set; }
 
-        // /// <summary>魔法</summary>
         // public List<long> LearnMagicIDArray { get; private set; }
 
         // /// <summary>技巧等级</summary>
         // public List<global::XSSLG.TechniqueLevel> TechniqueLvArray { get; private set; }
 
-        // /// <summary>纹章技能</summary>
-        // public List<long> CrestIDArray { get; private set; }
 
-        // /// <summary>拥有的职业</summary>
-        // public List<long> ClassDataIDArray { get; private set; }
-
-        /// <summary>可以学会的技能</summary>
         public List<LearnSkillData> LearnSkillDataIDArray { get; private set; } = new List<LearnSkillData>();
 
         // /// <summary>行走图</summary>
@@ -45,14 +36,24 @@ namespace XSSLG
         protected Stat stat = new Stat();
         public Stat Stat { get => stat; protected set => stat = value; }
 
-        // public List<SkillData> CrestArray { get; private set; }
-        // public List<SkillData> AbilityArray { get; private set; }
-        /// <summary> 学会的职业 </summary>
         [SerializeField]
-        public List<string> ClassDataArray { get; private set; } = new List<string>();
-        // public List<SkillData> CombatArtArray { get; private set; }
-        // public List<SkillData> LearnMagicArray { get; private set; }
-        // public List<SkillData> LearnSkillDataArray { get; private set; }
+        // /// <summary>纹章技能 SkillData</summary>
+        public List<string> CrestNameArray { get; private set; } = new List<string>();
+        [SerializeField]
+        // /// <summary>特技 SkillData</summary>
+        public List<string> AbilityNameArray { get; private set; } = new List<string>();
+        [SerializeField]
+        /// <summary>拥有的职业 ClassData</summary>
+        public List<string> ClassDataNameArray { get; private set; } = new List<string>();
+        [SerializeField]
+        // /// <summary>战技 SkillData</summary>
+        public List<string> CombatArtNameArray { get; private set; } = new List<string>();
+        [SerializeField]
+        // /// <summary>魔法 SkillData</summary>
+        public List<string> MagicNameArray { get; private set; } = new List<string>();
+        [SerializeField]
+        /// <summary>可以学会的技能 LearnSkillData</summary>
+        public List<string> LearnSkillNameArray { get; private set; } = new List<string>();
     }
 
     [Serializable]

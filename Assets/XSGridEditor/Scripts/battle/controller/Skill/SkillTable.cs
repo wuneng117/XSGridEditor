@@ -18,9 +18,7 @@ namespace XSSLG
         {
             this.HeadSkill = SkillFactory.CreateSkillNull(unit) ?? throw new System.ArgumentNullException("HeadSkill");
             this.List.Add(this.HeadSkill);
-            // TODO Data
-            // this.AttackSkill = SkillFactory.CreateSkill(TableManager.Instance.SkillDataManager.GetItem(BattleDefine.SKILL_ATTACK_ID), unit) ?? 
-            this.AttackSkill = SkillFactory.CreateSkill(new SkillData(), unit) ?? 
+            this.AttackSkill = SkillFactory.CreateSkill(XSDefine.SKILL_ATTACK_ID, unit) ?? 
                 throw new System.ArgumentNullException("HeadSkill");
             this.List.Add(this.AttackSkill);
             
@@ -46,7 +44,7 @@ namespace XSSLG
         /// <summary> 技能增加的属性 </summary>
         public Stat GetStat()
         {
-            var ret = this.List.Aggregate(new Stat(), (ret, skill) => skill.Stat);
+            var ret = this.List.Aggregate(new Stat(), (ret, skill) => skill.Data.Stat);
             return ret;
         }
 

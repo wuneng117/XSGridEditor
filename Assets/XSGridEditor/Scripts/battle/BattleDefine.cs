@@ -25,7 +25,7 @@ namespace XSSLG
 
         public static readonly int MAX_BUFF_DURATION = int.MaxValue;    // BUFF持续时间无限
         public static readonly int MAX_ATTR = 99;    // 属性最大值
-        // public static readonly long SKILL_ATTACK_ID = XSSLG.StringToLong("Attack");    // 普通攻击在skilldata里的id
+        public static readonly string SKILL_ATTACK_ID = "Attack";    // 普通攻击在skilldata里的id
 
     }
 

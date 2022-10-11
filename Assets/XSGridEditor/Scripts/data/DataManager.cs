@@ -88,6 +88,10 @@ namespace XSSLG
 
         public T GetItem(string name)
         {
+            if (name ==  null || name.Length == 0)
+            {
+                return null;
+            }
 
             if (this.keyIndexMap.TryGetValue(name, out var index))
             {
@@ -98,7 +102,7 @@ namespace XSSLG
 
         public void AddItem(T item)
         {
-            if (this.keyIndexMap.ContainsKey(item.Name))
+            if (item.Name == null || item.Name.Length == 0 || this.keyIndexMap.ContainsKey(item.Name))
             {
                 return;
             }

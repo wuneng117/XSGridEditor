@@ -47,14 +47,14 @@ namespace XSSLG
                 
             this.Level = new RoleLevel(data.Lv);
 
-            // this.Class = new RoleClass(data.ClassData);
-            // this.ClassArray = data.ClassDataArray.Select(classData => new RoleClass(classData)).ToList<RoleClass>();
+            this.Class = new RoleClass(TableManager.Instance.ClassDataManager.GetItem(data.ClassDataName));
+            this.ClassArray = data.ClassDataNameArray.Select(name => new RoleClass(TableManager.Instance.ClassDataManager.GetItem(name))).ToList<RoleClass>();
 
 
-            // this.CombatArtArray.AddRange(data.CombatArtArray);
-            // this.AbilityArray.AddRange(data.AbilityArray);
-            // this.LearnMagicArray.AddRange(data.LearnMagicArray);
-            // this.CrestArray.AddRange(data.CrestArray);
+            this.CombatArtArray.AddRange(data.CombatArtNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.AbilityArray.AddRange(data.AbilityNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.LearnMagicArray.AddRange(data.MagicNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.CrestArray.AddRange(data.CrestNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
 
             // this.Technique = new TechniqueLevelEx(data.TechniqueLvArray ?? new List<TechniqueLevel>());
 

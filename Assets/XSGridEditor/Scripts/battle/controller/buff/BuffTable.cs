@@ -35,7 +35,7 @@ namespace XSSLG
 
         public Stat GetStat()
         {
-            var ret = this.List.Aggregate(new Stat(), (ret, buff) => buff.Stat);
+            var ret = this.List.Aggregate(new Stat(), (ret, buff) => buff.Data.Stat);
             return ret;
         }
     }

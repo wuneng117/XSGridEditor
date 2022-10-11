@@ -1,78 +1,45 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace XSSLG
 {
-    public partial class SkillData
+    [Serializable]
+    public partial class SkillData : BaseData
     {
-        /// <summary>名字</summary>
-        public string Name { get; set; }
 
-        /// <summary>描述</summary>
-        public string Desc { get; set; }
+        protected XSDefine.SkillType type;
 
+        [SerializeField]
         /// <summary>类型</summary>
-        public global::XSSLG.SkillDataSkillType Type { get; set; }
+        public XSDefine.SkillType Type { get => type; set => type = value; }
+
+        [SerializeField]
+        protected XSDefine.SkillGroupType group;
 
         /// <summary>技能分组</summary>
-        public global::XSSLG.SkillDataSkillGroupType Group { get; set; }
+        public XSDefine.SkillGroupType Group { get => group; set => group = value; }
 
+        [SerializeField]
+        private WeaponType weaponType;
         /// <summary>武器类型</summary>
-        public global::XSSLG.WeaponType WeaponType { get; set; }
+        public WeaponType WeaponType { get => weaponType; set => weaponType = value; }
 
+        [SerializeField]
         /// <summary>触发器id</summary>
-        public long TriggerId { get; set; }
+        public string TriggerName { get; set; }
 
+        [SerializeField]
         /// <summary>常用效果</summary>
-        public List<global::XSSLG.SkillEffectStruct> EffectArray { get; private set; }
+        public List<SkillEffectStruct> EffectArray { get; private set; } = new List<SkillEffectStruct>();
 
+        [SerializeField]
         /// <summary>添加buffId数组</summary>
-        public List<long> BuffIdArray { get; private set; }
+        public List<string> BuffNameArray { get; private set; } = new List<string>();
 
         /// <summary> 技能存在时的一级属性加成, 类似被动技能 </summary>
         [SerializeField]
-        public StatData StatData { get; set; }
-
-        /// <summary>自定义数值数组</summary>
-        public List<global::XSSLG.PropStruct> PropArray { get; private set; }
-
-        //TODO 未实现
-        public TriggerData TriggerData { get; private set; }
-        public StatData StatData { get; private set; }
-        public List<BuffData> BuffList { get; private set; }
+        public Stat Stat { get; set; } = new Stat();
     }
-
-    public partial class SkillDataArray
-    {
-        public List<long> Keys { get; private set; }
-
-        public List<global::XSSLG.SkillData> Items { get; private set; }
-
-        public string TableHash { get; private set; }
-
-
-        public static Int32 PID { get { return 0; } }
-    }
-
-    public enum SkillDataSkillGroupType
-    {
-        Normal = 0,
-        /// <summary>被动技能</summary>
-        Passive = 1,
-        /// <summary>纹章技能</summary>
-        Crest = 2,
-    }
-
-
-    public enum SkillDataSkillType
-    {
-        Common = 0,
-        /// <summary>战斗技能</summary>
-        Combat = 1,
-        /// <summary>魔法主动技能</summary>
-        Magic = 2,
-    }
-
-
 }

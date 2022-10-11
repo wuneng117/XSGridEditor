@@ -3,7 +3,7 @@ using System;
 /// <summary>
 /// @Author: zhoutao
 /// @Date: 2021/5/4
-/// @Description: 角色属性
+/// @Description: 角色一级属性
 /// </summary>
 namespace XSSLG
 {

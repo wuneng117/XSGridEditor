@@ -9,17 +9,24 @@ namespace XSSLG
         /// <summary>
         /// 工厂模式创建TriggerBase
         /// </summary>
-        /// <param name="data">触发器data</param>
+        /// <param name="name">触发器name</param>
         /// <param name="releaseEntity">触发器触发的对象</param>
         /// <returns></returns>
-        public static TriggerBase CreateTrigger(TriggerData data, IReleaseEntity releaseEntity)
+        public static TriggerBase CreateTrigger(string name, IReleaseEntity releaseEntity)
         {
+            var data = TableManager.Instance.TriggerDataManager.GetItem(name);
             if (data == null)
+            {
                 return CreateTriggerNull(releaseEntity);
+            }
             else if (data.Type == TriggerDataTriggerType.ClickCombat || data.Type == TriggerDataTriggerType.ClickMagic)
+            {
                 return new TriggerBase(data, releaseEntity);
+            }
             else
+            {
                 return new AutoTriggerBase(data, releaseEntity);
+            }
         }
 
         /// <summary>

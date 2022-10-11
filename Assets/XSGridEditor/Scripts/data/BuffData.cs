@@ -56,6 +56,6 @@ namespace XSSLG
 
         /// <summary> buff存在时的一级属性加成 </summary>
         [SerializeField]
-        public StatData StatData { get; set; }
+        public Stat Stat { get; set; }
     }
 }

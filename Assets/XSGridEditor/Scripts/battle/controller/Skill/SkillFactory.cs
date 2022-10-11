@@ -9,19 +9,40 @@ namespace XSSLG
         /// <summary>
         /// 工厂模式创建SkillBase
         /// </summary>
-        /// <param name="data">技能data</param>
+        /// <param name="name">技能name</param>
+        /// <param name="unit">玩家</param>
+        /// <returns></returns>
+        public static SkillBase CreateSkill(string name, UnitBase unit)
+        {
+            var data = TableManager.Instance.SkillDataManager.GetItem(name);
+            SkillBase ret = CreateSkill(data, unit);
+            return ret;
+        }
+        
+        /// <summary>
+        /// 工厂模式创建SkillBase
+        /// </summary>
+        /// <param name="name">技能name</param>
         /// <param name="unit">玩家</param>
         /// <returns></returns>
         public static SkillBase CreateSkill(SkillData data, UnitBase unit)
         {
             SkillBase ret;
-            switch (data.Type)
+            if (data == null)
             {
-                case SkillDataSkillType.Combat: ret = new SkillCombat(data, unit); break;
-                case SkillDataSkillType.Magic:  ret = new SkillMagic(data, unit); break;
-                case SkillDataSkillType.Common:
-                default:                        ret = new SkillBase(data, unit); break;
+                ret = CreateSkillNull(unit);
             }
+            else
+            {
+                switch (data.Type)
+                {
+                    case XSDefine.SkillType.Combat: ret = new SkillCombat(data, unit); break;
+                    case XSDefine.SkillType.Magic: ret = new SkillMagic(data, unit); break;
+                    case XSDefine.SkillType.Common:
+                    default: ret = new SkillBase(data, unit); break;
+                }
+            }
+
             return ret;
         }
 

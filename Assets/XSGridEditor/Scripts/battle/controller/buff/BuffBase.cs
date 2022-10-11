@@ -15,9 +15,6 @@ namespace XSSLG
         /// <summary> 这个buff的宿主skill，如果不是特定的，就是加在unit的skillnull对象里 </summary>
         public SkillBase Skill { get; }
 
-        /// <summary> buff加的属性 </summary>
-        public Stat Stat { get; }
-
         /// <summary> buff层数 </summary>
         private int _count = 0;
         private int TimeLeft { get; set; } = 0;
@@ -44,8 +41,6 @@ namespace XSSLG
         public BuffBase(BuffData data, SkillBase skill) : base(data)
         {
             this.Skill = skill;
-            // data TODO
-            // this.Stat = new Stat(data.StatData);
         }
         // virtual
         public void Destroy()
