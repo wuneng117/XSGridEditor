@@ -6,52 +6,36 @@ namespace XSSLG
 {
     public partial class SkillData
     {
-        /// <summary>技能ID</summary>
-        [System.ComponentModel.DisplayName("技能ID")]
-        public long Id { get; private set; }
-
         /// <summary>名字</summary>
-        [System.ComponentModel.DisplayName("名字")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>描述</summary>
-        [System.ComponentModel.DisplayName("描述")]
-        public string Desc { get; private set; }
+        public string Desc { get; set; }
 
         /// <summary>类型</summary>
-        [System.ComponentModel.DisplayName("类型")]
-        public global::XSSLG.SkillDataSkillType Type { get; private set; }
+        public global::XSSLG.SkillDataSkillType Type { get; set; }
 
         /// <summary>技能分组</summary>
-        [System.ComponentModel.DisplayName("技能分组")]
-        public global::XSSLG.SkillDataSkillGroupType Group { get; private set; }
+        public global::XSSLG.SkillDataSkillGroupType Group { get; set; }
 
         /// <summary>武器类型</summary>
-        [System.ComponentModel.DisplayName("武器类型")]
-        public global::XSSLG.WeaponType WeaponType { get; private set; }
+        public global::XSSLG.WeaponType WeaponType { get; set; }
 
         /// <summary>触发器id</summary>
-        [System.ComponentModel.DisplayName("触发器id")]
-        public long TriggerId { get; private set; }
+        public long TriggerId { get; set; }
 
         /// <summary>常用效果</summary>
-        [System.ComponentModel.DisplayName("常用效果")]
         public List<global::XSSLG.SkillEffectStruct> EffectArray { get; private set; }
 
         /// <summary>添加buffId数组</summary>
-        [System.ComponentModel.DisplayName("添加buffId数组")]
         public List<long> BuffIdArray { get; private set; }
 
-        /// <summary>Stat</summary>
-        [System.ComponentModel.DisplayName("Stat")]
-        public long StatId { get; private set; }
+        /// <summary> 技能存在时的一级属性加成, 类似被动技能 </summary>
+        [SerializeField]
+        public StatData StatData { get; set; }
 
         /// <summary>自定义数值数组</summary>
-        [System.ComponentModel.DisplayName("自定义数值数组")]
         public List<global::XSSLG.PropStruct> PropArray { get; private set; }
-
-
-        public static Int32 PID { get { return 0; } }
 
         //TODO 未实现
         public TriggerData TriggerData { get; private set; }
@@ -75,10 +59,8 @@ namespace XSSLG
     {
         Normal = 0,
         /// <summary>被动技能</summary>
-        [System.ComponentModel.Description("被动技能")]
         Passive = 1,
         /// <summary>纹章技能</summary>
-        [System.ComponentModel.Description("纹章技能")]
         Crest = 2,
     }
 
@@ -87,10 +69,8 @@ namespace XSSLG
     {
         Common = 0,
         /// <summary>战斗技能</summary>
-        [System.ComponentModel.Description("战斗技能")]
         Combat = 1,
         /// <summary>魔法主动技能</summary>
-        [System.ComponentModel.Description("魔法主动技能")]
         Magic = 2,
     }
 

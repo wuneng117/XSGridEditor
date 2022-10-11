@@ -54,6 +54,7 @@ namespace XSSLG
         protected bool isDebuff;
         public bool IsDebuff { get => isDebuff; set => isDebuff = value; }
 
+        /// <summary> buff存在时的一级属性加成 </summary>
         [SerializeField]
         public StatData StatData { get; set; }
     }
