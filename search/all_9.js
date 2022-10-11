@@ -3,7 +3,7 @@ var searchData=
   ['ibottomtip_388',['IBottomTip',['../interfaceXSSLG_1_1IBottomTip.html',1,'XSSLG']]],
   ['ibottomtip_2ecs_389',['IBottomTip.cs',['../IBottomTip_8cs.html',1,'']]],
   ['icommontable_390',['ICommonTable',['../interfaceXSSLG_1_1ICommonTable.html',1,'XSSLG']]],
-  ['id_391',['Id',['../classXSSLG_1_1LearnSkillData.html#ad5b99e0eeb420556a2f90045abb75831',1,'XSSLG.LearnSkillData.Id()'],['../classXSSLG_1_1SkillData.html#aa7d4558208f049eb1bd5ae9468993839',1,'XSSLG.SkillData.Id()'],['../classXSSLG_1_1StatData.html#a49b7237e517cd8d98e7d04579457af08',1,'XSSLG.StatData.Id()'],['../classXSSLG_1_1TriggerData.html#a16f0017ba66590099a6165df43fc12cb',1,'XSSLG.TriggerData.Id()']]],
+  ['id_391',['Id',['../classXSSLG_1_1StatData.html#a49b7237e517cd8d98e7d04579457af08',1,'XSSLG.StatData.Id()'],['../classXSSLG_1_1TriggerData.html#a16f0017ba66590099a6165df43fc12cb',1,'XSSLG.TriggerData.Id()']]],
   ['init_392',['init',['../classXSSLG_1_1RolePanel.html#aff97dc2f06ec98991379986940c32f34',1,'XSSLG.RolePanel.init()'],['../classXSSLG_1_1XSGridShowRegionCpt.html#ab9839f0b3b043b01dac116e9d6723626',1,'XSSLG.XSGridShowRegionCpt.Init()'],['../classXSSLG_1_1XSGridMgr.html#aa8d28f5e44908b8e8bdec90e00af3b9d',1,'XSSLG.XSGridMgr.Init()'],['../interfaceXSSLG_1_1XSIGridMgr.html#a1c341dbdb9a7ab93924d0969f9a4ccb1',1,'XSSLG.XSIGridMgr.Init()'],['../classXSSLG_1_1SkillTable.html#a8e451c5e75f05a29f143b0160c775abf',1,'XSSLG.SkillTable.Init()'],['../classXSSLG_1_1DataDecorate.html#a3866429639e4494c4b04b81fbc645357',1,'XSSLG.DataDecorate.Init()'],['../classXSSLG_1_1Role.html#a902a7be2bd860653ff9098a738bda2d0',1,'XSSLG.Role.Init()'],['../classXSSLG_1_1MeanOfAttackPanel.html#a758069a558d44fe33d3c981f37c51d05',1,'XSSLG.MeanOfAttackPanel.Init()'],['../classXSSLG_1_1XSPopUpView.html#abc34160c644a6ef9e1cec29ec82556d1',1,'XSSLG.XSPopUpView.Init()']]],
   ['initattrbar_393',['InitAttrBar',['../classXSSLG_1_1RolePanelaAttr.html#ae420114536857556128da2ede2914ab7',1,'XSSLG::RolePanelaAttr']]],
   ['initattrbartextfunc_394',['initAttrBarTextFunc',['../classXSSLG_1_1RolePanelaAttr.html#ad7f48158e123a73845ce8f92b520d0a6',1,'XSSLG::RolePanelaAttr']]],
@@ -43,7 +43,7 @@ var searchData=
   ['item_428',['Item',['../classXSSLG_1_1Item.html',1,'XSSLG.Item'],['../classXSSLG_1_1XSPriorityQueueItem.html#a88e7aac57fc0974c9712900769fdc39d',1,'XSSLG.XSPriorityQueueItem.Item()']]],
   ['item_2ecs_429',['Item.cs',['../Item_8cs.html',1,'']]],
   ['itemarray_430',['itemArray',['../classXSSLG_1_1DataManager.html#a2b55758abb0f11715173f674ed86f08f',1,'XSSLG::DataManager']]],
-  ['items_431',['Items',['../classXSSLG_1_1LearnSkillDataArray.html#ad2d272132d4e9af4dfc6d8da6218f593',1,'XSSLG.LearnSkillDataArray.Items()'],['../classXSSLG_1_1SkillDataArray.html#a34ec9a3a2c2913ad0d85b963620898f5',1,'XSSLG.SkillDataArray.Items()'],['../classXSSLG_1_1StatDataArray.html#a062961f0030580dd4a6eca6dfa6a19e1',1,'XSSLG.StatDataArray.Items()'],['../classXSSLG_1_1TriggerDataArray.html#ad3df7ab49eafa68e9548e3389ec547ef',1,'XSSLG.TriggerDataArray.Items()']]],
+  ['items_431',['Items',['../classXSSLG_1_1SkillDataArray.html#a34ec9a3a2c2913ad0d85b963620898f5',1,'XSSLG.SkillDataArray.Items()'],['../classXSSLG_1_1StatDataArray.html#a062961f0030580dd4a6eca6dfa6a19e1',1,'XSSLG.StatDataArray.Items()'],['../classXSSLG_1_1TriggerDataArray.html#ad3df7ab49eafa68e9548e3389ec547ef',1,'XSSLG.TriggerDataArray.Items()']]],
   ['itemtable_432',['ItemTable',['../classXSSLG_1_1ItemTable.html',1,'XSSLG']]],
   ['itemtable_2ecs_433',['ItemTable.cs',['../ItemTable_8cs.html',1,'']]]
 ];

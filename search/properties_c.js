@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['name_2126',['Name',['../classXSSLG_1_1BaseData.html#a39ce9887556387e837342779e3bc605b',1,'XSSLG.BaseData.Name()'],['../classXSSLG_1_1LearnSkillData.html#a1f61caa39d0993b1281cff3471f1c861',1,'XSSLG.LearnSkillData.Name()'],['../classXSSLG_1_1SkillData.html#ae188356a780bc19a0e230ed703162e3e',1,'XSSLG.SkillData.Name()'],['../classXSSLG_1_1TriggerData.html#a1b32cf7ac01cd02e0b36dc6c4e3888d6',1,'XSSLG.TriggerData.Name()']]],
-  ['neartilelist_2127',['NearTileList',['../classXSSLG_1_1XSTile.html#a1713dca22f690fad62944beffe415841',1,'XSSLG::XSTile']]],
-  ['needlv_2128',['NeedLv',['../classXSSLG_1_1LearnSkillData.html#a74e41a71b3ef01a32acb92394a2f31b1',1,'XSSLG::LearnSkillData']]],
-  ['node_2129',['Node',['../classXSSLG_1_1XSTile.html#aad59974b4e303bd4601e273a3d2302c7',1,'XSSLG.XSTile.Node()'],['../classXSSLG_1_1Unit.html#ad2935189adce6d0ff3a02614c1c9dd1a',1,'XSSLG.Unit.Node()']]]
+  ['name_2123',['Name',['../classXSSLG_1_1BaseData.html#a39ce9887556387e837342779e3bc605b',1,'XSSLG.BaseData.Name()'],['../classXSSLG_1_1LearnSkillData.html#a1f61caa39d0993b1281cff3471f1c861',1,'XSSLG.LearnSkillData.Name()'],['../classXSSLG_1_1SkillData.html#ae188356a780bc19a0e230ed703162e3e',1,'XSSLG.SkillData.Name()'],['../classXSSLG_1_1TriggerData.html#a1b32cf7ac01cd02e0b36dc6c4e3888d6',1,'XSSLG.TriggerData.Name()']]],
+  ['neartilelist_2124',['NearTileList',['../classXSSLG_1_1XSTile.html#a1713dca22f690fad62944beffe415841',1,'XSSLG::XSTile']]],
+  ['needlv_2125',['NeedLv',['../classXSSLG_1_1LearnSkillData.html#a74e41a71b3ef01a32acb92394a2f31b1',1,'XSSLG::LearnSkillData']]],
+  ['node_2126',['Node',['../classXSSLG_1_1XSTile.html#aad59974b4e303bd4601e273a3d2302c7',1,'XSSLG.XSTile.Node()'],['../classXSSLG_1_1Unit.html#ad2935189adce6d0ff3a02614c1c9dd1a',1,'XSSLG.Unit.Node()']]]
 ];
