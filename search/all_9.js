@@ -13,7 +13,7 @@ var searchData=
   ['initunitgroupmartex_396',['InitUnitGroupMartex',['../classXSSLG_1_1Config.html#afdd6326232a5402276b545e3997396b0',1,'XSSLG::Config']]],
   ['input_5fdetected_397',['INPUT_DETECTED',['../classXSSLG_1_1AnimatorState.html#a413218d86e1a34dbcd4423812543ebdc',1,'XSSLG::AnimatorState']]],
   ['inputprovider_398',['InputProvider',['../classXSSLG_1_1XSCamera.html#a1cb512e41dc64d9dae00999e440edaf3',1,'XSSLG::XSCamera']]],
-  ['instance_399',['Instance',['../classXSSLG_1_1BattleEmitter.html#a48f6f2d2c99014d8ca6b073338161d2e',1,'XSSLG.BattleEmitter.Instance()'],['../classXSSLG_1_1UIEmitter.html#aa4b9e5b0dc6f1278460f3f0f9ec24ef6',1,'XSSLG.UIEmitter.Instance()'],['../classXSSLG_1_1DataManager.html#a3d0fb8db25f6ecfc1065c91606490423',1,'XSSLG.DataManager.Instance()'],['../classXSSLG_1_1TableManager.html#af6a0c17cae7d7ff749cbb73e30fd9251',1,'XSSLG.TableManager.Instance()'],['../classXSSLG_1_1DataManager.html#a0036bfd3945527ef9da74acb06f287f1',1,'XSSLG.DataManager.instance()'],['../classXSSLG_1_1TableManager.html#ad676a222edfe86f898343207e5d53ca9',1,'XSSLG.TableManager.instance()']]],
+  ['instance_399',['instance',['../classXSSLG_1_1DataManager.html#a0036bfd3945527ef9da74acb06f287f1',1,'XSSLG.DataManager.instance()'],['../classXSSLG_1_1TableManager.html#ad676a222edfe86f898343207e5d53ca9',1,'XSSLG.TableManager.instance()'],['../classXSSLG_1_1BattleEmitter.html#a48f6f2d2c99014d8ca6b073338161d2e',1,'XSSLG.BattleEmitter.Instance()'],['../classXSSLG_1_1UIEmitter.html#aa4b9e5b0dc6f1278460f3f0f9ec24ef6',1,'XSSLG.UIEmitter.Instance()'],['../classXSSLG_1_1DataManager.html#a3d0fb8db25f6ecfc1065c91606490423',1,'XSSLG.DataManager.Instance()'],['../classXSSLG_1_1TableManager.html#af6a0c17cae7d7ff749cbb73e30fd9251',1,'XSSLG.TableManager.Instance()']]],
   ['intermediate_400',['Intermediate',['../classXSSLG_1_1XSDefine.html#a0811cbbb5414754ed42dd40970c4f919ab57ed7a0b4f939d0c048882570336e3a',1,'XSSLG::XSDefine']]],
   ['interval_401',['Interval',['../classXSSLG_1_1CustomSchedulerItem.html#a5c2b82d3d090cb8c56cf3e29ebfd3344',1,'XSSLG.CustomSchedulerItem.Interval()'],['../namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09ad16dd01adf735ed9b87eebff5fc39ce5',1,'XSSLG.Interval()']]],
   ['invalidbyothers_402',['InvalidByOthers',['../classXSSLG_1_1SkillBase.html#acd675fc25e76c6f93ff3d9fa78f72513',1,'XSSLG::SkillBase']]],
@@ -26,7 +26,7 @@ var searchData=
   ['isalive_409',['IsAlive',['../classXSSLG_1_1BuffBase.html#a19a384d367f036781f9d9f2100c8c922',1,'XSSLG::BuffBase']]],
   ['isattacked_410',['IsAttacked',['../classXSSLG_1_1UnitBase.html#a2430d80209a65800e5a8794f4d600ef2',1,'XSSLG::UnitBase']]],
   ['isattacking_411',['IsAttacking',['../classXSSLG_1_1XSUnitNode.html#afa52c8d87fdfafbbdc4ff6dcd1025034',1,'XSSLG.XSUnitNode.IsAttacking()'],['../interfaceXSSLG_1_1XSIUnitNode.html#aeff0145cb752fad8520edaa29436e89a',1,'XSSLG.XSIUnitNode.IsAttacking()']]],
-  ['iscdonstart_412',['IsCdOnStart',['../classXSSLG_1_1TriggerData.html#a41ddde6075060eee7beaefb5b10b5a0b',1,'XSSLG::TriggerData']]],
+  ['iscdonstart_412',['IsCdOnStart',['../classXSSLG_1_1TriggerData.html#a41ddde6075060eee7beaefb5b10b5a0b',1,'XSSLG.TriggerData.IsCdOnStart()'],['../classXSSLG_1_1TriggerData.html#abcbc92fa9a88e15e940791476ed985d4',1,'XSSLG.TriggerData.isCdOnStart()']]],
   ['isdead_413',['IsDead',['../classXSSLG_1_1UnitBase.html#a68a9484c36d22eadbfabf487d6d5d4c9',1,'XSSLG::UnitBase']]],
   ['isdebuff_414',['isDebuff',['../classXSSLG_1_1BuffData.html#af953bc7570852bba5b7925f5b1b8d949',1,'XSSLG.BuffData.isDebuff()'],['../classXSSLG_1_1BuffData.html#ae64095c3e0aab98e1cf85e0c2521de32',1,'XSSLG.BuffData.IsDebuff()']]],
   ['iseditor_415',['IsEditor',['../classXSSLG_1_1XSU.html#abbc827e90b23ba33c131afaea591ea74',1,'XSSLG::XSU']]],
@@ -42,7 +42,6 @@ var searchData=
   ['item_425',['Item',['../classXSSLG_1_1Item.html',1,'XSSLG.Item'],['../classXSSLG_1_1XSPriorityQueueItem.html#a88e7aac57fc0974c9712900769fdc39d',1,'XSSLG.XSPriorityQueueItem.Item()']]],
   ['item_2ecs_426',['Item.cs',['../Item_8cs.html',1,'']]],
   ['itemarray_427',['itemArray',['../classXSSLG_1_1DataManager.html#a2b55758abb0f11715173f674ed86f08f',1,'XSSLG::DataManager']]],
-  ['items_428',['Items',['../classXSSLG_1_1TriggerDataArray.html#ad3df7ab49eafa68e9548e3389ec547ef',1,'XSSLG::TriggerDataArray']]],
-  ['itemtable_429',['ItemTable',['../classXSSLG_1_1ItemTable.html',1,'XSSLG']]],
-  ['itemtable_2ecs_430',['ItemTable.cs',['../ItemTable_8cs.html',1,'']]]
+  ['itemtable_428',['ItemTable',['../classXSSLG_1_1ItemTable.html',1,'XSSLG']]],
+  ['itemtable_2ecs_429',['ItemTable.cs',['../ItemTable_8cs.html',1,'']]]
 ];
