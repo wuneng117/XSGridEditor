@@ -27,7 +27,7 @@ namespace XSSLG
         public List<SkillData> AbilityArray { get; } = new List<SkillData>();
 
         /// <summary> 拥有魔法 </summary>
-        public List<SkillData> LearnMagicArray { get; } = new List<SkillData>();
+        public List<SkillData> MagicArray { get; } = new List<SkillData>();
 
         /// <summary> 拥有纹章 </summary>
         public List<SkillData> CrestArray { get; } = new List<SkillData>();
@@ -53,7 +53,7 @@ namespace XSSLG
 
             this.CombatArtArray.AddRange(data.CombatArtNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
             this.AbilityArray.AddRange(data.AbilityNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
-            this.LearnMagicArray.AddRange(data.MagicNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.MagicArray.AddRange(data.MagicNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
             this.CrestArray.AddRange(data.CrestNameArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
 
             // this.Technique = new TechniqueLevelEx(data.TechniqueLvArray ?? new List<TechniqueLevel>());

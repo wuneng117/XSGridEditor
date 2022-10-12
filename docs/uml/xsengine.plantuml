@@ -1,0 +1,60 @@
+@startuml
+
+hide empty member
+class Attr {
+    -int _val
+    -float _factor
+    +Attr(int val = 0, float factor = 0)
+}
+
+class HP {
+    -int _val
+    +HP(int val = 0, Attr max = null)
+}
+
+HP *-- Attr : -_max
+
+class Stat
+note left of Stat:包含一级属性
+
+Stat "1"*--"n" Attr
+Stat *-- HP
+
+class RoleData
+{
+    +Stat Stat
+}
+RoleData *-- Stat
+
+class SkillData
+{
+    +Stat Stat
+
+}
+SkillData *-- Stat
+
+class Role
+{
+    +RoleData Data
+    +Stat Stat
+}
+Role *-- Stat
+SkillData *.. Role
+
+RoleData <.. "通过data初始化, Stat拷贝, LearnSkillData读取Data内数据, 其他数据通过名称去读取"Role
+
+abstract class UnitBase
+{
+    +Role Role
+    +NormalTable Table
+}
+
+Role <.. "通过Role初始化, 用Role的所有skilldata数组初始化Table(技能表)"UnitBase
+' note as Role #green
+' AbstractCollection--iterator作为数据源
+' AbstractList--实现好的iterator作为数据源
+' ArrayList--数组是数据操作的对象
+' end note
+
+' note right of ArrayList:批量操作变为数组操作
+@enduml

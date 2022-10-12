@@ -22,14 +22,11 @@ namespace XSSLG
 
         public NormalTable Table { get; private set; } = new NormalTable();
 
-        /// <summary> 基础属性 </summary>
-        public Stat BaseStat { get; }
-
         /// <summary> 计算后的属性 </summary>
         public Stat GetStat()
         {
             var ret = new Stat();
-            ret.Add(this.BaseStat);
+            ret.Add(this.Role.Stat);
             var add = this.Table.GetStat();
             ret.Add(add);
             return ret;
@@ -47,12 +44,9 @@ namespace XSSLG
             var skillList = new List<SkillData>();
             skillList.AddRange(this.Role.CombatArtArray);
             skillList.AddRange(this.Role.AbilityArray);
-            skillList.AddRange(this.Role.LearnMagicArray);
+            skillList.AddRange(this.Role.MagicArray);
             skillList.AddRange(this.Role.CrestArray);
             this.Table.InitSkill(skillList, this);
-
-            this.BaseStat = new Stat(role.Stat);
-            // this.FinalStat = new Stat(this.BaseStat);
         }
 
         /// <summary> 结束生命周期 </summary>

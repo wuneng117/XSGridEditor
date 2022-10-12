@@ -53,7 +53,7 @@ namespace XSSLG
         public List<string> MagicNameArray { get; private set; } = new List<string>();
         [SerializeField]
         /// <summary>可以学会的技能 LearnSkillData</summary>
-        public List<string> LearnSkillNameArray { get; private set; } = new List<string>();
+        public List<LearnSkillData> LearnSkillNameArray { get; private set; } = new List<LearnSkillData>();
     }
 
     [Serializable]
