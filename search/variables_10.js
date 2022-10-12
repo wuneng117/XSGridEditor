@@ -13,7 +13,7 @@ var searchData=
   ['skill_5fattack_5fid_1854',['SKILL_ATTACK_ID',['../classXSSLG_1_1XSDefine.html#ac1eda3468814a350fe1b4749fdba2543',1,'XSSLG::XSDefine']]],
   ['spd_1855',['spd',['../classXSSLG_1_1Stat.html#af45cc280f41a5e6a40401e9e2a78276d',1,'XSSLG::Stat']]],
   ['spdtext_1856',['spdText',['../classXSSLG_1_1RolePanel.html#a7e63ef15803245150a3934b585509efb',1,'XSSLG::RolePanel']]],
-  ['specialtype_1857',['specialType',['../classXSSLG_1_1TriggerData.html#a8c76664ee1d9470b5536d514281880fe',1,'XSSLG::TriggerData']]],
+  ['specialtype_1857',['specialType',['../classXSSLG_1_1TriggerData.html#ac00205bc15e8f3c2323432e65f4e4b4c',1,'XSSLG::TriggerData']]],
   ['srccausedamage_1858',['SrcCauseDamage',['../classXSSLG_1_1OnTriggerDataAttack.html#a9e51b51800ce7a5ab3a8375ce733127b',1,'XSSLG::OnTriggerDataAttack']]],
   ['stat_1859',['stat',['../classXSSLG_1_1ClassData.html#a1915c6a5b7711fe1b11f99852e0e10df',1,'XSSLG.ClassData.stat()'],['../classXSSLG_1_1RoleData.html#a807061a5f159167489631c47013ab077',1,'XSSLG.RoleData.stat()']]],
   ['str_1860',['str',['../classXSSLG_1_1Stat.html#a382c0e268b66c957db84dddcec3cc071',1,'XSSLG::Stat']]],
