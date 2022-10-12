@@ -51,10 +51,10 @@ namespace XSSLG
             switch (this.Data.Condition.Target)
             {
                 default:
-                case TriggerDataConditionTargetType.None: break;
-                case TriggerDataConditionTargetType.Src: ret.Add(onTriggerData.Src); break;
-                case TriggerDataConditionTargetType.Dst: ret.AddRange(onTriggerData.Dst); break;
-                case TriggerDataConditionTargetType.Search: ret.AddRange(this.SearchTarget.Search(onTriggerData)); break;
+                case XSDefine.TargetConditionType.None: break;
+                case XSDefine.TargetConditionType.Src: ret.Add(onTriggerData.Src); break;
+                case XSDefine.TargetConditionType.Dst: ret.AddRange(onTriggerData.Dst); break;
+                case XSDefine.TargetConditionType.Search: ret.AddRange(this.SearchTarget.Search(onTriggerData)); break;
             }
 
             return ret;

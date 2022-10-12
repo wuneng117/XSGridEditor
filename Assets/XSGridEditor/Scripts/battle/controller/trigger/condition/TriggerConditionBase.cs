@@ -10,9 +10,9 @@ namespace XSSLG
     public abstract class TriggerConditionBase
     {
         /************************* 变量 begin ***********************/
-        protected TriggerDataConditionStruct ConditionStruct { get; }
+        protected ConditionStruct ConditionStruct { get; }
         /************************* 变量  end  ***********************/
-        public TriggerConditionBase(TriggerDataConditionStruct conditionStruct)
+        public TriggerConditionBase(ConditionStruct conditionStruct)
         {
             this.ConditionStruct = conditionStruct;
         }
@@ -45,7 +45,7 @@ namespace XSSLG
     /// <summary> 无条件通过检查 </summary>
     public class TriggerConditionNull : TriggerConditionBase
     {
-        public TriggerConditionNull(TriggerDataConditionStruct conditionStruct) : base(conditionStruct) { }
+        public TriggerConditionNull(ConditionStruct conditionStruct) : base(conditionStruct) { }
         protected override bool Check(OnTriggerDataBase data) => true;
 
     }

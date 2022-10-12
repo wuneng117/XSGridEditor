@@ -30,7 +30,7 @@ namespace XSSLG
                 //     return;
                 // }
 
-                // if (skillData.Group == SkillDataSkillGroupType.Normal && skillData.TriggerData.Type != TriggerDataTriggerType.Common)
+                // if (skillData.Group == SkillDataSkillGroupType.Normal && skillData.TriggerData.Type != TriggerType.Common)
                 // {
                 //     Debug.Assert(false, skillData.Name + "是主动技能，但是触发器不是主动触发器，可能引起异常状态！");
                 //     return;
@@ -48,6 +48,6 @@ namespace XSSLG
             return ret;
         }
 
-        public List<SkillBase> GetCombatSkill() => this.List.FindAll(skill => skill.Trigger.Data.Type == TriggerDataTriggerType.ClickCombat);
+        public List<SkillBase> GetCombatSkill() => this.List.FindAll(skill => skill.Trigger.Data.Type == TriggerType.ClickCombat);
     }
 }

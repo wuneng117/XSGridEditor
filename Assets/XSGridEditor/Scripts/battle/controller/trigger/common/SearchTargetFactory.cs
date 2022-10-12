@@ -17,21 +17,21 @@ namespace XSSLG
         /// <param name="data">触发器data</param>
         /// <param name="releaseEntity">触发器触发的对象</param>
         /// <returns></returns>
-        public static SearchTargetBase CreateSearchTarget(TriggerDataSearchStruct searchStruct)
+        public static SearchTargetBase CreateSearchTarget(SearchStruct searchStruct)
         {
             if (searchStruct == null)
                 return new SearchTargetNull();
 
             switch (searchStruct.Type)
             {
-                case TriggerDataSearchType.Front1: return new SearchTargetFront(searchStruct, 1);
-                case TriggerDataSearchType.Front1x2: return new SearchTargetFront(searchStruct, 2);
-                case TriggerDataSearchType.Front1x3: return new SearchTargetFront(searchStruct, 3);
-                case TriggerDataSearchType.Front3x1: return new SearchTargetFrontWide(searchStruct, 0);
-                case TriggerDataSearchType.Scope1: return new SearchTargetScope(searchStruct, 0);
-                case TriggerDataSearchType.ScopeCross1: return new SearchTargetScope(searchStruct, 1);
-                case TriggerDataSearchType.ScopeCross2: return new SearchTargetScope(searchStruct, 2);
-                case TriggerDataSearchType.ScopeCross3: return new SearchTargetScope(searchStruct, 3);
+                case SearchType.Front1: return new SearchTargetFront(searchStruct, 1);
+                case SearchType.Front1x2: return new SearchTargetFront(searchStruct, 2);
+                case SearchType.Front1x3: return new SearchTargetFront(searchStruct, 3);
+                case SearchType.Front3x1: return new SearchTargetFrontWide(searchStruct, 0);
+                case SearchType.Scope1: return new SearchTargetScope(searchStruct, 0);
+                case SearchType.ScopeCross1: return new SearchTargetScope(searchStruct, 1);
+                case SearchType.ScopeCross2: return new SearchTargetScope(searchStruct, 2);
+                case SearchType.ScopeCross3: return new SearchTargetScope(searchStruct, 3);
                 default: return new SearchTargetNull();
             }
         }

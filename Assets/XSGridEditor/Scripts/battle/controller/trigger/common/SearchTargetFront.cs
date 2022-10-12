@@ -17,7 +17,7 @@ namespace XSSLG
         private int Length { get; }
         /************************* 变量  end  ***********************/
 
-        public SearchTargetFront(TriggerDataSearchStruct searchStruct, int length) : base(searchStruct)
+        public SearchTargetFront(SearchStruct searchStruct, int length) : base(searchStruct)
         {
             this.Length = length;
         }

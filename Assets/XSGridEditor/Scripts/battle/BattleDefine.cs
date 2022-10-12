@@ -35,7 +35,8 @@ namespace XSSLG
         LeftTop = 0,
         LeftBottom = 1,
         RightTop = 2,
-        RightBottom = 3
+        RightBottom = 3,
+        Max,
     }
 
     /// <summary> 势力 </summary>
@@ -45,6 +46,7 @@ namespace XSSLG
         Enemy = 1,
         NpcFriend = 2,
         Npc = 3,
+        Max,
     }
 
     public enum UnitStatusType

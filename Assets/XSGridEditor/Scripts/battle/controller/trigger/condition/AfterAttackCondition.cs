@@ -8,7 +8,7 @@ namespace XSSLG
     /// <summary> 在攻击后条件判断 </summary>
     public class AfterAttackCondition : TriggerConditionBase
     {
-        public AfterAttackCondition(TriggerDataConditionStruct conditionStruct) : base(conditionStruct){}
+        public AfterAttackCondition(ConditionStruct conditionStruct) : base(conditionStruct){}
         protected override bool Check(OnTriggerDataBase data)
         {
             // 必须传入的是攻击触发数据
@@ -18,7 +18,7 @@ namespace XSSLG
 
             switch (this.ConditionStruct.Type)
             {
-                case TriggerDataConditionType.SelfCauseDamage:return attackReleaseData.SrcCauseDamage.Exists(damage => this.CheckProp(damage));
+                case TriggerConditionType.SelfCauseDamage:return attackReleaseData.SrcCauseDamage.Exists(damage => this.CheckProp(damage));
                 default: return true;
             }
         }

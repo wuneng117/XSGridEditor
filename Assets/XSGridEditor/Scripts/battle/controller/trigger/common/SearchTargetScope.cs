@@ -16,7 +16,7 @@ namespace XSSLG
         private int Scope { get; }
         /************************* 变量  end  ***********************/
 
-        public SearchTargetScope(TriggerDataSearchStruct searchStruct, int scope) : base(searchStruct)
+        public SearchTargetScope(SearchStruct searchStruct, int scope) : base(searchStruct)
         {
             this.Scope = scope;
         }

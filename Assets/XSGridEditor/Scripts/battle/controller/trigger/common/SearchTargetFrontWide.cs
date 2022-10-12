@@ -11,7 +11,7 @@ namespace XSSLG
     /// <summary> 搜索前方敌人，宽的范围 </summary>
     public class SearchTargetFrontWide : SearchTargetFront
     {
-        public SearchTargetFrontWide(TriggerDataSearchStruct searchStruct, int length) : base(searchStruct, length) { }
+        public SearchTargetFrontWide(SearchStruct searchStruct, int length) : base(searchStruct, length) { }
 
         /// <summary>
         /// 获取攻击效果范围的格子，宽的范围搜索
