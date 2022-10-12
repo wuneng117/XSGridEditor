@@ -28,7 +28,7 @@ var searchData=
   ['isattacking_410',['IsAttacking',['../classXSSLG_1_1XSUnitNode.html#afa52c8d87fdfafbbdc4ff6dcd1025034',1,'XSSLG.XSUnitNode.IsAttacking()'],['../interfaceXSSLG_1_1XSIUnitNode.html#aeff0145cb752fad8520edaa29436e89a',1,'XSSLG.XSIUnitNode.IsAttacking()']]],
   ['iscdonstart_411',['isCdOnStart',['../classXSSLG_1_1TriggerData.html#abcbc92fa9a88e15e940791476ed985d4',1,'XSSLG.TriggerData.isCdOnStart()'],['../classXSSLG_1_1TriggerData.html#a41ddde6075060eee7beaefb5b10b5a0b',1,'XSSLG.TriggerData.IsCdOnStart()']]],
   ['isdead_412',['IsDead',['../classXSSLG_1_1UnitBase.html#a68a9484c36d22eadbfabf487d6d5d4c9',1,'XSSLG::UnitBase']]],
-  ['isdebuff_413',['IsDebuff',['../classXSSLG_1_1BuffData.html#ae64095c3e0aab98e1cf85e0c2521de32',1,'XSSLG.BuffData.IsDebuff()'],['../classXSSLG_1_1BuffData.html#af953bc7570852bba5b7925f5b1b8d949',1,'XSSLG.BuffData.isDebuff()']]],
+  ['isdebuff_413',['isDebuff',['../classXSSLG_1_1BuffData.html#af953bc7570852bba5b7925f5b1b8d949',1,'XSSLG.BuffData.isDebuff()'],['../classXSSLG_1_1BuffData.html#ae64095c3e0aab98e1cf85e0c2521de32',1,'XSSLG.BuffData.IsDebuff()']]],
   ['iseditor_414',['IsEditor',['../classXSSLG_1_1XSU.html#abbc827e90b23ba33c131afaea591ea74',1,'XSSLG::XSU']]],
   ['isempty_415',['IsEmpty',['../classXSSLG_1_1UIMgr.html#af482f6785d8cf0f9393f4a9512ce2e88',1,'XSSLG::UIMgr']]],
   ['isinit_416',['IsInit',['../classXSMain.html#a4713df112cd141f93f9afeb45ea24d1c',1,'XSMain']]],

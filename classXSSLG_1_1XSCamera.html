@@ -98,9 +98,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab890b868d396deb902d4ec2daae74842"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#ab890b868d396deb902d4ec2daae74842">MoveTo</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
 <tr class="memdesc:ab890b868d396deb902d4ec2daae74842"><td class="mdescLeft">&#160;</td><td class="mdescRight">摄像机保持角度看向指定世界坐标 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离  <a href="classXSSLG_1_1XSCamera.html#ab890b868d396deb902d4ec2daae74842">More...</a><br /></td></tr>
 <tr class="separator:ab890b868d396deb902d4ec2daae74842"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f77f1ef4bcef67c2bf4a2d3c52b936a"><td class="memItemLeft" align="right" valign="top">virtual IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a2f77f1ef4bcef67c2bf4a2d3c52b936a">MovementAnimation</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
-<tr class="memdesc:a2f77f1ef4bcef67c2bf4a2d3c52b936a"><td class="mdescLeft">&#160;</td><td class="mdescRight">携程函数处理移动  <a href="classXSSLG_1_1XSCamera.html#a2f77f1ef4bcef67c2bf4a2d3c52b936a">More...</a><br /></td></tr>
-<tr class="separator:a2f77f1ef4bcef67c2bf4a2d3c52b936a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa8deed175ab0a84db17980617dc8e6"><td class="memItemLeft" align="right" valign="top">virtual IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#aafa8deed175ab0a84db17980617dc8e6">MovementAnimation</a> ()</td></tr>
+<tr class="memdesc:aafa8deed175ab0a84db17980617dc8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">携程函数处理移动  <a href="classXSSLG_1_1XSCamera.html#aafa8deed175ab0a84db17980617dc8e6">More...</a><br /></td></tr>
+<tr class="separator:aafa8deed175ab0a84db17980617dc8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -135,6 +135,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:aca83c3e724f7152d968876cdcd656a16"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#aca83c3e724f7152d968876cdcd656a16">RotationStep</a> = 22.5f</td></tr>
 <tr class="memdesc:aca83c3e724f7152d968876cdcd656a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation angle of arrow key  <a href="classXSSLG_1_1XSCamera.html#aca83c3e724f7152d968876cdcd656a16">More...</a><br /></td></tr>
 <tr class="separator:aca83c3e724f7152d968876cdcd656a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b1a213b00e969d8b363da55a32ee92"><td class="memItemLeft" align="right" valign="top">Queue&lt; <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a59b1a213b00e969d8b363da55a32ee92">MoveList</a> = new Queue&lt;<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt;()</td></tr>
+<tr class="memdesc:a59b1a213b00e969d8b363da55a32ee92"><td class="mdescLeft">&#160;</td><td class="mdescRight">如果要相机依次移动到多个位置, 就放入列表, 依次移动  <a href="classXSSLG_1_1XSCamera.html#a59b1a213b00e969d8b363da55a32ee92">More...</a><br /></td></tr>
+<tr class="separator:a59b1a213b00e969d8b363da55a32ee92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -150,7 +153,7 @@ Properties</h2></td></tr>
 <tr class="memitem:a99e60190761c535e3d3e4cc2e30a005e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a99e60190761c535e3d3e4cc2e30a005e">CanFreeMove</a> = true<code> [get, set]</code></td></tr>
 <tr class="memdesc:a99e60190761c535e3d3e4cc2e30a005e"><td class="mdescLeft">&#160;</td><td class="mdescRight">camera can move  <a href="classXSSLG_1_1XSCamera.html#a99e60190761c535e3d3e4cc2e30a005e">More...</a><br /></td></tr>
 <tr class="separator:a99e60190761c535e3d3e4cc2e30a005e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d71682f6f4430825cb29123cd3f82f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a1d71682f6f4430825cb29123cd3f82f8">IsMoving</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a1d71682f6f4430825cb29123cd3f82f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a1d71682f6f4430825cb29123cd3f82f8">IsMoving</a><code> [get, protected set]</code></td></tr>
 <tr class="memdesc:a1d71682f6f4430825cb29123cd3f82f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">camera is moving, if is moving we cannot use mouse to control camera  <a href="classXSSLG_1_1XSCamera.html#a1d71682f6f4430825cb29123cd3f82f8">More...</a><br /></td></tr>
 <tr class="separator:a1d71682f6f4430825cb29123cd3f82f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c156b3d367ee3b66a23373571307c13"><td class="memItemLeft" align="right" valign="top">Bounds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a2c156b3d367ee3b66a23373571307c13">Bound</a> = new Bounds()<code> [get, set]</code></td></tr>
@@ -231,8 +234,8 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a2f77f1ef4bcef67c2bf4a2d3c52b936a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f77f1ef4bcef67c2bf4a2d3c52b936a">&#9670;&nbsp;</a></span>MovementAnimation()</h2>
+<a id="aafa8deed175ab0a84db17980617dc8e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa8deed175ab0a84db17980617dc8e6">&#9670;&nbsp;</a></span>MovementAnimation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,8 +246,7 @@ Properties</h2></td></tr>
         <tr>
           <td class="memname">virtual IEnumerator XSSLG.XSCamera.MovementAnimation </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td>
-          <td class="paramname"><em>worldPos</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -314,7 +316,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -526,6 +528,30 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a59b1a213b00e969d8b363da55a32ee92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b1a213b00e969d8b363da55a32ee92">&#9670;&nbsp;</a></span>MoveList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Queue&lt;<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt; XSSLG.XSCamera.MoveList = new Queue&lt;<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>如果要相机依次移动到多个位置, 就放入列表, 依次移动 </p>
+
+</div>
+</div>
 <a id="ae7de102144857326bc9983c38b3c0809"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7de102144857326bc9983c38b3c0809">&#9670;&nbsp;</a></span>moveSpeed</h2>
 
@@ -710,7 +736,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">protected set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

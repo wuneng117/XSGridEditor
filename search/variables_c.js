@@ -14,9 +14,10 @@ var searchData=
   ['min_1818',['min',['../classXSSLG_1_1SearchStruct.html#a65c81253abc2fba19bd90dfcb91d06e0',1,'XSSLG::SearchStruct']]],
   ['mousecuror_1819',['mouseCuror',['../classXSSLG_1_1BattleMouseCuror.html#af874b25f075d60088e7fdbe951dd0780',1,'XSSLG::BattleMouseCuror']]],
   ['mov_1820',['mov',['../classXSSLG_1_1Stat.html#ab033b1010005ae00251af36edf7cfc54',1,'XSSLG::Stat']]],
-  ['movementanimationspeed_1821',['movementAnimationSpeed',['../classXSSLG_1_1XSUnitNode.html#a926b4d3a021eb123cdbe700330f7134d',1,'XSSLG::XSUnitNode']]],
-  ['movespeed_1822',['moveSpeed',['../classXSSLG_1_1XSCamera.html#ae7de102144857326bc9983c38b3c0809',1,'XSSLG::XSCamera']]],
-  ['movetileprefab_1823',['moveTilePrefab',['../classXSSLG_1_1XSGridHelper.html#aa865ea79a5c4c6f80e0295ca012a1294',1,'XSSLG::XSGridHelper']]],
-  ['movtext_1824',['movText',['../classXSSLG_1_1RolePanel.html#ae45c05f068ed183e029d04df15edc1b0',1,'XSSLG::RolePanel']]],
-  ['msinstance_1825',['msInstance',['../classXSSLG_1_1BattleEmitter.html#ad3f764c23abe2f539972129783ddafc4',1,'XSSLG.BattleEmitter.msInstance()'],['../classXSSLG_1_1UIEmitter.html#a58a1a7e02a2fc64a26be02707837c1ca',1,'XSSLG.UIEmitter.msInstance()']]]
+  ['movelist_1821',['MoveList',['../classXSSLG_1_1XSCamera.html#a59b1a213b00e969d8b363da55a32ee92',1,'XSSLG::XSCamera']]],
+  ['movementanimationspeed_1822',['movementAnimationSpeed',['../classXSSLG_1_1XSUnitNode.html#a926b4d3a021eb123cdbe700330f7134d',1,'XSSLG::XSUnitNode']]],
+  ['movespeed_1823',['moveSpeed',['../classXSSLG_1_1XSCamera.html#ae7de102144857326bc9983c38b3c0809',1,'XSSLG::XSCamera']]],
+  ['movetileprefab_1824',['moveTilePrefab',['../classXSSLG_1_1XSGridHelper.html#aa865ea79a5c4c6f80e0295ca012a1294',1,'XSSLG::XSGridHelper']]],
+  ['movtext_1825',['movText',['../classXSSLG_1_1RolePanel.html#ae45c05f068ed183e029d04df15edc1b0',1,'XSSLG::RolePanel']]],
+  ['msinstance_1826',['msInstance',['../classXSSLG_1_1BattleEmitter.html#ad3f764c23abe2f539972129783ddafc4',1,'XSSLG.BattleEmitter.msInstance()'],['../classXSSLG_1_1UIEmitter.html#a58a1a7e02a2fc64a26be02707837c1ca',1,'XSSLG.UIEmitter.msInstance()']]]
 ];
