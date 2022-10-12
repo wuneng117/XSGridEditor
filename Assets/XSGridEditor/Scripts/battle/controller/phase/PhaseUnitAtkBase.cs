@@ -29,7 +29,7 @@ namespace XSSLG
             Debug.Assert(logic.UnitMgr.ActionUnit != null);
             XSUG.CameraCanFreeMove(false);
 
-            BattleEmitter.Instance.On(TriggerType.AfterAttack, this.OnAfterAttack);
+            BattleEmitter.Instance.On(XSDefine.TriggerType.AfterAttack, this.OnAfterAttack);
 
             // 朝向攻击点
             logic.UnitMgr.ActionUnit.Node.RotateTo(this.Tile);

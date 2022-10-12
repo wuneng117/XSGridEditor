@@ -19,7 +19,7 @@ namespace XSSLG
             {
                 return CreateTriggerNull(releaseEntity);
             }
-            else if (data.Type == TriggerType.ClickCombat || data.Type == TriggerType.ClickMagic)
+            else if (data.Type == XSDefine.TriggerType.ClickCombat || data.Type == XSDefine.TriggerType.ClickMagic)
             {
                 return new TriggerBase(data, releaseEntity);
             }

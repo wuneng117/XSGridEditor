@@ -12,11 +12,11 @@ namespace XSSLG
         /// <param name="type">触发器触发类型</param>
         /// <param name="conditionStruct">触发器条件</param>
         /// <returns></returns>
-        public static TriggerConditionBase Create(TriggerType type, ConditionStruct conditionStruct)
+        public static TriggerConditionBase Create(XSDefine.TriggerType type, ConditionStruct conditionStruct)
         {
             switch (type)
             {
-                case TriggerType.AfterAttack: return new AfterAttackCondition(conditionStruct);
+                case XSDefine.TriggerType.AfterAttack: return new AfterAttackCondition(conditionStruct);
                 default: return new TriggerConditionNull(conditionStruct);
             }
         }

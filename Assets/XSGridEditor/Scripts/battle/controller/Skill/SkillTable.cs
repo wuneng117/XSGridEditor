@@ -48,6 +48,6 @@ namespace XSSLG
             return ret;
         }
 
-        public List<SkillBase> GetCombatSkill() => this.List.FindAll(skill => skill.Trigger.Data.Type == TriggerType.ClickCombat);
+        public List<SkillBase> GetCombatSkill() => this.List.FindAll(skill => skill.Trigger.Data.Type ==XSDefine.TriggerType.ClickCombat);
     }
 }

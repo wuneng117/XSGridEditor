@@ -11,9 +11,9 @@ namespace XSSLG
 
         /// <summary>条件类型</summary>
         [SerializeField]
-        protected TriggerConditionType type;
+        protected XSDefine.TriggerConditionType type;
 
-        public TriggerConditionType Type { get => type; protected set => type = value; }
+        public XSDefine.TriggerConditionType Type { get => type; protected set => type = value; }
 
         /// <summary>数值</summary>
         [SerializeField]
@@ -28,8 +28,8 @@ namespace XSSLG
 
         /// <summary>条件对象类型</summary>
         [SerializeField]
-        protected TargetConditionType target;
-        public TargetConditionType Target { get => target; protected set => target = value; }
+        protected XSDefine.TargetConditionType target;
+        public XSDefine.TargetConditionType Target { get => target; protected set => target = value; }
     }
 
     [Serializable]
@@ -38,13 +38,13 @@ namespace XSSLG
 
         [SerializeField]
         /// <summary>目标类型</summary>
-        public List<SearchTargetType> Target { get; protected set; } = new List<SearchTargetType>();
+        public List<XSDefine.SearchTargetType> Target { get; protected set; } = new List<XSDefine.SearchTargetType>();
 
         /// <summary>索敌类型</summary>
         [SerializeField]
-        protected SearchType type;
+        protected XSDefine.SearchType type;
 
-        public SearchType Type { get => type; protected set => type = value; }
+        public XSDefine.SearchType Type { get => type; protected set => type = value; }
 
         /// <summary>最小范围</summary>
         [SerializeField]
@@ -64,15 +64,15 @@ namespace XSSLG
 
         /// <summary>类型</summary>
         [SerializeField]
-        protected TriggerType type;
+        protected XSDefine.TriggerType type;
 
-        public TriggerType Type { get => type; set => type = value; }
+        public XSDefine.TriggerType Type { get => type; set => type = value; }
 
         /// <summary>特殊类型</summary>
         [SerializeField]
-        protected TriggerSpecialType specialType;
+        protected XSDefine.TriggerSpecialType specialType;
 
-        public TriggerSpecialType SpecialType { get => specialType; set => specialType = value; }
+        public XSDefine.TriggerSpecialType SpecialType { get => specialType; set => specialType = value; }
 
         [SerializeField]
         /// <summary>条件</summary>

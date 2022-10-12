@@ -7,7 +7,7 @@ using System;
 namespace XSSLG
 {
     /// <summary> 各种效果触发条件的管理 </summary>
-    public class BattleEmitter : Emitter<TriggerType, Action<OnTriggerDataBase>>
+    public class BattleEmitter : Emitter<XSDefine.TriggerType, Action<OnTriggerDataBase>>
     {
         /************************* 变量 begin ***********************/
         private static BattleEmitter msInstance;
