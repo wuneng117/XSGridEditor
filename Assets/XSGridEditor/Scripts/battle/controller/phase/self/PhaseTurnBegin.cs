@@ -20,7 +20,9 @@ namespace XSSLG
             var unitList = logic.UnitMgr.GetSelfUnitList();
             unitList.ForEach(unit => unit.OnTurnStart());
             if (unitList.Count > 0)
+            {
                 XSUG.CameraGoto(unitList[0].WorldPos);
+            }
 
             XSUG.CameraCanFreeMove(false);
             // 可以行动的单位高亮 PHASETODO
@@ -31,8 +33,6 @@ namespace XSSLG
             this.Scheduler.ScheduleOnce(() =>
             {
                 battleNode.CloseTurnChange(GroupType.Self);
-                // 切换到选择单位行动
-                logic.Change(new PhaseChooseUnit(), logic);
             }, 2);
         }
 
@@ -46,6 +46,11 @@ namespace XSSLG
         {
             base.Update(logic);
             this.Scheduler.Update(Time.deltaTime);
+            if (!XSUG.GetBattleNode().XSCamera.IsMoving)
+            {
+                // 切换到选择单位行动
+                logic.Change(new PhaseChooseUnit(), logic);            
+            }
         }
     }
 }

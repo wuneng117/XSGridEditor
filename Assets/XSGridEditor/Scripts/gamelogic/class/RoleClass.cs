@@ -18,7 +18,7 @@ namespace XSSLG
 
         public RoleClass(ClassData data, int exp = 0)
         {
-            this.Data = data ?? throw new System.ArgumentNullException(nameof(data));
+            this.Data = data ?? new ClassData();
             this.Exp = exp;
         }
         

@@ -7,6 +7,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace XSSLG
 {
@@ -47,7 +48,9 @@ namespace XSSLG
         public bool CanFreeMove { set; get; } = true;
 
         /// <summary> camera is moving, if is moving we cannot use mouse to control camera </summary>
-        protected bool IsMoving { set; get; }
+        public bool IsMoving { protected set; get; }
+        /// <summary> 如果要相机依次移动到多个位置, 就放入列表, 依次移动 </summary>
+        protected Queue<Vector3> MoveList = new Queue<Vector3>();
 
         /// <summary> tile map size </summary>
         public Bounds Bound { get; set; } = new Bounds();
@@ -226,26 +229,38 @@ namespace XSSLG
         /// 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离
         /// </summary>
         /// <param name="worldPos"></param>
-        public virtual void MoveTo(Vector3 worldPos) => this.StartCoroutine(MovementAnimation(worldPos));
+        public virtual void MoveTo(Vector3 worldPos)
+        {
+            this.MoveList.Enqueue(worldPos);
+            if (!this.IsMoving)
+            {
+                this.StartCoroutine(MovementAnimation());
+            }
+        }
 
         /// <summary> 携程函数处理移动 </summary>
-        public virtual IEnumerator MovementAnimation(Vector3 worldPos)
+        public virtual IEnumerator MovementAnimation()
         {
-            this.IsMoving = true;
-
-            float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
-            var targetPos = d * this.transform.forward + worldPos;
-            var dir = (targetPos - this.transform.position).normalized;
-
-            while (true)
+            while (this.MoveList.Count > 0)
             {
-                var direction = targetPos -  this.transform.position;
-                if (Vector3.Dot(direction, dir) < 0)
-                    break;
-                this.UpdatePos(dir);
-                yield return 0;
+                var worldPos = this.MoveList.Dequeue();
+                this.IsMoving = true;
+
+                float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
+                var targetPos = d * this.transform.forward + worldPos;
+                var dir = (targetPos - this.transform.position).normalized;
+
+                while (true)
+                {
+                    var direction = targetPos - this.transform.position;
+                    if (Vector3.Dot(direction, dir) <= 0)
+                        break;
+                    this.UpdatePos(dir);
+                    yield return 0;
+                }
+                this.SetCameraPosition(targetPos);
             }
-            this.SetCameraPosition(targetPos);
+
             this.IsMoving = false;
         }
     }

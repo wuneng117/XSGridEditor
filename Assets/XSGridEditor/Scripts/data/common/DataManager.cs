@@ -31,7 +31,7 @@ namespace XSSLG
         {
             if (XSU.IsEditor())
             {
-                var path = GameConst.DATA_FILE_PATH_EDITOR + "ClassData.bytes";
+                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".bytes";
                 if (File.Exists(path))
                 {
                     var file = File.Open(path, FileMode.Open);
@@ -46,7 +46,8 @@ namespace XSSLG
             }
             else
             {
-                var textAsset = Resources.Load<TextAsset>(GameConst.DATA_FILE_PATH_RUNTIME + "ClassData");
+                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".bytes";
+                var textAsset = Resources.Load<TextAsset>(GameConst.DATA_FILE_PATH_RUNTIME + typeof(T));
                 if (textAsset != null)
                 {
                     var stream = new MemoryStream(textAsset.bytes);
@@ -78,7 +79,7 @@ namespace XSSLG
                 {
                     Directory.CreateDirectory(dir);
                 }
-                var path = GameConst.DATA_FILE_PATH_EDITOR + "ClassData.bytes";
+                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".bytes";
                 var file = File.Create(path);
                 var bf = new BinaryFormatter();
                 bf.Serialize(file, instance);

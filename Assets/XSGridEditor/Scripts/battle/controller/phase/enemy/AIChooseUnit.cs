@@ -18,9 +18,13 @@ namespace XSSLG
             var nextUnit = logic.UnitMgr.GetEnemyUnitList().Find(enemy => logic.UnitMgr.SetActionUnit(enemy, GroupType.Enemy));
             // 没有unit可以行动了
             if (nextUnit == null)
+            {
                 logic.Change(new AITurnEnd());
+            }
             else
+            {
                 logic.Change(new AIChooseAction());
+            }
         }
     }
 }

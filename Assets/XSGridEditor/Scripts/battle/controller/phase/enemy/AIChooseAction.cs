@@ -15,23 +15,33 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             Debug.Assert(logic.UnitMgr.ActionUnit != null);
-
             XSUG.CameraGoto(logic.UnitMgr.ActionUnit.WorldPos);
-            // 能打到人就不要移动了
-            if(this.CanAttack(logic))
+        }
+
+        public override void Update<T>(T logic)
+        {
+            base.Update(logic);
+            // 摄像机移动完了
+            if (!XSUG.GetBattleNode().XSCamera.IsMoving)
             {
-            }
-            else if (!logic.UnitMgr.ActionUnit.IsMoved())
-                logic.Change(new AIUnitMove());
-            else
-            {
-                //TODO 道具之类的
-                
-                logic.UnitMgr.ActionUnit.SetActived();
-                logic.Change(new AIChooseUnit());
+                // 能打到人就不要移动了
+                if (this.CanAttack(logic))
+                {
+                }
+                else if (!logic.UnitMgr.ActionUnit.IsMoved())
+                {
+                    logic.Change(new AIUnitMove());
+                }
+                else
+                {
+                    //TODO 道具之类的
+
+                    logic.UnitMgr.ActionUnit.SetActived();
+                    logic.Change(new AIChooseUnit());
+                }
             }
         }
-        
+
         public override void OnExit<T>(T logic)
         {
             base.OnExit(logic);
@@ -39,7 +49,7 @@ namespace XSSLG
             gridShowMgr.ClearAttackEffectRegion();
             gridShowMgr.ClearAttackRegion();
         }
-        
+
         private bool CanAttack<T>(T logic) where T : BattleLogic
         {
             var skill = logic.UnitMgr.ActionUnit.Table.SkillTable.AttackSkill;
@@ -60,7 +70,7 @@ namespace XSSLG
             }
 
             //TODO 战技也要差不多和上面一样做一遍
-            
+
             XSUG.GetBattleNode().GridShowMgr.ClearAttackRegion();
             return false;
         }
