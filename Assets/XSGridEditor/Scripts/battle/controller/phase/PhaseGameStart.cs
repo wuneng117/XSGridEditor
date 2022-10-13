@@ -16,18 +16,8 @@ namespace XSSLG
         {
             // 通知所有单位onTurnStart
             logic.UnitMgr.ForEach(unit => unit.OnGameStart());
-            this.CameraToCenter(logic);
-
-
             // 等操作完成后切换到turnbegin
             logic.Change(new PhaseTurnBegin());
-        }
-
-        /// <summary> 镜头移到中心 </summary>
-        private void CameraToCenter<T>(T logic) where T : BattleLogic
-        {
-            var bounds = XSU.GridHelper.GetBounds();
-            XSUG.CameraGoto(bounds.center);
         }
     }
 }

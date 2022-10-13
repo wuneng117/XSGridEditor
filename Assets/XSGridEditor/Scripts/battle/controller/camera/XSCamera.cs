@@ -225,8 +225,19 @@ namespace XSSLG
         }
 
         /// <summary>
-        /// 摄像机保持角度看向指定世界坐标
-        /// 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离
+        /// 相机直接移动到位置
+        /// </summary>
+        /// <param name="worldPos"></param>
+        public virtual void SetPosTo(Vector3 worldPos)
+        {
+            // 求看向 worldPos 位置的相机所在的位置, 通过已知向量(相机的中心射线方向), 已知相机到平面A的高度, 已知平面A上一点 worldPos, 求得相机位置
+            float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
+            var targetPos = d * this.transform.forward + worldPos;
+            this.SetCameraPosition(targetPos);
+        }
+
+        /// <summary>
+        /// 相机以一定速度移动到位置
         /// </summary>
         /// <param name="worldPos"></param>
         public virtual void MoveTo(Vector3 worldPos)
@@ -246,6 +257,7 @@ namespace XSSLG
                 var worldPos = this.MoveList.Dequeue();
                 this.IsMoving = true;
 
+                // 求看向 worldPos 位置的相机所在的位置, 通过已知向量(相机的中心射线方向), 已知相机到平面A的高度, 已知平面A上一点 worldPos, 求得相机位置
                 float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
                 var targetPos = d * this.transform.forward + worldPos;
                 var dir = (targetPos - this.transform.position).normalized;

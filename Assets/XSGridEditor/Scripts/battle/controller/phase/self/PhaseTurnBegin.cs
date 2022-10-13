@@ -21,7 +21,7 @@ namespace XSSLG
             unitList.ForEach(unit => unit.OnTurnStart());
             if (unitList.Count > 0)
             {
-                XSUG.CameraGoto(unitList[0].WorldPos);
+                XSUG.CameraMoveTo(unitList[0].WorldPos);
             }
 
             XSUG.CameraCanFreeMove(false);

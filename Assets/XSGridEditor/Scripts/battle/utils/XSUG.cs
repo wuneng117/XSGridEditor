@@ -43,10 +43,16 @@ public class XSUG : XSU
     public static XSIUnitNode GetMouseTargetUnit() => XSUG.GetMouseTargetUnit(XSUG.GetMainCamera());
 
     /// <summary>
+    /// 摄像机以一定速度移动到指定位置
+    /// </summary>
+    /// <param name="worldPos"></param>
+    public static void CameraMoveTo(Vector3 worldPos) => GetBattleNode().XSCamera.MoveTo(worldPos);
+
+    /// <summary>
     /// 摄像机移动到指定位置
     /// </summary>
     /// <param name="worldPos"></param>
-    public static void CameraGoto(Vector3 worldPos) => GetBattleNode().XSCamera.MoveTo(worldPos);
+    public static void CameraSetPosTo(Vector3 worldPos) => GetBattleNode().XSCamera.SetPosTo(worldPos);
 
     /// <summary>
     /// 摄像机移动到指定位置

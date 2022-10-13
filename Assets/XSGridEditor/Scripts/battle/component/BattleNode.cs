@@ -76,7 +76,7 @@ namespace XSSLG
             var gridHelper = XSU.GridHelper;
             this.Logic = new BattleLogic();
             var bounds = gridHelper.GetBounds();
-            XSUG.CameraGoto(bounds.center);
+            XSUG.CameraSetPosTo(bounds.center);
 
             var moveRegionCpt = XSGridShowRegionCpt.Create(XSGridDefine.SCENE_GRID_MOVE, gridHelper.MoveTilePrefab, 10);
             var attackRegionCpt = XSGridShowRegionCpt.Create(XSGridDefine.SCENE_GRID_MOVE, gridHelper.AttackTilePrefab, 11);

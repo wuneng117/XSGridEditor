@@ -15,7 +15,7 @@ namespace XSSLG
         {
             base.OnEnter(logic);
             Debug.Assert(logic.UnitMgr.ActionUnit != null);
-            XSUG.CameraGoto(logic.UnitMgr.ActionUnit.WorldPos);
+            XSUG.CameraMoveTo(logic.UnitMgr.ActionUnit.WorldPos);
         }
 
         public override void Update<T>(T logic)
