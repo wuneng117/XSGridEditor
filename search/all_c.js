@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mag_459',['Mag',['../classXSSLG_1_1Stat.html#a62242dfa073ebb102f1b0b76909a50ac',1,'XSSLG.Stat.Mag()'],['../classXSSLG_1_1Stat.html#aab98d0b72d1b98e1dccf88eed2a29306',1,'XSSLG.Stat.mag()']]],
+  ['mag_459',['mag',['../classXSSLG_1_1Stat.html#aab98d0b72d1b98e1dccf88eed2a29306',1,'XSSLG.Stat.mag()'],['../classXSSLG_1_1Stat.html#a62242dfa073ebb102f1b0b76909a50ac',1,'XSSLG.Stat.Mag()']]],
   ['magic_460',['Magic',['../classXSSLG_1_1XSDefine.html#aea6b44fe5de912373ef2c85145b1f93ba02700e454d679f31f27c6f0768986dd1',1,'XSSLG::XSDefine']]],
   ['magicarray_461',['MagicArray',['../classXSSLG_1_1Role.html#afc5c37b5f3a1077081598dd6d8974fd9',1,'XSSLG::Role']]],
   ['magicnamearray_462',['MagicNameArray',['../classXSSLG_1_1RoleData.html#a6641ae5fe0ae25fb6263c7bf1433ffd0',1,'XSSLG::RoleData']]],
@@ -24,7 +24,7 @@ var searchData=
   ['morethan_480',['MoreThan',['../namespaceXSSLG.html#ac9f08bc4d295b2c04e0b8ebd0d98e54da5f773e869559842a5d9132a913a4a976',1,'XSSLG']]],
   ['mousecuror_481',['mouseCuror',['../classXSSLG_1_1BattleMouseCuror.html#af874b25f075d60088e7fdbe951dd0780',1,'XSSLG::BattleMouseCuror']]],
   ['mouseevent_482',['MouseEvent',['../classXSSLG_1_1BattleFSMBase.html#affbf1f23019618f279be507293b20731',1,'XSSLG::BattleFSMBase']]],
-  ['mov_483',['mov',['../classXSSLG_1_1Stat.html#ab033b1010005ae00251af36edf7cfc54',1,'XSSLG.Stat.mov()'],['../classXSSLG_1_1Stat.html#a2cf9fd87ff004e1e50a8880a6f16806c',1,'XSSLG.Stat.Mov()']]],
+  ['mov_483',['Mov',['../classXSSLG_1_1Stat.html#a2cf9fd87ff004e1e50a8880a6f16806c',1,'XSSLG.Stat.Mov()'],['../classXSSLG_1_1Stat.html#ab033b1010005ae00251af36edf7cfc54',1,'XSSLG.Stat.mov()']]],
   ['moved_484',['Moved',['../namespaceXSSLG.html#a194abb81bb669d3c7db39ad78e57fe79a95bfdefaaf01553cbf21ccd942855c69',1,'XSSLG']]],
   ['movedirection_485',['MoveDirection',['../classXSSLG_1_1XSCamera.html#aae02783e4f2931cfc0706a748602280e',1,'XSSLG::XSCamera']]],
   ['movelist_486',['MoveList',['../classXSSLG_1_1XSCamera.html#a59b1a213b00e969d8b363da55a32ee92',1,'XSSLG::XSCamera']]],

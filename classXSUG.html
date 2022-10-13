@@ -94,9 +94,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aa9f027a93e2171a7059ad238fb8ce2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f943d5b794f5d301dde0942a40e4d9c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html">XSIUnitNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSUG.html#a5f943d5b794f5d301dde0942a40e4d9c">GetMouseTargetUnit</a> ()</td></tr>
 <tr class="separator:a5f943d5b794f5d301dde0942a40e4d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07a34f66eb972c87b94dd4fe9d0a7d69"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSUG.html#a07a34f66eb972c87b94dd4fe9d0a7d69">CameraGoto</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
-<tr class="memdesc:a07a34f66eb972c87b94dd4fe9d0a7d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">摄像机移动到指定位置  <a href="classXSUG.html#a07a34f66eb972c87b94dd4fe9d0a7d69">More...</a><br /></td></tr>
-<tr class="separator:a07a34f66eb972c87b94dd4fe9d0a7d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a572ca6c4ff17f0f4eb15a1f7f8898bad"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSUG.html#a572ca6c4ff17f0f4eb15a1f7f8898bad">CameraMoveTo</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
+<tr class="memdesc:a572ca6c4ff17f0f4eb15a1f7f8898bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">摄像机以一定速度移动到指定位置  <a href="classXSUG.html#a572ca6c4ff17f0f4eb15a1f7f8898bad">More...</a><br /></td></tr>
+<tr class="separator:a572ca6c4ff17f0f4eb15a1f7f8898bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec4ec75328dc3559816dffd562b13722"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSUG.html#aec4ec75328dc3559816dffd562b13722">CameraSetPosTo</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
+<tr class="memdesc:aec4ec75328dc3559816dffd562b13722"><td class="mdescLeft">&#160;</td><td class="mdescRight">摄像机移动到指定位置  <a href="classXSUG.html#aec4ec75328dc3559816dffd562b13722">More...</a><br /></td></tr>
+<tr class="separator:aec4ec75328dc3559816dffd562b13722"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa452be44b601b761bd24fb6f92411828"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSUG.html#aa452be44b601b761bd24fb6f92411828">CameraCanFreeMove</a> (bool val)</td></tr>
 <tr class="memdesc:aa452be44b601b761bd24fb6f92411828"><td class="mdescLeft">&#160;</td><td class="mdescRight">摄像机移动到指定位置  <a href="classXSUG.html#aa452be44b601b761bd24fb6f92411828">More...</a><br /></td></tr>
 <tr class="separator:aa452be44b601b761bd24fb6f92411828"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -238,8 +241,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a07a34f66eb972c87b94dd4fe9d0a7d69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07a34f66eb972c87b94dd4fe9d0a7d69">&#9670;&nbsp;</a></span>CameraGoto()</h2>
+<a id="a572ca6c4ff17f0f4eb15a1f7f8898bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a572ca6c4ff17f0f4eb15a1f7f8898bad">&#9670;&nbsp;</a></span>CameraMoveTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -248,7 +251,41 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void XSUG.CameraGoto </td>
+          <td class="memname">static void XSUG.CameraMoveTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td>
+          <td class="paramname"><em>worldPos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>摄像机以一定速度移动到指定位置 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">worldPos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aec4ec75328dc3559816dffd562b13722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec4ec75328dc3559816dffd562b13722">&#9670;&nbsp;</a></span>CameraSetPosTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void XSUG.CameraSetPosTo </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td>
           <td class="paramname"><em>worldPos</em></td><td>)</td>

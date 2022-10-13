@@ -95,8 +95,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac1ecc990d767f3d532fd7ec028892e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5366d72efcf217c58263d8b1eb5dab6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#ab5366d72efcf217c58263d8b1eb5dab6">SetConfinerBound</a> (Bounds bound)</td></tr>
 <tr class="separator:ab5366d72efcf217c58263d8b1eb5dab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9bd12045e7bd851adddf2e14cd5c93c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#ab9bd12045e7bd851adddf2e14cd5c93c">SetPosTo</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
+<tr class="memdesc:ab9bd12045e7bd851adddf2e14cd5c93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">相机直接移动到位置  <a href="classXSSLG_1_1XSCamera.html#ab9bd12045e7bd851adddf2e14cd5c93c">More...</a><br /></td></tr>
+<tr class="separator:ab9bd12045e7bd851adddf2e14cd5c93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab890b868d396deb902d4ec2daae74842"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#ab890b868d396deb902d4ec2daae74842">MoveTo</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
-<tr class="memdesc:ab890b868d396deb902d4ec2daae74842"><td class="mdescLeft">&#160;</td><td class="mdescRight">摄像机保持角度看向指定世界坐标 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离  <a href="classXSSLG_1_1XSCamera.html#ab890b868d396deb902d4ec2daae74842">More...</a><br /></td></tr>
+<tr class="memdesc:ab890b868d396deb902d4ec2daae74842"><td class="mdescLeft">&#160;</td><td class="mdescRight">相机以一定速度移动到位置  <a href="classXSSLG_1_1XSCamera.html#ab890b868d396deb902d4ec2daae74842">More...</a><br /></td></tr>
 <tr class="separator:ab890b868d396deb902d4ec2daae74842"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafa8deed175ab0a84db17980617dc8e6"><td class="memItemLeft" align="right" valign="top">virtual IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#aafa8deed175ab0a84db17980617dc8e6">MovementAnimation</a> ()</td></tr>
 <tr class="memdesc:aafa8deed175ab0a84db17980617dc8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">携程函数处理移动  <a href="classXSSLG_1_1XSCamera.html#aafa8deed175ab0a84db17980617dc8e6">More...</a><br /></td></tr>
@@ -321,7 +324,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>摄像机保持角度看向指定世界坐标 在xz平面上计算当前看向的世界坐标和目标距离，就是摄像机移动的距离 </p>
+<p>相机以一定速度移动到位置 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">worldPos</td><td></td></tr>
@@ -380,6 +383,40 @@ Properties</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9bd12045e7bd851adddf2e14cd5c93c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9bd12045e7bd851adddf2e14cd5c93c">&#9670;&nbsp;</a></span>SetPosTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void XSSLG.XSCamera.SetPosTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td>
+          <td class="paramname"><em>worldPos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>相机直接移动到位置 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">worldPos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
