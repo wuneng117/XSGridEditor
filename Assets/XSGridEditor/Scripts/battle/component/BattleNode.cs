@@ -20,9 +20,9 @@ namespace XSSLG
     {
         /************************* UI begin ***********************/
         public UIMgr UIMgr { get; protected set; } = new UIMgr();
-        
+
         /// <summary> 所有ui的根节点 </summary>
-        public GameObject UI;    
+        public GameObject UI;
 
         /// <summary> 起始关闭界面的ui根节点 </summary>
         public GameObject CloseRoot;
@@ -30,7 +30,7 @@ namespace XSSLG
         [SerializeField]
         /// <summary> unit行动菜单 </summary>
         private UnitMenu unitMenu;
-        
+
         [SerializeField]
         /// <summary> unit详情 </summary>
         private RolePanel rolePanel;
@@ -132,8 +132,16 @@ namespace XSSLG
         public void CloseRoleMenu() => XSUG.UIMgr.CloseUITo(this.unitMenu?.gameObject);
 
         /// <summary> 打开关闭主菜单 </summary>
-        public void OpenMainMenu() => XSUG.UIMgr.ShowUI(this.mainMenu?.gameObject);
-        public void CloseMainMenu() => XSUG.UIMgr.CloseUITo(this.mainMenu?.gameObject);
+        public void OpenMainMenu()
+        {
+            XSUG.CameraCanFreeMove(false);
+            XSUG.UIMgr.ShowUI(this.mainMenu?.gameObject);
+        }
+        public void CloseMainMenu()
+        {
+            XSUG.CameraCanFreeMove(true);
+            XSUG.UIMgr.CloseUITo(this.mainMenu?.gameObject);
+        }
 
         /// <summary> 打开关闭回合显示 </summary>
         public void OpenTurnChange(GroupType type) => this.SetTurnChange(type, true);

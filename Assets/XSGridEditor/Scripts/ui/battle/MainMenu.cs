@@ -36,6 +36,7 @@ namespace XSSLG
         {
             BattleNode battleNode = XSUG.GetBattleNode();
             battleNode.CloseMainMenu();
+            
         }
 
         /************************* 按钮事件  end  ***********************/

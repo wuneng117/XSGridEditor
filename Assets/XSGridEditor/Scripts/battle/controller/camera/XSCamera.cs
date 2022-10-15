@@ -54,7 +54,6 @@ namespace XSSLG
 
         /// <summary> tile map size </summary>
         public Bounds Bound { get; set; } = new Bounds();
-
         /************************* variable  end  ***********************/
 
         public virtual void Awake()
@@ -181,7 +180,7 @@ namespace XSSLG
             this.SetConfinerBound(this.Bound);
         }
 
-        protected virtual void SetCameraPosition(Vector3 targetPosition)
+        protected virtual void FixTargetPosition(ref Vector3 targetPosition)
         {
             if (this.Confier && this.Confier.m_BoundingVolume)
             {
@@ -190,7 +189,11 @@ namespace XSSLG
                 targetPosition.y = Mathf.Clamp(targetPosition.y, bounds.min.y, bounds.max.y);
                 targetPosition.z = Mathf.Clamp(targetPosition.z, bounds.min.z, bounds.max.z);
             }
+        }
 
+        protected virtual void SetCameraPosition(Vector3 targetPosition)
+        {
+            this.FixTargetPosition(ref targetPosition);
             this.transform.position = targetPosition;
         }
 
@@ -213,6 +216,7 @@ namespace XSSLG
             {
                 var eulerA = degreeA - halfFov;
                 var tanA = Mathf.Tan(eulerA * Mathf.Deg2Rad);
+
                 var eulerB = degreeA + halfFov;
                 var tanB = Mathf.Tan(eulerB * Mathf.Deg2Rad);
                 sizeY = 2 * collider.transform.position.y * (1 - 2 * tanA / (tanA + tanB));
@@ -221,7 +225,21 @@ namespace XSSLG
             }
 
             collider.size = new Vector3(bound.size.x, sizeY, bound.size.z);
-            collider.transform.position = new Vector3(bound.center.x + offset.x, collider.transform.position.y, bound.center.z + offset.z);
+            collider.center = new Vector3(bound.center.x + offset.x, 0, bound.center.z + offset.z);
+        }
+
+        /// <summary>
+        /// 计算相机看向 worldPos 的时相机自己的位置
+        /// </summary>
+        /// <param name="worldPos"></param>
+        /// <returns></returns>
+        protected virtual Vector3 WorldPosToCameraPos(Vector3 worldPos)
+        {
+            // 求看向 worldPos 位置的相机所在的位置, 通过已知向量(相机的中心射线方向), 已知相机到平面A的高度, 已知平面A上一点 worldPos, 求得相机位置
+            float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
+            var targetPos = d * this.transform.forward + worldPos;
+            this.FixTargetPosition(ref targetPos);
+            return targetPos;
         }
 
         /// <summary>
@@ -230,10 +248,9 @@ namespace XSSLG
         /// <param name="worldPos"></param>
         public virtual void SetPosTo(Vector3 worldPos)
         {
-            // 求看向 worldPos 位置的相机所在的位置, 通过已知向量(相机的中心射线方向), 已知相机到平面A的高度, 已知平面A上一点 worldPos, 求得相机位置
-            float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
-            var targetPos = d * this.transform.forward + worldPos;
+            var targetPos = this.WorldPosToCameraPos(worldPos);
             this.SetCameraPosition(targetPos);
+            // Debug.Log("SetPosTo: " + targetPos);
         }
 
         /// <summary>
@@ -242,7 +259,9 @@ namespace XSSLG
         /// <param name="worldPos"></param>
         public virtual void MoveTo(Vector3 worldPos)
         {
-            this.MoveList.Enqueue(worldPos);
+            var targetPos = this.WorldPosToCameraPos(worldPos);
+            this.MoveList.Enqueue(targetPos);
+            // Debug.Log($"MoveTo {targetPos}");
             if (!this.IsMoving)
             {
                 this.StartCoroutine(MovementAnimation());
@@ -254,20 +273,18 @@ namespace XSSLG
         {
             while (this.MoveList.Count > 0)
             {
-                var worldPos = this.MoveList.Dequeue();
+                var targetPos = this.MoveList.Dequeue();
                 this.IsMoving = true;
-
-                // 求看向 worldPos 位置的相机所在的位置, 通过已知向量(相机的中心射线方向), 已知相机到平面A的高度, 已知平面A上一点 worldPos, 求得相机位置
-                float d = Vector3.Dot(new Vector3(0, this.transform.position.y, 0) - worldPos, new Vector3(0, 1, 0)) / Vector3.Dot(this.transform.forward, new Vector3(0, 1, 0));
-                var targetPos = d * this.transform.forward + worldPos;
                 var dir = (targetPos - this.transform.position).normalized;
-
+                Debug.Log($"targetPos {targetPos} dir {dir}");
                 while (true)
                 {
                     var direction = targetPos - this.transform.position;
+                    Debug.Log($"direction {direction}");
                     if (Vector3.Dot(direction, dir) <= 0)
                         break;
                     this.UpdatePos(dir);
+                    Debug.Log($"UpdatePos {this.transform.position}");
                     yield return 0;
                 }
                 this.SetCameraPosition(targetPos);

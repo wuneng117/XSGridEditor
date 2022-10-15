@@ -32,6 +32,8 @@ namespace XSSLG
 
             this.Scheduler.ScheduleOnce(() =>
             {
+                // 切换到选择单位行动
+                logic.Change(new PhaseChooseUnit(), logic);      
                 battleNode.CloseTurnChange(GroupType.Self);
             }, 2);
         }
@@ -46,11 +48,11 @@ namespace XSSLG
         {
             base.Update(logic);
             this.Scheduler.Update(Time.deltaTime);
-            if (!XSUG.GetBattleNode().XSCamera.IsMoving)
-            {
-                // 切换到选择单位行动
-                logic.Change(new PhaseChooseUnit(), logic);            
-            }
+            // if (!XSUG.GetBattleNode().XSCamera.IsMoving)
+            // {
+            //     // 切换到选择单位行动
+            //     logic.Change(new PhaseChooseUnit(), logic);            
+            // }
         }
     }
 }

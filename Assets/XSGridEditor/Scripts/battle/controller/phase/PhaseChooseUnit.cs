@@ -48,9 +48,13 @@ namespace XSSLG
                 BattleNode battleNode = XSUG.GetBattleNode();
                 var unit = logic.UnitMgr.GetUnitByCellPosition(mouseTile.TilePos);
                 if (unit != null)
+                {
                     battleNode.OpenRolePanel(unit);
+                }
                 else
+                {
                     battleNode.OpenMainMenu();
+                }
             }
         }
 
