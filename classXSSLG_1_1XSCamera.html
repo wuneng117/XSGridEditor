@@ -121,8 +121,13 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:af3d78890acb8ab42f93b74b9f35f6a27"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#af3d78890acb8ab42f93b74b9f35f6a27">UpdateCameraRotation</a> ()</td></tr>
 <tr class="memdesc:af3d78890acb8ab42f93b74b9f35f6a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">arrow Key control camera rotation angle  <a href="classXSSLG_1_1XSCamera.html#af3d78890acb8ab42f93b74b9f35f6a27">More...</a><br /></td></tr>
 <tr class="separator:af3d78890acb8ab42f93b74b9f35f6a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09dc921db57619a2a90f9e3811cf102c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a09dc921db57619a2a90f9e3811cf102c">FixTargetPosition</a> (ref <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> targetPosition)</td></tr>
+<tr class="separator:a09dc921db57619a2a90f9e3811cf102c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa89ea87bd2d939ef2471b72fbc349da3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#aa89ea87bd2d939ef2471b72fbc349da3">SetCameraPosition</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> targetPosition)</td></tr>
 <tr class="separator:aa89ea87bd2d939ef2471b72fbc349da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a393f73b8cc5e734328d2e18e725f0c6f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSCamera.html#a393f73b8cc5e734328d2e18e725f0c6f">WorldPosToCameraPos</a> (<a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> worldPos)</td></tr>
+<tr class="memdesc:a393f73b8cc5e734328d2e18e725f0c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算相机看向 worldPos 的时相机自己的位置  <a href="classXSSLG_1_1XSCamera.html#a393f73b8cc5e734328d2e18e725f0c6f">More...</a><br /></td></tr>
+<tr class="separator:a393f73b8cc5e734328d2e18e725f0c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -185,6 +190,32 @@ Properties</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a09dc921db57619a2a90f9e3811cf102c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09dc921db57619a2a90f9e3811cf102c">&#9670;&nbsp;</a></span>FixTargetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void XSSLG.XSCamera.FixTargetPosition </td>
+          <td>(</td>
+          <td class="paramtype">ref <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td>
+          <td class="paramname"><em>targetPosition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -503,6 +534,41 @@ Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a393f73b8cc5e734328d2e18e725f0c6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a393f73b8cc5e734328d2e18e725f0c6f">&#9670;&nbsp;</a></span>WorldPosToCameraPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a> XSSLG.XSCamera.WorldPosToCameraPos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="XSGridShowMgr_8cs.html#af3326292fdd04d2b384b6d781d9594f6">Vector3</a>&#160;</td>
+          <td class="paramname"><em>worldPos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>计算相机看向 worldPos 的时相机自己的位置 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">worldPos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
