@@ -12,36 +12,27 @@ namespace XSSLG
     public class RolePanelaAttr : MonoBehaviour
     {
         [SerializeField]
-        private Text nameText;
-
-        // [SerializeField]
-        // private ProgressbarDeterminateBase attrBar;
+        protected Text nameText;
 
         [SerializeField]
-        private string nameStr;
+        protected ProgressbarLabel attrBar;
 
-        private bool InitAttrBar {get; set;} = false;
+        [SerializeField]
+        protected string nameStr;
 
         public void Start()
         { 
             if (this.nameText)
+            {
                 this.nameText.text = this.nameStr;
+            }
         }
 
         public void SetValue(int value, int max)
         { 
-            this.initAttrBarTextFunc();
-            // this.attrBar.Max = max;
-            // this.attrBar.Value = value;
-        }
-
-        private void initAttrBarTextFunc()
-        { 
-            if (!this.InitAttrBar)
+            if (this.attrBar)
             {
-                // if (this.attrBar)
-			    //     this.attrBar.TextFunc = bar => string.Format("{0}", bar.Value.ToString());
-                this.InitAttrBar = true;
+                this.attrBar.SetValue(value, max);
             }
         }
     }

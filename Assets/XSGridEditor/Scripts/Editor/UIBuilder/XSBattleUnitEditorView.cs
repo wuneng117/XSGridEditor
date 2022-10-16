@@ -30,7 +30,7 @@ namespace XSSLG
             this.root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/XSEditor/Editor/UIBuilder/XSBattleUnitEditorView.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSBattleUnitEditorView.uxml");
             visualTree.CloneTree(this.root);
 
             this.listview = this.root.Q<ListView>("unitlist");
@@ -79,7 +79,7 @@ namespace XSSLG
 
             sceneObjects = sceneObjects.Where(obj => (int)obj.Group == index).ToList();
             this.listview.XSInit(sceneObjects,
-                "Assets/XSGridEditor/Scripts/XSEditor/Editor/UIBuilder/XSBattleUnitEditorView_ListItem.uxml", 
+                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSBattleUnitEditorView_ListItem.uxml", 
                 this.BindListItem,
                 this.OnSelectionItem
             );

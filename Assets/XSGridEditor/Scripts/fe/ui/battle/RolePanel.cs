@@ -33,18 +33,6 @@ namespace XSSLG
         public RolePanelaAttr lckText;
         public RolePanelaAttr chaText;
 
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        }
-
         /// <summary> 设置面板显示 </summary>
 
         public void init(UnitBase unit)

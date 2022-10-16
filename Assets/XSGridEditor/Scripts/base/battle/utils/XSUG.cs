@@ -1,5 +1,4 @@
 using UnityEngine;
-using XSSLG;
 using UnityEngine.InputSystem;
 
 namespace XSSLG
