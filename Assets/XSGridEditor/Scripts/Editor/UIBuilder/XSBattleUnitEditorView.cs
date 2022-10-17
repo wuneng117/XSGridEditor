@@ -37,31 +37,7 @@ namespace XSSLG
 
             // 设置页签
             var toolbar_toggle = this.root.Q("toolbar_toggle");
-            toolbar_toggle?.Children().ToList().ForEach(toggle =>
-            {
-                // (toggle as ToolbarToggle)?.RegisterValueChangedCallback(evt =>
-                (toggle as ToolbarToggle).RegisterValueChangedCallback(evt =>
-                {
-                    var target = evt.target as ToolbarToggle;
-                    if (target == null)
-                    {
-                        return;
-                    }
-
-                    if (evt.newValue)
-                    {
-                        toolbar_toggle?.Children().ToList().Where(toggle => toggle != evt.target).ToList().ForEach(toggle => (toggle as ToolbarToggle).SetValueWithoutNotify(false));
-                        this.RefreshView(target.tabIndex + 1);
-                    }
-                    else
-                    {
-                        (toggle as ToolbarToggle).SetValueWithoutNotify(false);
-                    }
-                });
-            });
-
-            (toolbar_toggle[0] as ToolbarToggle).value = true;
-
+            XSUE.XSInitToggle(toolbar_toggle?.Children().Select(child => child as ToolbarToggle).ToList(), this.RefreshView);
         }
 
         protected virtual void RefreshView(int index)

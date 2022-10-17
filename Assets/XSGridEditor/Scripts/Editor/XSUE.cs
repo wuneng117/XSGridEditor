@@ -10,6 +10,8 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
+using System.Linq;
+
 namespace XSSLG
 {
 
@@ -41,6 +43,45 @@ namespace XSSLG
                 XSUE.gridMainEditMode = currentStageHandle.FindComponentOfType<XSGridMainEditMode>();
             }
             return XSUE.gridMainEditMode;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void XSInitToggle(List<ToolbarToggle> toggleList, Action<int> toggleClickFunc)
+        {
+            if (toggleList == null || toggleList.Count == 0)
+            {
+                return;
+            }
+
+            toggleList.ForEach(toggle =>
+            {
+                toggle.RegisterValueChangedCallback(evt =>
+                {
+                    var target = evt.target as ToolbarToggle;
+                    if (target == null)
+                    {
+                        return;
+                    }
+
+                    if (evt.newValue)
+                    {
+                        toggleList.Where(toggle => toggle != evt.target).ToList().ForEach(toggle => toggle.SetValueWithoutNotify(false));
+                        if (toggleClickFunc != null)
+                        {
+                            toggleClickFunc(target.tabIndex + 1);
+                        }
+                    }
+                    else
+                    {
+                        toggle.SetValueWithoutNotify(true);
+                    }
+                });
+            });
+
+
+            toggleList[0].value = true;
         }
     }
 
