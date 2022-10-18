@@ -20,13 +20,13 @@ var searchData=
   ['leveltext_448',['levelText',['../classXSSLG_1_1UnitInfoTip.html#a4d855ad3526293e7d714523b6032ee50',1,'XSSLG::UnitInfoTip']]],
   ['list_449',['list',['../classXSSLG_1_1PriorityQueue.html#a2192d7443cbf5336af44d8f01cd6bb0c',1,'XSSLG.PriorityQueue.list()'],['../classXSSLG_1_1CommonTable.html#a8d49d43cb6f7d6c454108ddd628a911b',1,'XSSLG.CommonTable.List()']]],
   ['list_3c_20xsprefabnode_20_3e_450',['List&lt; XSPrefabNode &gt;',['../classXSSLG_1_1XSPrefabNodeMgr.html#a84dfedc47eac5931237594b783c84001',1,'XSSLG::XSPrefabNodeMgr']]],
-  ['listview_451',['listview',['../classXSSLG_1_1XSBattleUnitEditorView.html#a52b093e79be08aa8304b3a8e14acc2c9',1,'XSSLG::XSBattleUnitEditorView']]],
+  ['listview_451',['listview',['../classXSSLG_1_1XSUnitEditorView.html#ab4d34196af13d236ea2047f83b3b6ffc',1,'XSSLG.XSUnitEditorView.listview()'],['../classXSSLG_1_1XSBattleUnitEditorView.html#a52b093e79be08aa8304b3a8e14acc2c9',1,'XSSLG.XSBattleUnitEditorView.listview()']]],
   ['load_452',['Load',['../classXSSLG_1_1DataManager.html#abfdae2462cbfb7b16ae5588a8cccb74d',1,'XSSLG::DataManager']]],
   ['loadgameobjatpath_3c_20t_20_3e_453',['LoadGameObjAtPath&lt; T &gt;',['../classXSSLG_1_1XSU.html#ab4f98bc99f57ae4a637d131fa6eb4915',1,'XSSLG::XSU']]],
   ['loadgameobject_454',['LoadGameObject',['../classXSSLG_1_1XSResLoadMgr.html#ad852e15f070e4e86ea1e0ca3ef898b26',1,'XSSLG::XSResLoadMgr']]],
   ['locomotion_455',['LOCOMOTION',['../classXSSLG_1_1AnimatorState.html#a200b2cc413e8eddeb1fcdde742a218b1',1,'XSSLG::AnimatorState']]],
   ['logic_456',['Logic',['../classXSSLG_1_1BattleNode.html#a3681e1e38e7c36d38a8358e333ed0708',1,'XSSLG::BattleNode']]],
-  ['lv_457',['lv',['../classXSSLG_1_1TechniqueLevel.html#a995f7b7e97eccf91411306161c748b3b',1,'XSSLG.TechniqueLevel.lv()'],['../classXSSLG_1_1RoleData.html#acf8cf5eb76bbe6868532d78d85599812',1,'XSSLG.RoleData.lv()'],['../classXSSLG_1_1TechniqueLevel.html#afafac9297582af46fb720d9b4d95602b',1,'XSSLG.TechniqueLevel.Lv()'],['../classXSSLG_1_1RoleData.html#a1f28ddf582ac37ff66f68c337fb3f9ef',1,'XSSLG.RoleData.Lv()'],['../classXSSLG_1_1LevelBase.html#a1031c79129c90b780841c860983f115e',1,'XSSLG.LevelBase.Lv()']]],
+  ['lv_457',['Lv',['../classXSSLG_1_1TechniqueLevel.html#afafac9297582af46fb720d9b4d95602b',1,'XSSLG.TechniqueLevel.Lv()'],['../classXSSLG_1_1RoleData.html#a1f28ddf582ac37ff66f68c337fb3f9ef',1,'XSSLG.RoleData.Lv()'],['../classXSSLG_1_1LevelBase.html#a1031c79129c90b780841c860983f115e',1,'XSSLG.LevelBase.Lv()'],['../classXSSLG_1_1TechniqueLevel.html#a995f7b7e97eccf91411306161c748b3b',1,'XSSLG.TechniqueLevel.lv()'],['../classXSSLG_1_1RoleData.html#acf8cf5eb76bbe6868532d78d85599812',1,'XSSLG.RoleData.lv()']]],
   ['lvtext_458',['LvText',['../classXSSLG_1_1RolePanel.html#a7f74425d8519149760eec149d40b3f3c',1,'XSSLG::RolePanel']]],
   ['lvtype_459',['LvType',['../classXSSLG_1_1ClassData.html#a5fab9cd0bffae23216e477aa4edf9bb8',1,'XSSLG.ClassData.LvType()'],['../classXSSLG_1_1ClassData.html#a1347bdce3b935461ecf053fd7617f327',1,'XSSLG.ClassData.lvType()']]]
 ];

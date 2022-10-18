@@ -22,7 +22,7 @@ var searchData=
   ['battleutils_99',['BattleUtils',['../classXSSLG_1_1BattleUtils.html',1,'XSSLG']]],
   ['battleutils_2ecs_100',['BattleUtils.cs',['../BattleUtils_8cs.html',1,'']]],
   ['beginner_101',['Beginner',['../classXSSLG_1_1XSDefine.html#a0811cbbb5414754ed42dd40970c4f919a2ddabc33a6100ceb5311697534035d8d',1,'XSSLG::XSDefine']]],
-  ['bindlistitem_102',['BindListItem',['../classXSSLG_1_1XSBattleUnitEditorView.html#a80ab4ec776157ee2e4480b137db055b3',1,'XSSLG::XSBattleUnitEditorView']]],
+  ['bindlistitem_102',['BindListItem',['../classXSSLG_1_1XSUnitEditorView.html#aa993d630f653d4990d93a8c096f643dc',1,'XSSLG::XSUnitEditorView']]],
   ['bound_103',['Bound',['../classXSSLG_1_1XSCamera.html#a2c156b3d367ee3b66a23373571307c13',1,'XSSLG::XSCamera']]],
   ['bow_104',['Bow',['../classXSSLG_1_1XSDefine.html#af98608b8a57bea0866cfeabb8281c9d5a48fce5d02f6935e50f256d5dedac4437',1,'XSSLG.XSDefine.Bow()'],['../namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afa48fce5d02f6935e50f256d5dedac4437',1,'XSSLG.Bow()']]],
   ['brawl_105',['Brawl',['../classXSSLG_1_1XSDefine.html#af98608b8a57bea0866cfeabb8281c9d5af4b79351a643c016aad8a1626702af3c',1,'XSSLG.XSDefine.Brawl()'],['../namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afaf4b79351a643c016aad8a1626702af3c',1,'XSSLG.Brawl()']]],
