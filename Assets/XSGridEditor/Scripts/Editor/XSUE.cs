@@ -92,10 +92,10 @@ namespace XSSLG
         /// extension ListView Init
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public static void XSInit<T>(this ListView s, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
         {
-            s.itemsSource = itemsSource;
-            s.makeItem = () =>
+            listview.itemsSource = itemsSource;
+            listview.makeItem = () =>
                 {
                     var node = new VisualElement();
                     var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(itemAssetPath);
@@ -103,16 +103,16 @@ namespace XSSLG
                     return node;
                 };
 
-            s.bindItem = (VisualElement node, int index) =>
+            listview.bindItem = (VisualElement node, int index) =>
                 {
-                    var obj = s.itemsSource[index];
+                    var obj = listview.itemsSource[index];
                     if (obj != null)
                     {
                         bindFunc(node, obj as T);
                     }
                 };
 
-            s.onSelectionChange += (IEnumerable<object> obj) =>
+            listview.onSelectionChange += (IEnumerable<object> obj) =>
                 {
                     foreach (var o in obj)
                     {
@@ -121,15 +121,13 @@ namespace XSSLG
                 };
         }
 
-        public static void XSInit(this BindableElement s, UnityEngine.Object obj, string bindPath)
+        public static void XSInit(this BindableElement element, UnityEngine.Object obj, string bindPath)
         {
-            if (s != null && bindPath != null && bindPath.Length > 0)
+            if (element != null && bindPath != null && bindPath.Length > 0)
             {
                 var serObj = new SerializedObject(obj);
-                s.Bind(serObj);
-                s.bindingPath = bindPath;
+                element.BindProperty(serObj.FindProperty(bindPath));
             }
-
         }
     }
 }
