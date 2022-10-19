@@ -16,7 +16,7 @@ namespace XSSLG
             VisualElement root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSPopUpView.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSPopUpView.uxml");
             visualTree.CloneTree(root);
 
             var btn = root.Q<Button>("btn");

@@ -18,12 +18,12 @@ namespace XSSLG
         public XSUnitEditorView(int groupType)
         {
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/common/XSUnitEditorView.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSUnitEditorView.uxml");
             visualTree.CloneTree(this);
 
             this.listview = this.Q<ListView>("unitlist");
             this.listview.XSInit(new List<XSUnitNode>(),
-                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/common/XSUnitEditorView_ListItem.uxml",
+                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSUnitEditorView_ListItem.uxml",
                 this.BindListItem,
                 this.OnSelectionItem
             );

@@ -21,7 +21,7 @@ public class XSBattleEventEditorView : EditorWindow
         this.root = rootVisualElement;
 
         // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSBattleEventEditorView.uxml");
+        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleEventEditorView.uxml");
         visualTree.CloneTree(this.root);
 
         var menu1 = this.root.Q<ToolbarMenu>("menu1");

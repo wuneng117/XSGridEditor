@@ -20,7 +20,7 @@ public class XSEditorMainView : EditorWindow
         this.root = rootVisualElement;
 
         // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSEditorMainView.uxml");
+        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSEditorMainView.uxml");
         visualTree.CloneTree(this.root);
 
         // var menu1 = this.root.Q<ToolbarMenu>("menu1");

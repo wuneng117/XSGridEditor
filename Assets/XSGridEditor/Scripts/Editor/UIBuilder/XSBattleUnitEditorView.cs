@@ -29,7 +29,7 @@ namespace XSSLG
             this.root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSBattleUnitEditorView.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleUnitEditorView.uxml");
             visualTree.CloneTree(this.root);
 
             this.listview = this.root.Q<ListView>("unitlist");

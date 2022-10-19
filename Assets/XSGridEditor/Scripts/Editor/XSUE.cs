@@ -54,7 +54,7 @@ namespace XSSLG
             {
                 return;
             }
-
+            
             toggleList.ForEach(toggle =>
             {
                 toggle.RegisterValueChangedCallback(evt =>
@@ -70,7 +70,7 @@ namespace XSSLG
                         toggleList.Where(toggle => toggle != evt.target).ToList().ForEach(toggle => toggle.SetValueWithoutNotify(false));
                         if (toggleClickFunc != null)
                         {
-                            toggleClickFunc(target.tabIndex + 1);
+                            toggleClickFunc(target.tabIndex);
                         }
                     }
                     else
