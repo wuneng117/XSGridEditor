@@ -16,7 +16,6 @@ namespace XSSLG
 
         public XSUnitNode SelectUnit { get; protected set; }
 
-        [MenuItem("Window/UI Toolkit/XSBattleUnitEditorView")]
         public static void ShowExample()
         {
             XSBattleUnitEditorView wnd = GetWindow<XSBattleUnitEditorView>();
@@ -25,6 +24,8 @@ namespace XSSLG
 
         public void CreateGUI()
         {
+            UnityEditor.SceneManagement.EditorSceneManager.sceneOpened += this.SceneOpened;
+
             // Each editor window contains a root VisualElement object
             this.root = rootVisualElement;
 
@@ -36,16 +37,11 @@ namespace XSSLG
 
             // 设置页签
             var toolbar_toggle = this.root.Q("toolbar_toggle");
-            XSUE.XSInitToggle(toolbar_toggle?.Children().Select(child => child as ToolbarToggle).ToList(), this.RefreshView);
+            XSUE.XSInitToggle(toolbar_toggle?.Children().Select(child => child as ToolbarToggle).ToList(), this.RefreshUnitEditerView);
         }
 
-        protected virtual void RefreshView(int index)
+        protected virtual void RefreshUnitEditerView(int index)
         {
-            if (XSUE.UnitMgrEditMode == null)
-            {
-                return;
-            }
-
             if (this.UnitEditorView == null)
             {
                 this.UnitEditorView = new XSUnitEditorView(index);
@@ -55,6 +51,11 @@ namespace XSSLG
             {
                 this.UnitEditorView.RefreshView(index);
             }
+        }
+
+        protected void SceneOpened(UnityEngine.SceneManagement.Scene scene, UnityEditor.SceneManagement.OpenSceneMode mode)
+        {
+            this.RefreshUnitEditerView(1);
         }
     }
 }

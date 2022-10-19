@@ -36,10 +36,10 @@ namespace XSSLG
         {
             this.ResetValue();
 
-            var sceneObjects = XSUE.UnitMgrEditMode.Dict.Select(pair => (XSUnitNode)pair.Value).ToList();
+            var sceneObjects = XSUE.UnitMgrEditMode?.Dict.Select(pair => (XSUnitNode)pair.Value).ToList();
             if (sceneObjects == null)
             {
-                listview.itemsSource = sceneObjects;
+                listview.itemsSource = new List<XSUnitNode>();
 
             }
             else

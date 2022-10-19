@@ -3,30 +3,47 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
-
-public class XSEditorMainView : EditorWindow
+namespace XSSLG
 {
-    protected VisualElement root;
-    [MenuItem("Window/UI Toolkit/XSEditorMainView")]
-    public static void ShowExample()
+
+    public class XSEditorMainView : EditorWindow
     {
-        XSEditorMainView wnd = GetWindow<XSEditorMainView>();
-        wnd.titleContent = new GUIContent("XSEditorMainView");
-    }
+        protected VisualElement root;
+        [MenuItem("XSSRPGEngine/XSEditorMainView")]
+        public static void ShowExample()
+        {
+            XSEditorMainView wnd = GetWindow<XSEditorMainView>();
+            wnd.titleContent = new GUIContent("XSEditorMainView");
+        }
 
-    public void CreateGUI()
-    {
-// Each editor window contains a root VisualElement object
-        this.root = rootVisualElement;
+        public void CreateGUI()
+        {
+            // Each editor window contains a root VisualElement object
+            this.root = rootVisualElement;
 
-        // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSEditorMainView.uxml");
-        visualTree.CloneTree(this.root);
+            // Import UXML
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSEditorMainView.uxml");
+            visualTree.CloneTree(this.root);
 
-        // var menu1 = this.root.Q<ToolbarMenu>("menu1");
-        // menu1.menu.AppendAction("menu1", (a) => 
-        // { 
-        //     Debug.Log("menu1"); 
-        // });
+            this.CreateTestMenu();
+
+            var battleUnitBtn = this.root.Q<Button>("battleUnitBtn");
+            if (battleUnitBtn != null)
+            {
+                battleUnitBtn.clickable.clicked += () => XSBattleUnitEditorView.ShowExample();
+            }
+        }
+
+        protected virtual void CreateTestMenu()
+        {
+            var test = this.root.Q<ToolbarMenu>("test");
+            if (test == null)
+            {
+                return;
+            }
+
+            test.menu.AppendAction("XSBattleEventEditorView", (a) => XSBattleEventEditorView.ShowExample());
+        }
+
     }
 }

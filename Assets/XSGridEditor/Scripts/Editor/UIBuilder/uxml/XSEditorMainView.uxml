@@ -2,8 +2,9 @@
     <ui:VisualElement style="flex-direction: row;">
         <uie:ToolbarMenu display-tooltip-when-elided="true" text="文件" name="file" />
         <uie:ToolbarMenu display-tooltip-when-elided="true" text="工具" name="tool" />
+        <uie:ToolbarMenu display-tooltip-when-elided="true" text="测试窗口" name="test" />
     </ui:VisualElement>
     <ui:VisualElement style="margin-top: 16px;">
-        <ui:Button text="测试成员" display-tooltip-when-elided="true" style="max-width: 60px; min-height: 30px;" />
+        <ui:Button text="场景角色编辑" display-tooltip-when-elided="true" name="battleUnitEditor" />
     </ui:VisualElement>
 </ui:UXML>
