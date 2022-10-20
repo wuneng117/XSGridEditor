@@ -54,7 +54,7 @@ namespace XSSLG
             {
                 return;
             }
-            
+
             toggleList.ForEach(toggle =>
             {
                 toggle.RegisterValueChangedCallback(evt =>
@@ -87,6 +87,14 @@ namespace XSSLG
 
     public static class XSUEExtension
     {
+        /// <summary>
+        /// extension ListView Init
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc) where T : class
+        {
+            listview.XSInit(itemsSource, itemAssetPath, bindFunc, (item)=>{});
+        }
 
         /// <summary>
         /// extension ListView Init
@@ -94,7 +102,6 @@ namespace XSSLG
         /// <typeparam name="T"></typeparam>
         public static void XSInit<T>(this ListView listview, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
         {
-            listview.itemsSource = itemsSource;
             listview.makeItem = () =>
                 {
                     var node = new VisualElement();
@@ -103,22 +110,47 @@ namespace XSSLG
                     return node;
                 };
 
+            listview.InitFunc(itemsSource, bindFunc, selFunc);
+        }   
+
+        /// <summary>
+        /// extension ListView Init
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, Func<VisualElement> makeFunc, Action<VisualElement, T> bindFunc) where T : class
+        {
+            listview.XSInit(itemsSource, makeFunc, bindFunc, (item)=>{});
+        }
+
+        /// <summary>
+        /// extension ListView Init
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, Func<VisualElement> makeFunc, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
+        {
+            listview.makeItem = makeFunc;
+            listview.InitFunc(itemsSource, bindFunc, selFunc);
+        }
+
+        private static void InitFunc<T>(this ListView listview, List<T> itemsSource, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
+        {
+            listview.itemsSource = itemsSource;
             listview.bindItem = (VisualElement node, int index) =>
+            {
+                var obj = listview.itemsSource[index];
+                if (obj != null)
                 {
-                    var obj = listview.itemsSource[index];
-                    if (obj != null)
-                    {
-                        bindFunc(node, obj as T);
-                    }
-                };
+                    bindFunc(node, obj as T);
+                }
+            };
 
             listview.onSelectionChange += (IEnumerable<object> obj) =>
+            {
+                foreach (var o in obj)
                 {
-                    foreach (var o in obj)
-                    {
-                        selFunc(o as T);
-                    }
-                };
+                    selFunc(o as T);
+                }
+            };
         }
 
         public static void XSInit(this BindableElement element, UnityEngine.Object obj, string bindPath)

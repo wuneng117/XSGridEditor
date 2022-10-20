@@ -18,8 +18,9 @@ namespace XSSLG
 
         public static void ShowExample()
         {
-            XSBattleUnitEditorView wnd = GetWindow<XSBattleUnitEditorView>();
+            XSBattleUnitEditorView wnd = CreateWindow<XSBattleUnitEditorView>("chuangkou");
             wnd.titleContent = new GUIContent("XSBattleUnitEditorView");
+            // wnd.ShowModal();
         }
 
         public void CreateGUI()
