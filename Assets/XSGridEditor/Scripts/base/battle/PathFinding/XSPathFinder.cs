@@ -41,7 +41,7 @@ namespace XSSLG
 
             allPaths[srcTile].Add(srcTile);
             // Convert all XSTileNode to corresponding tile position, and filter out paths that cannot be used as end points
-            var allTilePosPaths = allPaths.Where(path => path.Key.CanBeDustFunc == null || path.Key.CanBeDustFunc(path.Key.TilePos))
+            var allTilePosPaths = allPaths.Where(path => path.Key.CanBeDust())
                                           .ToDictionary(pair => pair.Key.TilePos, pair => pair.Value.Select(pathTile => pathTile.WorldPos).ToList());
             return allTilePosPaths;
         }

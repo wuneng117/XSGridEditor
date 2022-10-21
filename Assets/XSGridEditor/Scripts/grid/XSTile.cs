@@ -77,7 +77,7 @@ namespace XSSLG
             }
         }
 
-        public virtual bool IsWalkable() => this.IsWalkable(this.TilePos);
+        public virtual bool IsWalkable() => this.IsWalkableFunc(this.TilePos);
         
         public virtual bool CanBeDust() => this.CanBeDustFunc(this.TilePos);
 
