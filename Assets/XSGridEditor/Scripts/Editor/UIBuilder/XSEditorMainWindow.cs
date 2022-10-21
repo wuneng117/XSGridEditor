@@ -29,7 +29,7 @@ namespace XSSLG
             var battleUnitBtn = this.root.Q<Button>("battleUnitBtn");
             if (battleUnitBtn != null)
             {
-                battleUnitBtn.clickable.clicked += () => XSBattleUnitEditorView.ShowExample();
+                battleUnitBtn.clickable.clicked += () => XSBattleUnitEditorWindow.ShowExample();
             }
         }
 
@@ -41,7 +41,7 @@ namespace XSSLG
                 return;
             }
 
-            test.menu.AppendAction("XSBattleEventEditorView", (a) => XSBattleEventEditorView.ShowExample());
+            test.menu.AppendAction("XSBattleEventEditorView", (a) => XSBattleEventEditorWindow.ShowExample());
         }
 
     }

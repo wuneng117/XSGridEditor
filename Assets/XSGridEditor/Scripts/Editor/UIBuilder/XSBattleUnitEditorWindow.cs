@@ -7,7 +7,7 @@ using System.Linq;
 namespace XSSLG
 {
 
-    public class XSBattleUnitEditorView : EditorWindow
+    public class XSBattleUnitEditorWindow : EditorWindow
     {
         protected VisualElement root;
         private ListView listview;
@@ -18,7 +18,7 @@ namespace XSSLG
 
         public static void ShowExample()
         {
-            XSBattleUnitEditorView wnd = GetWindowWithRect<XSBattleUnitEditorView>(new Rect(0, 0, 800, 760), false, "XSUnitEditor");
+            XSBattleUnitEditorWindow wnd = GetWindowWithRect<XSBattleUnitEditorWindow>(new Rect(0, 0, 800, 760), false, "XSUnitEditor");
             // wnd.ShowModal();
         }
 
@@ -30,7 +30,7 @@ namespace XSSLG
             this.root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleUnitEditorView.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleUnitEditorWindow.uxml");
             visualTree.CloneTree(this.root);
 
             this.listview = this.root.Q<ListView>("unitlist");

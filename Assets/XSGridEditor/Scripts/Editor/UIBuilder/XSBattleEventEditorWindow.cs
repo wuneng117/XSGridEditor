@@ -5,15 +5,15 @@ using UnityEditor.UIElements;
 
 namespace XSSLG
 {
-    public class XSBattleEventEditorView : EditorWindow
+    public class XSBattleEventEditorWindow : EditorWindow
     {
         protected VisualElement root;
 
-        [MenuItem("Window/UI Toolkit/XSBattleEventEditorView")]
+        [MenuItem("Window/UI Toolkit/XSBattleEventEditorWindow")]
         public static void ShowExample()
         {
-            XSBattleEventEditorView wnd = GetWindow<XSBattleEventEditorView>();
-            wnd.titleContent = new GUIContent("XSBattleEventEditorView");
+            XSBattleEventEditorWindow wnd = GetWindow<XSBattleEventEditorWindow>();
+            wnd.titleContent = new GUIContent("XSBattleEventEditorWindow");
         }
 
         public void CreateGUI()
@@ -22,7 +22,7 @@ namespace XSSLG
             this.root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleEventEditorView.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleEventEditorWindow.uxml");
             visualTree.CloneTree(this.root);
 
             var menu1 = this.root.Q<ToolbarMenu>("menu1");

@@ -2,24 +2,29 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System;
+using UnityEngine;
 
 namespace XSSLG
 {
 
-    public class XSStringListViewTitle<T> : VisualElement where T : class
+    public class XSStringListWindow<T> : XSWindow where T : class
     {
+        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSStringListWindow.uxml";
         protected ListView listview;
 
         public XSUnitNode SelectUnit { get; protected set; }
         protected Action<T> okFunc { get; }
 
-        public XSStringListViewTitle(List<T> itemList, Action<T> okFunc)
+        public static void ShowExample(List<T> itemList, Action<T> okFunc)
         {
-            // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSStringListViewTitle.uxml");
-            visualTree.CloneTree(this);
+            var wnd = GetWindow<XSStringListWindow<T>>(false, "XSStringListWindow");
+            wnd.Init(itemList, okFunc);
+            wnd.ShowModal();
+        }
 
-            this.listview = this.Q<ListView>("unitlist");
+        protected virtual void Init(List<T> itemList, Action<T> okFunc)
+        {
+            this.listview = this.Root.Q<ListView>("unitlist");
             this.listview.XSInit(new List<T>(),
                 () =>  new VisualElement(),
                 this.BindListItem
