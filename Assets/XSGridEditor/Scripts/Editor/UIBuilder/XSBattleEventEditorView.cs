@@ -3,35 +3,33 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
-
-public class XSBattleEventEditorView : EditorWindow
+namespace XSSLG
 {
-    // [MenuItem("Window/UI Toolkit/XSBattleEventEditorView")]
-    public static void ShowExample()
+    public class XSBattleEventEditorView : EditorWindow
     {
-        XSBattleEventEditorView wnd = GetWindow<XSBattleEventEditorView>();
-        wnd.titleContent = new GUIContent("XSBattleEventEditorView");
-    }
+        protected VisualElement root;
 
-    public void CreateGUI()
-    {
-        // Each editor window contains a root VisualElement object
-        VisualElement root = rootVisualElement;
+        [MenuItem("Window/UI Toolkit/XSBattleEventEditorView")]
+        public static void ShowExample()
+        {
+            XSBattleEventEditorView wnd = GetWindow<XSBattleEventEditorView>();
+            wnd.titleContent = new GUIContent("XSBattleEventEditorView");
+        }
 
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
+        public void CreateGUI()
+        {
+            // Each editor window contains a root VisualElement object
+            this.root = rootVisualElement;
 
-        // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSBattleEventEditorView.uxml");
-        VisualElement labelFromUXML = visualTree.Instantiate();
-        root.Add(labelFromUXML);
+            // Import UXML
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleEventEditorView.uxml");
+            visualTree.CloneTree(this.root);
 
-        // A stylesheet can be added to a VisualElement.
-        // The style will be applied to the VisualElement and all of its children.
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/XSBattleEventEditorView.uss");
-        VisualElement labelWithStyle = new Label("Hello World! With Style");
-        labelWithStyle.styleSheets.Add(styleSheet);
-        root.Add(labelWithStyle);
+            var menu1 = this.root.Q<ToolbarMenu>("menu1");
+            menu1.menu.AppendAction("menu1", (a) =>
+            {
+                Debug.Log("menu1");
+            });
+        }
     }
 }

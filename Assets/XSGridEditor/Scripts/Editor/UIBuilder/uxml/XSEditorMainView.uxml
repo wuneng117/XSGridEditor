@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="flex-direction: row;">
+        <uie:ToolbarMenu display-tooltip-when-elided="true" text="文件" name="file" />
+        <uie:ToolbarMenu display-tooltip-when-elided="true" text="工具" name="tool" />
+        <uie:ToolbarMenu display-tooltip-when-elided="true" text="测试窗口" name="test" />
+    </ui:VisualElement>
+    <ui:VisualElement style="margin-top: 16px;">
+        <ui:Button text="场景角色编辑" display-tooltip-when-elided="true" name="battleUnitBtn" />
+    </ui:VisualElement>
+</ui:UXML>

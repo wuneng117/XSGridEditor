@@ -70,7 +70,7 @@ namespace XSSLG
                         toggleList.Where(toggle => toggle != evt.target).ToList().ForEach(toggle => toggle.SetValueWithoutNotify(false));
                         if (toggleClickFunc != null)
                         {
-                            toggleClickFunc(target.tabIndex + 1);
+                            toggleClickFunc(target.tabIndex);
                         }
                     }
                     else
@@ -87,15 +87,22 @@ namespace XSSLG
 
     public static class XSUEExtension
     {
+        /// <summary>
+        /// extension ListView Init
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc) where T : class
+        {
+            listview.XSInit(itemsSource, itemAssetPath, bindFunc, (item)=>{});
+        }
 
         /// <summary>
         /// extension ListView Init
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public static void XSInit<T>(this ListView s, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
         {
-            s.itemsSource = itemsSource;
-            s.makeItem = () =>
+            listview.makeItem = () =>
                 {
                     var node = new VisualElement();
                     var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(itemAssetPath);
@@ -103,33 +110,56 @@ namespace XSSLG
                     return node;
                 };
 
-            s.bindItem = (VisualElement node, int index) =>
-                {
-                    var obj = s.itemsSource[index];
-                    if (obj != null)
-                    {
-                        bindFunc(node, obj as T);
-                    }
-                };
+            listview.InitFunc(itemsSource, bindFunc, selFunc);
+        }   
 
-            s.onSelectionChange += (IEnumerable<object> obj) =>
-                {
-                    foreach (var o in obj)
-                    {
-                        selFunc(o as T);
-                    }
-                };
+        /// <summary>
+        /// extension ListView Init
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, Func<VisualElement> makeFunc, Action<VisualElement, T> bindFunc) where T : class
+        {
+            listview.XSInit(itemsSource, makeFunc, bindFunc, (item)=>{});
         }
 
-        public static void XSInit(this BindableElement s, UnityEngine.Object obj, string bindPath)
+        /// <summary>
+        /// extension ListView Init
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void XSInit<T>(this ListView listview, List<T> itemsSource, Func<VisualElement> makeFunc, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
         {
-            if (s != null && bindPath != null && bindPath.Length > 0)
+            listview.makeItem = makeFunc;
+            listview.InitFunc(itemsSource, bindFunc, selFunc);
+        }
+
+        private static void InitFunc<T>(this ListView listview, List<T> itemsSource, Action<VisualElement, T> bindFunc, Action<T> selFunc) where T : class
+        {
+            listview.itemsSource = itemsSource;
+            listview.bindItem = (VisualElement node, int index) =>
+            {
+                var obj = listview.itemsSource[index];
+                if (obj != null)
+                {
+                    bindFunc(node, obj as T);
+                }
+            };
+
+            listview.onSelectionChange += (IEnumerable<object> obj) =>
+            {
+                foreach (var o in obj)
+                {
+                    selFunc(o as T);
+                }
+            };
+        }
+
+        public static void XSInit(this BindableElement element, UnityEngine.Object obj, string bindPath)
+        {
+            if (element != null && bindPath != null && bindPath.Length > 0)
             {
                 var serObj = new SerializedObject(obj);
-                s.Bind(serObj);
-                s.bindingPath = bindPath;
+                element.BindProperty(serObj.FindProperty(bindPath));
             }
-
         }
     }
 }

@@ -15,6 +15,9 @@ namespace XSSLG
 
         protected static void OnEditorSceneManagerSceneOpened(UnityEngine.SceneManagement.Scene scene, UnityEditor.SceneManagement.OpenSceneMode mode)
         {
+            // 重置一些场景相关的界面
+            
+            
             if (scene.name == "Demo_1")
             {
                 XSAssetPostprocessor.CheckLayer();
