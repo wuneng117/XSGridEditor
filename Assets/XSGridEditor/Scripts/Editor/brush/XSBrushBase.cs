@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    public class XSBrushBase : GridBrushBase
+    public abstract class XSBrushBase : GridBrushBase
     {
         [SerializeField]
         protected string objPath = "";
@@ -28,7 +28,7 @@ namespace XSSLG
         protected Vector3Int rotate;
         public Vector3Int Rotation { get => rotate; set => rotate = value; }
 
-        protected string defaultObjPath = "";
+        protected abstract string defaultObjPath { get; }
 
         /// <summary> 把当前选择序列化存起来 </summary>
         [HideInInspector]

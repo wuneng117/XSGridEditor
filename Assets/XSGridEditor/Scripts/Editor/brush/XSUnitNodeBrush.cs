@@ -8,13 +8,12 @@ namespace XSSLG
     [CustomGridBrush(true, false, false, "XSUnitNode Brush")]
     public class XSUnitNodeBrush : XSNodeBrushBase<XSIUnitNode>
     {
+        protected override string defaultObjPath { get; } = "Assets/XSGridEditor/Resources/Prefabs/Units";
         public override void Awake()
         {
             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
             var unitRoot = currentStageHandle.FindComponentOfType<XSUnitRootCpt>();
             this.BrushParent = unitRoot?.transform;
-            
-            this.defaultObjPath = "Assets/XSGridEditor/Resources/Prefabs/Units";
             base.Awake();
         }
 

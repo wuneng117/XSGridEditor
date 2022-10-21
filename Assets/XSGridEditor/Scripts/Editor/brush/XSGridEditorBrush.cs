@@ -14,13 +14,13 @@ namespace XSSLG
     [CustomGridBrush(true, false, false, "XSGridEditor Brush")]
     public class XSGridEditorBrush : XSBrushBase
     {
+        protected override string defaultObjPath { get; } = "Assets/XSGridEditor/Resources/Prefabs/Tiles";
+
         public override void Awake()
         {
             StageHandle currentStageHandle = StageUtility.GetCurrentStageHandle();
             var tileRoot = currentStageHandle.FindComponentOfType<XSTileRootCpt>();
             this.BrushParent = tileRoot?.transform;
-            
-            this.defaultObjPath = "Assets/XSGridEditor/Resources/Prefabs/Tiles";
             base.Awake();
         }
 

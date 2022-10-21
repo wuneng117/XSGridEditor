@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="1">
+        <ui:VisualElement style="margin-top: 6px; min-width: 200px; min-height: 200px;">
+            <ui:Label text="特技" display-tooltip-when-elided="true" name="title" style="-unity-text-align: upper-center;" />
+            <ui:ListView focusable="true" name="listview" style="height: 150px; width: auto; background-color: rgb(56, 56, 56); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; margin-top: 6px;" />
+            <ui:VisualElement style="flex-direction: row-reverse; margin-top: 6px;">
+                <ui:Button text="+" display-tooltip-when-elided="true" name="add_btn" style="min-width: 30px; min-height: 20px;" />
+                <ui:Button text="-" display-tooltip-when-elided="true" name="reduce_btn" style="min-width: 30px; min-height: 20px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

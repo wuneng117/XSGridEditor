@@ -18,8 +18,7 @@ namespace XSSLG
 
         public static void ShowExample()
         {
-            XSBattleUnitEditorView wnd = CreateWindow<XSBattleUnitEditorView>("chuangkou");
-            wnd.titleContent = new GUIContent("XSBattleUnitEditorView");
+            XSBattleUnitEditorView wnd = GetWindowWithRect<XSBattleUnitEditorView>(new Rect(0, 0, 800, 760), false, "XSUnitEditor");
             // wnd.ShowModal();
         }
 

@@ -6,14 +6,13 @@ using UnityEditor.UIElements;
 namespace XSSLG
 {
 
-    public class XSEditorMainView : EditorWindow
+    public class XSEditorMainWindow : EditorWindow
     {
         protected VisualElement root;
-        [MenuItem("XSSRPGEngine/XSEditorMainView")]
+        [MenuItem("XSSRPGEngine/XSEditorMainWindow")]
         public static void ShowExample()
         {
-            XSEditorMainView wnd = GetWindow<XSEditorMainView>();
-            wnd.titleContent = new GUIContent("XSEditorMainView");
+            XSEditorMainWindow wnd = GetWindowWithRect<XSEditorMainWindow>(new Rect(0, 0, 300, 200), false, "XSEditor");
         }
 
         public void CreateGUI()
@@ -22,7 +21,7 @@ namespace XSSLG
             this.root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSEditorMainView.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSEditorMainWindow.uxml");
             visualTree.CloneTree(this.root);
 
             this.CreateTestMenu();

@@ -1,17 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 5px; margin-left: 3px; margin-right: 3px; margin-bottom: 3px;">
-        <ui:VisualElement name="left" style="flex-grow: 0; width: 200px;">
-            <ui:ListView focusable="true" name="unitlist" item-height="66" style="flex-grow: 1; border-right-width: 0.5px; border-left-width: 0; border-top-width: 0.5px; border-bottom-width: 0.5px; border-left-color: rgb(214, 214, 214); border-right-color: rgb(214, 214, 214); border-top-color: rgb(214, 214, 214); border-bottom-color: rgb(214, 214, 214); border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px;" />
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 5px; margin-left: 3px; margin-right: 3px; margin-bottom: 3px; min-width: 638px; min-height: 700px;">
+        <ui:VisualElement name="left" style="flex-grow: 0; width: 200px; margin-right: 16px; min-width: 260px;">
+            <ui:ListView focusable="true" name="unitlist" item-height="63" style="flex-grow: 1; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(214, 214, 214); border-right-color: rgb(214, 214, 214); border-top-color: rgb(214, 214, 214); border-bottom-color: rgb(214, 214, 214); border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; margin-right: 0;" />
         </ui:VisualElement>
         <ui:VisualElement name="center" style="flex-grow: 1; margin-left: 3px;">
             <ui:VisualElement name="top" style="flex-direction: row; flex-grow: 0;">
                 <ui:VisualElement name="icon" style="width: 100px; height: 100px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;" />
                 <ui:VisualElement name="right" style="margin-left: 5px;">
                     <ui:TextField picking-mode="Ignore" label="名称" value="filler text" text="filler text" name="name_text" style="flex-direction: column;" />
-                    <ui:TextField picking-mode="Ignore" label="说明" value="filler text" text="filler text" name="desc_text" style="flex-direction: column;" />
+                    <ui:TextField picking-mode="Ignore" label="说明" value="filler text" text="filler text" name="desc_text" style="flex-direction: column; margin-top: 6px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="center" style="flex-direction: column; flex-wrap: wrap; flex-grow: 0; height: 100px;">
+            <ui:VisualElement name="center" style="flex-direction: row; flex-wrap: nowrap; flex-grow: 0; height: auto; margin-top: 6px;">
                 <uie:IntegerField label="Lv" value="42" name="lv" style="flex-direction: column; width: 80px;" />
                 <uie:IntegerField label="hp" value="42" name="hp" style="flex-direction: column; width: 80px;" />
                 <ui:VisualElement style="flex-direction: row; align-items: flex-end;">
@@ -19,45 +19,20 @@
                     <ui:Button text="..." display-tooltip-when-elided="true" style="height: 20px; position: relative; bottom: auto; align-items: stretch; justify-content: flex-start; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="down" style="flex-direction: row;">
+            <ui:VisualElement name="down" style="flex-direction: row; margin-top: 6px;">
                 <ui:VisualElement style="flex-shrink: 1; flex-grow: 1; width: auto;">
-                    <ui:Label text="参数" display-tooltip-when-elided="true" style="margin-bottom: 5px;" />
-                    <uie:IntegerField label="力量" value="42" name="str" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="魔力" value="42" name="mag" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="技巧" value="42" name="res" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="速度" value="42" name="spd" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="幸运" value="42" name="lck" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="防御" value="42" name="def" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="魔防" value="42" name="dex" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="魅力" value="42" name="cha" style="flex-direction: column; width: 80px;" />
-                    <uie:IntegerField label="移动力" value="42" name="mov" style="flex-direction: column; width: 80px;" />
+                    <ui:Label text="参数" display-tooltip-when-elided="true" style="margin-bottom: 0; margin-top: 6px; margin-left: 3px;" />
+                    <uie:IntegerField label="力量" value="42" name="str" style="flex-direction: column; width: 80px; margin-bottom: 1px; margin-top: 6px; justify-content: flex-start; align-items: stretch;" />
+                    <uie:IntegerField label="魔力" value="42" name="mag" style="flex-direction: column; width: 80px; margin-top: 6px;" />
+                    <uie:IntegerField label="技巧" value="42" name="res" style="flex-direction: column; width: 80px; margin-top: 6px;" />
+                    <uie:IntegerField label="速度" value="42" name="spd" style="flex-direction: column; width: 80px; margin-top: 6px;" />
+                    <uie:IntegerField label="幸运" value="42" name="lck" style="flex-direction: column; width: 80px; margin-top: 6px;" />
+                    <uie:IntegerField label="防御" value="42" name="def" style="flex-direction: column; width: 80px; margin-top: 6px;" />
+                    <uie:IntegerField label="魔防" value="42" name="dex" style="flex-direction: column; width: 80px; margin-top: 6px;" />
+                    <uie:IntegerField label="魅力" value="42" name="cha" style="flex-direction: column; width: 80px; margin-top: 6px;" />
+                    <uie:IntegerField label="移动力" value="42" name="mov" style="flex-direction: column; width: 80px; margin-top: 6px;" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1;">
-                    <ui:VisualElement>
-                        <ui:Label text="特技" display-tooltip-when-elided="true" name="Label" style="-unity-text-align: upper-center;" />
-                        <ui:ListView focusable="true" name="ability_listview" style="height: 150px; width: auto; background-color: rgb(56, 56, 56); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;" />
-                        <ui:VisualElement style="flex-direction: row-reverse;">
-                            <ui:Button text="+" display-tooltip-when-elided="true" name="ability_add" />
-                            <ui:Button text="-" display-tooltip-when-elided="true" name="ability_reduce" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement>
-                        <ui:Label text="战技" display-tooltip-when-elided="true" name="Label" style="-unity-text-align: upper-center;" />
-                        <ui:ListView focusable="true" name="ability_listview" style="height: 150px; width: auto; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
-                        <ui:VisualElement style="flex-direction: row-reverse;">
-                            <ui:Button text="+" display-tooltip-when-elided="true" name="ability_add" />
-                            <ui:Button text="-" display-tooltip-when-elided="true" name="ability_reduce" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement>
-                        <ui:Label text="魔法" display-tooltip-when-elided="true" name="Label" style="-unity-text-align: upper-center;" />
-                        <ui:ListView focusable="true" name="ability_listview" style="height: 150px; width: auto; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
-                        <ui:VisualElement style="flex-direction: row-reverse;">
-                            <ui:Button text="+" display-tooltip-when-elided="true" name="ability_add" />
-                            <ui:Button text="-" display-tooltip-when-elided="true" name="ability_reduce" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

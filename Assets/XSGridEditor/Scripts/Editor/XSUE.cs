@@ -29,9 +29,7 @@ namespace XSSLG
         /// <summary> pop-up reminder </summary>
         public static void ShowTip(string desc)
         {
-            var tip = ScriptableObject.CreateInstance<XSPopUpView>();
-            tip.Init(desc);
-            tip.ShowPopup();
+            XSPopUpWindow.ShowExample(desc);
         }
 
         public static XSGridMainEditMode GetGridMainEditMode()
@@ -109,7 +107,6 @@ namespace XSSLG
                     visualTree?.CloneTree(node);
                     return node;
                 };
-
             listview.InitFunc(itemsSource, bindFunc, selFunc);
         }   
 
