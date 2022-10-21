@@ -89,6 +89,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac4fcb77d6decf15c98bcb3f4dcdfdbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14309a17118c32b03dbae3007cf1d107"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#a14309a17118c32b03dbae3007cf1d107">XSTile</a> (<a class="el" href="base_2battle_2unit_2XSUnitMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a> tilePos, <a class="el" href="interfaceXSSLG_1_1XSITileNode.html">XSITileNode</a> node, <a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a> isWalkable, <a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a> canBeDustFunc)</td></tr>
 <tr class="separator:a14309a17118c32b03dbae3007cf1d107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27b63be8e007092b03c669baf38ff03"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#ac27b63be8e007092b03c669baf38ff03">IsWalkable</a> ()</td></tr>
+<tr class="separator:ac27b63be8e007092b03c669baf38ff03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba46367acd2209f8929f42967b1a084d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#aba46367acd2209f8929f42967b1a084d">CanBeDust</a> ()</td></tr>
+<tr class="separator:aba46367acd2209f8929f42967b1a084d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52173d1e0f1ddcfbe70321c6c831f31e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#a52173d1e0f1ddcfbe70321c6c831f31e">PassNearRule</a> (<a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> tile, <a class="el" href="base_2battle_2unit_2XSUnitMgr_8cs.html#a8f47b984071a9a268f4c044cf1941e8b">Vector3Int</a> direct, int tileOffYMax)</td></tr>
 <tr class="separator:a52173d1e0f1ddcfbe70321c6c831f31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -117,10 +121,10 @@ Properties</h2></td></tr>
 <tr class="memitem:aad59974b4e303bd4601e273a3d2302c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interfaceXSSLG_1_1XSITileNode.html">XSITileNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#aad59974b4e303bd4601e273a3d2302c7">Node</a><code> [get]</code></td></tr>
 <tr class="memdesc:aad59974b4e303bd4601e273a3d2302c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">this node in scene  <a href="classXSSLG_1_1XSTile.html#aad59974b4e303bd4601e273a3d2302c7">More...</a><br /></td></tr>
 <tr class="separator:aad59974b4e303bd4601e273a3d2302c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdd81679297ada40452af7309b796cee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#acdd81679297ada40452af7309b796cee">IsWalkableFunc</a> = (tilePos) =&gt; true<code> [get, protected set]</code></td></tr>
+<tr class="memitem:acdd81679297ada40452af7309b796cee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#acdd81679297ada40452af7309b796cee">IsWalkableFunc</a> = (tilePos) =&gt; true<code> [get, set]</code></td></tr>
 <tr class="memdesc:acdd81679297ada40452af7309b796cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">the tile can walkable (the enemy will block the way)  <a href="classXSSLG_1_1XSTile.html#acdd81679297ada40452af7309b796cee">More...</a><br /></td></tr>
 <tr class="separator:acdd81679297ada40452af7309b796cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2e7f1daf16881e73906b50cc6dd0930"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#aa2e7f1daf16881e73906b50cc6dd0930">CanBeDustFunc</a> = (tilePos) =&gt; true<code> [get, protected set]</code></td></tr>
+<tr class="memitem:aa2e7f1daf16881e73906b50cc6dd0930"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceXSSLG.html#adc5f0f4decc18f807e3106f8946d1241">TileFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#aa2e7f1daf16881e73906b50cc6dd0930">CanBeDustFunc</a> = (tilePos) =&gt; true<code> [get, set]</code></td></tr>
 <tr class="memdesc:aa2e7f1daf16881e73906b50cc6dd0930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether this tile can be the end of path (two units cannot in the same tile)  <a href="classXSSLG_1_1XSTile.html#aa2e7f1daf16881e73906b50cc6dd0930">More...</a><br /></td></tr>
 <tr class="separator:aa2e7f1daf16881e73906b50cc6dd0930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1713dca22f690fad62944beffe415841"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html#a1713dca22f690fad62944beffe415841">NearTileList</a> = new List&lt;<a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a>&gt;()<code> [get]</code></td></tr>
@@ -256,6 +260,31 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aba46367acd2209f8929f42967b1a084d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba46367acd2209f8929f42967b1a084d">&#9670;&nbsp;</a></span>CanBeDust()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool XSSLG.XSTile.CanBeDust </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab43bc84cb0ba1593479faf06e4dcc299"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab43bc84cb0ba1593479faf06e4dcc299">&#9670;&nbsp;</a></span>Default()</h2>
 
@@ -280,6 +309,31 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>return default value </p>
+
+</div>
+</div>
+<a id="ac27b63be8e007092b03c669baf38ff03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27b63be8e007092b03c669baf38ff03">&#9670;&nbsp;</a></span>IsWalkable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool XSSLG.XSTile.IsWalkable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -386,7 +440,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">protected set</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -434,7 +488,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">protected set</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
