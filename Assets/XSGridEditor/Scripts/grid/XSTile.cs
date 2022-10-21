@@ -42,9 +42,9 @@ namespace XSSLG
         public XSITileNode Node { get; }
 
         /// <summary> the tile can walkable (the enemy will block the way) </summary>
-        public TileFunc IsWalkableFunc { get; protected set; } = (tilePos) => true;
+        protected TileFunc IsWalkableFunc { get; set; } = (tilePos) => true;
         /// <summary> Whether this tile can be the end of path (two units cannot in the same tile)</summary>
-        public TileFunc CanBeDustFunc { get; protected set; } = (tilePos) => true;
+        protected TileFunc CanBeDustFunc { get; set; } = (tilePos) => true;
 
         public List<XSTile> NearTileList { get; } = new List<XSTile>();
 
@@ -76,6 +76,10 @@ namespace XSSLG
                 this.CanBeDustFunc = canBeDustFunc;
             }
         }
+
+        public virtual bool IsWalkable() => this.IsWalkable(this.TilePos);
+        
+        public virtual bool CanBeDust() => this.CanBeDustFunc(this.TilePos);
 
         /// <summary> return default value </summary>
         static public XSTile Default() => new XSTile(new Vector3Int(), null);
