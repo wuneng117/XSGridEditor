@@ -27,7 +27,7 @@ var searchData=
   ['unitbase_2ecs_869',['UnitBase.cs',['../UnitBase_8cs.html',1,'']]],
   ['unitdefine_870',['UnitDefine',['../classXSSLG_1_1UnitDefine.html',1,'XSSLG']]],
   ['unitdefine_2ecs_871',['UnitDefine.cs',['../UnitDefine_8cs.html',1,'']]],
-  ['uniteditorview_872',['UnitEditorView',['../classXSSLG_1_1XSBattleUnitEditorView.html#a3b45737e8ec3fe7713ecd22bf4fca648',1,'XSSLG::XSBattleUnitEditorView']]],
+  ['uniteditorview_872',['UnitEditorView',['../classXSSLG_1_1XSBattleUnitEditorWindow.html#a3eda6dc62551edbe2db7734d40b3b9f5',1,'XSSLG::XSBattleUnitEditorWindow']]],
   ['unitfactory_873',['UnitFactory',['../classXSSLG_1_1UnitFactory.html',1,'XSSLG']]],
   ['unitfactory_2ecs_874',['UnitFactory.cs',['../UnitFactory_8cs.html',1,'']]],
   ['unitgroupmartex_2ecs_875',['UnitGroupMartex.cs',['../UnitGroupMartex_8cs.html',1,'']]],
@@ -54,5 +54,6 @@ var searchData=
   ['updatetilesize_896',['UpdateTileSize',['../interfaceXSSLG_1_1XSIGridMgr.html#ab7fa9eab14e739cf9e875e3da369749a',1,'XSSLG.XSIGridMgr.UpdateTileSize()'],['../classXSSLG_1_1XSGridMgr.html#a357d7c0b55a7c5b7ff2c516ff2ecc6b6',1,'XSSLG.XSGridMgr.UpdateTileSize()']]],
   ['updatetime_897',['UpdateTime',['../classXSSLG_1_1CustomSchedulerItem.html#aa574cf14f44b757b043dd8dde6cdfe30',1,'XSSLG::CustomSchedulerItem']]],
   ['updateunitinfotip_898',['UpdateUnitInfoTip',['../classXSSLG_1_1BattleNode.html#a602afbcead4f75aa30bfa3b7d2694b9a',1,'XSSLG::BattleNode']]],
-  ['updateunitpos_899',['UpdateUnitPos',['../classXSSLG_1_1XSUnitMgrEditMode.html#aa8097e0b6178c360a02059a50a198ee3',1,'XSSLG::XSUnitMgrEditMode']]]
+  ['updateunitpos_899',['UpdateUnitPos',['../classXSSLG_1_1XSUnitMgrEditMode.html#aa8097e0b6178c360a02059a50a198ee3',1,'XSSLG::XSUnitMgrEditMode']]],
+  ['uxmlpath_900',['UXMLPath',['../classXSSLG_1_1XSStringListWindow.html#a755362f79c31276de1ee9e66928bf527',1,'XSSLG.XSStringListWindow.UXMLPath()'],['../classXSSLG_1_1XSWindow.html#ad5fc0afd268983adfd9f708a6b984f90',1,'XSSLG.XSWindow.UXMLPath()'],['../classXSSLG_1_1XSPopUpWindow.html#a6289e33551d2d9cb280d165d14c1343f',1,'XSSLG.XSPopUpWindow.UXMLPath()']]]
 ];

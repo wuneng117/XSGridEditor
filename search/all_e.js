@@ -2,8 +2,8 @@ var searchData=
 [
   ['objstack_515',['ObjStack',['../classXSSLG_1_1UIMgr.html#afcf7724b708eba9b0c462057a51ed4a9',1,'XSSLG::UIMgr']]],
   ['off_516',['Off',['../classXSSLG_1_1Emitter.html#a7ce3360ab91e6d4bd7e9dc8c7e9de0f7',1,'XSSLG.Emitter.Off(TYPE type)'],['../classXSSLG_1_1Emitter.html#a94c284ca6baeafb4bfe90e60a1884c97',1,'XSSLG.Emitter.Off(TYPE type, T callback)'],['../classXSSLG_1_1Emitter.html#a3f4f22fa0377540924da5c20a8955147',1,'XSSLG.Emitter.Off(TYPE type, object target)'],['../classXSSLG_1_1Emitter.html#aa8e81c5946fc56c3bab36165c79e665e',1,'XSSLG.Emitter.Off(object target)']]],
-  ['okbtnclickevent_517',['okBtnClickEvent',['../classXSSLG_1_1XSStringListView.html#a67d379151077e7f0acc29190c734950b',1,'XSSLG::XSStringListView']]],
-  ['okfunc_518',['okFunc',['../classXSSLG_1_1XSStringListView.html#a4972e7134f2cacb0b3094d60ad3d7ae1',1,'XSSLG::XSStringListView']]],
+  ['okbtnclickevent_517',['okBtnClickEvent',['../classXSSLG_1_1XSStringListView.html#a67d379151077e7f0acc29190c734950b',1,'XSSLG.XSStringListView.okBtnClickEvent()'],['../classXSSLG_1_1XSStringListWindow.html#a2c6d118da161605c43e94812e32fff66',1,'XSSLG.XSStringListWindow.okBtnClickEvent()']]],
+  ['okfunc_518',['okFunc',['../classXSSLG_1_1XSStringListView.html#a4972e7134f2cacb0b3094d60ad3d7ae1',1,'XSSLG.XSStringListView.okFunc()'],['../classXSSLG_1_1XSStringListWindow.html#a052148e0b46f49870e67923d27db81a6',1,'XSSLG.XSStringListWindow.okFunc()']]],
   ['on_519',['On',['../classXSSLG_1_1Emitter.html#ab3a8ac09869d39aaaac793753841facb',1,'XSSLG::Emitter']]],
   ['onadd_520',['OnAdd',['../classXSSLG_1_1BuffBase.html#aaf0c5fafffccf18bd1f606c96428796e',1,'XSSLG::BuffBase']]],
   ['onafterattack_521',['OnAfterAttack',['../classXSSLG_1_1PhaseUnitAtkBase.html#a6a829a52f6fe1faa8bfabd18df996034',1,'XSSLG::PhaseUnitAtkBase']]],

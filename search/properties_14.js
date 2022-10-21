@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xscamera_2213',['XSCamera',['../classXSSLG_1_1BattleNode.html#a39476b33a7de79ae963b13c841236ef2',1,'XSSLG::BattleNode']]]
+  ['xscamera_2224',['XSCamera',['../classXSSLG_1_1BattleNode.html#a39476b33a7de79ae963b13c841236ef2',1,'XSSLG::BattleNode']]]
 ];
