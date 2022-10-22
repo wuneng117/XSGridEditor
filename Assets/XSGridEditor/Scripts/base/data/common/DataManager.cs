@@ -63,9 +63,9 @@ namespace XSSLG
             for (int i = 0; i < instance.itemArray.Count; i++)
             {
                 var item = instance.itemArray[i];
-                if (!instance.keyIndexMap.ContainsKey(item.Name))
+                if (!instance.keyIndexMap.ContainsKey(item.Key))
                 {
-                    instance.keyIndexMap.Add(item.Name, i);
+                    instance.keyIndexMap.Add(item.Key, i);
                 }
             }
         }
@@ -103,12 +103,12 @@ namespace XSSLG
 
         public void AddItem(T item)
         {
-            if (item.Name == null || item.Name.Length == 0 || this.keyIndexMap.ContainsKey(item.Name))
+            if (item.Key == null || item.Key.Length == 0 || this.keyIndexMap.ContainsKey(item.Key))
             {
                 return;
             }
             this.itemArray.Add(item);
-            this.keyIndexMap.Add(item.Name, this.itemArray.Count - 1);
+            this.keyIndexMap.Add(item.Key, this.itemArray.Count - 1);
         }
     }
 }

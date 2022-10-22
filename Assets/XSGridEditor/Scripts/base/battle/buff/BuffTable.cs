@@ -14,7 +14,7 @@ namespace XSSLG
         {
             do
             {
-                var prevBuff = this.List.Find(item => item.Data.Name == buff.Data.Name);
+                var prevBuff = this.List.Find(item => item.Data.Key == buff.Data.Key);
                 if (prevBuff != null && buff.Data.CanStack)
                 {
                     prevBuff.AddCount(buff.Data.InitCount);

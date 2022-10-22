@@ -27,6 +27,9 @@ namespace XSSLG
 
         void AddBoxCollider();
 
+        /// <summary> if unit is added by brush, it need a new key </summary>
+        void GenerateKey();
+
         void UpdatePos();
 
         void AttackAnimation();

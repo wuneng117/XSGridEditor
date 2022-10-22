@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 namespace XSSLG
 {
 
-    public abstract class XSWindow : EditorWindow
+    public abstract class XSBaseWindow : EditorWindow
     {
         protected abstract string UXMLPath { get; }
         protected VisualElement Root { get; set; }

@@ -89,6 +89,9 @@ namespace XSSLG
 
         public virtual bool IsNull() => this == null;
 
+        /// <summary> if unit is added by brush, it need a new key </summary>
+        public virtual void GenerateKey() => this.Data.Key = System.Guid.NewGuid().ToString();
+
         public virtual void UpdatePos()
         {
             XSU.GridHelper.SetTransToTopTerrain(this.transform, true);

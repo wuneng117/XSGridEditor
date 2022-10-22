@@ -38,22 +38,22 @@ namespace XSSLG
 
         [SerializeField]
         // /// <summary>纹章技能 SkillData</summary>
-        public List<string> CrestNameArray { get; private set; } = new List<string>();
+        public List<string> CrestKeyArray { get; private set; } = new List<string>();
         [SerializeField]
         // /// <summary>特技 SkillData</summary>
-        public List<string> AbilityNameArray { get; private set; } = new List<string>();
+        public List<string> AbilityKeyArray { get; private set; } = new List<string>();
         [SerializeField]
         /// <summary>拥有的职业 ClassData</summary>
-        public List<string> ClassDataNameArray { get; private set; } = new List<string>();
+        public List<string> ClassDataKeyArray { get; private set; } = new List<string>();
         [SerializeField]
         // /// <summary>战技 SkillData</summary>
-        public List<string> CombatArtNameArray { get; private set; } = new List<string>();
+        public List<string> CombatArtKeyArray { get; private set; } = new List<string>();
         [SerializeField]
         // /// <summary>魔法 SkillData</summary>
-        public List<string> MagicNameArray { get; private set; } = new List<string>();
+        public List<string> MagicKeyArray { get; private set; } = new List<string>();
         [SerializeField]
         /// <summary>可以学会的技能 LearnSkillData</summary>
-        public List<LearnSkillData> LearnSkillNameArray { get; private set; } = new List<LearnSkillData>();
+        public List<LearnSkillData> LearnSkillKeyArray { get; private set; } = new List<LearnSkillData>();
     }
 
     [Serializable]

@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace XSSLG
 {
-    public class XSPopUpWindow : XSWindow
+    public class XSPopUpWindow : XSBaseWindow
     {
         protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSPopUpWindow.uxml";
 

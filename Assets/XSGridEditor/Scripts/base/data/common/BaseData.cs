@@ -6,6 +6,11 @@ namespace XSSLG
     [Serializable]
     public class BaseData
     {
+        /// <summary> key名字 </summary>
+        [SerializeField]
+        protected string key = "";
+        public string Key { get => key; set => key = value; }
+
         /// <summary>名字</summary>
         [SerializeField]
         protected string name = "";

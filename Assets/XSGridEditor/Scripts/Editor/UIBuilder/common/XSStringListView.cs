@@ -6,22 +6,19 @@ using System;
 namespace XSSLG
 {
 
-    public class XSStringListView<T> : VisualElement where T : class
+    public class XSStringListView<T> : XSBaseView where T : class
     {
         protected ListView listview;
+        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSStringListView.uxml";
 
         public XSUnitNode SelectUnit { get; protected set; }
         protected Action<T> okFunc { get; }
 
-        public XSStringListView(List<T> itemList, Action<T> okFunc)
+        public XSStringListView(List<T> itemList, Action<T> addFunc, Action<T> removeFunc) : base()
         {
-            // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSStringListView.uxml");
-            visualTree.CloneTree(this);
-
             this.listview = this.Q<ListView>("unitlist");
             this.listview.XSInit(new List<T>(),
-                () =>  new VisualElement(),
+                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSUnitEditorView_ListItem.uxml",
                 this.BindListItem
             );
             // this.listview.onItemsChosen += this.OnChosenItem;

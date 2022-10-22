@@ -45,7 +45,9 @@ namespace XSSLG
             unitEditMode.enabled = true;
 
             //add to unit dict
-            var ret = mgr.Add(unitObj.GetComponent<XSIUnitNode>());
+            var unitNode = unitObj.GetComponent<XSIUnitNode>();
+            unitNode.GenerateKey();
+            var ret = mgr.Add(unitNode);
             if (!ret)
             {
                 GameObject.DestroyImmediate(unitObj);

@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    key: "\u6D4B\u8BD5\u654C\u4EBA1"
     name: "\u6D4B\u8BD5\u654C\u4EBA1"
     desc: "\u6D4B\u8BD5\u7529\u554A"
     lv: 5

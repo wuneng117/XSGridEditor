@@ -7,7 +7,7 @@ using UnityEngine;
 namespace XSSLG
 {
 
-    public class XSStringListWindow<T> : XSWindow where T : class
+    public class XSStringListWindow<T> : XSBaseWindow where T : class
     {
         protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSStringListWindow.uxml";
         protected ListView listview;
