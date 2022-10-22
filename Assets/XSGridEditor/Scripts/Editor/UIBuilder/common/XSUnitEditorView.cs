@@ -72,7 +72,7 @@ namespace XSSLG
                 // texture.style.backgroundImage = Resources.Load<Texture2D>("path_to_png");
             }
 
-            node.Q<Label>("label")?.XSInit(obj, "data.key");
+            node.Q<Label>("label")?.XSInit(obj, "data.name");
         }
 
         protected virtual void OnSelectionItem(XSUnitNode obj)

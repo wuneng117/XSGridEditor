@@ -8,6 +8,7 @@ namespace XSSLG
     {
         /// <summary> key名字 </summary>
         [SerializeField]
+        [HideInInspector]
         protected string key = "";
         public string Key { get => key; set => key = value; }
 
