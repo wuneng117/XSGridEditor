@@ -1,13 +1,22 @@
 var searchData=
 [
-  ['uimgr_2210',['UIMgr',['../classXSSLG_1_1BattleNode.html#ae12de9285712dde512183afd0820df02',1,'XSSLG.BattleNode.UIMgr()'],['../classXSSLG_1_1XSU.html#a066a9d9a8c2b1768ecee055a8dc2a31d',1,'XSSLG.XSU.UIMgr()']]],
-  ['unit_2211',['Unit',['../interfaceXSSLG_1_1IReleaseEntity.html#aaead19837105fef7c7a6ac2bd3835ff5',1,'XSSLG.IReleaseEntity.Unit()'],['../classXSSLG_1_1SkillBase.html#a092533c224e5bd7162f015c499f62c0a',1,'XSSLG.SkillBase.Unit()']]],
-  ['uniteditorview_2212',['UnitEditorView',['../classXSSLG_1_1XSBattleUnitEditorWindow.html#a3eda6dc62551edbe2db7734d40b3b9f5',1,'XSSLG::XSBattleUnitEditorWindow']]],
-  ['unitmgr_2213',['UnitMgr',['../classXSSLG_1_1BattleLogic.html#a9193551ea6ec815c26b63860a1861b66',1,'XSSLG::BattleLogic']]],
-  ['unitmgreditmode_2214',['UnitMgrEditMode',['../classXSSLG_1_1XSUE.html#a5239a443de9956f6fbb50cf264f3f899',1,'XSSLG.XSUE.UnitMgrEditMode()'],['../classXSSLG_1_1XSGridMainEditMode.html#ae4550b0ead0c59914174cd7e1ee89642',1,'XSSLG.XSGridMainEditMode.UnitMgrEditMode()']]],
-  ['unitroot_2215',['UnitRoot',['../classXSSLG_1_1XSGridHelper.html#a9a5fe64d9f2df70f610185dbd6c27a02',1,'XSSLG::XSGridHelper']]],
-  ['unregisterhander_2216',['UnRegisterHander',['../classXSSLG_1_1AutoTriggerBase.html#a4ae1ea00045980ae417a2d061643da9f',1,'XSSLG::AutoTriggerBase']]],
-  ['up_2217',['Up',['../classXSSLG_1_1Accessibility.html#a73b79a9f7c39741824bbfde62e3655cf',1,'XSSLG::Accessibility']]],
-  ['updatetime_2218',['UpdateTime',['../classXSSLG_1_1CustomSchedulerItem.html#aa574cf14f44b757b043dd8dde6cdfe30',1,'XSSLG::CustomSchedulerItem']]],
-  ['uxmlpath_2219',['UXMLPath',['../classXSSLG_1_1XSStringListWindow.html#a755362f79c31276de1ee9e66928bf527',1,'XSSLG.XSStringListWindow.UXMLPath()'],['../classXSSLG_1_1XSWindow.html#ad5fc0afd268983adfd9f708a6b984f90',1,'XSSLG.XSWindow.UXMLPath()'],['../classXSSLG_1_1XSPopUpWindow.html#a6289e33551d2d9cb280d165d14c1343f',1,'XSSLG.XSPopUpWindow.UXMLPath()']]]
+  ['table_2210',['Table',['../classXSSLG_1_1UnitBase.html#a1632226eab91f9a2ca42791b2123cf13',1,'XSSLG::UnitBase']]],
+  ['target_2211',['Target',['../classXSSLG_1_1ReleaseData.html#a2a7de423f2c95cc7fc19297abbbfbbbd',1,'XSSLG.ReleaseData.Target()'],['../classXSSLG_1_1ConditionStruct.html#a75d9fa3190af6d7040f6819f148cc72b',1,'XSSLG.ConditionStruct.Target()'],['../classXSSLG_1_1SearchStruct.html#a3dd7a14ff29ea3ca3db4dc7fbc03c1e3',1,'XSSLG.SearchStruct.Target()']]],
+  ['technieuqlv_2212',['TechnieuqLv',['../classXSSLG_1_1LearnSkillData.html#a45b68263597b6cf550b6ef34894762e6',1,'XSSLG::LearnSkillData']]],
+  ['technique_2213',['Technique',['../classXSSLG_1_1Role.html#aa50b2a9423eb5a8f62e89f7bd5c4aa36',1,'XSSLG::Role']]],
+  ['techniquearray_2214',['TechniqueArray',['../classXSSLG_1_1TechniqueLevelEx.html#a5807536733f09b45b599f95543a040d7',1,'XSSLG::TechniqueLevelEx']]],
+  ['techniquelvarray_2215',['TechniqueLvArray',['../classXSSLG_1_1ClassData.html#a6e363985008ca4fb8defbde11c114c1c',1,'XSSLG::ClassData']]],
+  ['texture_2216',['Texture',['../classXSSLG_1_1RoleData.html#a050530974b1de5050bf600ff84b61181',1,'XSSLG::RoleData']]],
+  ['tile_2217',['Tile',['../classXSSLG_1_1PhaseChooseAtk.html#a9cfa184667ee0a2b574ffb63ce2b6ce0',1,'XSSLG.PhaseChooseAtk.Tile()'],['../classXSSLG_1_1PhaseUnitAtkBase.html#aab882babf0475dc93138e2d0d62ffca6',1,'XSSLG.PhaseUnitAtkBase.Tile()']]],
+  ['tiledict_2218',['TileDict',['../classXSSLG_1_1XSGridMgr.html#a1e26e1271d747489762a6e1e27b9eb07',1,'XSSLG::XSGridMgr']]],
+  ['tileoffymax_2219',['TileOffYMax',['../classXSSLG_1_1XSGridHelper.html#ac486d993e26aa71a3c06c4aed5fc4858',1,'XSSLG::XSGridHelper']]],
+  ['tilepos_2220',['TilePos',['../classXSSLG_1_1XSTile.html#ab31ca54f3d4642b98499557d52388c2e',1,'XSSLG::XSTile']]],
+  ['tileroot_2221',['TileRoot',['../classXSSLG_1_1XSGridMgr.html#a7e54ffa3ed1f6c1e675f561d9def7c0e',1,'XSSLG.XSGridMgr.TileRoot()'],['../classXSSLG_1_1XSGridHelper.html#a45c7a3d28fc2123ddf4d411603419b81',1,'XSSLG.XSGridHelper.TileRoot()']]],
+  ['tilesize_2222',['TileSize',['../classXSSLG_1_1XSGridMgr.html#a765cfba7eff33617f29ca4a9b3eb8ee3',1,'XSSLG::XSGridMgr']]],
+  ['timeleft_2223',['TimeLeft',['../classXSSLG_1_1BuffBase.html#a602a0e8def8bf01d4ecb2adcf310f5fe',1,'XSSLG::BuffBase']]],
+  ['trigger_2224',['Trigger',['../classXSSLG_1_1SkillBase.html#aa88102f3264e7e11f79803c0db33e806',1,'XSSLG::SkillBase']]],
+  ['triggerdatamanager_2225',['TriggerDataManager',['../classXSSLG_1_1TableManager.html#a3a1fb13c84cce5eba01ed644c14105fe',1,'XSSLG::TableManager']]],
+  ['triggername_2226',['TriggerName',['../classXSSLG_1_1SkillData.html#a452da3a12a5a57c27d9d7c870f8fd5f1',1,'XSSLG::SkillData']]],
+  ['turncount_2227',['TurnCount',['../classXSSLG_1_1Player.html#ab434144cbb2b8f9562d7bb096a90a75e',1,'XSSLG::Player']]],
+  ['type_2228',['Type',['../classXSSLG_1_1BuffData.html#a36df3db35ace539bb0cc796236d4bb0a',1,'XSSLG.BuffData.Type()'],['../classXSSLG_1_1PropStruct.html#ab51030193d80b55645e5a3ac80cbeb59',1,'XSSLG.PropStruct.Type()'],['../classXSSLG_1_1SkillEffectStruct.html#af0c468f959718cd32dfc88b7f0c60519',1,'XSSLG.SkillEffectStruct.Type()'],['../classXSSLG_1_1TechniqueLevel.html#a40ea9b3d74af142d0a0373156a0803d5',1,'XSSLG.TechniqueLevel.Type()'],['../classXSSLG_1_1SkillData.html#a212bdaebc03e4b3528ca2f059e926b43',1,'XSSLG.SkillData.Type()'],['../classXSSLG_1_1ConditionStruct.html#aac02f673b0ddbc82b6bc8b7fdf5b6e11',1,'XSSLG.ConditionStruct.Type()'],['../classXSSLG_1_1SearchStruct.html#a61766f8b4c2e190ce21963f909c857d6',1,'XSSLG.SearchStruct.Type()'],['../classXSSLG_1_1TriggerData.html#afd638ceae5a35bc67af14957f6154922',1,'XSSLG.TriggerData.Type()']]]
 ];

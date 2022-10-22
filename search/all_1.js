@@ -1,7 +1,7 @@
 var searchData=
 [
   ['abilityarray_7',['AbilityArray',['../classXSSLG_1_1Role.html#aedcaf5c156aef6605c42daf7e8a65504',1,'XSSLG::Role']]],
-  ['abilitynamearray_8',['AbilityNameArray',['../classXSSLG_1_1RoleData.html#a94245e63790b2f67330268785a60e4be',1,'XSSLG::RoleData']]],
+  ['abilitykeyarray_8',['AbilityKeyArray',['../classXSSLG_1_1RoleData.html#ae023814e14ca3648bc3b115387b36a1c',1,'XSSLG::RoleData']]],
   ['access_9',['Access',['../interfaceXSSLG_1_1XSITileNode.html#a120fe634fdfbdb9ce5f3645e43c659d5',1,'XSSLG.XSITileNode.Access()'],['../classXSSLG_1_1XSTile.html#a3aacfa241af62971374b74a3828fddf9',1,'XSSLG.XSTile.Access()'],['../classXSSLG_1_1XSTileNode.html#a2b7db9ccc857b1d7bf0a247ebb3ed158',1,'XSSLG.XSTileNode.Access()'],['../classXSSLG_1_1XSTileNode.html#a309799cbc577a8eaf4f55034168b43c9',1,'XSSLG.XSTileNode.access()']]],
   ['accessibility_10',['Accessibility',['../classXSSLG_1_1Accessibility.html',1,'XSSLG']]],
   ['accessory_11',['Accessory',['../classXSSLG_1_1XSDefine.html#a28144fcaac4d9a763e16b3fb4e8d65b7aafdf68e7bb331d324d2135699c3aa39e',1,'XSSLG::XSDefine']]],
