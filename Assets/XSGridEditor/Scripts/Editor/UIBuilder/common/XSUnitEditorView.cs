@@ -23,7 +23,7 @@ namespace XSSLG
 
             this.listview = this.Q<ListView>("unitlist");
             this.listview.XSInit(new List<XSUnitNode>(),
-                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSUnitEditorView_ListItem.uxml",
+                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSListViewItem.uxml",
                 this.BindListItem,
                 this.OnSelectionItem
             );
@@ -79,6 +79,11 @@ namespace XSSLG
         {
             Selection.activeGameObject = obj.gameObject;
             this.SelectUnit = obj;
+            var texture_field = this.Q<ObjectField>("fg");
+            texture_field.objectType = typeof(Texture2D);
+            texture_field?.XSInit(obj, "data.texture");
+            texture_field?.RegisterValueChangedCallback((evt) => this.RefreshIcon(evt.newValue as Texture2D));
+
             var name_text = this.Q<TextField>("name_text");
             name_text?.XSInit(obj, "data.name");
 
@@ -140,8 +145,22 @@ namespace XSSLG
             // instance = ClassDataManager.Instance;
         }
 
+        protected virtual void RefreshIcon(Texture2D texture)
+        {
+            var icon = this.Q<VisualElement>("icon");
+            if (texture != null)
+            {
+                icon.style.backgroundImage = texture;
+            }
+            else
+            {
+                icon.style.backgroundImage = null;
+            }
+        }
+
         protected virtual void ResetValue()
         {
+            this.RefreshIcon(null);
             var name_text = this.Q<TextField>("name_text");
             name_text?.Unbind();
             var desc_text = this.Q<TextField>("desc_text");

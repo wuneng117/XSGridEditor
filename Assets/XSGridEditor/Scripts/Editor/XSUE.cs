@@ -91,7 +91,7 @@ namespace XSSLG
         /// <typeparam name="T"></typeparam>
         public static void XSInit<T>(this ListView listview, List<T> itemsSource, string itemAssetPath, Action<VisualElement, T> bindFunc) where T : class
         {
-            listview.XSInit(itemsSource, itemAssetPath, bindFunc, (item)=>{});
+            listview.XSInit(itemsSource, itemAssetPath, bindFunc, (item) => { });
         }
 
         /// <summary>
@@ -105,10 +105,15 @@ namespace XSSLG
                     var node = new VisualElement();
                     var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(itemAssetPath);
                     visualTree?.CloneTree(node);
+                    var texture = node.Q<VisualElement>("texture");
+                    if (texture != null)
+                    {
+                        texture.style.maxWidth = listview.itemHeight;
+                    }
                     return node;
                 };
             listview.InitFunc(itemsSource, bindFunc, selFunc);
-        }   
+        }
 
         /// <summary>
         /// extension ListView Init
@@ -116,7 +121,7 @@ namespace XSSLG
         /// <typeparam name="T"></typeparam>
         public static void XSInit<T>(this ListView listview, List<T> itemsSource, Func<VisualElement> makeFunc, Action<VisualElement, T> bindFunc) where T : class
         {
-            listview.XSInit(itemsSource, makeFunc, bindFunc, (item)=>{});
+            listview.XSInit(itemsSource, makeFunc, bindFunc, (item) => { });
         }
 
         /// <summary>

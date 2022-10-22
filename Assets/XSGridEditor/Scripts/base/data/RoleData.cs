@@ -8,6 +8,10 @@ namespace XSSLG
     [Serializable]
     public class RoleData : BaseData
     {
+        [SerializeField]
+        protected Texture2D texture;
+        public Texture2D Texture { get => texture; set => texture = value; }
+
         /// <summary>初始等级</summary>
         [SerializeField]
         protected int lv;

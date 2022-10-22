@@ -6,19 +6,19 @@ using System;
 namespace XSSLG
 {
 
-    public class XSStringListView<T> : XSBaseView where T : class
+    public class XSListView<T> : XSBaseView where T : class
     {
         protected ListView listview;
-        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSStringListView.uxml";
+        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSListView.uxml";
 
         public XSUnitNode SelectUnit { get; protected set; }
         protected Action<T> okFunc { get; }
 
-        public XSStringListView(List<T> itemList, Action<T> addFunc, Action<T> removeFunc) : base()
+        public XSListView(List<T> itemList, Action<T> addFunc, Action<T> removeFunc) : base()
         {
             this.listview = this.Q<ListView>("unitlist");
             this.listview.XSInit(new List<T>(),
-                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSUnitEditorView_ListItem.uxml",
+                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSListViewItem.uxml",
                 this.BindListItem
             );
             // this.listview.onItemsChosen += this.OnChosenItem;

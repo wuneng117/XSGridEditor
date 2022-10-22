@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-shrink: 1; width: auto; max-height: none; min-height: auto; height: auto; margin-top: 1.5px; margin-bottom: 0.75px;">
+        <ui:VisualElement name="texture" style="flex-grow: 1; max-width: none; min-width: auto; width: auto; flex-shrink: 0; height: auto; max-height: none; min-height: auto;" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="label" style="justify-content: flex-start; -unity-text-align: middle-center; flex-grow: 1; width: auto; flex-shrink: 0;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -50852,6 +50852,10 @@ PrefabInstance:
       propertyPath: data.name
       value: "\u5361\u96861111"
       objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.texture
+      value: 
+      objectReference: {fileID: 2800000, guid: baf85604c4775d14ba6db745eb9abeff, type: 3}
     - target: {fileID: 3590657989057605550, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: m_Name
       value: Cylinder
@@ -64604,6 +64608,10 @@ PrefabInstance:
       propertyPath: data.key
       value: "\u6D4B\u8BD5\u654C\u4EBA1"
       objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.texture
+      value: 
+      objectReference: {fileID: 2800000, guid: a078b2e598308d242a9e8c34dfe7af5e, type: 3}
     - target: {fileID: 3590657989057605550, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: m_Name
       value: Cylinder
