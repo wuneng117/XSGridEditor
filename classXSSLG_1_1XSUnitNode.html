@@ -104,9 +104,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3cd9cf23bb7fa873c0e9143d6be64984"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a3cd9cf23bb7fa873c0e9143d6be64984">IsNull</a> ()</td></tr>
 <tr class="memdesc:a3cd9cf23bb7fa873c0e9143d6be64984"><td class="mdescLeft">&#160;</td><td class="mdescRight">You cannot use "==" to check gameobject is null, because the gameobject in Unity is override "==", but when the gameobject is converted to the <a class="el" href="interfaceXSSLG_1_1XSITileRoot.html">XSITileRoot</a>, it will not use the override "=="  <a href="classXSSLG_1_1XSUnitNode.html#a3cd9cf23bb7fa873c0e9143d6be64984">More...</a><br /></td></tr>
 <tr class="separator:a3cd9cf23bb7fa873c0e9143d6be64984"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5045b3aedaac5d0b4f5e3598697835d5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a5045b3aedaac5d0b4f5e3598697835d5">GenerateKey</a> ()</td></tr>
-<tr class="memdesc:a5045b3aedaac5d0b4f5e3598697835d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">if unit is added by brush, it need a new key  <a href="classXSSLG_1_1XSUnitNode.html#a5045b3aedaac5d0b4f5e3598697835d5">More...</a><br /></td></tr>
-<tr class="separator:a5045b3aedaac5d0b4f5e3598697835d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3783a6be2060889d454f45f10af83957"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a3783a6be2060889d454f45f10af83957">UpdatePos</a> ()</td></tr>
 <tr class="separator:a3783a6be2060889d454f45f10af83957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25e5e3d4fdde378d4b8acdf96a37488b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a25e5e3d4fdde378d4b8acdf96a37488b">RotateTo</a> (<a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a> tile)</td></tr>
@@ -126,6 +123,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a071a4f8176117d6dd2954c301ca7c568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#a071a4f8176117d6dd2954c301ca7c568">DieAnimation</a> ()</td></tr>
 <tr class="memdesc:a071a4f8176117d6dd2954c301ca7c568"><td class="mdescLeft">&#160;</td><td class="mdescRight">死亡动画  <a href="classXSSLG_1_1XSUnitNode.html#a071a4f8176117d6dd2954c301ca7c568">More...</a><br /></td></tr>
 <tr class="separator:a071a4f8176117d6dd2954c301ca7c568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0afa151c3ec0aa55b659e61febb5601"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSUnitNode.html#ad0afa151c3ec0aa55b659e61febb5601">CheckSkillKeyList</a> (List&lt; string &gt; skillKeyList)</td></tr>
+<tr class="memdesc:ad0afa151c3ec0aa55b659e61febb5601"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove wrong key  <a href="classXSSLG_1_1XSUnitNode.html#ad0afa151c3ec0aa55b659e61febb5601">More...</a><br /></td></tr>
+<tr class="separator:ad0afa151c3ec0aa55b659e61febb5601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -294,6 +294,40 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad0afa151c3ec0aa55b659e61febb5601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0afa151c3ec0aa55b659e61febb5601">&#9670;&nbsp;</a></span>CheckSkillKeyList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void XSSLG.XSUnitNode.CheckSkillKeyList </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>skillKeyList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>remove wrong key </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">skillKeyList</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a071a4f8176117d6dd2954c301ca7c568"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a071a4f8176117d6dd2954c301ca7c568">&#9670;&nbsp;</a></span>DieAnimation()</h2>
 
@@ -320,35 +354,6 @@ Private Member Functions</h2></td></tr>
 <p>死亡动画 </p>
 
 <p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a947a3774b09f584f5b1d812798e91210">XSSLG.XSIUnitNode</a>.</p>
-
-</div>
-</div>
-<a id="a5045b3aedaac5d0b4f5e3598697835d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5045b3aedaac5d0b4f5e3598697835d5">&#9670;&nbsp;</a></span>GenerateKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void XSSLG.XSUnitNode.GenerateKey </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>if unit is added by brush, it need a new key </p>
-
-<p>Implements <a class="el" href="interfaceXSSLG_1_1XSIUnitNode.html#a1bd80b57e77068d0a0000e5f0d567581">XSSLG.XSIUnitNode</a>.</p>
 
 </div>
 </div>

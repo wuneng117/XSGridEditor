@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['val_1963',['val',['../classXSSLG_1_1Attr.html#a67039bc9a69a6f76d3824182fecf49a6',1,'XSSLG.Attr.val()'],['../classXSSLG_1_1HP.html#af740f942eca7e8ca15183a885b201b69',1,'XSSLG.HP.val()']]]
+  ['val_1983',['Val',['../classXSSLG_1_1Attr.html#a77dd8ef0daad6a8639939552f3d0195a',1,'XSSLG.Attr.Val()'],['../classXSSLG_1_1HP.html#a119a1a27aa4ef77ec96bbb218cac8bda',1,'XSSLG.HP.Val()']]]
 ];
