@@ -12,8 +12,9 @@ namespace XSSLG
     {
         protected ListView listview;
 
-        public XSUnitNode SelectUnit { get; protected set; }
+        protected XSUnitNode SelectUnit { get; set; }
 
+        protected XSListView<SkillData> AbilityListView { get; set; }
 
         public XSUnitEditorView(int groupType)
         {
@@ -28,8 +29,10 @@ namespace XSSLG
                 this.OnSelectionItem
             );
             this.listview.onItemsChosen += this.OnChosenItem;
-
+            
             this.RefreshView(groupType);
+
+            this.InitSkillListView();
         }
 
         public void RefreshView(int groupType)
@@ -51,6 +54,36 @@ namespace XSSLG
                     listview.selectedIndex = 0;
                 }
             }
+        }
+
+        protected virtual void InitSkillListView()
+        {
+            var listRoot = this.Q<VisualElement>("skill_list_root");
+            if (listRoot == null)
+            {
+                return;
+            }
+
+            this.AbilityListView = new XSListView<SkillData>(new List<SkillData>(), 
+                "特技列表", 
+                () => 
+                {
+                    // todo: 添加技能
+                },
+                (ability) =>
+                {
+                    if (ability != null && this.SelectUnit != null)
+                    {
+                        var abilityKeyList = this.SelectUnit.Data.AbilityKeyList;
+                        if (abilityKeyList.Contains(ability.Key))
+                        {
+                            abilityKeyList.Remove(ability.Key);
+                        }
+                    }
+                }
+            );
+
+            listRoot.Add(this.AbilityListView);
         }
 
 
@@ -114,6 +147,8 @@ namespace XSSLG
             cha?.XSInit(obj, "data.stat.cha.val");
             var mov = this.Q<IntegerField>("mov");
             mov?.XSInit(obj, "data.stat.mov.val");
+
+            this.AbilityListView?.RefreshView(obj.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
 
             // var bf = new BinaryFormatter();
             // var path = "test/role.dat";
@@ -187,6 +222,8 @@ namespace XSSLG
             cha?.Unbind();
             var mov = this.Q<IntegerField>("mov");
             mov?.Unbind();
+
+            this.AbilityListView?.RefreshView(new List<SkillData>());
         }
     }
 

@@ -32,11 +32,11 @@ namespace XSSLG
 
         [SerializeField]
         /// <summary>常用效果</summary>
-        public List<SkillEffectStruct> EffectArray { get; private set; } = new List<SkillEffectStruct>();
+        public List<SkillEffectStruct> EffectList { get; private set; } = new List<SkillEffectStruct>();
 
         [SerializeField]
         /// <summary>添加buffId数组</summary>
-        public List<string> BuffNameArray { get; private set; } = new List<string>();
+        public List<string> BuffKeyList { get; private set; } = new List<string>();
 
         /// <summary> 技能存在时的一级属性加成, 类似被动技能 </summary>
         [SerializeField]

@@ -57,13 +57,13 @@ namespace XSSLG
 
         public override float GetSkillEffectProp(SkillEffectType type)
         {
-            var ret = this.Data.EffectArray.FindAll(effect => effect.Type == type).Aggregate(0f, (total, effect) => total + effect.Prop);
+            var ret = this.Data.EffectList.FindAll(effect => effect.Type == type).Aggregate(0f, (total, effect) => total + effect.Prop);
             return ret;
         }
 
         public override bool GetSkillEffectFlag(SkillEffectType type)
         {
-            var ret = this.Data.EffectArray.Any(effect => effect.Type == type);
+            var ret = this.Data.EffectList.Any(effect => effect.Type == type);
             return ret;
         }
 

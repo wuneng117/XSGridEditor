@@ -26,9 +26,6 @@ namespace XSSLG
         // /// <summary>技巧等级</summary>
         // public List<global::XSSLG.TechniqueLevel> TechniqueLvArray { get; private set; }
 
-
-        public List<LearnSkillData> LearnSkillDataIDArray { get; private set; } = new List<LearnSkillData>();
-
         // /// <summary>行走图</summary>
         // public string Prefab { get; private set; }
 
@@ -38,22 +35,22 @@ namespace XSSLG
 
         [SerializeField]
         // /// <summary>纹章技能 SkillData</summary>
-        public List<string> CrestKeyArray { get; private set; } = new List<string>();
+        public List<string> CrestKeyList { get; private set; } = new List<string>();
         [SerializeField]
         // /// <summary>特技 SkillData</summary>
-        public List<string> AbilityKeyArray { get; private set; } = new List<string>();
+        public List<string> AbilityKeyList { get; private set; } = new List<string>();
         [SerializeField]
         /// <summary>拥有的职业 ClassData</summary>
-        public List<string> ClassDataKeyArray { get; private set; } = new List<string>();
+        public List<string> ClassDataKeyList { get; private set; } = new List<string>();
         [SerializeField]
         // /// <summary>战技 SkillData</summary>
-        public List<string> CombatArtKeyArray { get; private set; } = new List<string>();
+        public List<string> CombatArtKeyList { get; private set; } = new List<string>();
         [SerializeField]
         // /// <summary>魔法 SkillData</summary>
-        public List<string> MagicKeyArray { get; private set; } = new List<string>();
+        public List<string> MagicKeyList { get; private set; } = new List<string>();
         [SerializeField]
         /// <summary>可以学会的技能 LearnSkillData</summary>
-        public List<LearnSkillData> LearnSkillKeyArray { get; private set; } = new List<LearnSkillData>();
+        public List<LearnSkillData> LearnSkillKeyList { get; private set; } = new List<LearnSkillData>();
     }
 
     [Serializable]

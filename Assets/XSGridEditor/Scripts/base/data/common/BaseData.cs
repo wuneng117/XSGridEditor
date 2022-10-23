@@ -4,7 +4,7 @@ using UnityEngine;
 namespace XSSLG
 {
     [Serializable]
-    public class BaseData
+    public class BaseData : XSIListViewData
     {
         /// <summary> key名字 </summary>
         [SerializeField]

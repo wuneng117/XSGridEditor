@@ -54,13 +54,13 @@ namespace XSSLG
 
         public override float GetSkillEffectProp(SkillEffectType type)
         {
-            var ret = this.Data.EffectArray?.FindAll(effect => effect.Type == type).Aggregate(0f, (total, effect) => total + effect.Prop) ?? 0f;
+            var ret = this.Data.EffectList?.FindAll(effect => effect.Type == type).Aggregate(0f, (total, effect) => total + effect.Prop) ?? 0f;
             return ret;
         }
 
         public override bool GetSkillEffectFlag(SkillEffectType type)
         {
-            var ret = this.Data.EffectArray?.Any(effect => effect.Type == type) ?? false;
+            var ret = this.Data.EffectList?.Any(effect => effect.Type == type) ?? false;
             return ret;
         }
 
@@ -85,7 +85,7 @@ namespace XSSLG
             this.InvalidByOthers = false;
             data.OnTriggerData.Chain.Add(this);   // 很牛逼的一个链条
             // 加buff
-            this.Data.BuffNameArray?.ForEach(name => data.Target.ForEach(unit => this.AddBuff(name, unit)));
+            this.Data.BuffKeyList?.ForEach(name => data.Target.ForEach(unit => this.AddBuff(name, unit)));
             return true;
         }
 

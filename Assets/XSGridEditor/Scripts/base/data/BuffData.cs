@@ -14,7 +14,7 @@ namespace XSSLG
 
         /// <summary>常用效果</summary>
         [SerializeField]
-        public List<SkillEffectStruct> EffectArray { get; protected set; } = new List<SkillEffectStruct>();
+        public List<SkillEffectStruct> EffectList { get; protected set; } = new List<SkillEffectStruct>();
 
         /// <summary>最大层数</summary>
         [SerializeField]
@@ -47,7 +47,7 @@ namespace XSSLG
 
         /// <summary>自定义数值数组</summary>
         [SerializeField]
-        public List<PropStruct> PropArray { get; protected set; } = new List<PropStruct>();
+        public List<PropStruct> PropList { get; protected set; } = new List<PropStruct>();
 
         /// <summary>是否debuff</summary>
         [SerializeField]

@@ -16,7 +16,7 @@ namespace XSSLG
         /// <summary>需要技巧等级</summary>
         [SerializeField]
         [System.ComponentModel.DisplayName("需要技巧等级")]
-        public List<TechniqueLevel> TechniqueLvArray { get; private set; } = new List<TechniqueLevel>();
+        public List<TechniqueLevel> TechniqueLvList { get; private set; } = new List<TechniqueLevel>();
 
         /// <summary>职业附加属性</summary>
         [SerializeField]

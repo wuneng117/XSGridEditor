@@ -48,13 +48,13 @@ namespace XSSLG
             this.Level = new RoleLevel(data.Lv);
 
             this.Class = new RoleClass(TableManager.Instance.ClassDataManager.GetItem(data.ClassDataName));
-            this.ClassArray = data.ClassDataKeyArray.Select(name => new RoleClass(TableManager.Instance.ClassDataManager.GetItem(name))).ToList<RoleClass>();
+            this.ClassArray = data.ClassDataKeyList.Select(name => new RoleClass(TableManager.Instance.ClassDataManager.GetItem(name))).ToList<RoleClass>();
 
 
-            this.CombatArtArray.AddRange(data.CombatArtKeyArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
-            this.AbilityArray.AddRange(data.AbilityKeyArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
-            this.MagicArray.AddRange(data.MagicKeyArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
-            this.CrestArray.AddRange(data.CrestKeyArray.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.CombatArtArray.AddRange(data.CombatArtKeyList.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.AbilityArray.AddRange(data.AbilityKeyList.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.MagicArray.AddRange(data.MagicKeyList.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
+            this.CrestArray.AddRange(data.CrestKeyList.Select(name => TableManager.Instance.SkillDataManager.GetItem(name)));
 
             // this.Technique = new TechniqueLevelEx(data.TechniqueLvArray ?? new List<TechniqueLevel>());
 
