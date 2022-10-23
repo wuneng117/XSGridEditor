@@ -18,7 +18,7 @@ namespace XSSLG
 
             switch (this.ConditionStruct.Type)
             {
-                case XSDefine.TriggerConditionType.SelfCauseDamage:return attackReleaseData.SrcCauseDamage.Exists(damage => this.CheckProp(damage));
+                case TriggerConditionType.SelfCauseDamage:return attackReleaseData.SrcCauseDamage.Exists(damage => this.CheckProp(damage));
                 default: return true;
             }
         }

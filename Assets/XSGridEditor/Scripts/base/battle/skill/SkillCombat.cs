@@ -52,7 +52,7 @@ namespace XSSLG
             // if (data.Target.Count == 1)
             //     dstDamage = this.ApplyDamage(data.Target[0], this.Unit);
 
-            BattleEmitter.Instance.Emit(XSDefine.TriggerType.AfterAttack, new OnTriggerDataAttack(this.Unit, data.Target, srdDamageList, dstDamage));
+            BattleEmitter.Instance.Emit(TriggerType.AfterAttack, new OnTriggerDataAttack(this.Unit, data.Target, srdDamageList, dstDamage));
             return true;
         }
 

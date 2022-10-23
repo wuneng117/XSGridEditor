@@ -21,5 +21,9 @@ namespace XSSLG
         [SerializeField]
         protected string desc = "";
         public string Desc { get => desc; set => desc = value; }
+
+        [SerializeField]
+        protected Texture2D texture;
+        public Texture2D Texture { get => texture; set => texture = value; }
     }
 }

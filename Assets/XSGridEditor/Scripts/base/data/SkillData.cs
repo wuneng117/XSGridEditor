@@ -9,17 +9,17 @@ namespace XSSLG
     public partial class SkillData : BaseData
     {
 
-        protected XSDefine.SkillType type;
+        protected SkillType type;
 
         [SerializeField]
         /// <summary>类型</summary>
-        public XSDefine.SkillType Type { get => type; set => type = value; }
+        public SkillType Type { get => type; set => type = value; }
 
         [SerializeField]
-        protected XSDefine.SkillGroupType group;
+        protected SkillGroupType group;
 
         /// <summary>技能分组</summary>
-        public XSDefine.SkillGroupType Group { get => group; set => group = value; }
+        public SkillGroupType Group { get => group; set => group = value; }
 
         [SerializeField]
         private WeaponType weaponType;

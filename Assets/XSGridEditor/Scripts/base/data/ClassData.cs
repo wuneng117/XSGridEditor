@@ -9,9 +9,9 @@ namespace XSSLG
     {
         /// <summary>职业的级别类型</summary>
         [SerializeField]
-        protected XSDefine.ClassLvType lvType;
+        protected ClassLvType lvType;
         [System.ComponentModel.DisplayName("职业的级别类型")]
-        public XSDefine.ClassLvType LvType { get => lvType; set => lvType = value; }
+        public ClassLvType LvType { get => lvType; set => lvType = value; }
 
         /// <summary>需要技巧等级</summary>
         [SerializeField]

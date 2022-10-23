@@ -36,9 +36,9 @@ namespace XSSLG
             {
                 switch (data.Type)
                 {
-                    case XSDefine.SkillType.Combat: ret = new SkillCombat(data, unit); break;
-                    case XSDefine.SkillType.Magic: ret = new SkillMagic(data, unit); break;
-                    case XSDefine.SkillType.Common:
+                    case SkillType.Combat: ret = new SkillCombat(data, unit); break;
+                    case SkillType.Magic: ret = new SkillMagic(data, unit); break;
+                    case SkillType.Common:
                     default: ret = new SkillBase(data, unit); break;
                 }
             }

@@ -24,14 +24,14 @@ namespace XSSLG
 
             switch (searchStruct.Type)
             {
-                case XSDefine.SearchType.Front1: return new SearchTargetFront(searchStruct, 1);
-                case XSDefine.SearchType.Front1x2: return new SearchTargetFront(searchStruct, 2);
-                case XSDefine.SearchType.Front1x3: return new SearchTargetFront(searchStruct, 3);
-                case XSDefine.SearchType.Front3x1: return new SearchTargetFrontWide(searchStruct, 0);
-                case XSDefine.SearchType.Scope1: return new SearchTargetScope(searchStruct, 0);
-                case XSDefine.SearchType.ScopeCross1: return new SearchTargetScope(searchStruct, 1);
-                case XSDefine.SearchType.ScopeCross2: return new SearchTargetScope(searchStruct, 2);
-                case XSDefine.SearchType.ScopeCross3: return new SearchTargetScope(searchStruct, 3);
+                case SearchType.Front1: return new SearchTargetFront(searchStruct, 1);
+                case SearchType.Front1x2: return new SearchTargetFront(searchStruct, 2);
+                case SearchType.Front1x3: return new SearchTargetFront(searchStruct, 3);
+                case SearchType.Front3x1: return new SearchTargetFrontWide(searchStruct, 0);
+                case SearchType.Scope1: return new SearchTargetScope(searchStruct, 0);
+                case SearchType.ScopeCross1: return new SearchTargetScope(searchStruct, 1);
+                case SearchType.ScopeCross2: return new SearchTargetScope(searchStruct, 2);
+                case SearchType.ScopeCross3: return new SearchTargetScope(searchStruct, 3);
                 default: return new SearchTargetNull();
             }
         }

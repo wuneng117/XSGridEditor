@@ -12,12 +12,12 @@ namespace XSSLG
 
         /// <summary> 经验值 </summary>
         /// <summary> 精通职业需要的经验值 </summary>
-        public static readonly Dictionary<XSDefine.ClassLvType, int> CLASS_EXP_ARRAY = new Dictionary<XSDefine.ClassLvType, int> {
-            {XSDefine.ClassLvType.Unique, 20},
-            {XSDefine.ClassLvType.Beginner, 50},
-            {XSDefine.ClassLvType.Intermediate, 100},
-            {XSDefine.ClassLvType.Advanced, 150},
-            {XSDefine.ClassLvType.Master, 250},
+        public static readonly Dictionary<ClassLvType, int> CLASS_EXP_ARRAY = new Dictionary<ClassLvType, int> {
+            {ClassLvType.Unique, 20},
+            {ClassLvType.Beginner, 50},
+            {ClassLvType.Intermediate, 100},
+            {ClassLvType.Advanced, 150},
+            {ClassLvType.Master, 250},
         };
 
         /// <summary> technique提升需要的经验值 </summary>

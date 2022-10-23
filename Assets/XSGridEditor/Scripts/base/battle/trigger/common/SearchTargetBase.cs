@@ -137,19 +137,19 @@ namespace XSSLG
         /// <param name="target">技能目标</param>
         /// <param name="type"></param>
         /// <returns></returns>
-        private static bool CheckSearchTagretType(UnitBase src, UnitBase target, XSDefine.SearchTargetType type)
+        private static bool CheckSearchTagretType(UnitBase src, UnitBase target, SearchTargetType type)
         {
             switch (type)
             {
                 //说明没填正确，不可选为目标
                 default: return false;
-                case XSDefine.SearchTargetType.None: return false;
+                case SearchTargetType.None: return false;
                 // 是不是自己
-                case XSDefine.SearchTargetType.Self: return src == target;
+                case SearchTargetType.Self: return src == target;
                 //友方不包括自己，只要我不能攻击它,那就是友方
-                case XSDefine.SearchTargetType.Friend: return src != target && (!Config.UNIT_GROUP_MARTEX[(int)src.Group][(int)target.Group]);
+                case SearchTargetType.Friend: return src != target && (!Config.UNIT_GROUP_MARTEX[(int)src.Group][(int)target.Group]);
                 //只要我可以攻击它,那就是敌方
-                case XSDefine.SearchTargetType.Enemy: return Config.UNIT_GROUP_MARTEX[(int)src.Group][(int)target.Group];
+                case SearchTargetType.Enemy: return Config.UNIT_GROUP_MARTEX[(int)src.Group][(int)target.Group];
             }
         }
     }
