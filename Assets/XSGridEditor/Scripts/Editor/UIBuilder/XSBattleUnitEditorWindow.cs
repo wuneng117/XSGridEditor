@@ -44,18 +44,18 @@ namespace XSSLG
         {
             if (this.UnitEditorView == null)
             {
-                this.UnitEditorView = new XSUnitEditorView(index);
+                this.UnitEditorView = new XSUnitEditorView((GroupType)index);
                 this.root.Q("content").Add(this.UnitEditorView);
             }
             else
             {
-                this.UnitEditorView.RefreshView(index);
+                this.UnitEditorView.RefreshView((GroupType)index);
             }
         }
 
         protected void SceneOpened(UnityEngine.SceneManagement.Scene scene, UnityEditor.SceneManagement.OpenSceneMode mode)
         {
-            this.RefreshUnitEditerView(1);
+            this.RefreshUnitEditerView((int)GroupType.Enemy);
         }
     }
 }

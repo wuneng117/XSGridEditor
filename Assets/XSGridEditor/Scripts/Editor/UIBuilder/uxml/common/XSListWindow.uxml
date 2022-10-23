@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:ListView focusable="true" name="listview" style="min-height: 380px; flex-grow: 1; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; margin-bottom: 0;" />
+    <ui:VisualElement style="flex-direction: row; flex-grow: 0; min-height: 50px; margin-top: 0; justify-content: space-around; align-items: center;">
+        <ui:Button text="确定" display-tooltip-when-elided="true" name="ok_btn" style="min-width: auto; flex-grow: 1; max-width: 100px; margin-left: 3px; min-height: 30px;" />
+        <ui:Button text="取消" display-tooltip-when-elided="true" name="cancel_btn" style="min-width: auto; flex-grow: 1; max-width: 100px; margin-left: 3px; -unity-text-align: middle-center; white-space: nowrap; min-height: 30px;" />
+    </ui:VisualElement>
+</ui:UXML>

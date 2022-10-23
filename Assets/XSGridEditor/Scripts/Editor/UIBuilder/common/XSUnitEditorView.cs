@@ -16,7 +16,7 @@ namespace XSSLG
 
         protected XSListView<SkillData> AbilityListView { get; set; }
 
-        public XSUnitEditorView(int groupType)
+        public XSUnitEditorView(GroupType groupType)
         {
             // Import UXML
             var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSUnitEditorView.uxml");
@@ -29,13 +29,13 @@ namespace XSSLG
                 this.OnSelectionItem
             );
             this.listview.onItemsChosen += this.OnChosenItem;
-            
+
             this.RefreshView(groupType);
 
             this.InitSkillListView();
         }
 
-        public void RefreshView(int groupType)
+        public void RefreshView(GroupType groupType)
         {
             this.ResetValue();
 
@@ -47,7 +47,7 @@ namespace XSSLG
             }
             else
             {
-                sceneObjects = sceneObjects.Where(obj => (int)obj.Group == groupType).ToList();
+                sceneObjects = sceneObjects.Where(obj => obj.Group == groupType).ToList();
                 listview.itemsSource = sceneObjects;
                 if (sceneObjects.Count > 0)
                 {
@@ -64,11 +64,23 @@ namespace XSSLG
                 return;
             }
 
-            this.AbilityListView = new XSListView<SkillData>(new List<SkillData>(), 
-                "特技列表", 
-                () => 
+            this.AbilityListView = new XSListView<SkillData>(new List<SkillData>(),
+                "特技列表",
+                () =>
                 {
-                    // todo: 添加技能
+                    if (this.SelectUnit != null)
+                    {
+                        var allAbilityList = TableManager.Instance.SkillDataManager.GetList().Where(skill => skill.Group == SkillGroupType.Passive).ToList();
+                        XSListWindow.ShowExample(allAbilityList, "添加特技",
+                        (ability) =>
+                        {
+                            if (ability != null)
+                            {
+                                this.SelectUnit.Data.AbilityKeyList.Add(ability.Key);
+                                this.AbilityListView?.RefreshView(this.SelectUnit.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
+                            }
+                        });
+                    }
                 },
                 (ability) =>
                 {
@@ -78,6 +90,7 @@ namespace XSSLG
                         if (abilityKeyList.Contains(ability.Key))
                         {
                             abilityKeyList.Remove(ability.Key);
+                            this.AbilityListView?.RefreshView(this.SelectUnit.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
                         }
                     }
                 }

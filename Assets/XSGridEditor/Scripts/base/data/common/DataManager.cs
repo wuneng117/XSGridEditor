@@ -11,6 +11,8 @@ namespace XSSLG
     {
         [SerializeField]
         protected List<T> itemArray = new List<T>();
+        public List<T> GetList() => new List<T>(this.itemArray);
+        
         [SerializeField]
         protected Dictionary<string, int> keyIndexMap = new Dictionary<string, int>();
 
