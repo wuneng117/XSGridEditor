@@ -12,5 +12,5 @@ var searchData=
   ['locomotion_1863',['LOCOMOTION',['../classXSSLG_1_1AnimatorState.html#a200b2cc413e8eddeb1fcdde742a218b1',1,'XSSLG::AnimatorState']]],
   ['lv_1864',['lv',['../classXSSLG_1_1TechniqueLevel.html#a995f7b7e97eccf91411306161c748b3b',1,'XSSLG.TechniqueLevel.lv()'],['../classXSSLG_1_1RoleData.html#acf8cf5eb76bbe6868532d78d85599812',1,'XSSLG.RoleData.lv()']]],
   ['lvtext_1865',['LvText',['../classXSSLG_1_1RolePanel.html#a7f74425d8519149760eec149d40b3f3c',1,'XSSLG::RolePanel']]],
-  ['lvtype_1866',['lvType',['../classXSSLG_1_1ClassData.html#a1347bdce3b935461ecf053fd7617f327',1,'XSSLG::ClassData']]]
+  ['lvtype_1866',['lvType',['../classXSSLG_1_1ClassData.html#a3554a8dd560c23462e8a72504b5c719a',1,'XSSLG::ClassData']]]
 ];

@@ -6,7 +6,7 @@ var searchData=
   ['addbuff_1412',['AddBuff',['../classXSSLG_1_1SkillBase.html#a5f74a78c862398bc62b26a9f8187fc3a',1,'XSSLG.SkillBase.AddBuff(string name, UnitBase targetUnit)'],['../classXSSLG_1_1SkillBase.html#a1f237d92b51cff8f6c4b07e03c612107',1,'XSSLG.SkillBase.AddBuff(BuffData data, UnitBase targetUnit)']]],
   ['addcount_1413',['AddCount',['../classXSSLG_1_1BuffBase.html#a004040476acbdda33a74899706687c10',1,'XSSLG::BuffBase']]],
   ['addenumvalue_1414',['AddEnumValue',['../classXSSLG_1_1EnumGenerator.html#a9a357a88a3ac1637a777fc86def12972',1,'XSSLG::EnumGenerator']]],
-  ['addexpandchecklevel_1415',['AddExpAndCheckLevel',['../classXSSLG_1_1LevelBase.html#afd9fe5e4d343d8200802e10d9f6a2680',1,'XSSLG.LevelBase.AddExpAndCheckLevel()'],['../classXSSLG_1_1TechniqueLevelEx.html#afde27eecfbd2d0b22d254e49254c1960',1,'XSSLG.TechniqueLevelEx.AddExpAndCheckLevel()']]],
+  ['addexpandchecklevel_1415',['AddExpAndCheckLevel',['../classXSSLG_1_1LevelBase.html#afd9fe5e4d343d8200802e10d9f6a2680',1,'XSSLG.LevelBase.AddExpAndCheckLevel()'],['../classXSSLG_1_1TechniqueLevelEx.html#afd4298eecd05255a81e3fb0bb53b9d1d',1,'XSSLG.TechniqueLevelEx.AddExpAndCheckLevel()']]],
   ['addexpandcheckpreficient_1416',['AddExpAndCheckPreficient',['../classXSSLG_1_1RoleClass.html#a221c223dc2e973363a0f60adca777a10',1,'XSSLG::RoleClass']]],
   ['additem_1417',['AddItem',['../classXSSLG_1_1DataManager.html#a80a58f02a0823bdc5063c8ef46f3ef07',1,'XSSLG::DataManager']]],
   ['addlayer_1418',['AddLayer',['../classXSSLG_1_1XSAssetPostprocessor.html#ae6c9bbfc333d5aee4788f97cf9bb9f2b',1,'XSSLG::XSAssetPostprocessor']]],

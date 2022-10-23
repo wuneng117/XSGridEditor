@@ -20,7 +20,7 @@ var searchData=
   ['getgridmain_1527',['GetGridMain',['../classXSSLG_1_1XSU.html#a92e579c8740463ef75ce5f1b9e37b9d8',1,'XSSLG::XSU']]],
   ['getgridmaineditmode_1528',['GetGridMainEditMode',['../classXSSLG_1_1XSUE.html#a843c2bed5a67380be41a16d2f2860033',1,'XSSLG::XSUE']]],
   ['getitem_1529',['GetItem',['../classXSSLG_1_1DataManager.html#aca539c620dca44e8c53f0a38d1d590b7',1,'XSSLG::DataManager']]],
-  ['getlv_1530',['GetLv',['../classXSSLG_1_1TechniqueLevelEx.html#a7b023dfe96c0cd90e05ff3e621e1a083',1,'XSSLG::TechniqueLevelEx']]],
+  ['getlv_1530',['GetLv',['../classXSSLG_1_1TechniqueLevelEx.html#abc24de1f2c3b781a97319d62ed32f70f',1,'XSSLG::TechniqueLevelEx']]],
   ['getmaincamera_1531',['GetMainCamera',['../classXSSLG_1_1XSU.html#a4320f74cfe80879c9e23adcf667239e6',1,'XSSLG::XSU']]],
   ['getmax_1532',['GetMax',['../classXSSLG_1_1HP.html#ad3dd7bcd8e943e1b48bf1884a6cbcd2a',1,'XSSLG::HP']]],
   ['getmaxbounds_1533',['GetMaxBounds',['../classXSSLG_1_1XSUnitNode.html#a303bb299fa7cf78460368fde39e4e579',1,'XSSLG::XSUnitNode']]],

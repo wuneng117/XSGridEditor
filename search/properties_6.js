@@ -5,5 +5,5 @@ var searchData=
   ['gridhelpereditmode_2122',['GridHelperEditMode',['../classXSSLG_1_1XSUE.html#a4fd674901052ae05f98f2da97bed8302',1,'XSSLG.XSUE.GridHelperEditMode()'],['../classXSSLG_1_1XSGridMainEditMode.html#a45a155caa465d91ab976b2492848064f',1,'XSSLG.XSGridMainEditMode.GridHelperEditMode()']]],
   ['gridmgr_2123',['GridMgr',['../classXSSLG_1_1XSU.html#a60cf1b834b7f0a44ffd68642bb247fc9',1,'XSSLG.XSU.GridMgr()'],['../classXSSLG_1_1BattleMouseCuror.html#a24658c06062ffb4ee7d28de00d5f27e9',1,'XSSLG.BattleMouseCuror.GridMgr()'],['../classXSSLG_1_1XSGridMain.html#a506efb1fb4833d1c95e41f7d970033ff',1,'XSSLG.XSGridMain.GridMgr()']]],
   ['gridshowmgr_2124',['GridShowMgr',['../classXSSLG_1_1BattleNode.html#aec74c5f62f135f78e4d457b064774fd3',1,'XSSLG::BattleNode']]],
-  ['group_2125',['Group',['../classXSSLG_1_1UnitBase.html#a1840353e33bccef5df5ae35bfc3ce3c6',1,'XSSLG.UnitBase.Group()'],['../classXSSLG_1_1SkillData.html#a228dbcf160cf78aec494b39b763c8ba5',1,'XSSLG.SkillData.Group()']]]
+  ['group_2125',['Group',['../classXSSLG_1_1UnitBase.html#a1840353e33bccef5df5ae35bfc3ce3c6',1,'XSSLG.UnitBase.Group()'],['../classXSSLG_1_1SkillData.html#aa11dc47e7604efbab9a868bc2964fdcb',1,'XSSLG.SkillData.Group()']]]
 ];

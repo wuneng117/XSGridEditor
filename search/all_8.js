@@ -10,5 +10,5 @@ var searchData=
   ['hp_387',['HP',['../classXSSLG_1_1HP.html',1,'XSSLG.HP'],['../classXSSLG_1_1Stat.html#a5557d06d550867e2d14ca632b42f52cd',1,'XSSLG.Stat.hp()'],['../classXSSLG_1_1Stat.html#ad597525e3e7054d2c7db20ff98eb10cd',1,'XSSLG.Stat.HP()'],['../classXSSLG_1_1HP.html#abf7efbedeb737205be1d0bc7721cf922',1,'XSSLG.HP.HP()'],['../classXSSLG_1_1HP.html#abc038884ea9a5c34c7e534ce093193f1',1,'XSSLG.HP.HP(int val)'],['../classXSSLG_1_1HP.html#a716f7773ac86bb9f6f76369326a07fc6',1,'XSSLG.HP.HP(int val, Attr max)']]],
   ['hp_2ecs_388',['HP.cs',['../HP_8cs.html',1,'']]],
   ['hptext_389',['hpText',['../classXSSLG_1_1RolePanel.html#a382a2d1a204779ed440fd1a93c96f959',1,'XSSLG.RolePanel.hpText()'],['../classXSSLG_1_1UnitInfoTip.html#af4ea6efbef94bb4a0f6111a6a9137834',1,'XSSLG.UnitInfoTip.hpText()']]],
-  ['hvyarmor_390',['HvyArmor',['../classXSSLG_1_1XSDefine.html#af98608b8a57bea0866cfeabb8281c9d5aaa791bcfa0ba3c69258199a6dff781c7',1,'XSSLG::XSDefine']]]
+  ['hvyarmor_390',['HvyArmor',['../namespaceXSSLG.html#abf4683f0907b63fdbbd394c59845f12daaa791bcfa0ba3c69258199a6dff781c7',1,'XSSLG']]]
 ];

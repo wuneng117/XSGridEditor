@@ -1,9 +1,9 @@
 var searchData=
 [
   ['schedulerstatetype_1971',['SchedulerStateType',['../namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09',1,'XSSLG']]],
-  ['searchtargettype_1972',['SearchTargetType',['../classXSSLG_1_1XSDefine.html#aade944dbea7c5476ae9ce546b5063a16',1,'XSSLG::XSDefine']]],
-  ['searchtype_1973',['SearchType',['../classXSSLG_1_1XSDefine.html#ab7f80c5ccfe21a6dfe14cb9772ded403',1,'XSSLG::XSDefine']]],
+  ['searchtargettype_1972',['SearchTargetType',['../namespaceXSSLG.html#a493f67f91e9c78170bd620d59671e5a3',1,'XSSLG']]],
+  ['searchtype_1973',['SearchType',['../namespaceXSSLG.html#aae711482ce2638cbd184ed76d0fb7a88',1,'XSSLG']]],
   ['skilleffecttype_1974',['SkillEffectType',['../namespaceXSSLG.html#ac84dad98f29c6bd705347e56255d9b18',1,'XSSLG']]],
-  ['skillgrouptype_1975',['SkillGroupType',['../classXSSLG_1_1XSDefine.html#a334d9889b3aa0fedc2ade7c02c0d63e4',1,'XSSLG::XSDefine']]],
-  ['skilltype_1976',['SkillType',['../classXSSLG_1_1XSDefine.html#aea6b44fe5de912373ef2c85145b1f93b',1,'XSSLG::XSDefine']]]
+  ['skillgrouptype_1975',['SkillGroupType',['../namespaceXSSLG.html#a51c1b770c56ec1e40bb87a4c0820dde3',1,'XSSLG']]],
+  ['skilltype_1976',['SkillType',['../namespaceXSSLG.html#a9681c08b17608c59178c95fa21dfea4a',1,'XSSLG']]]
 ];

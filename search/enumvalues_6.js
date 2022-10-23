@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hvyarmor_2018',['HvyArmor',['../classXSSLG_1_1XSDefine.html#af98608b8a57bea0866cfeabb8281c9d5aaa791bcfa0ba3c69258199a6dff781c7',1,'XSSLG::XSDefine']]]
+  ['hvyarmor_2018',['HvyArmor',['../namespaceXSSLG.html#abf4683f0907b63fdbbd394c59845f12daaa791bcfa0ba3c69258199a6dff781c7',1,'XSSLG']]]
 ];

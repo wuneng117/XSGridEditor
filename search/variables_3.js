@@ -8,7 +8,7 @@ var searchData=
   ['cd_1799',['cd',['../classXSSLG_1_1TriggerData.html#a6436e7eeb1c982c4f4dfc748f4daa465',1,'XSSLG::TriggerData']]],
   ['cha_1800',['cha',['../classXSSLG_1_1Stat.html#ac3df81efef477cad66ef09bafc3a0bbe',1,'XSSLG::Stat']]],
   ['chatext_1801',['chaText',['../classXSSLG_1_1RolePanel.html#a3c93adf0716b30a2afee0cc4f3ab4570',1,'XSSLG::RolePanel']]],
-  ['class_5fexp_5farray_1802',['CLASS_EXP_ARRAY',['../classXSSLG_1_1Config.html#ac0e9006e5d37b222354e80d8180b64e2',1,'XSSLG::Config']]],
+  ['class_5fexp_5farray_1802',['CLASS_EXP_ARRAY',['../classXSSLG_1_1Config.html#a483e85955e025ccb37d9f34e88579d41',1,'XSSLG::Config']]],
   ['classtext_1803',['classText',['../classXSSLG_1_1RolePanel.html#a19545df95d8c46ce7376e65d5aa54eb0',1,'XSSLG::RolePanel']]],
   ['closeroot_1804',['CloseRoot',['../classXSSLG_1_1BattleNode.html#a7454ba1a171b5822fd67578e0d024f43',1,'XSSLG::BattleNode']]],
   ['combatbtn_1805',['combatBtn',['../classXSSLG_1_1UnitMenu.html#afc0b012b13e8c71309f52de8002b1d6b',1,'XSSLG::UnitMenu']]],

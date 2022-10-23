@@ -2,7 +2,7 @@ var searchData=
 [
   ['readypanel_620',['ReadyPanel',['../classXSSLG_1_1ReadyPanel.html',1,'XSSLG']]],
   ['readypanel_2ecs_621',['ReadyPanel.cs',['../ReadyPanel_8cs.html',1,'']]],
-  ['reason_622',['Reason',['../classXSSLG_1_1XSDefine.html#af98608b8a57bea0866cfeabb8281c9d5afffcb4d1e12c96b2f571f77ad25878b8',1,'XSSLG::XSDefine']]],
+  ['reason_622',['Reason',['../namespaceXSSLG.html#abf4683f0907b63fdbbd394c59845f12dafffcb4d1e12c96b2f571f77ad25878b8',1,'XSSLG']]],
   ['reduce_623',['Reduce',['../classXSSLG_1_1Attr.html#afb87b38fbbca9302c4903f63f9dde337',1,'XSSLG.Attr.Reduce()'],['../classXSSLG_1_1HP.html#aaf5d182b38858f5635541932774e21ee',1,'XSSLG.HP.Reduce()']]],
   ['reduceenumvalue_624',['ReduceEnumValue',['../classXSSLG_1_1EnumGenerator.html#aed5e12a8b8ba1f9c82eddc1d1f5c5564',1,'XSSLG::EnumGenerator']]],
   ['refresh_625',['Refresh',['../classXSSLG_1_1UnitInfoTip.html#ad153fe2d8b55516f81995564f5b84ccc',1,'XSSLG.UnitInfoTip.Refresh()'],['../classXSSLG_1_1UnitInfoTip.html#ac00e0be9364f995c684c3de62bdd390c',1,'XSSLG.UnitInfoTip.Refresh(UnitBase unit)']]],
@@ -25,7 +25,7 @@ var searchData=
   ['reset_642',['Reset',['../classXSSLG_1_1Attr.html#a49f15f70ee210a304486aadee43499fc',1,'XSSLG.Attr.Reset()'],['../classXSSLG_1_1HP.html#a3099fce35a984f602d4f620ccbd5d3e9',1,'XSSLG.HP.Reset()'],['../classXSSLG_1_1Stat.html#a7894e63a239510dcd27291f6c89867fb',1,'XSSLG.Stat.Reset()']]],
   ['resetvalue_643',['ResetValue',['../classXSSLG_1_1XSUnitEditorView.html#acc0b403cb3c9582a14fa3293990b283e',1,'XSSLG::XSUnitEditorView']]],
   ['restext_644',['resText',['../classXSSLG_1_1RolePanel.html#a716a96374394b44573de08fbd79e436b',1,'XSSLG::RolePanel']]],
-  ['riding_645',['Riding',['../classXSSLG_1_1XSDefine.html#af98608b8a57bea0866cfeabb8281c9d5a4bf5df68f29021215ca23f11e008f206',1,'XSSLG::XSDefine']]],
+  ['riding_645',['Riding',['../namespaceXSSLG.html#abf4683f0907b63fdbbd394c59845f12da4bf5df68f29021215ca23f11e008f206',1,'XSSLG']]],
   ['right_646',['right',['../classXSSLG_1_1Accessibility.html#a8eae53946cfd83da03bfc35f32b12728',1,'XSSLG.Accessibility.right()'],['../classXSSLG_1_1Accessibility.html#a6a4c26c1085d0cd1f863103de9f94a0a',1,'XSSLG.Accessibility.Right()']]],
   ['rightbottom_647',['RightBottom',['../namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848ab36555b207c9de10ba434697559659ba',1,'XSSLG']]],
   ['righttop_648',['RightTop',['../namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848a6ece94d6604e312b0072f00b3c9955a8',1,'XSSLG']]],
@@ -46,7 +46,7 @@ var searchData=
   ['rolepanel_2ecs_663',['RolePanel.cs',['../RolePanel_8cs.html',1,'']]],
   ['rolepanelaattr_664',['RolePanelaAttr',['../classXSSLG_1_1RolePanelaAttr.html',1,'XSSLG']]],
   ['rolepanelaattr_2ecs_665',['RolePanelaAttr.cs',['../RolePanelaAttr_8cs.html',1,'']]],
-  ['root_666',['root',['../classXSSLG_1_1XSBattleEventEditorWindow.html#a8748f7d5ad0df12350b6e1f63e73c2c2',1,'XSSLG.XSBattleEventEditorWindow.root()'],['../classXSSLG_1_1XSBattleUnitEditorWindow.html#a98d88217383f942f09c3f15b2311e2fb',1,'XSSLG.XSBattleUnitEditorWindow.root()'],['../classXSSLG_1_1XSEditorMainWindow.html#ac5acba490b07c0d1630db425a0de49ce',1,'XSSLG.XSEditorMainWindow.root()'],['../classXSSLG_1_1XSBaseWindow.html#ab3993d480508d78b5e4cc0afff779c07',1,'XSSLG.XSBaseWindow.Root()']]],
+  ['root_666',['Root',['../classXSSLG_1_1XSBaseWindow.html#ab3993d480508d78b5e4cc0afff779c07',1,'XSSLG.XSBaseWindow.Root()'],['../classXSSLG_1_1XSBattleEventEditorWindow.html#a8748f7d5ad0df12350b6e1f63e73c2c2',1,'XSSLG.XSBattleEventEditorWindow.root()'],['../classXSSLG_1_1XSBattleUnitEditorWindow.html#a98d88217383f942f09c3f15b2311e2fb',1,'XSSLG.XSBattleUnitEditorWindow.root()'],['../classXSSLG_1_1XSEditorMainWindow.html#ac5acba490b07c0d1630db425a0de49ce',1,'XSSLG.XSEditorMainWindow.root()']]],
   ['rotateto_667',['RotateTo',['../classXSSLG_1_1XSUnitNode.html#a25e5e3d4fdde378d4b8acdf96a37488b',1,'XSSLG.XSUnitNode.RotateTo()'],['../interfaceXSSLG_1_1XSIUnitNode.html#a6980160c6ea9972e1d4c3de11025cf62',1,'XSSLG.XSIUnitNode.RotateTo()']]],
   ['rotationstep_668',['RotationStep',['../classXSSLG_1_1XSCamera.html#aca83c3e724f7152d968876cdcd656a16',1,'XSSLG::XSCamera']]],
   ['rotationto_669',['RotationTo',['../classXSSLG_1_1XSU.html#a611478b704f5d85299f18d0c9564c5a2',1,'XSSLG::XSU']]]

@@ -1,12 +1,12 @@
 var searchData=
 [
   ['table_2210',['Table',['../classXSSLG_1_1UnitBase.html#a1632226eab91f9a2ca42791b2123cf13',1,'XSSLG::UnitBase']]],
-  ['target_2211',['Target',['../classXSSLG_1_1ReleaseData.html#a2a7de423f2c95cc7fc19297abbbfbbbd',1,'XSSLG.ReleaseData.Target()'],['../classXSSLG_1_1ConditionStruct.html#a75d9fa3190af6d7040f6819f148cc72b',1,'XSSLG.ConditionStruct.Target()'],['../classXSSLG_1_1SearchStruct.html#a3dd7a14ff29ea3ca3db4dc7fbc03c1e3',1,'XSSLG.SearchStruct.Target()']]],
+  ['target_2211',['Target',['../classXSSLG_1_1ReleaseData.html#a2a7de423f2c95cc7fc19297abbbfbbbd',1,'XSSLG.ReleaseData.Target()'],['../classXSSLG_1_1ConditionStruct.html#a7e3bac4637d13f776e9a00ae5498fa7c',1,'XSSLG.ConditionStruct.Target()'],['../classXSSLG_1_1SearchStruct.html#a210b314745bd183f2fe1ba5b4c824040',1,'XSSLG.SearchStruct.Target()']]],
   ['technieuqlv_2212',['TechnieuqLv',['../classXSSLG_1_1LearnSkillData.html#a45b68263597b6cf550b6ef34894762e6',1,'XSSLG::LearnSkillData']]],
   ['technique_2213',['Technique',['../classXSSLG_1_1Role.html#aa50b2a9423eb5a8f62e89f7bd5c4aa36',1,'XSSLG::Role']]],
   ['techniquearray_2214',['TechniqueArray',['../classXSSLG_1_1TechniqueLevelEx.html#a5807536733f09b45b599f95543a040d7',1,'XSSLG::TechniqueLevelEx']]],
   ['techniquelvarray_2215',['TechniqueLvArray',['../classXSSLG_1_1ClassData.html#a6e363985008ca4fb8defbde11c114c1c',1,'XSSLG::ClassData']]],
-  ['texture_2216',['Texture',['../classXSSLG_1_1RoleData.html#a050530974b1de5050bf600ff84b61181',1,'XSSLG::RoleData']]],
+  ['texture_2216',['Texture',['../classXSSLG_1_1BaseData.html#acfd7fa359e70eb7180519ee4242a260f',1,'XSSLG::BaseData']]],
   ['tile_2217',['Tile',['../classXSSLG_1_1PhaseChooseAtk.html#a9cfa184667ee0a2b574ffb63ce2b6ce0',1,'XSSLG.PhaseChooseAtk.Tile()'],['../classXSSLG_1_1PhaseUnitAtkBase.html#aab882babf0475dc93138e2d0d62ffca6',1,'XSSLG.PhaseUnitAtkBase.Tile()']]],
   ['tiledict_2218',['TileDict',['../classXSSLG_1_1XSGridMgr.html#a1e26e1271d747489762a6e1e27b9eb07',1,'XSSLG::XSGridMgr']]],
   ['tileoffymax_2219',['TileOffYMax',['../classXSSLG_1_1XSGridHelper.html#ac486d993e26aa71a3c06c4aed5fc4858',1,'XSSLG::XSGridHelper']]],
@@ -18,5 +18,5 @@ var searchData=
   ['triggerdatamanager_2225',['TriggerDataManager',['../classXSSLG_1_1TableManager.html#a3a1fb13c84cce5eba01ed644c14105fe',1,'XSSLG::TableManager']]],
   ['triggername_2226',['TriggerName',['../classXSSLG_1_1SkillData.html#a452da3a12a5a57c27d9d7c870f8fd5f1',1,'XSSLG::SkillData']]],
   ['turncount_2227',['TurnCount',['../classXSSLG_1_1Player.html#ab434144cbb2b8f9562d7bb096a90a75e',1,'XSSLG::Player']]],
-  ['type_2228',['Type',['../classXSSLG_1_1BuffData.html#a36df3db35ace539bb0cc796236d4bb0a',1,'XSSLG.BuffData.Type()'],['../classXSSLG_1_1PropStruct.html#ab51030193d80b55645e5a3ac80cbeb59',1,'XSSLG.PropStruct.Type()'],['../classXSSLG_1_1SkillEffectStruct.html#af0c468f959718cd32dfc88b7f0c60519',1,'XSSLG.SkillEffectStruct.Type()'],['../classXSSLG_1_1TechniqueLevel.html#a40ea9b3d74af142d0a0373156a0803d5',1,'XSSLG.TechniqueLevel.Type()'],['../classXSSLG_1_1SkillData.html#a212bdaebc03e4b3528ca2f059e926b43',1,'XSSLG.SkillData.Type()'],['../classXSSLG_1_1ConditionStruct.html#aac02f673b0ddbc82b6bc8b7fdf5b6e11',1,'XSSLG.ConditionStruct.Type()'],['../classXSSLG_1_1SearchStruct.html#a61766f8b4c2e190ce21963f909c857d6',1,'XSSLG.SearchStruct.Type()'],['../classXSSLG_1_1TriggerData.html#afd638ceae5a35bc67af14957f6154922',1,'XSSLG.TriggerData.Type()']]]
+  ['type_2228',['Type',['../classXSSLG_1_1BuffData.html#a36df3db35ace539bb0cc796236d4bb0a',1,'XSSLG.BuffData.Type()'],['../classXSSLG_1_1PropStruct.html#ab51030193d80b55645e5a3ac80cbeb59',1,'XSSLG.PropStruct.Type()'],['../classXSSLG_1_1SkillEffectStruct.html#af0c468f959718cd32dfc88b7f0c60519',1,'XSSLG.SkillEffectStruct.Type()'],['../classXSSLG_1_1TechniqueLevel.html#af668a669eca2130286df27d9e57a70d8',1,'XSSLG.TechniqueLevel.Type()'],['../classXSSLG_1_1SkillData.html#a09febebe05bc10de4933ebe7520141f0',1,'XSSLG.SkillData.Type()'],['../classXSSLG_1_1ConditionStruct.html#a14e26e8d7c5b9ba114cd397d87ad737f',1,'XSSLG.ConditionStruct.Type()'],['../classXSSLG_1_1SearchStruct.html#a30da08df1b393c3da71e1c5c13fd2a20',1,'XSSLG.SearchStruct.Type()'],['../classXSSLG_1_1TriggerData.html#af52e0763a0580ce8d5fd85463dfbf6e7',1,'XSSLG.TriggerData.Type()']]]
 ];

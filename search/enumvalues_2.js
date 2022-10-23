@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['clickcombat_2001',['ClickCombat',['../classXSSLG_1_1XSDefine.html#ab12417ca20e22c8c60bba4f9706be2ebafa7c3f1a29bd3d0b3ecb16bc5b79dfc4',1,'XSSLG::XSDefine']]],
-  ['clickmagic_2002',['ClickMagic',['../classXSSLG_1_1XSDefine.html#ab12417ca20e22c8c60bba4f9706be2eba8b01d6f867f9c9fadd89f35f8ffe9c5b',1,'XSSLG::XSDefine']]],
-  ['combat_2003',['Combat',['../classXSSLG_1_1XSDefine.html#aea6b44fe5de912373ef2c85145b1f93ba30ad1054cf7ad7636a26844a6f782e1f',1,'XSSLG::XSDefine']]],
-  ['common_2004',['Common',['../classXSSLG_1_1XSDefine.html#aea6b44fe5de912373ef2c85145b1f93bad13bc5b68b2bd9e18f29777db17cc563',1,'XSSLG.XSDefine.Common()'],['../classXSSLG_1_1XSDefine.html#ab12417ca20e22c8c60bba4f9706be2ebad13bc5b68b2bd9e18f29777db17cc563',1,'XSSLG.XSDefine.Common()']]],
-  ['crest_2005',['Crest',['../classXSSLG_1_1XSDefine.html#a334d9889b3aa0fedc2ade7c02c0d63e4afab5ad8b0b394703426f40fa0a3b4548',1,'XSSLG::XSDefine']]]
+  ['clickcombat_2001',['ClickCombat',['../namespaceXSSLG.html#a2dd72ff4916ebf11ce06cea064a922e0afa7c3f1a29bd3d0b3ecb16bc5b79dfc4',1,'XSSLG']]],
+  ['clickmagic_2002',['ClickMagic',['../namespaceXSSLG.html#a2dd72ff4916ebf11ce06cea064a922e0a8b01d6f867f9c9fadd89f35f8ffe9c5b',1,'XSSLG']]],
+  ['combat_2003',['Combat',['../namespaceXSSLG.html#a9681c08b17608c59178c95fa21dfea4aa30ad1054cf7ad7636a26844a6f782e1f',1,'XSSLG']]],
+  ['common_2004',['Common',['../namespaceXSSLG.html#a9681c08b17608c59178c95fa21dfea4aad13bc5b68b2bd9e18f29777db17cc563',1,'XSSLG.Common()'],['../namespaceXSSLG.html#a2dd72ff4916ebf11ce06cea064a922e0ad13bc5b68b2bd9e18f29777db17cc563',1,'XSSLG.Common()']]],
+  ['crest_2005',['Crest',['../namespaceXSSLG.html#a51c1b770c56ec1e40bb87a4c0820dde3afab5ad8b0b394703426f40fa0a3b4548',1,'XSSLG']]]
 ];

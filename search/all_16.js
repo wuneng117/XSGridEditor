@@ -7,7 +7,7 @@ var searchData=
   ['walkrighttopo_913',['WalkRightTopo',['../classXSSLG_1_1UnitDefine.html#ac7e41cbc95595bb7ce3f53e5b53d0bd0ac4595965ceb83fd8467cfd381c2cd318',1,'XSSLG::UnitDefine']]],
   ['walkto_914',['WalkTo',['../classXSSLG_1_1Unit.html#a6b3d9aa74c5b55b0632eebfebd493f7f',1,'XSSLG.Unit.WalkTo()'],['../classXSSLG_1_1XSUnitNode.html#a96fb976662241ac62cfba0354d0a403e',1,'XSSLG.XSUnitNode.WalkTo()'],['../interfaceXSSLG_1_1XSIUnitNode.html#aae6dd760c25fa8791a7769ad5a843e0f',1,'XSSLG.XSIUnitNode.WalkTo()']]],
   ['weapon_915',['Weapon',['../classXSSLG_1_1XSDefine.html#a28144fcaac4d9a763e16b3fb4e8d65b7a18c83669920215a818638ad0e5421e4b',1,'XSSLG::XSDefine']]],
-  ['weapontype_916',['WeaponType',['../classXSSLG_1_1SkillData.html#ab2eb9cbd50ecf44438b5764dd3d4671b',1,'XSSLG.SkillData.WeaponType()'],['../classXSSLG_1_1SkillData.html#a982cf40e23564e8063086b2bf458413c',1,'XSSLG.SkillData.weaponType()'],['../namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999af',1,'XSSLG.WeaponType()']]],
+  ['weapontype_916',['weaponType',['../classXSSLG_1_1SkillData.html#a982cf40e23564e8063086b2bf458413c',1,'XSSLG.SkillData.weaponType()'],['../classXSSLG_1_1SkillData.html#ab2eb9cbd50ecf44438b5764dd3d4671b',1,'XSSLG.SkillData.WeaponType()'],['../namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999af',1,'XSSLG.WeaponType()']]],
   ['workitem_917',['WorkItem',['../classXSSLG_1_1WorkItem.html',1,'XSSLG.WorkItem&lt; T, T1 &gt;'],['../classXSSLG_1_1WorkItem.html#a69e3fce4a31925c6f49e2483b07d7bc7',1,'XSSLG.WorkItem.WorkItem()']]],
   ['workitem_2ecs_918',['WorkItem.cs',['../WorkItem_8cs.html',1,'']]],
   ['workitem_3c_20tdata_2c_20tupdatedata_20_3e_919',['WorkItem&lt; TDATA, TUPDATEDATA &gt;',['../classXSSLG_1_1WorkItem.html',1,'XSSLG']]],

@@ -26,7 +26,7 @@ var searchData=
   ['getgridmain_330',['GetGridMain',['../classXSSLG_1_1XSU.html#a92e579c8740463ef75ce5f1b9e37b9d8',1,'XSSLG::XSU']]],
   ['getgridmaineditmode_331',['GetGridMainEditMode',['../classXSSLG_1_1XSUE.html#a843c2bed5a67380be41a16d2f2860033',1,'XSSLG::XSUE']]],
   ['getitem_332',['GetItem',['../classXSSLG_1_1DataManager.html#aca539c620dca44e8c53f0a38d1d590b7',1,'XSSLG::DataManager']]],
-  ['getlv_333',['GetLv',['../classXSSLG_1_1TechniqueLevelEx.html#a7b023dfe96c0cd90e05ff3e621e1a083',1,'XSSLG::TechniqueLevelEx']]],
+  ['getlv_333',['GetLv',['../classXSSLG_1_1TechniqueLevelEx.html#abc24de1f2c3b781a97319d62ed32f70f',1,'XSSLG::TechniqueLevelEx']]],
   ['getmaincamera_334',['GetMainCamera',['../classXSSLG_1_1XSU.html#a4320f74cfe80879c9e23adcf667239e6',1,'XSSLG::XSU']]],
   ['getmax_335',['GetMax',['../classXSSLG_1_1HP.html#ad3dd7bcd8e943e1b48bf1884a6cbcd2a',1,'XSSLG::HP']]],
   ['getmaxbounds_336',['GetMaxBounds',['../classXSSLG_1_1XSUnitNode.html#a303bb299fa7cf78460368fde39e4e579',1,'XSSLG::XSUnitNode']]],
@@ -71,6 +71,6 @@ var searchData=
   ['gridmgr_375',['GridMgr',['../classXSSLG_1_1XSU.html#a60cf1b834b7f0a44ffd68642bb247fc9',1,'XSSLG.XSU.GridMgr()'],['../classXSSLG_1_1BattleMouseCuror.html#a24658c06062ffb4ee7d28de00d5f27e9',1,'XSSLG.BattleMouseCuror.GridMgr()'],['../classXSSLG_1_1XSGridMain.html#a506efb1fb4833d1c95e41f7d970033ff',1,'XSSLG.XSGridMain.GridMgr()']]],
   ['gridshowmgr_376',['GridShowMgr',['../classXSSLG_1_1BattleNode.html#aec74c5f62f135f78e4d457b064774fd3',1,'XSSLG::BattleNode']]],
   ['grounded_377',['GROUNDED',['../classXSSLG_1_1AnimatorState.html#abddc333ce29db37499507f07ac8f5b72',1,'XSSLG::AnimatorState']]],
-  ['group_378',['group',['../classXSSLG_1_1SkillData.html#a43441478d6917da1698d63d87c2a7b2e',1,'XSSLG.SkillData.group()'],['../classXSSLG_1_1UnitBase.html#a1840353e33bccef5df5ae35bfc3ce3c6',1,'XSSLG.UnitBase.Group()'],['../classXSSLG_1_1XSUnitNode.html#a64af578acac05775e41c4dec5f837618',1,'XSSLG.XSUnitNode.Group()'],['../classXSSLG_1_1SkillData.html#a228dbcf160cf78aec494b39b763c8ba5',1,'XSSLG.SkillData.Group()']]],
+  ['group_378',['group',['../classXSSLG_1_1SkillData.html#a4f799ac040173ce1e11ac44e9cef2f9c',1,'XSSLG.SkillData.group()'],['../classXSSLG_1_1UnitBase.html#a1840353e33bccef5df5ae35bfc3ce3c6',1,'XSSLG.UnitBase.Group()'],['../classXSSLG_1_1XSUnitNode.html#a64af578acac05775e41c4dec5f837618',1,'XSSLG.XSUnitNode.Group()'],['../classXSSLG_1_1SkillData.html#aa11dc47e7604efbab9a868bc2964fdcb',1,'XSSLG.SkillData.Group()']]],
   ['grouptype_379',['GroupType',['../namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affa',1,'XSSLG']]]
 ];

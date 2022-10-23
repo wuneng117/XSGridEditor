@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['lance_437',['Lance',['../classXSSLG_1_1XSDefine.html#af98608b8a57bea0866cfeabb8281c9d5ac668c28c93c0329c208c37de8b2a88c6',1,'XSSLG.XSDefine.Lance()'],['../namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afac668c28c93c0329c208c37de8b2a88c6',1,'XSSLG.Lance()']]],
+  ['lance_437',['Lance',['../namespaceXSSLG.html#abf4683f0907b63fdbbd394c59845f12dac668c28c93c0329c208c37de8b2a88c6',1,'XSSLG.Lance()'],['../namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afac668c28c93c0329c208c37de8b2a88c6',1,'XSSLG.Lance()']]],
   ['layer_5fground_438',['LAYER_GROUND',['../classXSSLG_1_1GameConst.html#a3688e84c5c506817989c74378abf3149',1,'XSSLG::GameConst']]],
   ['layer_5ftile_439',['LAYER_TILE',['../classXSSLG_1_1XSGridDefine.html#aba3247b66c0a71f12f4d3f4a4e1220b8',1,'XSSLG::XSGridDefine']]],
   ['layer_5funit_440',['LAYER_UNIT',['../classXSSLG_1_1XSGridDefine.html#a318f0d56ddd4d513efae79d8e233d4c3',1,'XSSLG::XSGridDefine']]],
-  ['lck_441',['Lck',['../classXSSLG_1_1Stat.html#a70a2f71420ff149141453ca2ee64e815',1,'XSSLG.Stat.Lck()'],['../classXSSLG_1_1Stat.html#a480f9647ea78d47729f69f1af50f4cb3',1,'XSSLG.Stat.lck()']]],
+  ['lck_441',['lck',['../classXSSLG_1_1Stat.html#a480f9647ea78d47729f69f1af50f4cb3',1,'XSSLG.Stat.lck()'],['../classXSSLG_1_1Stat.html#a70a2f71420ff149141453ca2ee64e815',1,'XSSLG.Stat.Lck()']]],
   ['lcktext_442',['lckText',['../classXSSLG_1_1RolePanel.html#a1a0dab8d7fc026bdeada3c30c19706b3',1,'XSSLG::RolePanel']]],
   ['learnskilldata_443',['LearnSkillData',['../classXSSLG_1_1LearnSkillData.html',1,'XSSLG']]],
   ['learnskilldataidarray_444',['LearnSkillDataIDArray',['../classXSSLG_1_1RoleData.html#aa98db230ea3b33b69f1c32e1357f53f0',1,'XSSLG::RoleData']]],
@@ -26,7 +26,7 @@ var searchData=
   ['loadgameobject_460',['LoadGameObject',['../classXSSLG_1_1XSResLoadMgr.html#ad852e15f070e4e86ea1e0ca3ef898b26',1,'XSSLG::XSResLoadMgr']]],
   ['locomotion_461',['LOCOMOTION',['../classXSSLG_1_1AnimatorState.html#a200b2cc413e8eddeb1fcdde742a218b1',1,'XSSLG::AnimatorState']]],
   ['logic_462',['Logic',['../classXSSLG_1_1BattleNode.html#a3681e1e38e7c36d38a8358e333ed0708',1,'XSSLG::BattleNode']]],
-  ['lv_463',['Lv',['../classXSSLG_1_1TechniqueLevel.html#afafac9297582af46fb720d9b4d95602b',1,'XSSLG.TechniqueLevel.Lv()'],['../classXSSLG_1_1RoleData.html#a1f28ddf582ac37ff66f68c337fb3f9ef',1,'XSSLG.RoleData.Lv()'],['../classXSSLG_1_1LevelBase.html#a1031c79129c90b780841c860983f115e',1,'XSSLG.LevelBase.Lv()'],['../classXSSLG_1_1TechniqueLevel.html#a995f7b7e97eccf91411306161c748b3b',1,'XSSLG.TechniqueLevel.lv()'],['../classXSSLG_1_1RoleData.html#acf8cf5eb76bbe6868532d78d85599812',1,'XSSLG.RoleData.lv()']]],
+  ['lv_463',['lv',['../classXSSLG_1_1TechniqueLevel.html#a995f7b7e97eccf91411306161c748b3b',1,'XSSLG.TechniqueLevel.lv()'],['../classXSSLG_1_1RoleData.html#acf8cf5eb76bbe6868532d78d85599812',1,'XSSLG.RoleData.lv()'],['../classXSSLG_1_1TechniqueLevel.html#afafac9297582af46fb720d9b4d95602b',1,'XSSLG.TechniqueLevel.Lv()'],['../classXSSLG_1_1RoleData.html#a1f28ddf582ac37ff66f68c337fb3f9ef',1,'XSSLG.RoleData.Lv()'],['../classXSSLG_1_1LevelBase.html#a1031c79129c90b780841c860983f115e',1,'XSSLG.LevelBase.Lv()']]],
   ['lvtext_464',['LvText',['../classXSSLG_1_1RolePanel.html#a7f74425d8519149760eec149d40b3f3c',1,'XSSLG::RolePanel']]],
-  ['lvtype_465',['lvType',['../classXSSLG_1_1ClassData.html#a1347bdce3b935461ecf053fd7617f327',1,'XSSLG.ClassData.lvType()'],['../classXSSLG_1_1ClassData.html#a5fab9cd0bffae23216e477aa4edf9bb8',1,'XSSLG.ClassData.LvType()']]]
+  ['lvtype_465',['lvType',['../classXSSLG_1_1ClassData.html#a3554a8dd560c23462e8a72504b5c719a',1,'XSSLG.ClassData.lvType()'],['../classXSSLG_1_1ClassData.html#a0b9e41869032ca56c53ed4ad3a27a569',1,'XSSLG.ClassData.LvType()']]]
 ];

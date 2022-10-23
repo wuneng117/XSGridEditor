@@ -8,7 +8,7 @@ var searchData=
   ['emitteritem_2ecs_273',['EmitterItem.cs',['../EmitterItem_8cs.html',1,'']]],
   ['emitteritems_274',['EmitterItems',['../classXSSLG_1_1EmitterItems.html',1,'XSSLG.EmitterItems&lt; T &gt;'],['../classXSSLG_1_1EmitterItems.html#a8bf8b02590ac63b35b292d4eaccc12f0',1,'XSSLG.EmitterItems.EmitterItems()']]],
   ['endturn_275',['EndTurn',['../classXSSLG_1_1CountDown.html#a640f7d4771cd1bb19bb361f99e121236',1,'XSSLG::CountDown']]],
-  ['enemy_276',['Enemy',['../classXSSLG_1_1XSDefine.html#aade944dbea7c5476ae9ce546b5063a16a8c6d21187fb58b7a079d70030686b33e',1,'XSSLG.XSDefine.Enemy()'],['../namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaa8c6d21187fb58b7a079d70030686b33e',1,'XSSLG.Enemy()'],['../namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663aa8c6d21187fb58b7a079d70030686b33e',1,'XSSLG.Enemy()']]],
+  ['enemy_276',['Enemy',['../namespaceXSSLG.html#af4330c01aefae67d81e4147c6331affaa8c6d21187fb58b7a079d70030686b33e',1,'XSSLG.Enemy()'],['../namespaceXSSLG.html#a493f67f91e9c78170bd620d59671e5a3a8c6d21187fb58b7a079d70030686b33e',1,'XSSLG.Enemy()'],['../namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663aa8c6d21187fb58b7a079d70030686b33e',1,'XSSLG.Enemy()']]],
   ['enemyturn_277',['enemyTurn',['../classXSSLG_1_1BattleNode.html#a3ef3d231964904a46193d595fe59b1e9',1,'XSSLG::BattleNode']]],
   ['enqueue_278',['Enqueue',['../classXSSLG_1_1PriorityQueue.html#aef1ce888df507c1c4f7a2528a029aee9',1,'XSSLG::PriorityQueue']]],
   ['enumgenerator_279',['EnumGenerator',['../classXSSLG_1_1EnumGenerator.html',1,'XSSLG']]],

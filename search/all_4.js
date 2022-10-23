@@ -16,7 +16,7 @@ var searchData=
   ['deftext_252',['defText',['../classXSSLG_1_1RolePanel.html#abfa64cb988c3c5fb0334bb7243cd335d',1,'XSSLG::RolePanel']]],
   ['delay_253',['Delay',['../classXSSLG_1_1CustomSchedulerItem.html#a1947a5ecd1d878c40b0fd5a649ddb129',1,'XSSLG.CustomSchedulerItem.Delay()'],['../namespaceXSSLG.html#a100fb960f1bb0932df7a1d02aaf25a09a8f497c1a3d15af9e0c215019f26b887d',1,'XSSLG.Delay()']]],
   ['dequeue_254',['Dequeue',['../classXSSLG_1_1PriorityQueue.html#a7d1c0b326e8bd28eeb601acac46d9e07',1,'XSSLG::PriorityQueue']]],
-  ['desc_255',['Desc',['../classXSSLG_1_1BaseData.html#adf1d2787082a37e96b85cba0860247bc',1,'XSSLG.BaseData.Desc()'],['../classXSSLG_1_1BaseData.html#a8f7df7b2344b3abc515651eb6147733c',1,'XSSLG.BaseData.desc()']]],
+  ['desc_255',['desc',['../classXSSLG_1_1BaseData.html#a8f7df7b2344b3abc515651eb6147733c',1,'XSSLG.BaseData.desc()'],['../classXSSLG_1_1BaseData.html#adf1d2787082a37e96b85cba0860247bc',1,'XSSLG.BaseData.Desc()']]],
   ['destroy_256',['Destroy',['../classXSSLG_1_1BuffBase.html#a729c2578837f4fa60b3fed962fb4fd96',1,'XSSLG.BuffBase.Destroy()'],['../classXSSLG_1_1UnitBase.html#a6f3285f5f0c41569ee686f6f90616db0',1,'XSSLG.UnitBase.Destroy()']]],
   ['dex_257',['dex',['../classXSSLG_1_1Stat.html#afc2a816920e4a98b122867220e7a5f43',1,'XSSLG.Stat.dex()'],['../classXSSLG_1_1Stat.html#a0612e21e96d566911903be67d152a2f7',1,'XSSLG.Stat.Dex()']]],
   ['dextext_258',['dexText',['../classXSSLG_1_1RolePanel.html#acdac8f1081312f7a1128972652892711',1,'XSSLG::RolePanel']]],
@@ -26,7 +26,7 @@ var searchData=
   ['directiontype_262',['DirectionType',['../namespaceXSSLG.html#aa481ae2504eb4e20eb7547761d559848',1,'XSSLG']]],
   ['down_263',['down',['../classXSSLG_1_1Accessibility.html#a861e58e149b831211b193a077f4cfec6',1,'XSSLG.Accessibility.down()'],['../classXSSLG_1_1Accessibility.html#a1526470a6fbf39574a078d258886e68b',1,'XSSLG.Accessibility.Down()']]],
   ['drawbutton_264',['DrawButton',['../classXSSLG_1_1XSGridHelperEditor.html#af06de03ee53223ee92f3670b78064713',1,'XSSLG::XSGridHelperEditor']]],
-  ['dst_265',['Dst',['../classXSSLG_1_1OnTriggerData.html#a1ad4b6eb29e40a2c1bb07c7b65a3b6a6',1,'XSSLG.OnTriggerData.Dst()'],['../classXSSLG_1_1XSDefine.html#ab2900582c7b04869ab9604405d7d0faca1448a68418666ed85e07646744af82ef',1,'XSSLG.XSDefine.Dst()']]],
+  ['dst_265',['Dst',['../classXSSLG_1_1OnTriggerData.html#a1ad4b6eb29e40a2c1bb07c7b65a3b6a6',1,'XSSLG.OnTriggerData.Dst()'],['../namespaceXSSLG.html#acbf29f254a83a79b9001b5314fa34ec2a1448a68418666ed85e07646744af82ef',1,'XSSLG.Dst()']]],
   ['dstcausedamage_266',['DstCauseDamage',['../classXSSLG_1_1OnTriggerDataAttack.html#a6406409c95966178c6052a51b8652a3f',1,'XSSLG::OnTriggerDataAttack']]],
-  ['duration_267',['duration',['../classXSSLG_1_1BuffData.html#abd7700cf8ac4d096b2b499cdb09c4df7',1,'XSSLG.BuffData.duration()'],['../classXSSLG_1_1BuffData.html#a9699d6276d6c3872977dc20f80b3b8ac',1,'XSSLG.BuffData.Duration()']]]
+  ['duration_267',['Duration',['../classXSSLG_1_1BuffData.html#a9699d6276d6c3872977dc20f80b3b8ac',1,'XSSLG.BuffData.Duration()'],['../classXSSLG_1_1BuffData.html#abd7700cf8ac4d096b2b499cdb09c4df7',1,'XSSLG.BuffData.duration()']]]
 ];

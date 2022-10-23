@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onturnstart_2034',['OnTurnStart',['../classXSSLG_1_1XSDefine.html#ab12417ca20e22c8c60bba4f9706be2ebadaf718659527e949aad66f1c860bbb5f',1,'XSSLG::XSDefine']]]
+  ['onturnstart_2034',['OnTurnStart',['../namespaceXSSLG.html#a2dd72ff4916ebf11ce06cea064a922e0adaf718659527e949aad66f1c860bbb5f',1,'XSSLG']]]
 ];

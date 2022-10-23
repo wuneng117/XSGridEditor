@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unique_2051',['Unique',['../classXSSLG_1_1XSDefine.html#a0811cbbb5414754ed42dd40970c4f919ad019979a29c88c8d69bab3a63388da97',1,'XSSLG::XSDefine']]]
+  ['unique_2051',['Unique',['../namespaceXSSLG.html#a086b3726a73db7f2b3e00a1b599260e4ad019979a29c88c8d69bab3a63388da97',1,'XSSLG']]]
 ];

@@ -13,5 +13,5 @@ var searchData=
   ['gridmain_1838',['gridMain',['../classXSSLG_1_1XSU.html#aa3b6c239903da0cc9f445085fb2bc360',1,'XSSLG::XSU']]],
   ['gridmaineditmode_1839',['gridMainEditMode',['../classXSSLG_1_1XSUE.html#a587ff79811c74912db3ab09a7bab77b1',1,'XSSLG::XSUE']]],
   ['grounded_1840',['GROUNDED',['../classXSSLG_1_1AnimatorState.html#abddc333ce29db37499507f07ac8f5b72',1,'XSSLG::AnimatorState']]],
-  ['group_1841',['group',['../classXSSLG_1_1SkillData.html#a43441478d6917da1698d63d87c2a7b2e',1,'XSSLG.SkillData.group()'],['../classXSSLG_1_1XSUnitNode.html#a64af578acac05775e41c4dec5f837618',1,'XSSLG.XSUnitNode.Group()']]]
+  ['group_1841',['group',['../classXSSLG_1_1SkillData.html#a4f799ac040173ce1e11ac44e9cef2f9c',1,'XSSLG.SkillData.group()'],['../classXSSLG_1_1XSUnitNode.html#a64af578acac05775e41c4dec5f837618',1,'XSSLG.XSUnitNode.Group()']]]
 ];
