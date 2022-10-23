@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace XSSLG
 {
@@ -10,52 +9,33 @@ namespace XSSLG
     {
 
         /// <summary>条件类型</summary>
-        [SerializeField]
-        protected TriggerConditionType type;
-
-        public TriggerConditionType Type { get => type; protected set => type = value; }
+        public TriggerConditionType Type;
 
         /// <summary>数值</summary>
-        [SerializeField]
-        protected float prop;
-
-        public float Prop { get => prop; protected set => prop = value; }
+        public float Prop;
 
         /// <summary>比较类型</summary>
-        [SerializeField]
-        protected CompareType compare;
-        public CompareType Compare { get => compare; protected set => compare = value; }
+        public CompareType Compare;
 
         /// <summary>条件对象类型</summary>
-        [SerializeField]
-        protected TargetConditionType target;
-        public TargetConditionType Target { get => target; protected set => target = value; }
+        public TargetConditionType Target;
     }
 
     [Serializable]
     public class SearchStruct
     {
 
-        [SerializeField]
         /// <summary>目标类型</summary>
-        public List<SearchTargetType> Target { get; protected set; } = new List<SearchTargetType>();
+        public List<SearchTargetType> Target = new List<SearchTargetType>();
 
         /// <summary>索敌类型</summary>
-        [SerializeField]
-        protected SearchType type;
-
-        public SearchType Type { get => type; protected set => type = value; }
+        public SearchType Type;
 
         /// <summary>最小范围</summary>
-        [SerializeField]
-        protected int min;
-
-        public int Min { get => min; protected set => min = value; }
+        public int Min;
 
         /// <summary>最大范围</summary>
-        [SerializeField]
-        protected int max;
-        public int Max { get => max; protected set => max = value; }
+        public int Max;
     }
 
     [Serializable]
@@ -63,34 +43,22 @@ namespace XSSLG
     {
 
         /// <summary>类型</summary>
-        [SerializeField]
-        protected TriggerType type;
-
-        public TriggerType Type { get => type; set => type = value; }
+        public TriggerType Type;
 
         /// <summary>特殊类型</summary>
-        [SerializeField]
-        protected TriggerSpecialType specialType;
+        public TriggerSpecialType SpecialType;
 
-        public TriggerSpecialType SpecialType { get => specialType; set => specialType = value; }
 
-        [SerializeField]
         /// <summary>条件</summary>
-        public ConditionStruct Condition { get; protected set; } = new ConditionStruct();
+        public ConditionStruct Condition = new ConditionStruct();
 
-        [SerializeField]
         /// <summary>索敌</summary>
-        public SearchStruct SearchTarget { get; protected set; } = new SearchStruct();
+        public SearchStruct SearchTarget = new SearchStruct();
 
         /// <summary>CD</summary>
-        [SerializeField]
-        protected int cd;
-
-        public int Cd { get => cd; protected set => cd = value; }
+        public int CD;
 
         /// <summary>是否开始就cd</summary>
-        [SerializeField]
-        protected bool isCdOnStart;
-        public bool IsCdOnStart { get => isCdOnStart; protected set => isCdOnStart = value; }
+        public bool IsCDOnStart;
     }
 }

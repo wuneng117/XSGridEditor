@@ -19117,6 +19117,10 @@ PrefabInstance:
       propertyPath: data.key
       value: "\u6D4B\u8BD5\u654C\u4EBA112"
       objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.Stat.HP.Val
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3590657989057605550, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: m_Name
       value: Cylinder
@@ -50846,16 +50850,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: data.desc
-      value: "\u554A\u554A\u554A\u554A\u554A\u554A\u554A"
+      value: "\u554A\u554A\u554A\u554A\u554A\u554A\u554A1"
       objectReference: {fileID: 0}
     - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: data.name
-      value: "\u5361\u96861111"
+      value: "\u5361\u968611112"
       objectReference: {fileID: 0}
     - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: data.texture
       value: 
       objectReference: {fileID: 2800000, guid: baf85604c4775d14ba6db745eb9abeff, type: 3}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.Stat.Str.Val
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.AbilityKeyList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.AbilityKeyList.Array.data[0]
+      value: 0c92c786-23b6-4f60-baa0-cf0aabc18824
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[0]
+      value: a5828ff5-5b67-446a-8328-56ad4104cac3
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[1]
+      value: 83480f1e-f1e6-4e57-9571-0eddd0510e0e
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[2]
+      value: 7f86b071-6045-4655-948f-5340aac3477d
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[3]
+      value: 55b39d97-39c5-4d5a-97f5-2f5ce6b203b1
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[4]
+      value: 55b39d97-39c5-4d5a-97f5-2f5ce6b203b1
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[5]
+      value: 1d72cfec-a195-4d7b-bbc5-427151d19482
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[6]
+      value: 18301476-faf4-4ea6-8ed1-3e09ffaf4855
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[7]
+      value: 62487ab2-95c3-4a5d-af86-b60ab940d7a8
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[8]
+      value: e85393eb-aac8-4ba6-9c57-0ecd65bdedf1
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[9]
+      value: 0c92c786-23b6-4f60-baa0-cf0aabc18824
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.abilityKeyList.Array.data[10]
+      value: 7f33a93a-ce96-47ae-a96a-b8c469b55020
+      objectReference: {fileID: 0}
     - target: {fileID: 3590657989057605550, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: m_Name
       value: Cylinder
@@ -64609,9 +64673,25 @@ PrefabInstance:
       value: "\u6D4B\u8BD5\u654C\u4EBA1"
       objectReference: {fileID: 0}
     - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.desc
+      value: "\u6D4B\u8BD5\u7529\u554A2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.name
+      value: "\u6D4B\u8BD5\u654C\u4EBA12"
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: data.texture
       value: 
       objectReference: {fileID: 2800000, guid: a078b2e598308d242a9e8c34dfe7af5e, type: 3}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.AbilityKeyList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 715119746889966820, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
+      propertyPath: data.AbilityKeyList.Array.data[0]
+      value: 7f33a93a-ce96-47ae-a96a-b8c469b55020
+      objectReference: {fileID: 0}
     - target: {fileID: 3590657989057605550, guid: f0cb9f110b3acde4bacd7bbdcf236c15, type: 3}
       propertyPath: m_Name
       value: Cylinder

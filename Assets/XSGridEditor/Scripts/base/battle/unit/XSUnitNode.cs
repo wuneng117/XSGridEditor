@@ -18,7 +18,7 @@ namespace XSSLG
 
         // /// <summary> 动画控制 </summary>
         // private UnitAnimation Animation { get; set; }
-        
+
         [SerializeField]
         protected RoleData data = new RoleData();
         public RoleData Data { get => data; set => data = value; }
@@ -83,14 +83,9 @@ namespace XSSLG
             return ret;
         }
 
-
-
         public virtual void RemoveNode() => XSU.RemoveObj(this.gameObject);
 
         public virtual bool IsNull() => this == null;
-
-        /// <summary> if unit is added by brush, it need a new key </summary>
-        public virtual void GenerateKey() => this.Data.Key = System.Guid.NewGuid().ToString();
 
         public virtual void UpdatePos()
         {
@@ -127,7 +122,7 @@ namespace XSSLG
             this.IsMoving = false;
         }
 
-         /// <summary> 攻击动画 </summary>
+        /// <summary> 攻击动画 </summary>
         public void AttackAnimation()
         {
             //// this.IsAttacking = true;
@@ -143,7 +138,28 @@ namespace XSSLG
         }
 
         /// <summary> 死亡动画 </summary>
-        public void DieAnimation() {}
+        public void DieAnimation() { }
         // public void DieAnimation() => this.Animation.PlayDie();
+
+        /// <summary>
+        /// remove wrong key
+        /// </summary>
+        /// <param name="skillKeyList"></param>
+        public virtual void CheckSkillKeyList(List<string> skillKeyList)
+        {
+            if (skillKeyList == null || skillKeyList.Count == 0)
+            {
+                return;
+            }
+
+            for (int index = skillKeyList.Count - 1; index >= 0; index--)
+            {
+                var skillKey = skillKeyList[index];
+                if (TableManager.Instance.SkillDataManager.GetItem(skillKey) == null)
+                {
+                    skillKeyList.RemoveAt(index);
+                }
+            }
+        }
     }
 }

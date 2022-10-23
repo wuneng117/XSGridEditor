@@ -1,8 +1,6 @@
-using UnityEditor;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System;
-using UnityEngine;
 
 namespace XSSLG
 {

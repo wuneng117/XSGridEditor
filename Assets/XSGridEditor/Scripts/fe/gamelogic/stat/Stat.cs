@@ -12,53 +12,33 @@ namespace XSSLG
     public class Stat
     {
         /// <summary> 力量 </summary>
-        [SerializeField]
-        private Attr str = new Attr();
-        public Attr Str { get => str; }
+        public Attr Str = new Attr();
 
         /// <summary> 防守 </summary>
-        [SerializeField]
-        protected Attr def = new Attr();
-        public Attr Def { get => def; }
+        public Attr Def = new Attr();
 
         /// <summary> 魔力 </summary>
-        [SerializeField]
-        protected Attr mag = new Attr();
-        public Attr Mag { get => mag; }
+        public Attr Mag = new Attr();
 
         /// <summary> 魔防 </summary>
-        [SerializeField]
-        protected Attr dex = new Attr();
-        public Attr Dex { get => dex; }
+        public Attr Dex = new Attr();
         
         /// <summary> 移动 </summary>
-        [SerializeField]
-        protected Attr mov = new Attr();
-        public Attr Mov { get => mov; }
+        public Attr Mov = new Attr();
 
         /// <summary> 速度 </summary>
-        [SerializeField]
-        protected Attr spd = new Attr();
-        public Attr Spd { get => spd; }
+        public Attr Spd = new Attr();
 
         /// <summary> 技巧 </summary>
-        [SerializeField]
-        protected Attr res = new Attr();
-        public Attr Res { get => res; }
+        public Attr Res = new Attr();
 
         /// <summary> 幸运 </summary>
-        [SerializeField]
-        protected Attr lck = new Attr();
-        public Attr Lck { get => lck; }
+        public Attr Lck = new Attr();
 
         /// <summary> 魅力 </summary>
-        [SerializeField]
-        protected Attr cha = new Attr();
-        public Attr Cha { get => cha; }
-
-        [SerializeField]
-        protected HP hp = new HP();
-        public HP HP { get => hp; }
+        public Attr Cha = new Attr();
+        
+        public HP HP = new HP();
 
         // private HP _MP = new HP();
 
@@ -78,32 +58,32 @@ namespace XSSLG
             {
                 return false;
             }
-            this.str.Add(stat.str);
-            this.def.Add(stat.def);
-            this.mag.Add(stat.mag);
-            this.dex.Add(stat.dex);
-            this.mov.Add(stat.mov);
-            this.spd.Add(stat.spd);
-            this.res.Add(stat.res);
-            this.lck.Add(stat.lck);
-            this.cha.Add(stat.cha);
-            this.hp.Add(stat.hp);
+            this.Str.Add(stat.Str);
+            this.Def.Add(stat.Def);
+            this.Mag.Add(stat.Mag);
+            this.Dex.Add(stat.Dex);
+            this.Mov.Add(stat.Mov);
+            this.Spd.Add(stat.Spd);
+            this.Res.Add(stat.Res);
+            this.Lck.Add(stat.Lck);
+            this.Cha.Add(stat.Cha);
+            this.HP.Add(stat.HP);
             return true;
         }
 
         /// <summary> 重置 </summary>
         public void Reset()
         {
-            this.str.Reset();
-            this.def.Reset();
-            this.mag.Reset();
-            this.dex.Reset();
-            this.mov.Reset();
-            this.spd.Reset();
-            this.res.Reset();
-            this.lck.Reset();
-            this.cha.Reset();
-            this.hp.Reset();
+            this.Str.Reset();
+            this.Def.Reset();
+            this.Mag.Reset();
+            this.Dex.Reset();
+            this.Mov.Reset();
+            this.Spd.Reset();
+            this.Res.Reset();
+            this.Lck.Reset();
+            this.Cha.Reset();
+            this.HP.Reset();
         }
 
         /// <summary> 拷贝 </summary>

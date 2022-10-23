@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace XSSLG
 {
@@ -9,53 +8,36 @@ namespace XSSLG
     {
 
         /// <summary>类型</summary>
-        [SerializeField]
-        public int Type { get; set; }
+        public int Type;
 
         /// <summary>常用效果</summary>
-        [SerializeField]
-        public List<SkillEffectStruct> EffectList { get; protected set; } = new List<SkillEffectStruct>();
+        public List<SkillEffectStruct> EffectList = new List<SkillEffectStruct>();
 
         /// <summary>最大层数</summary>
-        [SerializeField]
-        protected int maxCount;
-        public int MaxCount { get => maxCount; set => maxCount = value; }
+        public int MaxCount;
 
         /// <summary>起始层数</summary>
-        [SerializeField]
-        protected int initCount;
-        public int InitCount { get => initCount; set => initCount = value; }
+        public int InitCount;
 
         /// <summary>Buff结束触发器Id</summary>
-        [SerializeField]
-        public int FinishTriggerId { get; set; }
+        public int FinishTriggerId;
 
         /// <summary>持续时间</summary>
-        [SerializeField]
-        protected int duration;
-        public int Duration { get => duration; set => duration = value; }
+        public int Duration;
 
         /// <summary>能否叠加</summary>
-        [SerializeField]
-        protected bool canStack;
-        public bool CanStack { get => canStack; set => canStack = value; }
+        public bool CanStack;
 
         /// <summary>效果随层数变动</summary>
-        [SerializeField]
-        protected int canFloor;
-        public int CanFloor { get => canFloor; set => canFloor = value; }
+        public int CanFloor;
 
         /// <summary>自定义数值数组</summary>
-        [SerializeField]
-        public List<PropStruct> PropList { get; protected set; } = new List<PropStruct>();
+        public List<PropStruct> PropList = new List<PropStruct>();
 
         /// <summary>是否debuff</summary>
-        [SerializeField]
-        protected bool isDebuff;
-        public bool IsDebuff { get => isDebuff; set => isDebuff = value; }
+        public bool IsDebuff;
 
         /// <summary> buff存在时的一级属性加成 </summary>
-        [SerializeField]
-        public Stat Stat { get; set; }
+        public Stat Stat;
     }
 }

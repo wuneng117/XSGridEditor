@@ -42,11 +42,11 @@ namespace XSSLG
             }
 
             var unitEditMode = unitObj.GetComponent<XSUnitNodeEditMode>();
+            unitEditMode.GenerateKey();
             unitEditMode.enabled = true;
 
             //add to unit dict
             var unitNode = unitObj.GetComponent<XSIUnitNode>();
-            unitNode.GenerateKey();
             var ret = mgr.Add(unitNode);
             if (!ret)
             {

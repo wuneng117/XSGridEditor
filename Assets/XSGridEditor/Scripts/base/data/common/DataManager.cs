@@ -33,12 +33,13 @@ namespace XSSLG
         {
             if (XSU.IsEditor())
             {
-                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".bytes";
+                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".json";
                 if (File.Exists(path))
                 {
-                    var file = File.Open(path, FileMode.Open);
-                    var bf = new BinaryFormatter();
-                    instance = bf.Deserialize(file) as DataManager<T>;
+                    var file = File.OpenText(path);
+                    // var bf = new BinaryFormatter();
+                    // instance = bf.Deserialize(file) as DataManager<T>;
+                    instance = JsonUtility.FromJson<DataManager<T>>(file.ReadToEnd());
                     file.Close();
                 }
                 else
@@ -48,13 +49,14 @@ namespace XSSLG
             }
             else
             {
-                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".bytes";
+                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".json";
                 var textAsset = Resources.Load<TextAsset>(GameConst.DATA_FILE_PATH_RUNTIME + typeof(T));
                 if (textAsset != null)
                 {
-                    var stream = new MemoryStream(textAsset.bytes);
-                    var bf = new BinaryFormatter();
-                    instance = bf.Deserialize(stream) as DataManager<T>;
+                    // var stream = new MemoryStream(textAsset.bytes);
+                    // var bf = new BinaryFormatter();
+                    // instance = bf.Deserialize(stream) as DataManager<T>;
+                    instance = JsonUtility.FromJson<DataManager<T>>(textAsset.text);
                 }
                 else
                 {
@@ -72,7 +74,7 @@ namespace XSSLG
             }
         }
 
-        public static void Save()
+        public void Save()
         {
             if (XSU.IsEditor())
             {
@@ -81,10 +83,12 @@ namespace XSSLG
                 {
                     Directory.CreateDirectory(dir);
                 }
-                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".bytes";
-                var file = File.Create(path);
-                var bf = new BinaryFormatter();
-                bf.Serialize(file, instance);
+                var path = GameConst.DATA_FILE_PATH_EDITOR + typeof(T) + ".json";
+                var file = File.CreateText(path);
+                var data = JsonUtility.ToJson(Instance);
+                file.Write(data);
+                // var bf = new BinaryFormatter();
+                // bf.Serialize(file, instance);
                 file.Close();
             }
         }

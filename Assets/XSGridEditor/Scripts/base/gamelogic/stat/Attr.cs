@@ -11,45 +11,40 @@ namespace XSSLG
     [Serializable]
     public class Attr
     {
-        [SerializeField]
-        protected int val;
-        public int Val { get => val; set => val = value; }
-
-        [SerializeField]
-        protected float factor;
-        public float Factor { get => factor; set => factor = value; }
+        public int Val;
+        public float Factor;
 
         public Attr()
         {
-            this.val = 0;
-            this.factor = 0;
+            this.Val = 0;
+            this.Factor = 0;
         }
 
         public Attr(int val) : this()
         {
-            this.val = val;
+            this.Val = val;
         }
 
         public Attr(int val, float factor) : this(val)
         {
-            this.factor = factor;
+            this.Factor = factor;
         }
 
         /// <summary> 基础乘以百分比计算最终属性 </summary>
-        public int GetFinal() => (int)(this.val * (1 + this.factor));
+        public int GetFinal() => (int)(this.Val * (1 + this.Factor));
 
         /// <summary> 加其它属性 </summary>
         public void Add(Attr attr)
         {
-            this.val += attr.val;
-            this.factor += attr.factor;
+            this.Val += attr.Val;
+            this.Factor += attr.Factor;
         }
 
         /// <summary> 减其它属性 </summary>
         public void Reduce(Attr attr)
         {
-            this.val -= attr.val;
-            this.factor -= attr.factor;
+            this.Val -= attr.Val;
+            this.Factor -= attr.Factor;
         }
 
         // 重载 + 运算符
@@ -73,8 +68,8 @@ namespace XSSLG
         /// <summary> 重置 </summary>
         public void Reset()
         {
-            this.val = 0;
-            this.factor = 0;
+            this.Val = 0;
+            this.Factor = 0;
         }
     }
 }

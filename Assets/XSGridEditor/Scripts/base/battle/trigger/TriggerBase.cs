@@ -68,7 +68,7 @@ namespace XSSLG
         /// <summary> 开始倒计时 </summary>
         public void StartTick()
         {
-            this.Cd.Start(this.Data.Cd);
+            this.Cd.Start(this.Data.CD);
         }
 
         /// <summary> 停止倒计时 </summary>

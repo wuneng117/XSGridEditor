@@ -22,6 +22,8 @@ namespace XSSLG
             var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSUnitEditorView.uxml");
             visualTree.CloneTree(this);
 
+            this.InitSkillListView();
+
             this.listview = this.Q<ListView>("unitlist");
             this.listview.XSInit(new List<XSUnitNode>(),
                 "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSListViewItem.uxml",
@@ -32,7 +34,6 @@ namespace XSSLG
 
             this.RefreshView(groupType);
 
-            this.InitSkillListView();
         }
 
         public void RefreshView(GroupType groupType)
@@ -70,16 +71,31 @@ namespace XSSLG
                 {
                     if (this.SelectUnit != null)
                     {
+                        // // test
+                        // var skill = new SkillData();
+                        // skill.Key = System.Guid.NewGuid().ToString();
+                        // skill.Name = "胜利之剑";
+                        // skill.Group = SkillGroupType.Passive;
+
+                        // Undo.RecordObject(this.SelectUnit, "Add Skill");
+                        // EditorUtility.SetDirty(this.SelectUnit);
+                        // this.SelectUnit.Data.AbilityKeyList.Add(skill.Key);
+
+                        // TableManager.Instance.SkillDataManager.AddItem(skill);
+                        // TableManager.Instance.SkillDataManager.Save();
+
                         var allAbilityList = TableManager.Instance.SkillDataManager.GetList().Where(skill => skill.Group == SkillGroupType.Passive).ToList();
                         XSListWindow.ShowExample(allAbilityList, "添加特技",
-                        (ability) =>
+                        (System.Action<SkillData>)((ability) =>
                         {
                             if (ability != null)
                             {
+                                Undo.RecordObject(this.SelectUnit, "Add Skill");
+                                EditorUtility.SetDirty(this.SelectUnit);
                                 this.SelectUnit.Data.AbilityKeyList.Add(ability.Key);
-                                this.AbilityListView?.RefreshView(this.SelectUnit.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
+                                this.AbilityListView?.RefreshView(Enumerable.Select<string, SkillData>(this.SelectUnit.Data.AbilityKeyList, (System.Func<string, SkillData>)(key => TableManager.Instance.SkillDataManager.GetItem(key))).ToList());
                             }
-                        });
+                        }));
                     }
                 },
                 (ability) =>
@@ -89,6 +105,8 @@ namespace XSSLG
                         var abilityKeyList = this.SelectUnit.Data.AbilityKeyList;
                         if (abilityKeyList.Contains(ability.Key))
                         {
+                            Undo.RecordObject(this.SelectUnit, "Remove Skill");
+                            EditorUtility.SetDirty(this.SelectUnit);
                             abilityKeyList.Remove(ability.Key);
                             this.AbilityListView?.RefreshView(this.SelectUnit.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
                         }
@@ -134,33 +152,34 @@ namespace XSSLG
             name_text?.XSInit(obj, "data.name");
 
             var desc_text = this.Q<TextField>("desc_text");
-            desc_text?.XSInit(obj, "data.desc");
+            desc_text?.XSInit(obj, "data.Desc");
 
             var lv = this.Q<IntegerField>("lv");
-            lv?.XSInit(obj, "data.lv");
+            lv?.XSInit(obj, "data.Lv");
 
             var hp = this.Q<IntegerField>("hp");
-            hp?.XSInit(obj, "data.stat.hp.val");
+            hp?.XSInit(obj, "data.Stat.HP.Val");
 
             var str = this.Q<IntegerField>("str");
-            str?.XSInit(obj, "data.stat.str.val");
+            str?.XSInit(obj, "data.Stat.Str.Val");
             var mag = this.Q<IntegerField>("mag");
-            mag?.XSInit(obj, "data.stat.mag.val");
+            mag?.XSInit(obj, "data.Stat.Mag.Val");
             var res = this.Q<IntegerField>("res");
-            res?.XSInit(obj, "data.stat.res.val");
+            res?.XSInit(obj, "data.Stat.Res.Val");
             var spd = this.Q<IntegerField>("spd");
-            spd?.XSInit(obj, "data.stat.spd.val");
+            spd?.XSInit(obj, "data.Stat.Spd.Val");
             var lck = this.Q<IntegerField>("lck");
-            lck?.XSInit(obj, "data.stat.lck.val");
+            lck?.XSInit(obj, "data.Stat.Lck.Val");
             var def = this.Q<IntegerField>("def");
-            def?.XSInit(obj, "data.stat.def.val");
+            def?.XSInit(obj, "data.Stat.Def.Val");
             var dex = this.Q<IntegerField>("dex");
-            dex?.XSInit(obj, "data.stat.dex.val");
+            dex?.XSInit(obj, "data.Stat.Dex.Val");
             var cha = this.Q<IntegerField>("cha");
-            cha?.XSInit(obj, "data.stat.cha.val");
+            cha?.XSInit(obj, "data.Stat.Cha.Val");
             var mov = this.Q<IntegerField>("mov");
-            mov?.XSInit(obj, "data.stat.mov.val");
-
+            mov?.XSInit(obj, "data.Stat.Mov.Val");
+            
+            obj.CheckSkillKeyList(obj.Data.AbilityKeyList);
             this.AbilityListView?.RefreshView(obj.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
 
             // var bf = new BinaryFormatter();

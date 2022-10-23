@@ -47,7 +47,7 @@ namespace XSSLG
                 
             this.Level = new RoleLevel(data.Lv);
 
-            this.Class = new RoleClass(TableManager.Instance.ClassDataManager.GetItem(data.ClassDataName));
+            this.Class = new RoleClass(TableManager.Instance.ClassDataManager.GetItem(data.ClassDataKey));
             this.ClassArray = data.ClassDataKeyList.Select(name => new RoleClass(TableManager.Instance.ClassDataManager.GetItem(name))).ToList<RoleClass>();
 
 

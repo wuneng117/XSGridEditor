@@ -11,28 +11,23 @@ namespace XSSLG
     [Serializable]
     public class HP
     {
-        [SerializeField]
-        private int val;
-        public int Val { get => val; set => val = value; }
-
-        [SerializeField]
-        private Attr max;
-        public Attr Max { get => max; set => max = value; }
+        public int Val;
+        public Attr Max;
 
         public HP()
         {
-            this.val = 0;
-            this.max = new Attr();
+            this.Val = 0;
+            this.Max = new Attr();
         }
 
         public HP(int val) : this()
         {
-            this.val = val;
+            this.Val = val;
         }
 
         public HP(int val, Attr max) : this(val)
         {
-            this.max = max;
+            this.Max = max;
         }
 
         /// <summary> 基础属性,和Get是一样的，只是为了和IAttr用起来一样 </summary>
@@ -41,36 +36,36 @@ namespace XSSLG
         /// <summary> 加其它属性 </summary>
         public void Add(HP hp)
         {
-            this.val += hp.val;
-            this.max += hp.max;
+            this.Val += hp.Val;
+            this.Max += hp.Max;
         }
 
         /// <summary> 重置 </summary>
         public void Reset()
         {
-            this.val = 0;
-            this.max.Reset();
+            this.Val = 0;
+            this.Max.Reset();
         }
 
         /// <summary> 加具体血量 </summary>
         /// TODO 各种验证
         public void Add(int hp)
         {
-            this.val += hp;
+            this.Val += hp;
         }
 
         /// <summary> 减具体血量 </summary>
         /// TODO 各种验证
         public void Reduce(int hp)
         {
-            this.val -= hp;
+            this.Val -= hp;
         }
 
         /// <summary> 获取最大血量 </summary>
-        public int GetMax() => this.max.GetFinal();
+        public int GetMax() => this.Max.GetFinal();
 
         /// <summary> 获取百分比：血量/最大血量 </summary>
-        public float GetPercent() => this.val / this.GetMax();
+        public float GetPercent() => this.Val / this.GetMax();
 
     }
 }

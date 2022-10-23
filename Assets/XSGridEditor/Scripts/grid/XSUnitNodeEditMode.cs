@@ -42,5 +42,18 @@ namespace XSSLG
                 }
             }
         }
+
+        /// <summary> if unit is added by brush, it need a new key </summary>
+        public virtual void GenerateKey()
+        {
+            if (XSU.IsEditor())
+            {
+                var unitNode = this.GetComponent<XSUnitNode>();
+                if (unitNode != null)
+                {
+                    unitNode.Data.Key = System.Guid.NewGuid().ToString();
+                }
+            }
+        }
     }
 }
