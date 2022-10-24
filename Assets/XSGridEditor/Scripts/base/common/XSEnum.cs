@@ -45,7 +45,7 @@ namespace XSSLG
     public enum SkillGroupType
     {
         Normal = 0,
-        /// <summary>被动技能</summary>
+        /// <summary>属性加成技能</summary>
         Passive = 1,
         /// <summary>纹章技能</summary>
         Crest = 2,
@@ -55,10 +55,13 @@ namespace XSSLG
     public enum SkillType
     {
         Common = 0,
-        /// <summary>战斗技能</summary>
-        Combat = 1,
+        /// <summary> 特技 </summary>
+        Ability = 1,
+        /// <summary>战技</summary>
+        CombatArt = 2,
         /// <summary>魔法主动技能</summary>
-        Magic = 2,
+        Magic = 3,
+
         Max,
     }
 

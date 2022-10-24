@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -65,56 +66,56 @@ namespace XSSLG
                 return;
             }
 
-            this.AbilityListView = new XSListView<SkillData>(new List<SkillData>(),
-                "特技列表",
+            this.AbilityListView = this.CreateSkillListView("特技列表", SkillType.Ability, () => this.SelectUnit.Data.AbilityKeyList);
+            listRoot.Add(this.AbilityListView);
+
+            this.CombatArtListView = this.CreateSkillListView("战技列表", SkillType.CombatArt, () => this.SelectUnit.Data.CombatArtKeyList);
+            listRoot.Add(this.CombatArtListView);
+
+            this.MagicListView = this.CreateSkillListView("魔法列表", SkillType.Magic, () => this.SelectUnit.Data.MagicKeyList);
+            listRoot.Add(this.MagicListView);
+        }
+
+        protected virtual void CreateSkillListView(string title, SkillType type, Func<List<SkillData>> GetWatchListFunc)
+        {
+            var ret = new XSListView<SkillData>(new List<SkillData>(),
+                title,
                 () =>
                 {
                     if (this.SelectUnit != null)
                     {
-                        // // test
-                        // var skill = new SkillData();
-                        // skill.Key = System.Guid.NewGuid().ToString();
-                        // skill.Name = "胜利之剑";
-                        // skill.Group = SkillGroupType.Passive;
-
-                        // Undo.RecordObject(this.SelectUnit, "Add Skill");
-                        // EditorUtility.SetDirty(this.SelectUnit);
-                        // this.SelectUnit.Data.AbilityKeyList.Add(skill.Key);
-
-                        // TableManager.Instance.SkillDataManager.AddItem(skill);
-                        // TableManager.Instance.SkillDataManager.Save();
-
-                        var allAbilityList = TableManager.Instance.SkillDataManager.GetList().Where(skill => skill.Group == SkillGroupType.Passive).ToList();
-                        XSListWindow.ShowExample(allAbilityList, "添加特技",
-                        (System.Action<SkillData>)((ability) =>
+                        var skillList = TableManager.Instance.SkillDataManager.GetList().Where(skill => skill.Type == type).ToList();
+                        XSListWindow.ShowExample(skillList, title,
+                        skill =>
                         {
-                            if (ability != null)
+                            if (skill != null)
                             {
                                 Undo.RecordObject(this.SelectUnit, "Add Skill");
                                 EditorUtility.SetDirty(this.SelectUnit);
-                                this.SelectUnit.Data.AbilityKeyList.Add(ability.Key);
-                                this.AbilityListView?.RefreshView(Enumerable.Select<string, SkillData>(this.SelectUnit.Data.AbilityKeyList, (System.Func<string, SkillData>)(key => TableManager.Instance.SkillDataManager.GetItem(key))).ToList());
+                                var unitSkillList = GetWatchListFunc?.Invoke()?? new List<SkillData>();
+                                unitSkillList.Add(skill.Key);
+                                ret.RefreshView(unitSkillList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
                             }
-                        }));
+                        });
                     }
                 },
-                (ability) =>
+                skill =>
                 {
-                    if (ability != null && this.SelectUnit != null)
+                    if (skill != null && this.SelectUnit != null)
                     {
-                        var abilityKeyList = this.SelectUnit.Data.AbilityKeyList;
-                        if (abilityKeyList.Contains(ability.Key))
+                        var unitSkillList = GetWatchListFunc?.Invoke()?? new List<SkillData>();
+                        if (unitSkillList.Contains(skill.Key))
                         {
                             Undo.RecordObject(this.SelectUnit, "Remove Skill");
                             EditorUtility.SetDirty(this.SelectUnit);
-                            abilityKeyList.Remove(ability.Key);
-                            this.AbilityListView?.RefreshView(this.SelectUnit.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
+                            unitSkillList.Remove(skill.Key);
+                            ret.RefreshView(unitSkillList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
                         }
                     }
                 }
             );
 
-            listRoot.Add(this.AbilityListView);
+            return ret;
         }
 
 
@@ -180,7 +181,13 @@ namespace XSSLG
             mov?.XSInit(obj, "data.Stat.Mov.Val");
             
             obj.CheckSkillKeyList(obj.Data.AbilityKeyList);
-            this.AbilityListView?.RefreshView(obj.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
+            this.AbilityListView?.RefreshView(obj.Data.AbilityKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());      
+
+            obj.CheckSkillKeyList(obj.Data.CombatArtKeyList);
+            this.CombatArtListView?.RefreshView(obj.Data.CombatArtKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());   
+
+            obj.CheckSkillKeyList(obj.Data.MagicArtKeyList);
+            this.MagicListView?.RefreshView(obj.Data.MagicArtKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
 
             // var bf = new BinaryFormatter();
             // var path = "test/role.dat";
@@ -256,6 +263,8 @@ namespace XSSLG
             mov?.Unbind();
 
             this.AbilityListView?.RefreshView(new List<SkillData>());
+            this.CombatArtListView?.RefreshView(new List<SkillData>());
+            this.MagicListView?.RefreshView(new List<SkillData>());
         }
     }
 
