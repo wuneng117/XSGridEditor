@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace XSSLG
 {
@@ -11,17 +12,19 @@ namespace XSSLG
         /// <param name="src"></param>
         /// <param name="totalCost"> like move cost, -1 or less than 0 means no limit to move range </param>
         /// <returns></returns>
-        public virtual Dictionary<XSTile, List<XSTile>> FindPath(XSTile src, XSTile dest, int totalCost)
+        public virtual List<XSTile> FindPath(XSTile src, XSTile dest, int totalCost)
         {
             var openQueue = new PriorityQueue<XSTile>();
             openQueue.Enqueue(src, 0);
 
             var aStarTileDict = new Dictionary<XSTile, XSAStarTile>();
-            aStarTileDict.Add(src, new XSAStarTile(0, null));
+            var manhattanDistance = Mathf.Abs(dest.TilePos.x - src.TilePos.x) + Mathf.Abs(dest.TilePos.z - src.TilePos.z);
+            aStarTileDict.Add(src, new XSAStarTile(0, manhattanDistance, null));
 
             while (openQueue.Count != 0)
             {
                 var current = openQueue.Dequeue();
+                if (current == dest) break;
                 
                 current.NearTileList.ForEach(tile => 
                 {
@@ -35,26 +38,21 @@ namespace XSSLG
 
                     if (!aStarTileDict.ContainsKey(tile) || cost < aStarTileDict[tile].Cost)
                     {
-                        var manhattanDistance = Mathf.Abs(dest.x - tile.x) + Mathf.Abs(dest.z - tile.z);
+                        var manhattanDistance = Mathf.Abs(dest.TilePos.x - tile.TilePos.x) + Mathf.Abs(dest.TilePos.z - tile.TilePos.z);
                         aStarTileDict[tile] = new XSAStarTile(cost, manhattanDistance, current);
                         openQueue.Enqueue(tile, manhattanDistance);
                     }
                 });
             }
 
-            var paths = new Dictionary<XSTile, List<XSTile>>();
-            aStarTileDict.Keys.ToList().ForEach(tile =>
+            List<XSTile> path = new List<XSTile>();
+            var tile = dest;
+            while (tile != null && tile != src)
             {
-                List<XSTile> path = new List<XSTile>();
-                var current = tile;
-                while (current != src)
-                {
-                    path.Add(current);
-                    current = aStarTileDict[current].PrevTile;
-                }
-                paths.Add(tile, path);
-            });
-            return paths;
+                path.Add(tile);
+                tile = aStarTileDict[tile].PrevTile;
+            }
+            return path;
         }
     }
 }

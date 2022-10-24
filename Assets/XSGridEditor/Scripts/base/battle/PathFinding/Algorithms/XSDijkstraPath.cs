@@ -17,7 +17,7 @@ namespace XSSLG
             openQueue.Enqueue(src, 0);
 
             var aStarTileDict = new Dictionary<XSTile, XSAStarTile>();
-            aStarTileDict.Add(src, new XSAStarTile(0, null));
+            aStarTileDict.Add(src, new XSAStarTile(0, 0, null));
 
             while (openQueue.Count != 0)
             {
@@ -35,7 +35,7 @@ namespace XSSLG
 
                     if (!aStarTileDict.ContainsKey(tile) || cost < aStarTileDict[tile].Cost)
                     {
-                        aStarTileDict[tile] = new XSAStarTile(cost, current);
+                        aStarTileDict[tile] = new XSAStarTile(cost, cost, current);
                         openQueue.Enqueue(tile, cost);
                     }
                 });

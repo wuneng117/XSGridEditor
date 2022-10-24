@@ -45,8 +45,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f0f81e3103de945ada428e6b82073b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: -1
-  move: 6
+  data:
+    Key: 
+    name: 
+    Desc: 
+    texture: {fileID: 0}
+    Lv: 0
+    ClassDataKey: 
+    Stat:
+      Str:
+        Val: 0
+        Factor: 0
+      Def:
+        Val: 0
+        Factor: 0
+      Mag:
+        Val: 0
+        Factor: 0
+      Dex:
+        Val: 0
+        Factor: 0
+      Mov:
+        Val: 6
+        Factor: 0
+      Spd:
+        Val: 0
+        Factor: 0
+      Res:
+        Val: 0
+        Factor: 0
+      Lck:
+        Val: 0
+        Factor: 0
+      Cha:
+        Val: 0
+        Factor: 0
+      HP:
+        Val: 0
+        Max:
+          Val: 0
+          Factor: 0
+    CrestKeyList: []
+    AbilityKeyList: []
+    ClassDataKeyList: []
+    CombatArtKeyList: []
+    MagicKeyList: []
+    LearnSkillKeyList: []
+  Group: 0
 --- !u!114 &4505049116064722054
 MonoBehaviour:
   m_ObjectHideFlags: 0

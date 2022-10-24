@@ -9,15 +9,15 @@ using UnityEngine;
 
 namespace XSSLG
 {
-    using TileDict = Dictionary<Vector3Int, XSTile>;
     using PathsDict = Dictionary<Vector3Int, List<Vector3>>;
-    
+
     public class XSPathFinder
     {
-        protected XSPathFinder() {}
+        protected XSPathFinder() { }
 
         // /// <summary> Pathfinding plugin that can be used to display all paths </summary>
-        protected static readonly XSDijkstraPath _dijkstraPath = new XSDijkstraPath();
+        protected static readonly XSDijkstraPath dijkstraPath = new XSDijkstraPath();
+        protected static readonly XSAStarPath astrPath = new XSAStarPath();
 
         /// <summary>
         /// get all paths
@@ -32,7 +32,7 @@ namespace XSSLG
                 return new PathsDict();
             }
 
-            var allPaths = _dijkstraPath.FindAllPaths(srcTile, moveRange);
+            var allPaths = dijkstraPath.FindAllPaths(srcTile, moveRange);
             // The length of the path moving to the original place is 0. In order not to be confused with no path, the original grid is added.
             if (allPaths[srcTile] == null)
             {
@@ -49,7 +49,14 @@ namespace XSSLG
         // TODO 实现FinPath
         public static List<Vector3> FindPath(XSTile srcTile, XSTile destTile)
         {
-            return new List<Vector3>();
+            if (srcTile == null)
+            {
+                return new List<Vector3>();
+            }
+
+            var path = astrPath.FindPath(srcTile, destTile, -1);
+            var ret = path.Select(pathTile => pathTile.WorldPos).ToList();
+            return ret;
         }
     }
 }

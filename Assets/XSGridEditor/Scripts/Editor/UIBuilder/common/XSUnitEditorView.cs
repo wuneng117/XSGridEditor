@@ -16,6 +16,8 @@ namespace XSSLG
         protected XSUnitNode SelectUnit { get; set; }
 
         protected XSListView<SkillData> AbilityListView { get; set; }
+        protected XSListView<SkillData> CombatArtListView { get; set; }
+        protected XSListView<SkillData> MagicListView { get; set; }
 
         public XSUnitEditorView(GroupType groupType)
         {
@@ -76,9 +78,10 @@ namespace XSSLG
             listRoot.Add(this.MagicListView);
         }
 
-        protected virtual void CreateSkillListView(string title, SkillType type, Func<List<SkillData>> GetWatchListFunc)
+        protected virtual XSListView<SkillData> CreateSkillListView(string title, SkillType type, Func<List<string>> GetWatchListFunc)
         {
-            var ret = new XSListView<SkillData>(new List<SkillData>(),
+            XSListView<SkillData> ret = null;
+            ret = new XSListView<SkillData>(new List<SkillData>(),
                 title,
                 () =>
                 {
@@ -92,9 +95,9 @@ namespace XSSLG
                             {
                                 Undo.RecordObject(this.SelectUnit, "Add Skill");
                                 EditorUtility.SetDirty(this.SelectUnit);
-                                var unitSkillList = GetWatchListFunc?.Invoke()?? new List<SkillData>();
+                                var unitSkillList = GetWatchListFunc?.Invoke()?? new List<string>();
                                 unitSkillList.Add(skill.Key);
-                                ret.RefreshView(unitSkillList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
+                                ret?.RefreshView(unitSkillList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
                             }
                         });
                     }
@@ -103,13 +106,13 @@ namespace XSSLG
                 {
                     if (skill != null && this.SelectUnit != null)
                     {
-                        var unitSkillList = GetWatchListFunc?.Invoke()?? new List<SkillData>();
+                        var unitSkillList = GetWatchListFunc?.Invoke()?? new List<string>();
                         if (unitSkillList.Contains(skill.Key))
                         {
                             Undo.RecordObject(this.SelectUnit, "Remove Skill");
                             EditorUtility.SetDirty(this.SelectUnit);
                             unitSkillList.Remove(skill.Key);
-                            ret.RefreshView(unitSkillList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
+                            ret?.RefreshView(unitSkillList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
                         }
                     }
                 }
@@ -186,8 +189,8 @@ namespace XSSLG
             obj.CheckSkillKeyList(obj.Data.CombatArtKeyList);
             this.CombatArtListView?.RefreshView(obj.Data.CombatArtKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());   
 
-            obj.CheckSkillKeyList(obj.Data.MagicArtKeyList);
-            this.MagicListView?.RefreshView(obj.Data.MagicArtKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
+            obj.CheckSkillKeyList(obj.Data.MagicKeyList);
+            this.MagicListView?.RefreshView(obj.Data.MagicKeyList.Select(key => TableManager.Instance.SkillDataManager.GetItem(key)).ToList());
 
             // var bf = new BinaryFormatter();
             // var path = "test/role.dat";
