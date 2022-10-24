@@ -35,8 +35,9 @@ namespace XSSLG
 
                     if (!aStarTileDict.ContainsKey(tile) || cost < aStarTileDict[tile].Cost)
                     {
-                        aStarTileDict[tile] = new XSAStarTile(cost, current);
-                        openQueue.Enqueue(tile, cost);
+                        var manhattanDistance = Mathf.Abs(dest.x - tile.x) + Mathf.Abs(dest.z - tile.z);
+                        aStarTileDict[tile] = new XSAStarTile(cost, manhattanDistance, current);
+                        openQueue.Enqueue(tile, manhattanDistance);
                     }
                 });
             }
