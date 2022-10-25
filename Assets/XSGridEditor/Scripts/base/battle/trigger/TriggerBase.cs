@@ -30,7 +30,7 @@ namespace XSSLG
         protected SearchTargetBase SearchTarget { get; }
 
         /// <summary> 触发器触发条件 </summary>
-        protected TriggerConditionBase Condition { get; }
+        protected List<TriggerConditionBase> ConditionList { get; }
         /************************* 变量  end  ***********************/
         /// <summary>
         /// 初始化
@@ -43,7 +43,7 @@ namespace XSSLG
             this.ReleaseEntity = releaseEntity;
             this.Cd = new CountDown();
             this.SearchTarget = SearchTargetFactory.CreateSearchTarget(data.SearchTarget);
-            this.Condition = TriggerConditionFactory.Create(data.Type, data.Condition);
+            this.ConditionList = data.ConditionList.Select(condition => TriggerConditionFactory.Create(data.Type, condition)).ToList();
         }
 
         /// <summary> 获取攻击范围的格子 </summary>
@@ -100,7 +100,7 @@ namespace XSSLG
             if (!ret)
                 return false;
 
-            if (!this.Condition.CanRelease(data.OnTriggerData))
+            if (!this.ConditionList.All(condition => condition.CanRelease(data.OnTriggerData)))
                 return false;
 
             ret = this.ReleaseEntity.CanRelease(data);

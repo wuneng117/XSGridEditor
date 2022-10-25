@@ -48,7 +48,7 @@ namespace XSSLG
             var onTriggerData = data as OnTriggerData;
             if (onTriggerData == null)
                 return ret;
-            switch (this.Data.Condition.Target)
+            switch (this.Data.Target)
             {
                 default:
                 case TargetConditionType.None: break;

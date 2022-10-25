@@ -8,10 +8,7 @@ namespace XSSLG
     public partial class SkillData : BaseData
     {
         /// <summary>类型</summary>
-        public SkillType Type;
-
-        /// <summary>技能分组</summary>
-        public SkillGroupType Group;
+        public SkillType Type = SkillType.Common;
 
         /// <summary>武器类型</summary>
         public WeaponType WeaponType;

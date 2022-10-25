@@ -1,7 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 5px; margin-left: 3px; margin-right: 3px; margin-bottom: 3px; min-width: 638px; min-height: 700px;">
         <ui:VisualElement name="left" style="flex-grow: 0; width: 200px; margin-right: 20px; min-width: 200px;">
-            <ui:ListView focusable="true" name="unitlist" item-height="42" style="flex-grow: 1; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(214, 214, 214); border-right-color: rgb(214, 214, 214); border-top-color: rgb(214, 214, 214); border-bottom-color: rgb(214, 214, 214); border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; margin-right: 0;" />
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="创建" display-tooltip-when-elided="true" />
+                <ui:Button text="复制" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:ListView focusable="true" name="list" item-height="42" style="flex-grow: 1; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(214, 214, 214); border-right-color: rgb(214, 214, 214); border-top-color: rgb(214, 214, 214); border-bottom-color: rgb(214, 214, 214); border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; margin-right: 0; margin-top: 6px;" />
         </ui:VisualElement>
         <ui:VisualElement name="center" style="flex-grow: 0; margin-left: 0;">
             <ui:VisualElement name="top" style="flex-direction: row; flex-grow: 0;">

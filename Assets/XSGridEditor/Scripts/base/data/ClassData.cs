@@ -15,7 +15,10 @@ namespace XSSLG
         /// <summary>职业附加属性</summary>
         public Stat Stat = new Stat();
 
+        /// <summary> 职业附加技能 </summary>
+        public List<string> SkillKeyList = new List<string>();
         /// <summary>可以用魔法吗</summary>
         public bool CanMag;
+
     }
 }

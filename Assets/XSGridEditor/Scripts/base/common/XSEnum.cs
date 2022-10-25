@@ -41,17 +41,6 @@ namespace XSSLG
         Max,
     }
 
-
-    public enum SkillGroupType
-    {
-        Normal = 0,
-        /// <summary>属性加成技能</summary>
-        Passive = 1,
-        /// <summary>纹章技能</summary>
-        Crest = 2,
-        Max,
-    }
-
     public enum SkillType
     {
         Common = 0,
@@ -119,14 +108,6 @@ namespace XSSLG
         ScopeCross3 = 8,
         Max,
     }
-
-
-    public enum TriggerSpecialType
-    {
-        None = 0,
-        Max,
-    }
-
 
     public enum TriggerType
     {

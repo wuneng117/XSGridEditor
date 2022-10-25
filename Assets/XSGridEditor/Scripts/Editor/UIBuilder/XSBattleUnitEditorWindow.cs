@@ -18,7 +18,7 @@ namespace XSSLG
 
         public static void ShowExample()
         {
-            XSBattleUnitEditorWindow wnd = GetWindowWithRect<XSBattleUnitEditorWindow>(new Rect(0, 0, 880, 760), false, "XSUnitEditor");
+            XSBattleUnitEditorWindow wnd = GetWindowWithRect<XSBattleUnitEditorWindow>(new Rect(0, 0, 850, 900), false, "XSUnitEditor");
             // wnd.ShowModal();
         }
 

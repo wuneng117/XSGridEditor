@@ -16,9 +16,6 @@ namespace XSSLG
 
         /// <summary>比较类型</summary>
         public CompareType Compare;
-
-        /// <summary>条件对象类型</summary>
-        public TargetConditionType Target;
     }
 
     [Serializable]
@@ -45,15 +42,14 @@ namespace XSSLG
         /// <summary>类型</summary>
         public TriggerType Type;
 
-        /// <summary>特殊类型</summary>
-        public TriggerSpecialType SpecialType;
-
-
         /// <summary>条件</summary>
-        public ConditionStruct Condition = new ConditionStruct();
+        public List<ConditionStruct> ConditionList = new List<ConditionStruct>();
 
         /// <summary>索敌</summary>
         public SearchStruct SearchTarget = new SearchStruct();
+
+        /// <summary>条件对象类型</summary>
+        public TargetConditionType Target;
 
         /// <summary>CD</summary>
         public int CD;
