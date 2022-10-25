@@ -88,7 +88,7 @@ var searchData=
   ['component_5fname_5fbattle_5finit_203',['COMPONENT_NAME_BATTLE_INIT',['../classXSSLG_1_1GameConst.html#a6d0e3c6d636ac6830fac46b37e8c89af',1,'XSSLG::GameConst']]],
   ['component_5fname_5fgamescene_204',['COMPONENT_NAME_GAMESCENE',['../classXSSLG_1_1GameConst.html#ab175a89418f452e79e6f9cc7b60a926f',1,'XSSLG::GameConst']]],
   ['component_5fname_5fmain_205',['COMPONENT_NAME_MAIN',['../classXSSLG_1_1GameConst.html#acb4c9fffaa918644b1cb0dfd1d907d4e',1,'XSSLG::GameConst']]],
-  ['condition_206',['Condition',['../classXSSLG_1_1TriggerBase.html#a25f573bc6fa8d0afaee8393748c74de3',1,'XSSLG.TriggerBase.Condition()'],['../classXSSLG_1_1TriggerData.html#a980d720c47b92b7d08c67cb9fa7ed3e2',1,'XSSLG.TriggerData.Condition()']]],
+  ['conditionlist_206',['ConditionList',['../classXSSLG_1_1TriggerBase.html#ab9e63a31e8f3171f7c6625d178aaf2bd',1,'XSSLG.TriggerBase.ConditionList()'],['../classXSSLG_1_1TriggerData.html#a87cc9ab898c56e6eae21238f4d48fb48',1,'XSSLG.TriggerData.ConditionList()']]],
   ['conditionstruct_207',['ConditionStruct',['../classXSSLG_1_1ConditionStruct.html',1,'XSSLG.ConditionStruct'],['../classXSSLG_1_1TriggerConditionBase.html#ad54eb5cad03450fbf8f1c68755739ec9',1,'XSSLG.TriggerConditionBase.ConditionStruct()']]],
   ['confier_208',['Confier',['../classXSSLG_1_1XSCamera.html#aa2c4f345738bb9c053bf6a0587ce0ed1',1,'XSSLG::XSCamera']]],
   ['config_209',['Config',['../classXSSLG_1_1Config.html',1,'XSSLG']]],
@@ -102,7 +102,7 @@ var searchData=
   ['createbuff_217',['CreateBuff',['../classXSSLG_1_1BuffFactory.html#a7b5354ba610c1a83de9a23fe5a909482',1,'XSSLG.BuffFactory.CreateBuff(string name, SkillBase skill)'],['../classXSSLG_1_1BuffFactory.html#aa05084ea58496180e8a0be0b22027fc9',1,'XSSLG.BuffFactory.CreateBuff(BuffData data, SkillBase skill)']]],
   ['createdict_218',['CreateDict',['../classXSSLG_1_1XSNodeMgr.html#adf6a11c6631b4b18cfa7115da446fd9a',1,'XSSLG.XSNodeMgr.CreateDict()'],['../classXSSLG_1_1XSPrefabNodeMgr.html#a44d59da82b858bfc53c038aeadbd8213',1,'XSSLG.XSPrefabNodeMgr.CreateDict()']]],
   ['creategrid_219',['CreateGrid',['../classXSSLG_1_1XSGridEditorMenu.html#a9afe47bdeb80da9db3de2c44fd898c35',1,'XSSLG::XSGridEditorMenu']]],
-  ['creategui_220',['CreateGUI',['../classXSSLG_1_1XSBaseWindow.html#a341faefec6acb77bc938f7b24dde4fc3',1,'XSSLG.XSBaseWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleEventEditorWindow.html#aa5e926b6c7166f7d248686c802b5166e',1,'XSSLG.XSBattleEventEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleUnitEditorWindow.html#afa19efedf951b356fe4c283df55a743f',1,'XSSLG.XSBattleUnitEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSEditorMainWindow.html#a0feebbbe5c1dad659f029121e0ed4f9f',1,'XSSLG.XSEditorMainWindow.CreateGUI()'],['../classXSSLG_1_1XSPopUpWindow.html#a5c1b905fe2116961c071a86b753fda83',1,'XSSLG.XSPopUpWindow.CreateGUI()']]],
+  ['creategui_220',['CreateGUI',['../classXSSLG_1_1XSBaseWindow.html#a341faefec6acb77bc938f7b24dde4fc3',1,'XSSLG.XSBaseWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleEventEditorWindow.html#aa5e926b6c7166f7d248686c802b5166e',1,'XSSLG.XSBattleEventEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleUnitEditorWindow.html#afa19efedf951b356fe4c283df55a743f',1,'XSSLG.XSBattleUnitEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSEditorMainWindow.html#a0feebbbe5c1dad659f029121e0ed4f9f',1,'XSSLG.XSEditorMainWindow.CreateGUI()'],['../classXSSLG_1_1XSPopUpWindow.html#a5c1b905fe2116961c071a86b753fda83',1,'XSSLG.XSPopUpWindow.CreateGUI()'],['../classXSSkillEditorWindow.html#a2d81f0a9cb280a76348d02ca8e84c36c',1,'XSSkillEditorWindow.CreateGUI()']]],
   ['createreleasedata_221',['CreateReleaseData',['../classXSSLG_1_1TriggerBase.html#a1e5893a12b69461445cda44eab803121',1,'XSSLG::TriggerBase']]],
   ['createrole_222',['CreateRole',['../classXSSLG_1_1RoleFactory.html#aca8a5646864afb9269377fff76bf685b',1,'XSSLG::RoleFactory']]],
   ['createrole_3c_20t_20_3e_223',['CreateRole&lt; T &gt;',['../classXSSLG_1_1RoleFactory.html#a73111d1cb68eb7720a9dcb19d4b8bd0f',1,'XSSLG::RoleFactory']]],
@@ -121,9 +121,8 @@ var searchData=
   ['createunitlist_236',['CreateUnitList',['../classXSSLG_1_1BattleUtils.html#aa26a1431b80148eb77c94e7049cf9010',1,'XSSLG.BattleUtils.CreateUnitList()'],['../classXSSLG_1_1XSUnitMgr.html#acf03585882f61d5ff0d0005081e8abf7',1,'XSSLG.XSUnitMgr.CreateUnitList()']]],
   ['createxstile_237',['CreateXSTile',['../interfaceXSSLG_1_1XSITileNode.html#a680802a40ac60c1e58f8b03c7ab70db9',1,'XSSLG.XSITileNode.CreateXSTile()'],['../classXSSLG_1_1XSTileNode.html#a378661d60a83a88c36f8a5b330a009c6',1,'XSSLG.XSTileNode.CreateXSTile()']]],
   ['createxstiledict_238',['CreateXSTileDict',['../classXSSLG_1_1XSGridMgr.html#a21952dfb4fce567b6925fc28ae873a23',1,'XSSLG::XSGridMgr']]],
-  ['crest_239',['Crest',['../namespaceXSSLG.html#a51c1b770c56ec1e40bb87a4c0820dde3afab5ad8b0b394703426f40fa0a3b4548',1,'XSSLG']]],
-  ['crestarray_240',['CrestArray',['../classXSSLG_1_1Role.html#a75353eb4c5a1b210fe43db8e77891744',1,'XSSLG::Role']]],
-  ['crestkeylist_241',['CrestKeyList',['../classXSSLG_1_1RoleData.html#a98f29c4ad8e5dd3d1bdf011554008285',1,'XSSLG::RoleData']]],
-  ['customscheduler_242',['CustomScheduler',['../classXSSLG_1_1CustomScheduler.html',1,'XSSLG']]],
-  ['customscheduleritem_243',['CustomSchedulerItem',['../classXSSLG_1_1CustomSchedulerItem.html',1,'XSSLG']]]
+  ['crestarray_239',['CrestArray',['../classXSSLG_1_1Role.html#a75353eb4c5a1b210fe43db8e77891744',1,'XSSLG::Role']]],
+  ['crestkeylist_240',['CrestKeyList',['../classXSSLG_1_1RoleData.html#a98f29c4ad8e5dd3d1bdf011554008285',1,'XSSLG::RoleData']]],
+  ['customscheduler_241',['CustomScheduler',['../classXSSLG_1_1CustomScheduler.html',1,'XSSLG']]],
+  ['customscheduleritem_242',['CustomSchedulerItem',['../classXSSLG_1_1CustomSchedulerItem.html',1,'XSSLG']]]
 ];
