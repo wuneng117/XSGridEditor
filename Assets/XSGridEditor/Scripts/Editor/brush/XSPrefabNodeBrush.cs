@@ -21,7 +21,7 @@ namespace XSSLG
         public Transform NewBrushParent { get => this.newBrushParent; protected set => this.newBrushParent = value; }
         /// <summary> optimization, there will be intervals between paints under the same tilepos to prevent excessive stacking </summary>
         protected List<Vector3Int> lastPaintPosList = new List<Vector3Int>();
-        protected override string defaultObjPath { get; } = "Assets/XSGridEditor/Resources/Prefabs/PrefabBrushs";
+        protected override string defaultObjPath { get; } = "Assets/XSGridEditor/Resources/prefab/PrefabBrushs";
 
         public override void Awake()
         {

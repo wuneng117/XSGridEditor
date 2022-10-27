@@ -14,7 +14,7 @@ namespace XSSLG
     [CustomGridBrush(true, false, false, "XSGridEditor Brush")]
     public class XSGridEditorBrush : XSBrushBase
     {
-        protected override string defaultObjPath { get; } = "Assets/XSGridEditor/Resources/Prefabs/Tiles";
+        protected override string defaultObjPath { get; } = "Assets/XSGridEditor/Resources/prefab/tile";
 
         public override void Awake()
         {
