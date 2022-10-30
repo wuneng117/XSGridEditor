@@ -333,6 +333,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillCombat.html">SkillCombat</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">主动技能，攻击/战技  <a href="classXSSLG_1_1SkillCombat.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillDamageWindow.html">SkillDamageWindow</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillData.html">SkillData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillEffectStruct.html">SkillEffectStruct</a></td></tr>
@@ -507,6 +509,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSResLoadMgr.html">XSResLoadMgr</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">load recource  <a href="classXSSLG_1_1XSResLoadMgr.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSStatEditorWindow.html">XSStatEditorWindow</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1XSTile.html">XSTile</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">tile struct to caculate path  <a href="classXSSLG_1_1XSTile.html#details">More...</a><br /></td></tr>
@@ -687,11 +691,16 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespaceXSSLG.html#ac84dad98f29c6bd705347e56255d9b18a6a061313d22e51e0f25b7cd4dc065233">SkillEffectType.Max</a>
  }</td></tr>
 <tr class="separator:ac84dad98f29c6bd705347e56255d9b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272c7440fc2a4c3978638e2cbb7b663a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663a">TargetType</a> { <a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663aaad6e7652b1bdfb38783486c2c3d5e806">TargetType.Self</a> = 0, 
-<a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663aa8c6d21187fb58b7a079d70030686b33e">TargetType.Enemy</a> = 0, 
-<a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663aa6a061313d22e51e0f25b7cd4dc065233">TargetType.Max</a>
+<tr class="memitem:ae4f589cf3be15a2c009ee871aaa531dd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#ae4f589cf3be15a2c009ee871aaa531dd">SKillDamageType</a> { <br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#ae4f589cf3be15a2c009ee871aaa531dda22168ae0a492e92fcb10a45b3e2156f4">SKillDamageType.PhyDamage</a> = 1, 
+<a class="el" href="namespaceXSSLG.html#ae4f589cf3be15a2c009ee871aaa531dda59523430b048d826be5309213094c9b8">SKillDamageType.MagicDamage</a> = 2, 
+<a class="el" href="namespaceXSSLG.html#ae4f589cf3be15a2c009ee871aaa531dda233d19916bed51bf147b5ad6b9c896a2">SKillDamageType.HpRecover</a> = 3, 
+<a class="el" href="namespaceXSSLG.html#ae4f589cf3be15a2c009ee871aaa531dda2ca932513b81f0075a160081cf94812e">SKillDamageType.HpAbsorb</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="namespaceXSSLG.html#ae4f589cf3be15a2c009ee871aaa531dda6a061313d22e51e0f25b7cd4dc065233">SKillDamageType.Max</a>
+<br />
  }</td></tr>
-<tr class="separator:a272c7440fc2a4c3978638e2cbb7b663a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ae4f589cf3be15a2c009ee871aaa531dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2a619fbd7c7ec4a86ce0ebd394999af"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999af">WeaponType</a> { <br />
 &#160;&#160;<a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afa6adf97f83acf6453d4a6a4b1070f3754">WeaponType.None</a> = 0, 
 <a class="el" href="namespaceXSSLG.html#ae2a619fbd7c7ec4a86ce0ebd394999afa6c198603789a4928477eccd5d550b6b2">WeaponType.Sword</a> = 1, 
@@ -1018,6 +1027,39 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
+<a id="ae4f589cf3be15a2c009ee871aaa531dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f589cf3be15a2c009ee871aaa531dd">&#9670;&nbsp;</a></span>SKillDamageType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#ae4f589cf3be15a2c009ee871aaa531dd">XSSLG.SKillDamageType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae4f589cf3be15a2c009ee871aaa531dda22168ae0a492e92fcb10a45b3e2156f4"></a>PhyDamage&#160;</td><td class="fielddoc"><p>物理伤害 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4f589cf3be15a2c009ee871aaa531dda59523430b048d826be5309213094c9b8"></a>MagicDamage&#160;</td><td class="fielddoc"><p>魔法伤害 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4f589cf3be15a2c009ee871aaa531dda233d19916bed51bf147b5ad6b9c896a2"></a>HpRecover&#160;</td><td class="fielddoc"><p>生命回复 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4f589cf3be15a2c009ee871aaa531dda2ca932513b81f0075a160081cf94812e"></a>HpAbsorb&#160;</td><td class="fielddoc"><p>生命吸收 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4f589cf3be15a2c009ee871aaa531dda6a061313d22e51e0f25b7cd4dc065233"></a>Max&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="ac84dad98f29c6bd705347e56255d9b18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac84dad98f29c6bd705347e56255d9b18">&#9670;&nbsp;</a></span>SkillEffectType</h2>
 
@@ -1108,33 +1150,6 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="acbf29f254a83a79b9001b5314fa34ec2a13348442cc6a27032d2b4aa28b75a5d3"></a>Search&#160;</td><td class="fielddoc"><p>索敌出来的target </p>
 </td></tr>
 <tr><td class="fieldname"><a id="acbf29f254a83a79b9001b5314fa34ec2a6a061313d22e51e0f25b7cd4dc065233"></a>Max&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="a272c7440fc2a4c3978638e2cbb7b663a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a272c7440fc2a4c3978638e2cbb7b663a">&#9670;&nbsp;</a></span>TargetType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="namespaceXSSLG.html#a272c7440fc2a4c3978638e2cbb7b663a">XSSLG.TargetType</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a272c7440fc2a4c3978638e2cbb7b663aaad6e7652b1bdfb38783486c2c3d5e806"></a>Self&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a272c7440fc2a4c3978638e2cbb7b663aa8c6d21187fb58b7a079d70030686b33e"></a>Enemy&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a272c7440fc2a4c3978638e2cbb7b663aa6a061313d22e51e0f25b7cd4dc065233"></a>Max&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
