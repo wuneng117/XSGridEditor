@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="flex-direction: column; margin-top: 20px; align-items: flex-start; flex-wrap: wrap; min-width: 380px;">
+        <uie:IntegerField label="技能基础威力" value="42" style="flex-direction: row; max-width: none; width: 200px;" />
+        <ui:VisualElement style="-unity-slice-top: 20;">
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; -unity-slice-top: 6; margin-top: 20px;">
+                <ui:Toggle label="力量" style="flex-direction: row; margin-left: 6px;" />
+                <uie:FloatField label="百分比" value="42.2" style="margin-left: 6px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: row; flex-grow: 0; min-height: 50px; margin-top: 30px; justify-content: space-around; align-items: center; min-width: 380px;">
+            <ui:Button text="确定" display-tooltip-when-elided="true" name="ok_btn" style="min-width: auto; flex-grow: 1; max-width: 100px; margin-left: 3px; min-height: 30px;" />
+            <ui:Button text="取消" display-tooltip-when-elided="true" name="cancel_btn" style="min-width: auto; flex-grow: 1; max-width: 100px; margin-left: 3px; -unity-text-align: middle-center; white-space: nowrap; min-height: 30px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -4,16 +4,13 @@ using System;
 namespace XSSLG
 {
     [Serializable]
-    public class PropStruct
+    public class StatSingle
     {
-        /// <summary>填需要用到的StatData里列的名字</summary>
+        /// <summary>填需要用到的StatData里属性的名字</summary>
         public string Type;
 
-        /// <summary>Type的百分比系数</summary>
+        /// <summary>属性的百分比系数</summary>
         public float Percent;
-
-        /// <summary>加上Type的百分比就是最终数值</summary>
-        public float Prop;
     }
 
     [Serializable]

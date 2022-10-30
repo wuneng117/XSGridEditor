@@ -31,9 +31,6 @@ namespace XSSLG
         /// <summary>效果随层数变动</summary>
         public int CanFloor;
 
-        /// <summary>自定义数值数组</summary>
-        public List<PropStruct> PropList = new List<PropStruct>();
-
         /// <summary>是否debuff</summary>
         public bool IsDebuff;
 

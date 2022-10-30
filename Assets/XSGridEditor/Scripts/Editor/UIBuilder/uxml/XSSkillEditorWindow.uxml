@@ -1,40 +1,40 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 5px; margin-left: 3px; margin-right: 3px; margin-bottom: 3px; min-width: 638px; min-height: 700px;">
-        <ui:VisualElement name="left" style="flex-grow: 0; width: 200px; margin-right: 20px; min-width: 200px;">
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 5px; margin-left: 3px; margin-right: 3px; margin-bottom: 3px; min-width: 910px; min-height: 700px;">
+        <ui:VisualElement name="left" style="flex-grow: 0; width: 200px; margin-right: 0; min-width: 200px;">
             <ui:VisualElement name="VisualElement" style="flex-direction: row;">
                 <ui:Button text="创建" display-tooltip-when-elided="true" />
                 <ui:Button text="复制" display-tooltip-when-elided="true" />
             </ui:VisualElement>
             <ui:ListView focusable="true" name="list" item-height="42" style="flex-grow: 1; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(214, 214, 214); border-right-color: rgb(214, 214, 214); border-top-color: rgb(214, 214, 214); border-bottom-color: rgb(214, 214, 214); border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; margin-right: 0; margin-top: 6px;" />
         </ui:VisualElement>
-        <ui:VisualElement name="center" style="flex-grow: 0; margin-left: 0; flex-direction: column; min-width: 320px;">
+        <ui:VisualElement name="center" style="flex-grow: 0; margin-left: 20px; flex-direction: column; min-width: auto; width: 330px;">
             <ui:VisualElement name="top" style="flex-direction: row; justify-content: space-around;">
                 <ui:VisualElement name="icon" style="width: 64px; height: 64px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; margin-right: 0; min-height: 64px; min-width: 64px; margin-top: 13px;" />
                 <ui:VisualElement name="right" style="margin-left: 10px;">
-                    <uie:ObjectField label="图片" usage-hints="None" name="fg" style="max-width: none; flex-direction: column;" />
-                    <ui:TextField picking-mode="Ignore" label="名称" value="filler text" text="filler text" name="name_text" style="flex-direction: column; margin-top: 6px;" />
+                    <uie:ObjectField label="图片" usage-hints="None" name="fg" style="max-width: none; flex-direction: column; width: 155px;" />
+                    <ui:TextField picking-mode="Ignore" label="名称" value="filler text" text="filler text" name="name_text" style="flex-direction: column; margin-top: 6px; width: 155px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:TextField picking-mode="Ignore" label="说明" value="filler text" text="filler text" name="desc_text" style="flex-direction: column; margin-top: 6px; min-height: 100px; min-width: 320px;" />
-            <ui:VisualElement name="top2" style="flex-direction: row; max-width: 320px; flex-wrap: wrap;">
-                <uie:EnumField label="武器类型" value="Center" name="weapon_enum" style="margin-top: 6px; flex-direction: column;" />
-                <uie:EnumField label="技能类型" value="Center" name="type_enum" style="margin-top: 6px; flex-direction: column;" />
-                <uie:EnumField label="伤害属性" value="Center" name="damage_element_enum" style="margin-top: 6px; flex-direction: column;" />
-                <uie:EnumField label="伤害类型" value="Center" name="damage_enum" style="margin-top: 6px; flex-direction: column;" />
-                <uie:EnumField label="生效对象" value="Center" name="target_enum" style="margin-top: 6px; flex-direction: column;" />
-                <uie:IntegerField label="消耗武器耐久" value="2" name="weapon_cost" style="flex-direction: column; width: 75px; margin-top: 6px;" />
-                <uie:FloatField label="伤害倍率" value="2" name="damage_percent" style="flex-direction: column; width: 75px; margin-top: 6px;" />
-                <uie:IntegerField label="冷却时间" value="42" name="cd" style="flex-direction: column; width: 80px; margin-bottom: 1px; margin-top: 6px; justify-content: flex-start; align-items: stretch;" />
-                <ui:VisualElement style="margin-left: 30px;">
+            <ui:VisualElement name="top2" style="flex-direction: row; max-width: 330px; flex-wrap: wrap;">
+                <uie:EnumField label="武器类型" value="Center" name="weapon_enum" style="margin-top: 6px; flex-direction: column; width: 155px; max-height: none; min-height: auto; height: 32px;" />
+                <uie:EnumField label="技能类型" value="Center" name="type_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 10px; height: 32px;" />
+                <uie:EnumField label="伤害类型" value="Center" name="damage_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 3px; height: 32px;" />
+                <uie:EnumField label="生效对象" value="Center" name="target_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 10px; height: 32px;" />
+                <ui:Button text="影响角色属性" display-tooltip-when-elided="true" name="stat_btn" style="margin-top: 20px; height: 32px; margin-bottom: 1px; width: 100px;" />
+                <uie:IntegerField label="消耗武器耐久" value="2" name="weapon_cost" style="flex-direction: column; width: 75px; margin-top: 20px; margin-left: 6px; height: 32px;" />
+                <uie:FloatField label="伤害倍率" value="2" name="damage_percent" style="flex-direction: column; width: 75px; margin-top: 20px; margin-left: 6px; height: 32px;" />
+                <uie:IntegerField label="冷却时间" value="42" name="cd" style="flex-direction: column; width: 80px; margin-bottom: 1px; margin-top: 20px; justify-content: flex-start; align-items: stretch; height: 32px;" />
+                <ui:VisualElement style="margin-left: 30px; margin-top: 20px;">
                     <ui:Toggle label="是否开始就冷却" name="cd_begin" style="flex-direction: row; margin-top: 6px; align-items: stretch; justify-content: flex-end; width: auto;" />
                     <ui:Toggle label="是否可以暴击" name="critical" style="flex-direction: row; margin-top: 6px;" />
                 </ui:VisualElement>
-            </ui:VisualElement>
-            <ui:MinMaxSlider picking-mode="Ignore" label="攻击范围" min-value="10" max-value="12" low-limit="0" high-limit="40" name="attack_range" style="flex-direction: column; margin-top: 6px;" />
-            <ui:SliderInt picking-mode="Ignore" label="命中率" value="42" high-value="100" name="hit_rate" style="flex-direction: column; margin-top: 6px;" />
-            <ui:VisualElement name="left" style="width: 100px; margin-right: 20px;">
-                <ui:Button text="影响角色属性" display-tooltip-when-elided="true" name="stat_btn" style="margin-top: 16px; height: 30px; margin-bottom: 16px;" />
+                <ui:MinMaxSlider picking-mode="Ignore" label="攻击范围" min-value="10" max-value="12" low-limit="0" high-limit="40" name="attack_range" style="flex-direction: column; margin-top: 6px; width: 330px;" />
+                <ui:SliderInt picking-mode="Ignore" label="命中率" value="42" high-value="100" name="hit_rate" style="flex-direction: column; margin-top: 6px; width: 330px;" />
+                <ui:Label text="战技威力: 100 + 60%攻击力" display-tooltip-when-elided="true" name="Label" style="margin-top: 16px; max-width: none; width: auto; flex-grow: 1;" />
+                <ui:Button text="修改" display-tooltip-when-elided="true" style="height: 30px; max-width: 60px; margin-top: 6px;" />
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="right" style="margin-left: 20px; width: 330px;" />
     </ui:VisualElement>
 </ui:UXML>
