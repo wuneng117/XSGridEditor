@@ -147,11 +147,16 @@ namespace XSSLG
         Max
     }
 
-
-    public enum TargetType
+    public enum SKillDamageType
     {
-        Self = 0,
-        Enemy = 0,
+        /// <summary>物理伤害</summary>
+        PhyDamage = 1,
+        /// <summary>魔法伤害</summary>
+        MagicDamage = 2,
+        /// <summary>生命回复</summary>
+        HpRecover = 3,
+        /// <summary> 生命吸收 </summary>
+        HpAbsorb = 4,
         Max
     }
 

@@ -13,8 +13,14 @@ namespace XSSLG
         /// <summary>武器类型</summary>
         public WeaponType WeaponType;
 
+        /// <summary> 伤害类型 </summary>
+        public SKillDamageType DamageType;  
+
         /// <summary> 消耗武器耐久度 </summary>
         public int WeponCost;
+
+        /// <summary> 不能暴击 </summary>
+        public bool CannotCrit;
 
         /// <summary> 战技/魔法 基础威力 </summary>
         public int DamageBase;

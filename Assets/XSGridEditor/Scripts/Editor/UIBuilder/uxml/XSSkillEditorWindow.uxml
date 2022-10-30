@@ -21,7 +21,7 @@
                 <uie:EnumField label="技能类型" value="Center" name="type_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 10px; height: 32px;" />
                 <uie:EnumField label="伤害类型" value="Center" name="damage_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 3px; height: 32px;" />
                 <uie:EnumField label="生效对象" value="Center" name="target_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 10px; height: 32px;" />
-                <ui:Button text="影响角色属性" display-tooltip-when-elided="true" name="stat_btn" style="margin-top: 20px; height: 32px; margin-bottom: 1px; width: 100px;" />
+                <ui:Button text="角色属性修正" display-tooltip-when-elided="true" name="stat_btn" style="margin-top: 20px; height: 32px; margin-bottom: 1px; width: 100px;" />
                 <uie:IntegerField label="消耗武器耐久" value="2" name="weapon_cost" style="flex-direction: column; width: 75px; margin-top: 20px; margin-left: 6px; height: 32px;" />
                 <uie:FloatField label="伤害倍率" value="2" name="damage_percent" style="flex-direction: column; width: 75px; margin-top: 20px; margin-left: 6px; height: 32px;" />
                 <uie:IntegerField label="冷却时间" value="42" name="cd" style="flex-direction: column; width: 80px; margin-bottom: 1px; margin-top: 20px; justify-content: flex-start; align-items: stretch; height: 32px;" />
@@ -30,7 +30,6 @@
                     <ui:Toggle label="是否可以暴击" name="critical" style="flex-direction: row; margin-top: 6px;" />
                 </ui:VisualElement>
                 <ui:MinMaxSlider picking-mode="Ignore" label="攻击范围" min-value="10" max-value="12" low-limit="0" high-limit="40" name="attack_range" style="flex-direction: column; margin-top: 6px; width: 330px;" />
-                <ui:SliderInt picking-mode="Ignore" label="命中率" value="42" high-value="100" name="hit_rate" style="flex-direction: column; margin-top: 6px; width: 330px;" />
                 <ui:Label text="战技威力: 100 + 60%攻击力" display-tooltip-when-elided="true" name="Label" style="margin-top: 16px; max-width: none; width: auto; flex-grow: 1;" />
                 <ui:Button text="修改" display-tooltip-when-elided="true" style="height: 30px; max-width: 60px; margin-top: 6px;" />
             </ui:VisualElement>

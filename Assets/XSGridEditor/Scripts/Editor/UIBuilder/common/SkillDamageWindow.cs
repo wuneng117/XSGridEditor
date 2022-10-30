@@ -1,30 +1,15 @@
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEditor.UIElements;
-
-
-public class SkillDamageWindow : EditorWindow
+namespace XSSLG
 {
-    [MenuItem("Window/UI Toolkit/SkillDamageWindow")]
-    public static void ShowExample()
+    public class SkillDamageWindow : XSBaseWindow
     {
-        SkillDamageWindow wnd = GetWindow<SkillDamageWindow>();
-        wnd.titleContent = new GUIContent("SkillDamageWindow");
-    }
+        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/SkillDamageWindow.uxml";
 
-    public void CreateGUI()
-    {
-        // Each editor window contains a root VisualElement object
-        VisualElement root = rootVisualElement;
-
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
-
-        // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/SkillDamageWindow.uxml");
-        VisualElement labelFromUXML = visualTree.Instantiate();
-        root.Add(labelFromUXML);
+        public static void ShowExample()
+        {
+            var wnd = GetWindowWithRect<SkillDamageWindow>(new Rect(0, 0, 503, 600), false, "SkillDamageWindow");
+            // wnd.Init();
+            wnd.ShowModal();
+        }
     }
 }

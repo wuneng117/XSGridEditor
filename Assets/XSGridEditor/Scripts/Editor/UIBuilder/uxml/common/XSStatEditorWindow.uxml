@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Label text="一级属性" display-tooltip-when-elided="true" style="margin-top: 20px; margin-left: 5px;" />
+    <ui:VisualElement usage-hints="None" style="flex-wrap: wrap; flex-direction: row; min-width: 360px; margin-top: 10px; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgba(41, 41, 41, 255); border-right-color: rgba(89, 88, 88, 255); border-top-color: rgba(41, 41, 41, 255); border-bottom-color: rgba(89, 88, 88, 255); margin-left: 5px; margin-right: 5px; padding-left: 10px; padding-bottom: 10px;">
+        <uie:IntegerField label="力量" value="42" name="str" style="flex-direction: column; width: 75px; margin-bottom: 1px; margin-top: 6px; justify-content: flex-start; align-items: stretch; margin-right: 6px;" />
+        <uie:IntegerField label="魔力" value="42" name="mag" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="技巧" value="42" name="res" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="速度" value="42" name="spd" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="幸运" value="42" name="lck" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="防御" value="42" name="def" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="魔防" value="42" name="dex" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="魅力" value="42" name="cha" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+    </ui:VisualElement>
+    <ui:Label text="二级属性(单位%)" display-tooltip-when-elided="true" style="margin-top: 20px; margin-left: 5px;" />
+    <ui:VisualElement usage-hints="None" style="flex-wrap: wrap; flex-direction: row; min-width: 360px; margin-top: 10px; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(41, 41, 41); border-right-color: rgb(89, 88, 88); border-top-color: rgb(41, 41, 41); border-bottom-color: rgb(89, 88, 88); margin-left: 5px; margin-right: 5px; padding-left: 10px; padding-bottom: 10px;">
+        <uie:IntegerField label="命中率" value="42" name="hit" style="flex-direction: column; width: 75px; margin-bottom: 1px; margin-top: 6px; justify-content: flex-start; align-items: stretch; margin-right: 6px;" />
+        <uie:IntegerField label="暴击率" value="42" name="crit" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="暴击回避率" value="42" name="crit_dodge" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="伤害加成百分比" value="42" name="damage_rate" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="伤害减免百分比" value="42" name="damage_reduce_rate" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="回避率" value="42" name="dodge" style="flex-direction: column; width: 75px; margin-top: 6px; margin-right: 6px;" />
+        <ui:Toggle label="是否可以暴击" name="critical" style="flex-direction: row; margin-top: 16px; align-items: flex-start; justify-content: flex-start;" />
+    </ui:VisualElement>
+</ui:UXML>

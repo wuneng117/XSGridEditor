@@ -42,6 +42,8 @@ namespace XSSLG
             }
 
             test.menu.AppendAction("XSBattleEventEditorView", (a) => XSBattleEventEditorWindow.ShowExample());
+            test.menu.AppendAction("XSStatEditorWindow", (a) => XSStatEditorWindow.ShowExample());
+            test.menu.AppendAction("SkillDamageWindow", (a) => SkillDamageWindow.ShowExample());
         }
 
     }
