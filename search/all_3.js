@@ -2,7 +2,7 @@ var searchData=
 [
   ['cachedpaths_118',['CachedPaths',['../classXSSLG_1_1UnitBase.html#abc1fc3f9426e07f701e21a5a6269b3a2',1,'XSSLG.UnitBase.CachedPaths()'],['../classXSSLG_1_1XSUnitNode.html#a701c35539178e839a9e4236b8782a6c5',1,'XSSLG.XSUnitNode.CachedPaths()']]],
   ['cacheunit_119',['CacheUnit',['../classXSSLG_1_1UnitInfoTip.html#a72422b5cd14b964ab575985b8f766679',1,'XSSLG::UnitInfoTip']]],
-  ['caculatedamage_120',['CaculateDamage',['../classXSSLG_1_1SkillCombat.html#a8dc1d5c70df20250061da67112693218',1,'XSSLG::SkillCombat']]],
+  ['caculatedamage_120',['CaculateDamage',['../classXSSLG_1_1SkillCombat.html#a6f6efffbbef743321595f2a97fc4cd1f',1,'XSSLG::SkillCombat']]],
   ['callback_121',['callback',['../classXSSLG_1_1EmitterItem.html#a75feaa2e6d458bd37e9d5baf84af86f6',1,'XSSLG::EmitterItem']]],
   ['cameracanfreemove_122',['CameraCanFreeMove',['../classXSSLG_1_1XSU.html#ad219ed12a6bddd107258a6b977e32d93',1,'XSSLG::XSU']]],
   ['cameramoveto_123',['CameraMoveTo',['../classXSSLG_1_1XSU.html#a412ce2171cbbc2157e1a908b50309400',1,'XSSLG::XSU']]],
@@ -56,7 +56,7 @@ var searchData=
   ['clickcombat_171',['ClickCombat',['../namespaceXSSLG.html#a2dd72ff4916ebf11ce06cea064a922e0afa7c3f1a29bd3d0b3ecb16bc5b79dfc4',1,'XSSLG']]],
   ['clickevent_172',['ClickEvent',['../classXSSLG_1_1XSPopUpWindow.html#a4fe9d9a340374b2d341cf7035e998926',1,'XSSLG::XSPopUpWindow']]],
   ['clickmagic_173',['ClickMagic',['../namespaceXSSLG.html#a2dd72ff4916ebf11ce06cea064a922e0a8b01d6f867f9c9fadd89f35f8ffe9c5b',1,'XSSLG']]],
-  ['clone_174',['Clone',['../classXSSLG_1_1Stat.html#a1e1ec88734f487441407791d5c7ec9ef',1,'XSSLG::Stat']]],
+  ['clone_174',['Clone',['../classXSSLG_1_1SecondStat.html#a050a1db011b2466d11818e914047da9c',1,'XSSLG.SecondStat.Clone()'],['../classXSSLG_1_1Stat.html#a1e1ec88734f487441407791d5c7ec9ef',1,'XSSLG.Stat.Clone()']]],
   ['close_175',['Close',['../classXSSLG_1_1UnitInfoTip.html#a502538a78077e856a14433b1ffcd0756',1,'XSSLG::UnitInfoTip']]],
   ['closemainmenu_176',['CloseMainMenu',['../classXSSLG_1_1BattleNode.html#a349db00d84d98bcb31a5a02ac8d9879d',1,'XSSLG::BattleNode']]],
   ['closerolemenu_177',['CloseRoleMenu',['../classXSSLG_1_1BattleNode.html#af80a34d50fe40931a258dec9ad3bed81',1,'XSSLG::BattleNode']]],
@@ -102,7 +102,7 @@ var searchData=
   ['createbuff_217',['CreateBuff',['../classXSSLG_1_1BuffFactory.html#a7b5354ba610c1a83de9a23fe5a909482',1,'XSSLG.BuffFactory.CreateBuff(string name, SkillBase skill)'],['../classXSSLG_1_1BuffFactory.html#aa05084ea58496180e8a0be0b22027fc9',1,'XSSLG.BuffFactory.CreateBuff(BuffData data, SkillBase skill)']]],
   ['createdict_218',['CreateDict',['../classXSSLG_1_1XSNodeMgr.html#adf6a11c6631b4b18cfa7115da446fd9a',1,'XSSLG.XSNodeMgr.CreateDict()'],['../classXSSLG_1_1XSPrefabNodeMgr.html#a44d59da82b858bfc53c038aeadbd8213',1,'XSSLG.XSPrefabNodeMgr.CreateDict()']]],
   ['creategrid_219',['CreateGrid',['../classXSSLG_1_1XSGridEditorMenu.html#a9afe47bdeb80da9db3de2c44fd898c35',1,'XSSLG::XSGridEditorMenu']]],
-  ['creategui_220',['CreateGUI',['../classXSSLG_1_1XSBaseWindow.html#a341faefec6acb77bc938f7b24dde4fc3',1,'XSSLG.XSBaseWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleEventEditorWindow.html#aa5e926b6c7166f7d248686c802b5166e',1,'XSSLG.XSBattleEventEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleUnitEditorWindow.html#afa19efedf951b356fe4c283df55a743f',1,'XSSLG.XSBattleUnitEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSEditorMainWindow.html#a0feebbbe5c1dad659f029121e0ed4f9f',1,'XSSLG.XSEditorMainWindow.CreateGUI()'],['../classXSSLG_1_1XSPopUpWindow.html#a5c1b905fe2116961c071a86b753fda83',1,'XSSLG.XSPopUpWindow.CreateGUI()'],['../classXSSkillEditorWindow.html#a2d81f0a9cb280a76348d02ca8e84c36c',1,'XSSkillEditorWindow.CreateGUI()']]],
+  ['creategui_220',['CreateGUI',['../classSkillDamageWindow.html#a108796ed9db7735cc40e2ad779e465d3',1,'SkillDamageWindow.CreateGUI()'],['../classStatSingleWindow.html#a306e00de6dfa0224474d69fea6a9a15c',1,'StatSingleWindow.CreateGUI()'],['../classXSSLG_1_1XSBaseWindow.html#a341faefec6acb77bc938f7b24dde4fc3',1,'XSSLG.XSBaseWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleEventEditorWindow.html#aa5e926b6c7166f7d248686c802b5166e',1,'XSSLG.XSBattleEventEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSBattleUnitEditorWindow.html#afa19efedf951b356fe4c283df55a743f',1,'XSSLG.XSBattleUnitEditorWindow.CreateGUI()'],['../classXSSLG_1_1XSEditorMainWindow.html#a0feebbbe5c1dad659f029121e0ed4f9f',1,'XSSLG.XSEditorMainWindow.CreateGUI()'],['../classXSSLG_1_1XSPopUpWindow.html#a5c1b905fe2116961c071a86b753fda83',1,'XSSLG.XSPopUpWindow.CreateGUI()'],['../classXSSkillEditorWindow.html#a2d81f0a9cb280a76348d02ca8e84c36c',1,'XSSkillEditorWindow.CreateGUI()']]],
   ['createreleasedata_221',['CreateReleaseData',['../classXSSLG_1_1TriggerBase.html#a1e5893a12b69461445cda44eab803121',1,'XSSLG::TriggerBase']]],
   ['createrole_222',['CreateRole',['../classXSSLG_1_1RoleFactory.html#aca8a5646864afb9269377fff76bf685b',1,'XSSLG::RoleFactory']]],
   ['createrole_3c_20t_20_3e_223',['CreateRole&lt; T &gt;',['../classXSSLG_1_1RoleFactory.html#a73111d1cb68eb7720a9dcb19d4b8bd0f',1,'XSSLG::RoleFactory']]],
@@ -123,6 +123,8 @@ var searchData=
   ['createxstiledict_238',['CreateXSTileDict',['../classXSSLG_1_1XSGridMgr.html#a21952dfb4fce567b6925fc28ae873a23',1,'XSSLG::XSGridMgr']]],
   ['crestarray_239',['CrestArray',['../classXSSLG_1_1Role.html#a75353eb4c5a1b210fe43db8e77891744',1,'XSSLG::Role']]],
   ['crestkeylist_240',['CrestKeyList',['../classXSSLG_1_1RoleData.html#a98f29c4ad8e5dd3d1bdf011554008285',1,'XSSLG::RoleData']]],
-  ['customscheduler_241',['CustomScheduler',['../classXSSLG_1_1CustomScheduler.html',1,'XSSLG']]],
-  ['customscheduleritem_242',['CustomSchedulerItem',['../classXSSLG_1_1CustomSchedulerItem.html',1,'XSSLG']]]
+  ['critdodgerate_241',['CritDodgeRate',['../classXSSLG_1_1SecondStat.html#a2c22f72af8a3da49c61d5903089b15c9',1,'XSSLG::SecondStat']]],
+  ['critrate_242',['CritRate',['../classXSSLG_1_1SecondStat.html#a5fbd358027deee1667b65a3d5a8f2010',1,'XSSLG::SecondStat']]],
+  ['customscheduler_243',['CustomScheduler',['../classXSSLG_1_1CustomScheduler.html',1,'XSSLG']]],
+  ['customscheduleritem_244',['CustomSchedulerItem',['../classXSSLG_1_1CustomSchedulerItem.html',1,'XSSLG']]]
 ];
