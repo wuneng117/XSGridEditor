@@ -11,7 +11,7 @@ var searchData=
   ['scene_5fgrid_5funit_5fspawn_5fself_5farena_1987',['SCENE_GRID_UNIT_SPAWN_SELF_ARENA',['../classXSSLG_1_1XSDefine.html#a89b3a2b5b966ada3dc506f2d229be4db',1,'XSSLG::XSDefine']]],
   ['scene_5funitroot_5fpath_1988',['SCENE_UNITROOT_PATH',['../classXSSLG_1_1XSDefine.html#ac28c7d14de7ff82dec827dd6363f7300',1,'XSSLG::XSDefine']]],
   ['searchtarget_1989',['SearchTarget',['../classXSSLG_1_1TriggerData.html#abc341475e80d631f5e87f055267a6c3c',1,'XSSLG::TriggerData']]],
-  ['secondstat_1990',['SecondStat',['../classXSSLG_1_1SkillData.html#a3038dd11b655bf3bc1b2cc0f8fab80f5',1,'XSSLG::SkillData']]],
+  ['secondstat_1990',['SecondStat',['../classXSSLG_1_1BuffData.html#aaeff6802ebe814d48278b631eb753bf1',1,'XSSLG.BuffData.SecondStat()'],['../classXSSLG_1_1SkillData.html#a3038dd11b655bf3bc1b2cc0f8fab80f5',1,'XSSLG.SkillData.SecondStat()']]],
   ['skill_5fattack_5fid_1991',['SKILL_ATTACK_ID',['../classXSSLG_1_1XSDefine.html#ac1eda3468814a350fe1b4749fdba2543',1,'XSSLG::XSDefine']]],
   ['skillkeylist_1992',['SkillKeyList',['../classXSSLG_1_1ClassData.html#aa5bd93f48f47f2d8777c1cdf7b950514',1,'XSSLG::ClassData']]],
   ['skillname_1993',['SkillName',['../classXSSLG_1_1LearnSkillData.html#a53a3a7ee17f5fd5270767f1287e57cd0',1,'XSSLG::LearnSkillData']]],

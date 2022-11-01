@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['target_2001',['target',['../classXSSLG_1_1EmitterItem.html#a11e8ce9ae9516d87f7a1af38660c532b',1,'XSSLG.EmitterItem.target()'],['../classXSSLG_1_1SearchStruct.html#a210b314745bd183f2fe1ba5b4c824040',1,'XSSLG.SearchStruct.Target()'],['../classXSSLG_1_1TriggerData.html#abedc8906f9e724119dba29d8c032d011',1,'XSSLG.TriggerData.Target()']]],
+  ['target_2001',['Target',['../classXSSLG_1_1SearchStruct.html#a210b314745bd183f2fe1ba5b4c824040',1,'XSSLG.SearchStruct.Target()'],['../classXSSLG_1_1TriggerData.html#abedc8906f9e724119dba29d8c032d011',1,'XSSLG.TriggerData.Target()'],['../classXSSLG_1_1EmitterItem.html#a11e8ce9ae9516d87f7a1af38660c532b',1,'XSSLG.EmitterItem.target()']]],
   ['technieuqlv_2002',['TechnieuqLv',['../classXSSLG_1_1LearnSkillData.html#a45b68263597b6cf550b6ef34894762e6',1,'XSSLG::LearnSkillData']]],
   ['technique_5fexp_5farray_2003',['TECHNIQUE_EXP_ARRAY',['../classXSSLG_1_1Config.html#addc4c3041be7f567e3f6d81a8c49e780',1,'XSSLG::Config']]],
   ['technique_5flevel_5fmax_2004',['TECHNIQUE_LEVEL_MAX',['../classXSSLG_1_1GameConst.html#ad7aa2f4c030161a7bed15368536de48c',1,'XSSLG::GameConst']]],
