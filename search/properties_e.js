@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['releaseentity_2276',['ReleaseEntity',['../classXSSLG_1_1TriggerBase.html#aa5efe23dd869ee111771833c68005b8d',1,'XSSLG::TriggerBase']]],
-  ['repeat_2277',['Repeat',['../classXSSLG_1_1CustomSchedulerItem.html#a3fa1a743961c9f5f00ae3e78002a6195',1,'XSSLG::CustomSchedulerItem']]],
-  ['right_2278',['Right',['../classXSSLG_1_1Accessibility.html#a6a4c26c1085d0cd1f863103de9f94a0a',1,'XSSLG::Accessibility']]],
-  ['role_2279',['Role',['../classXSSLG_1_1UnitBase.html#a71584cb84dca72dc1efdf818730843b6',1,'XSSLG::UnitBase']]],
-  ['roledatamanager_2280',['RoleDataManager',['../classXSSLG_1_1TableManager.html#a32e40afa223597fe394c3d8d18a8ff12',1,'XSSLG::TableManager']]],
-  ['root_2281',['Root',['../classXSSLG_1_1XSBaseWindow.html#ab3993d480508d78b5e4cc0afff779c07',1,'XSSLG::XSBaseWindow']]]
+  ['phase_2274',['Phase',['../classXSSLG_1_1BattleFSMBase.html#abb2d2612698eaabc9085906a785a39a3',1,'XSSLG::BattleFSMBase']]],
+  ['playerindex_2275',['PlayerIndex',['../classXSSLG_1_1UIEmitterData.html#afb5713e4d64c4076c30121970fc08c54',1,'XSSLG::UIEmitterData']]],
+  ['prefab_2276',['Prefab',['../classXSSLG_1_1XSGridShowRegionCpt.html#a63b78ee2eb0745f45cbb2a90df9f1651',1,'XSSLG::XSGridShowRegionCpt']]],
+  ['prefabnodemgr_2277',['PrefabNodeMgr',['../classXSSLG_1_1XSUE.html#a44d967b7a3ce963664593352c7ce7a20',1,'XSSLG.XSUE.PrefabNodeMgr()'],['../classXSSLG_1_1XSGridMainEditMode.html#a31446779482322b28a455a89dff3d772',1,'XSSLG.XSGridMainEditMode.PrefabNodeMgr()']]],
+  ['prepareunitlist_2278',['PrepareUnitList',['../classXSSLG_1_1XSUnitMgr.html#a0cfdb37207693eac505526ff8c735fc7',1,'XSSLG::XSUnitMgr']]],
+  ['prevpos_2279',['PrevPos',['../classXSSLG_1_1XSTileNodeEditMode.html#ace355e8b77caa9042d7875c2f2563976',1,'XSSLG.XSTileNodeEditMode.PrevPos()'],['../classXSSLG_1_1XSUnitNodeEditMode.html#a4b0734d0245c3cc710fc122d84962249',1,'XSSLG.XSUnitNodeEditMode.PrevPos()']]],
+  ['prevtile_2280',['PrevTile',['../classXSSLG_1_1XSAStarTile.html#ac1985d26a365d8aa46647171a3ffe3d0',1,'XSSLG::XSAStarTile']]],
+  ['prevtilesize_2281',['PrevTileSize',['../classXSSLG_1_1XSGridHelperEditMode.html#a80c47602ce84ebab27ad73f5dc520e57',1,'XSSLG::XSGridHelperEditMode']]],
+  ['priority_2282',['Priority',['../classXSSLG_1_1XSPriorityQueueItem.html#abd515feb940a0a1ad90adb28f214c6a6',1,'XSSLG::XSPriorityQueueItem']]],
+  ['proparray_2283',['PropArray',['../classXSSLG_1_1SkillBase.html#af8d8ee983ce8432fc7b97b48451a08bf',1,'XSSLG::SkillBase']]]
 ];

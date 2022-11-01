@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['objstack_2263',['ObjStack',['../classXSSLG_1_1UIMgr.html#afcf7724b708eba9b0c462057a51ed4a9',1,'XSSLG::UIMgr']]],
-  ['onfinishhandler_2264',['OnFinishHandler',['../classXSSLG_1_1CustomSchedulerItem.html#a927e006d400fd0756ce0fe68a4c10b10',1,'XSSLG::CustomSchedulerItem']]],
-  ['ontriggerdata_2265',['OnTriggerData',['../classXSSLG_1_1ReleaseData.html#add6af29c92654f4be1f8fa0c2f34d06c',1,'XSSLG::ReleaseData']]]
+  ['name_2268',['Name',['../classXSSLG_1_1BaseData.html#a39ce9887556387e837342779e3bc605b',1,'XSSLG.BaseData.Name()'],['../interfaceXSSLG_1_1XSIListViewData.html#a6bfae29c2c940761e84e30018612ba33',1,'XSSLG.XSIListViewData.Name()'],['../classXSSLG_1_1Role.html#ab6661f89d0fe76d1877e296073680683',1,'XSSLG.Role.Name()']]],
+  ['neartilelist_2269',['NearTileList',['../classXSSLG_1_1XSTile.html#a1713dca22f690fad62944beffe415841',1,'XSSLG::XSTile']]],
+  ['node_2270',['Node',['../classXSSLG_1_1Unit.html#ad2935189adce6d0ff3a02614c1c9dd1a',1,'XSSLG.Unit.Node()'],['../classXSSLG_1_1XSTile.html#aad59974b4e303bd4601e273a3d2302c7',1,'XSSLG.XSTile.Node()']]]
 ];

@@ -84,11 +84,12 @@ Inheritance diagram for XSSLG.SkillBase:</div>
  <div class="center">
   <img src="classXSSLG_1_1SkillBase.png" usemap="#XSSLG.SkillBase_map" alt=""/>
   <map id="XSSLG.SkillBase_map" name="XSSLG.SkillBase_map">
-<area href="classXSSLG_1_1CommonTableItem.html" alt="XSSLG.CommonTableItem&lt; SkillData, SkillUpdateData &gt;" shape="rect" coords="169,0,497,24"/>
-<area href="interfaceXSSLG_1_1IReleaseEntity.html" title="TriggerBase对Skillbase对象的引用，因为解耦，所以只定义需要的接口" alt="XSSLG.IReleaseEntity" shape="rect" coords="507,0,835,24"/>
+<area href="classXSSLG_1_1CommonTableItem.html" alt="XSSLG.CommonTableItem&lt; SkillData, SkillUpdateData &gt;" shape="rect" coords="338,0,666,24"/>
+<area href="interfaceXSSLG_1_1IReleaseEntity.html" title="TriggerBase对Skillbase对象的引用，因为解耦，所以只定义需要的接口" alt="XSSLG.IReleaseEntity" shape="rect" coords="676,0,1004,24"/>
 <area href="classXSSLG_1_1SkillCombat.html" title="主动技能，攻击/战技" alt="XSSLG.SkillCombat" shape="rect" coords="0,112,328,136"/>
 <area href="classXSSLG_1_1SkillMagic.html" title="主动技能，魔法" alt="XSSLG.SkillMagic" shape="rect" coords="338,112,666,136"/>
 <area href="classXSSLG_1_1SkillNull.html" title="默认的技能，给CardBase.MainSkill使用，这样就不用去判断是否为null了" alt="XSSLG.SkillNull" shape="rect" coords="676,112,1004,136"/>
+<area href="classXSSLG_1_1SkillPassive.html" title="被动技能" alt="XSSLG.SkillPassive" shape="rect" coords="1014,112,1342,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -143,6 +144,8 @@ Properties</h2></td></tr>
 <tr class="memitem:a092533c224e5bd7162f015c499f62c0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classXSSLG_1_1UnitBase.html">UnitBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillBase.html#a092533c224e5bd7162f015c499f62c0a">Unit</a><code> [get, protected set]</code></td></tr>
 <tr class="memdesc:a092533c224e5bd7162f015c499f62c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">保留的玩家对象  <a href="classXSSLG_1_1SkillBase.html#a092533c224e5bd7162f015c499f62c0a">More...</a><br /></td></tr>
 <tr class="separator:a092533c224e5bd7162f015c499f62c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612357ad2692bb31379584282b7cfc6b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classXSSLG_1_1Stat.html">Stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1SkillBase.html#a612357ad2692bb31379584282b7cfc6b">Stat</a><code> [get]</code></td></tr>
+<tr class="separator:a612357ad2692bb31379584282b7cfc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classXSSLG_1_1CommonTableItem"><td colspan="2" onclick="javascript:toggleInherit('properties_classXSSLG_1_1CommonTableItem')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classXSSLG_1_1CommonTableItem.html">XSSLG.CommonTableItem&lt; SkillData, SkillUpdateData &gt;</a></td></tr>
 <tr class="memitem:a3cbb95f445d74b48b0b3fa91859f750c inherit properties_classXSSLG_1_1CommonTableItem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classXSSLG_1_1CustomScheduler.html">CustomScheduler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXSSLG_1_1CommonTableItem.html#a3cbb95f445d74b48b0b3fa91859f750c">Scheduler</a><code> [get]</code></td></tr>
 <tr class="memdesc:a3cbb95f445d74b48b0b3fa91859f750c inherit properties_classXSSLG_1_1CommonTableItem"><td class="mdescLeft">&#160;</td><td class="mdescRight">定时几回合后使用  <a href="classXSSLG_1_1CommonTableItem.html#a3cbb95f445d74b48b0b3fa91859f750c">More...</a><br /></td></tr>
@@ -538,6 +541,28 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>属性值，给具体技能效果使用的数值 </p>
+
+</div>
+</div>
+<a id="a612357ad2692bb31379584282b7cfc6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a612357ad2692bb31379584282b7cfc6b">&#9670;&nbsp;</a></span>Stat</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classXSSLG_1_1Stat.html">Stat</a> XSSLG.SkillBase.Stat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

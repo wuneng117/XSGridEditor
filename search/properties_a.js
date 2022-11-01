@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['magicarray_2254',['MagicArray',['../classXSSLG_1_1Role.html#afc5c37b5f3a1077081598dd6d8974fd9',1,'XSSLG::Role']]],
-  ['magiclistview_2255',['MagicListView',['../classXSSLG_1_1XSUnitEditorView.html#ad644a9dc467c77f7e454536b69e1e089',1,'XSSLG::XSUnitEditorView']]],
-  ['mouseevent_2256',['MouseEvent',['../classXSSLG_1_1BattleFSMBase.html#affbf1f23019618f279be507293b20731',1,'XSSLG::BattleFSMBase']]],
-  ['moveregion_2257',['MoveRegion',['../classXSSLG_1_1PhaseChooseMoveBase.html#a47d969e99324e26ad9722c50e37807f0',1,'XSSLG::PhaseChooseMoveBase']]],
-  ['moveshowregion_2258',['MoveShowRegion',['../classXSSLG_1_1XSGridShowMgr.html#aa814bf24af8832f9088df480bbd8166e',1,'XSSLG::XSGridShowMgr']]],
-  ['movetileprefab_2259',['MoveTilePrefab',['../classXSSLG_1_1XSGridHelper.html#ae75250f4e9fb820869fe1d5f399ddeb1',1,'XSSLG::XSGridHelper']]]
+  ['left_2255',['Left',['../classXSSLG_1_1Accessibility.html#aabf9285e2254f97fa166eea60839ad36',1,'XSSLG::Accessibility']]],
+  ['length_2256',['Length',['../classXSSLG_1_1SearchTargetFront.html#ae78953c6eee86fc6212f696c7595df5c',1,'XSSLG::SearchTargetFront']]],
+  ['level_2257',['Level',['../classXSSLG_1_1Role.html#a536a53b6b004afe6dda102bd4c4bea32',1,'XSSLG::Role']]],
+  ['list_2258',['List',['../classXSSLG_1_1CommonTable.html#a8d49d43cb6f7d6c454108ddd628a911b',1,'XSSLG::CommonTable']]],
+  ['listview_2259',['Listview',['../classXSSLG_1_1XSListView.html#afd0fd96fafc9c43a912b85041aa8225e',1,'XSSLG.XSListView.Listview()'],['../classXSSLG_1_1XSListWindow.html#a789dde8702a252134f316f6e8022242d',1,'XSSLG.XSListWindow.Listview()']]],
+  ['logic_2260',['Logic',['../classXSSLG_1_1BattleNode.html#a3681e1e38e7c36d38a8358e333ed0708',1,'XSSLG::BattleNode']]],
+  ['lv_2261',['Lv',['../classXSSLG_1_1LevelBase.html#a1031c79129c90b780841c860983f115e',1,'XSSLG::LevelBase']]]
 ];
