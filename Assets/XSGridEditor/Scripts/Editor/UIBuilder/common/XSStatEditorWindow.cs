@@ -9,7 +9,7 @@ namespace XSSLG
 
         public static void ShowExample()
         {
-            var wnd = GetWindowWithRect<XSStatEditorWindow>(new Rect(0, 0, 503, 600), false, "XSStatEditor");
+            var wnd = GetWindowWithRect<XSStatEditorWindow>(new Rect(0, 0, 800, 350), false, "XSStatEditor");
             // wnd.Init();
             wnd.ShowModal();
         }

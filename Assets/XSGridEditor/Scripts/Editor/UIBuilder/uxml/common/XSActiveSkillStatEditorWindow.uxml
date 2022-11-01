@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="min-width: 330px;">
+        <ui:Label text="战技/魔法 参数" display-tooltip-when-elided="true" style="margin-top: 10px; margin-left: 3px; font-size: 20px;" />
+        <ui:VisualElement style="min-width: 330px; flex-direction: row; flex-wrap: wrap;">
+            <uie:EnumField label="武器类型" value="Center" name="weapon_enum" style="margin-top: 6px; flex-direction: column; width: 155px; max-height: none; min-height: auto; height: 32px;" />
+            <uie:EnumField label="生效对象" value="Center" name="target_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 10px; height: 32px;" />
+            <uie:EnumField label="伤害类型" value="Center" name="damage_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 3px; height: 32px;" />
+            <ui:MinMaxSlider picking-mode="Ignore" label="攻击范围" min-value="10" max-value="12" low-limit="0" high-limit="40" name="attack_range" style="flex-direction: column; margin-top: 6px; width: 330px;" />
+            <ui:Label text="战技威力: 100 + 60%攻击力" display-tooltip-when-elided="true" name="Label" style="margin-top: 16px; max-width: none; width: auto; flex-grow: 1; margin-left: 3px;" />
+            <ui:Button text="修改" display-tooltip-when-elided="true" style="height: 30px; max-width: 60px; margin-top: 6px;" />
+        </ui:VisualElement>
+        <uie:IntegerField label="消耗武器耐久" value="2" name="weapon_cost" style="flex-direction: row; width: 200px; margin-top: 10px; margin-left: 3px; height: auto;" />
+        <ui:Label text="攻击时属性修正(单位%)" display-tooltip-when-elided="true" style="margin-top: 16px; margin-left: 3px; margin-bottom: 10px;" />
+        <uie:IntegerField label="命中率" value="42" name="hit" style="flex-direction: row; width: 200px; margin-bottom: 1px; margin-top: 6px; justify-content: flex-start; align-items: stretch; margin-right: 6px;" />
+        <uie:IntegerField label="暴击率" value="42" name="crit" style="flex-direction: row; width: 200px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="暴击回避率" value="42" name="crit_dodge" style="flex-direction: row; width: 200px; margin-top: 6px; margin-right: 6px;" />
+        <uie:IntegerField label="回避率" value="42" name="dodge" style="flex-direction: row; width: 200px; margin-top: 6px; margin-right: 6px;" />
+        <ui:Toggle label="是否可以暴击" name="critical" style="flex-direction: row; margin-top: 6px; align-items: flex-start; justify-content: flex-start;" />
+        <ui:VisualElement usage-hints="None" style="flex-wrap: wrap; flex-direction: row; min-width: auto; margin-top: 10px; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(41, 41, 41); border-right-color: rgb(89, 88, 88); border-top-color: rgb(41, 41, 41); border-bottom-color: rgb(89, 88, 88); margin-left: 5px; margin-right: 5px; padding-left: 10px; padding-bottom: 10px; width: 330px;" />
+    </ui:VisualElement>
+</ui:UXML>

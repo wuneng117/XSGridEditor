@@ -17,21 +17,9 @@
             </ui:VisualElement>
             <ui:TextField picking-mode="Ignore" label="说明" value="filler text" text="filler text" name="desc_text" style="flex-direction: column; margin-top: 6px; min-height: 100px; min-width: 320px;" />
             <ui:VisualElement name="top2" style="flex-direction: row; max-width: 330px; flex-wrap: wrap;">
-                <uie:EnumField label="武器类型" value="Center" name="weapon_enum" style="margin-top: 6px; flex-direction: column; width: 155px; max-height: none; min-height: auto; height: 32px;" />
-                <uie:EnumField label="技能类型" value="Center" name="type_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 10px; height: 32px;" />
-                <uie:EnumField label="伤害类型" value="Center" name="damage_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 3px; height: 32px;" />
-                <uie:EnumField label="生效对象" value="Center" name="target_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 10px; height: 32px;" />
-                <ui:Button text="角色属性修正" display-tooltip-when-elided="true" name="stat_btn" style="margin-top: 20px; height: 32px; margin-bottom: 1px; width: 100px;" />
-                <uie:IntegerField label="消耗武器耐久" value="2" name="weapon_cost" style="flex-direction: column; width: 75px; margin-top: 20px; margin-left: 6px; height: 32px;" />
-                <uie:FloatField label="伤害倍率" value="2" name="damage_percent" style="flex-direction: column; width: 75px; margin-top: 20px; margin-left: 6px; height: 32px;" />
-                <uie:IntegerField label="冷却时间" value="42" name="cd" style="flex-direction: column; width: 80px; margin-bottom: 1px; margin-top: 20px; justify-content: flex-start; align-items: stretch; height: 32px;" />
-                <ui:VisualElement style="margin-left: 30px; margin-top: 20px;">
-                    <ui:Toggle label="是否开始就冷却" name="cd_begin" style="flex-direction: row; margin-top: 6px; align-items: stretch; justify-content: flex-end; width: auto;" />
-                    <ui:Toggle label="是否可以暴击" name="critical" style="flex-direction: row; margin-top: 6px;" />
-                </ui:VisualElement>
-                <ui:MinMaxSlider picking-mode="Ignore" label="攻击范围" min-value="10" max-value="12" low-limit="0" high-limit="40" name="attack_range" style="flex-direction: column; margin-top: 6px; width: 330px;" />
-                <ui:Label text="战技威力: 100 + 60%攻击力" display-tooltip-when-elided="true" name="Label" style="margin-top: 16px; max-width: none; width: auto; flex-grow: 1;" />
-                <ui:Button text="修改" display-tooltip-when-elided="true" style="height: 30px; max-width: 60px; margin-top: 6px;" />
+                <uie:EnumField label="技能类型" value="Center" name="type_enum" style="margin-top: 6px; flex-direction: column; width: 155px; margin-left: 3px; height: 32px;" />
+                <uie:IntegerField label="冷却时间" value="42" name="cd" style="flex-direction: row; width: 200px; margin-bottom: 1px; margin-top: 6px; justify-content: flex-start; align-items: stretch; height: auto;" />
+                <ui:Toggle label="是否开始就冷却" name="cd_begin" style="flex-direction: row; margin-top: 6px; align-items: stretch; justify-content: flex-end; width: auto;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="right" style="margin-left: 20px; width: 330px;" />
