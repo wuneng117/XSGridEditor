@@ -6,7 +6,6 @@ namespace XSSLG
     [Serializable]
     public partial class BuffData : BaseData
     {
-
         /// <summary>类型</summary>
         public int Type;
 
@@ -35,6 +34,9 @@ namespace XSSLG
         public bool IsDebuff;
 
         /// <summary> buff存在时的一级属性加成 </summary>
-        public Stat Stat;
+        public Stat Stat = new Stat();
+
+        /// <summary> buff存在时的二级属性加成 </summary>
+        public SecondStat SecondStat = new SecondStat();
     }
 }

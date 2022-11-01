@@ -57,8 +57,6 @@ namespace XSSLG
         // public virtual float HealFactor() => (1 + this.GetSkillEffectProp(SkillEffectType.HealFactor));
         // public virtual float CreatureDurationTimeFactor() => (1 + this.GetSkillEffectProp(SkillEffectType.CreatureDurationTimeFactor)); // 召唤物持续时间修正
         // public virtual float DebuffDurationFactor() => (1 + this.GetSkillEffectProp(SkillEffectType.DebuffDurationFactor)); // debuff持续时间修正
-        // public virtual float SkillIncreaseFactor() => (1 + this.GetSkillEffectProp(SkillEffectType.SkillIncreaseFactor)); // 技能伤害增益
-        // public virtual float SkillReduceFactor() => (1 + this.GetSkillEffectProp(SkillEffectType.SkillReduceFactor)); // 技能伤害减免
         // public virtual bool CanMove() => !this.GetSkillEffectFlag(SkillEffectType.NoMove);
         // public virtual bool CanDie() => !this.GetSkillEffectFlag(SkillEffectType.NoDie);
         // public virtual bool CanGetDamage() => !this.GetSkillEffectFlag(SkillEffectType.NoGetDamage); // 是否能受到伤害
