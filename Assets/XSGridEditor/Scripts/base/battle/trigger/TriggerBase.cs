@@ -19,6 +19,7 @@ namespace XSSLG
     public class TriggerBase : WorkItem<TriggerData, SkillUpdateData>
     {
         /************************* 变量 begin ***********************/
+        public TriggerType Type {get => this.Data.Type;}
 
         /// <summary> 对SkillBase的引用 </summary>
         protected IReleaseEntity ReleaseEntity { get; set; }

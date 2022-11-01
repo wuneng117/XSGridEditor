@@ -38,7 +38,7 @@ namespace XSSLG
         public void init(UnitBase unit)
         {
             var role = unit.Role;
-            this.nameText.text = role.Data.Name;
+            this.nameText.text = role.Name;
             this.classText.text = role.Class.Data.Name;
             this.LvText.text = role.Level.Lv.ToString();
             this.ExpText.text = role.Level.Exp.ToString();

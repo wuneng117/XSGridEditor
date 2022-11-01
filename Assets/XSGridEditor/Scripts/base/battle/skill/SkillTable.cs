@@ -44,10 +44,10 @@ namespace XSSLG
         /// <summary> 技能增加的属性 </summary>
         public Stat GetStat()
         {
-            var ret = this.List.Aggregate(new Stat(), (ret, skill) => skill.Data.Stat);
+            var ret = this.List.Aggregate(new Stat(), (ret, skill) => skill.Stat);
             return ret;
         }
 
-        public List<SkillBase> GetCombatSkill() => this.List.FindAll(skill => skill.Trigger.Data.Type == TriggerType.ClickCombat);
+        public List<SkillBase> GetCombatSkill() => this.List.FindAll(skill => skill.Trigger.Type == TriggerType.ClickCombat);
     }
 }

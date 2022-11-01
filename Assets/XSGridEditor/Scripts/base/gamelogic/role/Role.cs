@@ -11,6 +11,8 @@ namespace XSSLG
     /// <summary> 角色信息 </summary>
     public class Role : DataDecorate<RoleData>
     {
+        public string Name { get => this.Data.Name; }
+        
         /// <summary> 玩家等级 </summary>
         public RoleLevel Level { get; private set; }
 
@@ -44,7 +46,7 @@ namespace XSSLG
             var ret = base.Init(data);
             if (!ret)
                 return ret;
-                
+
             this.Level = new RoleLevel(data.Lv);
 
             this.Class = new RoleClass(TableManager.Instance.ClassDataManager.GetItem(data.ClassDataKey));

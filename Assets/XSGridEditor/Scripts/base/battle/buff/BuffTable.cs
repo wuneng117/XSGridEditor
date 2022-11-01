@@ -14,10 +14,10 @@ namespace XSSLG
         {
             do
             {
-                var prevBuff = this.List.Find(item => item.Data.Key == buff.Data.Key);
-                if (prevBuff != null && buff.Data.CanStack)
+                var prevBuff = this.List.Find(item => item.Key == buff.Key);
+                if (prevBuff != null && buff.CanStack)
                 {
-                    prevBuff.AddCount(buff.Data.InitCount);
+                    prevBuff.AddCount(buff.InitCount);
                     buff = prevBuff;
                     break;
                 }
@@ -35,7 +35,7 @@ namespace XSSLG
 
         public Stat GetStat()
         {
-            var ret = this.List.Aggregate(new Stat(), (ret, buff) => buff.Data.Stat);
+            var ret = this.List.Aggregate(new Stat(), (ret, buff) => buff.Stat);
             return ret;
         }
     }

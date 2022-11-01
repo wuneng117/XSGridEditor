@@ -25,6 +25,8 @@ namespace XSSLG
         /// <summary> 保留的玩家对象 </summary>
         public UnitBase Unit { get; protected set; }
 
+        public virtual Stat Stat { get => this.Data.Stat; }
+
         /************************* 变量  end  ***********************/
 
         /// 构造函数

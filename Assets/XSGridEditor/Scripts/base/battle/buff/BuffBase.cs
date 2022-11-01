@@ -11,6 +11,10 @@ namespace XSSLG
     /// <summary> buff基类 </summary>
     public class BuffBase : CommonTableItem<BuffData, SkillUpdateData>
     {
+        public string Key { get => this.Data.Key; }
+        public bool CanStack { get => this.Data.CanStack; }
+        public int InitCount { get => this.Data.InitCount; }
+        public Stat Stat { get => this.Data.Stat; }
 
         /// <summary> 这个buff的宿主skill，如果不是特定的，就是加在unit的skillnull对象里 </summary>
         public SkillBase Skill { get; }

@@ -11,7 +11,7 @@ namespace XSSLG
     /// <typeparam name="T">数据类型</typeparam>
     public class DataDecorate<T>
     {
-        public T Data { get; private set; }
+        protected T Data { get; private set; }
 
         public virtual bool Init(T data)
         {
