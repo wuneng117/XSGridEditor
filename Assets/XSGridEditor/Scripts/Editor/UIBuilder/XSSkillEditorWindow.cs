@@ -1,30 +1,17 @@
-using UnityEditor;
+
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEditor.UIElements;
 
-
-public class XSSkillEditorWindow : EditorWindow
+namespace XSSLG
 {
-    [MenuItem("Window/UI Toolkit/XSSKillEditorWindow")]
-    public static void ShowExample()
+    public class XSSkillEditorWindow : XSBaseWindow
     {
-        XSSkillEditorWindow wnd = GetWindow<XSSkillEditorWindow>();
-        wnd.titleContent = new GUIContent("XSSkillEditorWindow");
-    }
+        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSSkillEditorWindow.uxml";
 
-    public void CreateGUI()
-    {
-        // Each editor window contains a root VisualElement object
-        VisualElement root = rootVisualElement;
-
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
-
-        // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSSkillEditorWindow.uxml");
-        VisualElement labelFromUXML = visualTree.Instantiate();
-        root.Add(labelFromUXML);
+        public static void ShowExample()
+        {
+            var wnd = GetWindowWithRect<XSSkillEditorWindow>(new Rect(0, 0, 800, 350), false, "XSSkillEditor");
+            // wnd.Init();
+            wnd.ShowModal();
+        }
     }
 }
