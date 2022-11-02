@@ -45,7 +45,7 @@ var searchData=
   ['xsprefabrootcpt_1298',['XSPrefabRootCpt',['../classXSSLG_1_1XSPrefabRootCpt.html',1,'XSSLG']]],
   ['xspriorityqueueitem_1299',['XSPriorityQueueItem',['../classXSSLG_1_1XSPriorityQueueItem.html',1,'XSSLG']]],
   ['xsresloadmgr_1300',['XSResLoadMgr',['../classXSSLG_1_1XSResLoadMgr.html',1,'XSSLG']]],
-  ['xsskilleditorwindow_1301',['XSSkillEditorWindow',['../classXSSkillEditorWindow.html',1,'']]],
+  ['xsskilleditorwindow_1301',['XSSkillEditorWindow',['../classXSSLG_1_1XSSkillEditorWindow.html',1,'XSSLG']]],
   ['xsstateditorwindow_1302',['XSStatEditorWindow',['../classXSSLG_1_1XSStatEditorWindow.html',1,'XSSLG']]],
   ['xstile_1303',['XSTile',['../classXSSLG_1_1XSTile.html',1,'XSSLG']]],
   ['xstilenode_1304',['XSTileNode',['../classXSSLG_1_1XSTileNode.html',1,'XSSLG']]],

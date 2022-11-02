@@ -96,7 +96,7 @@ var searchData=
   ['xspriorityqueueitem_2ecs_1081',['XSPriorityQueueItem.cs',['../XSPriorityQueueItem_8cs.html',1,'']]],
   ['xsresloadmgr_1082',['XSResLoadMgr',['../classXSSLG_1_1XSResLoadMgr.html#af68765692ebd535e140395351ea7bcee',1,'XSSLG.XSResLoadMgr.XSResLoadMgr()'],['../classXSSLG_1_1XSResLoadMgr.html',1,'XSSLG.XSResLoadMgr']]],
   ['xsresloadmgr_2ecs_1083',['XSResLoadMgr.cs',['../XSResLoadMgr_8cs.html',1,'']]],
-  ['xsskilleditorwindow_1084',['XSSkillEditorWindow',['../classXSSkillEditorWindow.html',1,'']]],
+  ['xsskilleditorwindow_1084',['XSSkillEditorWindow',['../classXSSLG_1_1XSSkillEditorWindow.html',1,'XSSLG']]],
   ['xsskilleditorwindow_2ecs_1085',['XSSkillEditorWindow.cs',['../XSSkillEditorWindow_8cs.html',1,'']]],
   ['xsslg_1086',['XSSLG',['../namespaceXSSLG.html',1,'']]],
   ['xsstateditorwindow_1087',['XSStatEditorWindow',['../classXSSLG_1_1XSStatEditorWindow.html',1,'XSSLG']]],
