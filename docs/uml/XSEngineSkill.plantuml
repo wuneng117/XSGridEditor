@@ -1,0 +1,44 @@
+@startuml
+hide empty member
+
+' skill
+
+class SkillBase
+
+
+class SkillCombat extends SkillBase
+{
+    TriggerManual Trigger
+}
+SkillCombat *-- TriggerManual
+
+
+class SkillPassive extends SkillBase
+{
+    TriggerPassive Trigger
+}
+SkillPassive *-- TriggerPassive
+
+
+class SkillMagic extends SkillBase
+{
+    TriggerManual Trigger
+}
+SkillMagic *-- TriggerManual
+
+
+
+'trigger
+class TriggerBase
+
+
+class TriggerNull extends TriggerBase
+
+
+class TriggerPassive extends TriggerBase
+
+
+class TriggerManual extends TriggerBase
+
+
+@enduml

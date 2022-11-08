@@ -1,6 +1,15 @@
 @startuml
-
 hide empty member
+
+' 一级属性
+class Stat
+note left of Stat:包含一级属性
+
+' 次级属性
+class SecondStat
+note left of SecondStat:包含次级属性
+
+
 class Attr {
     -int _val
     -float _factor
@@ -14,24 +23,34 @@ class HP {
 
 HP *-- Attr : -_max
 
-class Stat
-note left of Stat:包含一级属性
 
 Stat "1"*--"n" Attr
 Stat *-- HP
+
+class SkillData
+{
+    +Stat Stat
+    +SecondStat SecondStat
+}
+SkillData *-- Stat
+SkillData *-- SecondStat
+
+
+class BuffData
+{
+    +Stat Stat
+    +SecondStat SecondStat
+
+}
+BuffData *-- Stat
+BuffData *-- SecondStat
+
 
 class RoleData
 {
     +Stat Stat
 }
 RoleData *-- Stat
-
-class SkillData
-{
-    +Stat Stat
-
-}
-SkillData *-- Stat
 
 class Role
 {
