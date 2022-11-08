@@ -58,7 +58,7 @@ namespace XSSLG
                 case TargetConditionType.None: break;
                 case TargetConditionType.Src: ret.Add(onTriggerData.Src); break;
                 case TargetConditionType.Dst: ret.AddRange(onTriggerData.Dst); break;
-                case TargetConditionType.Search: ret.AddRange(this.SearchTarget.Search(onTriggerData)); break;
+                // case TargetConditionType.Search: ret.AddRange(this.SearchTarget.Search(onTriggerData)); break;
             }
 
             return ret;

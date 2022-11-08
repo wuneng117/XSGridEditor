@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 /// <summary>
 /// @Author: xiaoshi
 /// @Date: 2022-11-08 21:23:14
@@ -21,5 +22,17 @@ namespace XSSLG
         public TriggerManual(TriggerData data, IReleaseEntity releaseEntity) : base(data, releaseEntity)
         {
         }
+
+        /// <summary>
+        /// 获取处理对象
+        /// </summary>
+        /// <param name="data">触发数据</param>
+        protected override List<UnitBase> GetTarget(OnTriggerDataBase data)
+        {
+            var ret = new List<UnitBase>();
+            ret.AddRange(this.SearchTarget.Search(data as OnTriggerDataCommon));
+            return ret;
+        }
+
     }
 }

@@ -27,8 +27,13 @@ namespace XSSLG
         /// </summary>
         /// <param name="data">释放数据</param>
         /// <returns></returns>
-        public virtual List<UnitBase> Search(OnTriggerDataBase data)
+        public virtual List<UnitBase> Search(OnTriggerDataCommon data)
         {
+            if (data == null)
+            {
+                return new List<UnitBase>();
+            }
+
             var logic = XSU.GetBattleLogic();
             var gridMgr = XSU.GridMgr;
             var srcTile = gridMgr.GetXSTileByWorldPos(((Unit)data.Src).Node.WorldPos);
@@ -158,7 +163,7 @@ namespace XSSLG
     public class SearchTargetNull : SearchTargetBase
     {
         public SearchTargetNull() : base(null) { }
-        public override List<UnitBase> Search(OnTriggerDataBase data) => new List<UnitBase>();
+        public override List<UnitBase> Search(OnTriggerDataCommon data) => new List<UnitBase>();
         protected override List<UnitBase> SearchByAll(UnitBase src, BattleLogic logic, XSIGridMgr gridMgr, XSTile srcTile) => new List<UnitBase>();
         public override List<XSTile> GetAttackRegion(XSIGridMgr gridMgr, XSTile srcTile) => new List<XSTile>();
         public override List<XSTile> GetAttackEffectRegion(Vector3Int tile, Vector3Int srcTile) => new List<XSTile>();

@@ -33,5 +33,7 @@ namespace XSSLG
         ///结束触发器，一般是卡牌离开场上结束
         /// </summary>
         public override void StopWork() { }
+
+        protected override List<UnitBase> GetTarget(OnTriggerDataBase data) => new List<UnitBase>();
     }
 }

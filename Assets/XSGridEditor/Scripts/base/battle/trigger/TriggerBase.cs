@@ -14,7 +14,7 @@ namespace XSSLG
     /// 3.因为第1，2条，参数OnTriggerDataBase只能是OnTriggerDataBase或者OntriggerDataCommon，其他类原则上不能传递，
     /// 因为这个trigger和主动技能都不会处理其他OnTriggerDataBase类额外的参数，做好约束才能方便设计
     /// </summary>
-    public class TriggerBase : WorkItem<TriggerData, SkillUpdateData>
+    public abstract class TriggerBase : WorkItem<TriggerData, SkillUpdateData>
     {
         /************************* 变量 begin ***********************/
         public TriggerType Type {get => this.Data.Type;}
@@ -125,13 +125,8 @@ namespace XSSLG
         /// 获取处理对象
         /// </summary>
         /// <param name="data">触发数据</param>
-        protected virtual List<UnitBase> GetTarget(OnTriggerDataBase data)
-        {
-            var ret = new List<UnitBase>();
-            ret.AddRange(this.SearchTarget.Search(data));
-            return ret;
-        }
-
+        protected abstract List<UnitBase> GetTarget(OnTriggerDataBase data);
+        
         private ReleaseData CreateReleaseData(OnTriggerDataBase data, List<UnitBase> target)
         {
             var triggerReleaseData = new ReleaseData(data, target);
