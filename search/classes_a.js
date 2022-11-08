@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normaltable_1179',['NormalTable',['../classXSSLG_1_1NormalTable.html',1,'XSSLG']]]
+  ['normaltable_1182',['NormalTable',['../classXSSLG_1_1NormalTable.html',1,'XSSLG']]]
 ];
