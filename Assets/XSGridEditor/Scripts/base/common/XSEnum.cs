@@ -43,13 +43,12 @@ namespace XSSLG
 
     public enum SkillType
     {
-        Common = 0,
         /// <summary> 特技 </summary>
-        Ability = 1,
+        Ability = 0,
         /// <summary>战技</summary>
-        CombatArt = 2,
+        CombatArt = 1,
         /// <summary>魔法主动技能</summary>
-        Magic = 3,
+        Magic = 2,
 
         Max,
     }
@@ -117,10 +116,6 @@ namespace XSSLG
         OnTurnStart = 1,
         /// <summary>战斗后</summary>
         AfterAttack = 2,
-        /// <summary>点击释放战技/普通攻击</summary>
-        ClickCombat = 3,
-        /// <summary>点击释放魔法</summary>
-        ClickMagic = 4,
         Max,
     }
 

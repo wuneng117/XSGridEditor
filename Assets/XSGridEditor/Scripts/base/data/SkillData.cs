@@ -8,7 +8,7 @@ namespace XSSLG
     public partial class SkillData : BaseData
     {
         /// <summary>类型</summary>
-        public SkillType Type = SkillType.Common;
+        public SkillType Type = SkillType.Ability;
 
         /// <summary>武器类型</summary>
         public WeaponType WeaponType;
@@ -29,7 +29,7 @@ namespace XSSLG
         public List<StatSingle> StatSingleList = new List<StatSingle>();
 
         /// <summary>触发器id</summary>
-        public string TriggerName;
+        public TriggerData TriggerData;
 
         /// <summary>常用效果</summary>
         public List<SkillEffectStruct> EffectList = new List<SkillEffectStruct>();

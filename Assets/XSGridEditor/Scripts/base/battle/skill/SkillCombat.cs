@@ -13,10 +13,13 @@ namespace XSSLG
     public class SkillCombat : SkillBase
     {
         /************************* 变量 begin ***********************/
+        protected TriggerManual trigger;
+        public override TriggerBase Trigger => trigger;
+
         /************************* 变量  end  ***********************/
         public SkillCombat(SkillData data, UnitBase unit) : base(data, unit)
         {
-
+            this.trigger = TriggerFactory.CreateTriggerManual(data.TriggerData, this);
         }
 
         /// 是否能释放
@@ -74,7 +77,7 @@ namespace XSSLG
             // 弓每远两格降低20点命中。
 
             var ret = Random.Range(0, 100);
-            return ret  > 80;
+            return ret > 80;
         }
 
         /// <summary>
@@ -86,7 +89,7 @@ namespace XSSLG
             var stat = this.Unit.GetStat();
             //攻击＝力量＋武器威力＋技能＋骑士团物攻,全部通过Stat加
             float damage = stat.Str.GetFinal() + this.GetSkillAddDamage(stat) - dest.GetStat().Def.GetFinal();
-            damage = damage * this.Unit.Table.PhyDamageFactor() *  dest.Table.PhyImmunityFactor();
+            damage = damage * this.Unit.Table.PhyDamageFactor() * dest.Table.PhyImmunityFactor();
             return (int)damage;
         }
 

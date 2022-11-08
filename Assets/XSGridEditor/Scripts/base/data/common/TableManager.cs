@@ -8,7 +8,6 @@ namespace XSSLG
         public DataManager<ClassData> ClassDataManager { get; }
         public DataManager<RoleData> RoleDataManager { get; }
         public DataManager<SkillData> SkillDataManager { get; }
-        public DataManager<TriggerData> TriggerDataManager { get; }
         public DataManager<BuffData> BuffDataManager { get; }
 
         public TableManager()
@@ -16,7 +15,6 @@ namespace XSSLG
             this.ClassDataManager = DataManager<ClassData>.Instance;
             this.RoleDataManager = DataManager<RoleData>.Instance;
             this.SkillDataManager = DataManager<SkillData>.Instance;
-            this.TriggerDataManager = DataManager<TriggerData>.Instance;
             this.BuffDataManager = DataManager<BuffData>.Instance;
         }
     }

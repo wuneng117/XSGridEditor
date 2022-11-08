@@ -13,11 +13,13 @@ namespace XSSLG
 
             }
         }
+        protected TriggerPassive trigger;
+        public override TriggerBase Trigger => trigger;
 
         /************************* 变量  end  ***********************/
         public SkillPassive(SkillData data, UnitBase unit) : base(data, unit)
         {
-
+            this.trigger = TriggerFactory.CreateTriggerPassive(data.TriggerData, this);
         }
     }
 }

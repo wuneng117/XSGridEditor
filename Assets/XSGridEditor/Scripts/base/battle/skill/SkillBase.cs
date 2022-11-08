@@ -9,12 +9,14 @@ using System.Linq;
 namespace XSSLG
 {
     /// <summary> 技能基类 </summary>
-    public class SkillBase : CommonTableItem<SkillData, SkillUpdateData>, IReleaseEntity
+    public abstract class SkillBase : CommonTableItem<SkillData, SkillUpdateData>, IReleaseEntity
     {
         /************************* 变量 begin ***********************/
+        /// <summary> 技能类型 </summary>
+        public SkillType SkillType => this.Data.Type;
 
         /// <summary> 触发器 </summary>
-        public TriggerBase Trigger { get; protected set; }
+        public abstract TriggerBase Trigger { get; }
 
         /// <summary> 属性值，给具体技能效果使用的数值 </summary>
         protected List<float> PropArray { get; set; } = new List<float>();
@@ -36,7 +38,7 @@ namespace XSSLG
         public SkillBase(SkillData data, UnitBase unit) : base(data)
         {
             this.Unit = unit;
-            this.Trigger = TriggerFactory.CreateTrigger(data.TriggerName, this);
+            // this.Trigger = TriggerFactory.CreateTrigger(data.TriggerName, this);
         }
 
         public override void StartWork()
@@ -120,13 +122,15 @@ namespace XSSLG
     /// </summary>
     public class SkillNull : SkillBase
     {
+        protected TriggerNull trigger;
+        public override TriggerBase Trigger => trigger;
         /// 构造函数
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
         public SkillNull(SkillData data, UnitBase unit) : base(data, unit)
         {
-            this.Trigger = TriggerFactory.CreateTriggerNull(this);
+            this.trigger = TriggerFactory.CreateTriggerNull(this);
         }
 
         /// 是否能释放

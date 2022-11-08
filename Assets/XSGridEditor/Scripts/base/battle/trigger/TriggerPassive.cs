@@ -1,4 +1,8 @@
-using System.Diagnostics;
+/// <summary>
+/// @Author: xiaoshi
+/// @Date: 2022-11-08 21:23:40
+/// @Description: 
+/// </summary>
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +16,7 @@ namespace XSSLG
     /// 2.triggerType不能是ClickCombat或者ClickMagic
     /// 3.因为第1，2条，参数OnTriggerDataBase不能是OnTriggerDataBase或者OntriggerDataCommon，因为这2者是给主动技能触发器用的，做好约束才能方便设计
     /// </summary>
-    public class AutoTriggerBase : TriggerBase
+    public class TriggerPassive : TriggerBase
     {
         /************************* 变量 begin ***********************/
 
@@ -25,7 +29,7 @@ namespace XSSLG
         /// </summary>
         /// <param name="data">触发器data</param>
         /// <param name="releaseEntity">触发器触发的对象</param>
-        public AutoTriggerBase(TriggerData data, IReleaseEntity releaseEntity) : base(data, releaseEntity)
+        public TriggerPassive(TriggerData data, IReleaseEntity releaseEntity) : base(data, releaseEntity)
         {
             BattleEmitter.Instance.On(data.Type, (onTriggerData) => this.Release(onTriggerData));
             this.UnRegisterHander = () => BattleEmitter.Instance.Off(data.Type);

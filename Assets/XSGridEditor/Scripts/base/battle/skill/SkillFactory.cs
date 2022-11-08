@@ -38,8 +38,8 @@ namespace XSSLG
                 {
                     case SkillType.CombatArt: ret = new SkillCombat(data, unit); break;
                     case SkillType.Magic: ret = new SkillMagic(data, unit); break;
-                    case SkillType.Common:
-                    default: ret = new SkillBase(data, unit); break;
+                    case SkillType.Ability:
+                    default: ret = new SkillPassive(data, unit); break;
                 }
             }
 
