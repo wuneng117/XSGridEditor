@@ -8,6 +8,6 @@ namespace XSSLG
     /// <summary> 编辑器相关的定义 </summary>
     public class XSEditorDefine
     {
-        static public readonly string UI_BUILDER_UXML_PATH = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/";
+        static public readonly string UI_BUILDER_UXML_PATH = "Assets/XSGridEditor/res/uxml/";
     }
 }
