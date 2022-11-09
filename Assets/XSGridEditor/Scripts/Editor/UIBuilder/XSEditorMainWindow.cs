@@ -21,7 +21,7 @@ namespace XSSLG
             this.root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSEditorMainWindow.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(XSEditorDefine.UI_BUILDER_UXML_PATH + "XSEditorMainWindow.uxml");
             visualTree.CloneTree(this.root);
 
             this.CreateTestMenu();

@@ -92,7 +92,7 @@ namespace XSSLG
         public static void XSInitEX<T>(this ListView listview, List<T> itemsSource, Action<T> selFunc) where T : class, XSIListViewData
         {
             listview.XSInit(itemsSource,
-                "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSListViewItem.uxml",
+                XSEditorDefine.UI_BUILDER_UXML_PATH + "common/XSListViewItem.uxml",
                 (node, obj) =>
                 {
                     var label = node.Q<Label>("label");

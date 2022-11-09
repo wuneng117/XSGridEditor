@@ -5,7 +5,7 @@ namespace XSSLG
 {
     public class XSPopUpWindow : XSBaseWindow
     {
-        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSPopUpWindow.uxml";
+        protected override string UXMLPath { get; } = XSEditorDefine.UI_BUILDER_UXML_PATH + "XSPopUpWindow.uxml";
 
         public static void ShowExample(string desc)
         {

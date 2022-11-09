@@ -7,7 +7,7 @@ namespace XSSLG
 
     public class XSListWindow : XSBaseWindow
     {
-        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSListWindow.uxml";
+        protected override string UXMLPath { get; } = XSEditorDefine.UI_BUILDER_UXML_PATH + "common/XSListWindow.uxml";
         protected ListView Listview { get; set; }
 
         public static void ShowExample<T>(List<T> itemList, string title, Action<T> okFunc) where T : class, XSIListViewData

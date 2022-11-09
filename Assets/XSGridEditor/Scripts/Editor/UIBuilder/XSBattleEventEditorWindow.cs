@@ -22,7 +22,7 @@ namespace XSSLG
             this.root = rootVisualElement;
 
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSBattleEventEditorWindow.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(XSEditorDefine.UI_BUILDER_UXML_PATH + "XSBattleEventEditorWindow.uxml");
             visualTree.CloneTree(this.root);
 
             var menu1 = this.root.Q<ToolbarMenu>("menu1");

@@ -3,7 +3,7 @@ namespace XSSLG
 {
     public class SkillDamageWindow : XSBaseWindow
     {
-        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/SkillDamageWindow.uxml";
+        protected override string UXMLPath { get; } = XSEditorDefine.UI_BUILDER_UXML_PATH + "common/SkillDamageWindow.uxml";
 
         public static void ShowExample()
         {

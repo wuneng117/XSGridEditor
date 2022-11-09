@@ -5,7 +5,7 @@ namespace XSSLG
 {
     public class XSSkillEditorWindow : XSBaseWindow
     {
-        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/XSSkillEditorWindow.uxml";
+        protected override string UXMLPath { get; } = XSEditorDefine.UI_BUILDER_UXML_PATH + "XSSkillEditorWindow.uxml";
 
         public static void ShowExample()
         {

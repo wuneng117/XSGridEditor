@@ -6,7 +6,7 @@ namespace XSSLG
 {
     public class XSListView<T> : XSBaseView where T : class, XSIListViewData
     {
-        protected override string UXMLPath { get; } = "Assets/XSGridEditor/Scripts/Editor/UIBuilder/uxml/common/XSListView.uxml";
+        protected override string UXMLPath { get; } = XSEditorDefine.UI_BUILDER_UXML_PATH + "common/XSListView.uxml";
 
         protected ListView Listview { get; set; }
 
